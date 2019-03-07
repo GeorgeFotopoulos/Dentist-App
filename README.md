@@ -3,5 +3,5 @@ Software Engineering Project
 
 Dentist Application
 
-Project 1
+Project part 1
 Requirement Analysis & Use-Case Diagram
