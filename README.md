@@ -1,4 +1,4 @@
-# TechnologiaLogismikou-omada8
+# Technologia Logismikou - Omada 8
 Dentist Application
 
 Project 1
