@@ -162,6 +162,7 @@ ___
 ## Μοντέλο πεδίου
 ![](montelo-pediou.png)
 ___
+Έτσι το class diagram προκύπτει μαζί με τους τύπους των μεταβλητών 
 ![](montelo-pediou-2.png)
 ___
 
