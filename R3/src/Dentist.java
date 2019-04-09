@@ -46,6 +46,10 @@ public class Dentist {
 
     }
 
+    /**
+     * This method is used by a particular dentist so that he can have access to all the current requests for appointments by the clients.
+     * @return Appointment list for the dentist that called the method.
+     */
     public ArrayList<String> viewAppointmentList() {
         return appointmentList;
     }
@@ -54,42 +58,42 @@ public class Dentist {
      * The following methods allow modifications for one particular dentist attribute and replace the current value
      * with the one given as a parameter.
      *
-     * @param data The new value of the attribute.
+     * @param newData The new value of the attribute.
      */
-    public void setFirstName(String data) {
-        this.firstName = data;
+    public void setFirstName(String newData) {
+        this.firstName = newData;
     }
 
-    public void setLastName(String data) {
-        this.lastName = data;
+    public void setLastName(String newData) {
+        this.lastName = newData;
     }
 
-    public void setTelNo(String data) {
-        this.telNo = data;
+    public void setTelNo(String newData) {
+        this.telNo = newData;
     }
 
-    public void setEmail(String data) {
-        this.email = data;
+    public void setEmail(String newData) {
+        this.email = newData;
     }
 
-    public void setExerciseLicense(String data) {
-        this.exerciseLicense = data;
+    public void setExerciseLicense(String newData) {
+        this.exerciseLicense = newData;
     }
 
-    public void setUniversityAttended(String data) {
-        this.universityAttended = data;
+    public void setUniversityAttended(String newData) {
+        this.universityAttended = newData;
     }
 
-    public void setInfirmaryLocation(String data) {
-        this.infirmaryLocation = data;
+    public void setInfirmaryLocation(String newData) {
+        this.infirmaryLocation = newData;
     }
 
-    public void setTimeOfExperience(String data) {
-        this.timeOfExperience = data;
+    public void setTimeOfExperience(String newData) {
+        this.timeOfExperience = newData;
     }
 
-    public void setPassword(String data) {
-        this.password = data;
+    public void setPassword(String newData) {
+        this.password = newData;
     }
 
     public void modifyData() {
