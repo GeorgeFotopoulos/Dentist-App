@@ -1,5 +1,8 @@
+import java.util.HashMap;
+
 public class Client {
     public String firstName, lastName, address, telNo, email, AMKA;
+    public HashMap<String, String> clientAppointment = new HashMap<>();
 
     public Client(String firstName, String lastName, String address, String telNo, String email, String AMKA) {
         this.firstName = firstName;
