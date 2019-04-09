@@ -1,10 +1,7 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Dentist {
     public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience, password, dentistID;
-    public ArrayList<String> services = new ArrayList<>();
-    public ArrayList<String> specialization = new ArrayList<>();
     public HashMap<String, String> credentials = new HashMap();
 
     public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password, String dentistID) {
