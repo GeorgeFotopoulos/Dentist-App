@@ -1,7 +1,7 @@
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Client {
-    public HashMap<String, String> clientAppointment = new HashMap<>();
+    public ArrayList<String> appointmentsRequested = new ArrayList<>();
     public String firstName, lastName, address, telNo, email, AMKA;
 
     public Client(String firstName, String lastName, String address, String telNo, String email, String AMKA) {
@@ -11,5 +11,15 @@ public class Client {
         this.telNo = telNo;
         this.email = email;
         this.AMKA = AMKA;
+    }
+
+    /**
+     * This method is called by the client, after he has searched and decided which dentist he
+     * wants to visit so that he can request an appointment.
+     *
+     * @param dentist The dentist that the client is interested for.
+     */
+    public void requestAppointment(Dentist dentist) {
+
     }
 }
