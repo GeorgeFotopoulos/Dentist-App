@@ -33,14 +33,6 @@ public class Dentist {
     }
 
     /**
-     * @param dentist The dentist who will be registered to the system.
-     * @return The Hash Map containing that dentist's Username and Password.
-     */
-    public HashMap<String, String> register(Dentist dentist) {
-        return dentist.credentials;
-    }
-
-    /**
      * This method is called whenever a dentist wants to view the past visit history of a particular client who's given as a parameter.
      *
      * @param AMKA This indicates the AMKA of the client for whom the dentist wants to view the past visits' history.

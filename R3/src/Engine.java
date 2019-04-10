@@ -1,48 +1,42 @@
 import java.util.Scanner;
 
 public class Engine {
-
     static Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
         Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "Fotakis23@gmail.com", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
         Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
-        //printMenu();
-        Dentist.seeListOfDentists();
+        printMenu();
+        //Dentist.seeListOfDentists();
     }
 
-
     private static void printMenu() {
-        System.out.println("1. For Dentist");
-        System.out.println("2. for Clients");
+        System.out.println("1. Dentist Menu");
+        System.out.println("2. Client Menu");
         int choice;
         do {
             try {
-                System.out.println("Give 1 or 2,depending on the use you want");
+                System.out.println("Choose 1 for dentist menu or 2 for client menu: ");
                 choice = Integer.parseInt(in.next());
             } catch (Exception e) {
                 choice = 0;
             }
         } while (choice != 1 && choice != 2);
-
         if (choice == 1) {
             SignInDentists();
-
         } else {
-            menuforClients();
+            clientMenu();
         }
     }
 
     private static void SignInDentists() {
         System.out.println("Dentist Application");
-
-        System.out.println("1. Register Dentist");
-        System.out.println("2. Log In Dentist");
+        System.out.println("1. Sign Up");
+        System.out.println("2. Log In");
         int choice;
         do {
             try {
-                System.out.println("Give 1 or 2,depending on the use you want");
+                System.out.println("Type 1 for sign up or 2 f or log in: ");
                 choice = Integer.parseInt(in.next());
             } catch (Exception e) {
                 choice = 0;
@@ -178,28 +172,27 @@ public class Engine {
         password = in.nextLine();
         Dentist D = Dentist.logIn(email, password);
         if (D == null) {
-            System.out.println("Wrong Details.Try again!");
+            System.out.println("The e-mail or password you entered was invalid. Please try again!");
             LogInDentists();
         } else {
-            System.out.println("The details are valid.");
+            System.out.println("Login successful!");
         }
         return D;
-
     }
 
-    private static void menuforClients() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("1. For Dentist");
-        System.out.println("2. for Clients");
-        int choice;
-        do {
-            try {
-                System.out.println("Give 1 or 2,depending on the use you want");
-                choice = Integer.parseInt(in.next());
-            } catch (Exception e) {
-                choice = 0;
-                continue;
-            }
-        } while (choice != 1 && choice != 2);
+    private static void clientMenu() {
+        //    Scanner in = new Scanner(System.in);
+        //    System.out.println("1. For Dentist");
+        //    System.out.println("2. for Clients");
+        //    int choice;
+        //    do {
+        //        try {
+        //            System.out.println("Give 1 or 2,depending on the use you want");
+        //            choice = Integer.parseInt(in.next());
+        //        } catch (Exception e) {
+        //            choice = 0;
+        //            continue;
+        //        }
+        //    } while (choice != 1 && choice != 2);
     }
 }
