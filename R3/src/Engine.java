@@ -8,10 +8,9 @@ public class Engine {
         Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "Fotakis23@gmail.com", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
         Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
-        printMenu();
+        //printMenu();
         //seeListOfDentists();
     }
-
 
     private static void seeListOfDentists() {
         for (int i = 0; i < Dentist.dentists.size(); i++) {
@@ -66,10 +65,9 @@ public class Engine {
     private static void createAccount() {
         Dentist newReg = new Dentist();
         String choice;
-        choice = in.nextLine();
         do {
             try {
-                System.out.println("Give your FirstName");
+                System.out.println("Enter first name: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -78,7 +76,7 @@ public class Engine {
         newReg.setFirstName(choice);
         do {
             try {
-                System.out.println("Give your LastName");
+                System.out.println("Enter last name: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -87,7 +85,7 @@ public class Engine {
         newReg.setLastName(choice);
         do {
             try {
-                System.out.println("Give your Telephone Number");
+                System.out.println("Enter telephone number: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -96,7 +94,7 @@ public class Engine {
         newReg.setTelNo(choice);
         do {
             try {
-                System.out.println("Give your Email");
+                System.out.println("Enter email address: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -105,7 +103,7 @@ public class Engine {
         newReg.setEmail(choice);
         do {
             try {
-                System.out.println("Give your Exercise Licence");
+                System.out.println("Enter exercise license number: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -114,7 +112,7 @@ public class Engine {
         newReg.setExerciseLicense(choice);
         do {
             try {
-                System.out.println("Give the University that you studied");
+                System.out.println("Enter university of studies: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -123,7 +121,7 @@ public class Engine {
         newReg.setUniversityAttended(choice);
         do {
             try {
-                System.out.println("Give the infirmary Location");
+                System.out.println("Enter infirmary location: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -132,29 +130,29 @@ public class Engine {
         newReg.setInfirmaryLocation(choice);
         do {
             try {
-                System.out.println("Give the time of experience");
+                System.out.println("Enter time of experience: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
             }
         } while (choice.length() < 5);
         newReg.setTimeOfExperience(choice);
-        String temppas;
+        String tempPassword;
         while (true) {
             do {
                 try {
-                    System.out.println("Give the Password (At least 8 characters)");
+                    System.out.println("Enter password (At least 8 characters): ");
                     choice = in.nextLine();
                 } catch (Exception e) {
                     choice = 0 + "";
                 }
             } while (choice.length() < 8);
-            temppas = choice;
+            tempPassword = choice;
             do {
-                if (!choice.equals(temppas)) {
-                    System.out.println("Passwords must match");
+                if (!choice.equals(tempPassword)) {
+                    System.out.println("Passwords do not match!");
                     try {
-                        System.out.println("Type Back if you want to try a new password/Press anything else if you want to retype the password");
+                        System.out.println("Type \"back\" if you want to try a new password/Press anything else if you want to retype the password.\n");
                         choice = in.nextLine();
                     } catch (Exception e) {
                         choice = 0 + "";
@@ -164,21 +162,19 @@ public class Engine {
                     }
                 }
                 try {
-                    System.out.println("Give the Password again(At least 8 characters)");
+                    System.out.println("Re-enter password (At least 8 characters): ");
                     choice = in.nextLine();
                 } catch (Exception e) {
                     choice = 0 + "";
                 }
 
-            } while (!choice.equals(temppas));
-            if (choice.equals(temppas)) break;
+            } while (!choice.equals(tempPassword));
+            if (choice.equals(tempPassword)) break;
         }
-        newReg.setPassword(temppas);
-
-
+        newReg.setPassword(tempPassword);
     }
 
-    private static Dentist LogInDentists(){
+    private static Dentist LogInDentists() {
         Scanner in = new Scanner(System.in);
         String email, password;
         System.out.println("Enter your e-mail address: ");
@@ -189,11 +185,12 @@ public class Engine {
         if (D == null) {
             System.out.println("Wrong Details.Try again!");
             LogInDentists();
-        }else{
+        } else {
             System.out.println("The details are valid.");
         }
         return D;
     }
+
     private static void menuforClients() {
         Scanner in = new Scanner(System.in);
         System.out.println("1. For Dentist");
@@ -209,5 +206,4 @@ public class Engine {
             }
         } while (choice != 1 && choice != 2);
     }
-
 }

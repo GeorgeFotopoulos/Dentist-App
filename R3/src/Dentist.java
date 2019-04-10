@@ -3,13 +3,12 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dentist {
-    static ArrayList<Dentist> dentists = new ArrayList<Dentist>();
+    static ArrayList<Dentist> dentists = new ArrayList<>();
     static int ID = 15139;
     public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience, password, dentistID;
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, String> statistics = new HashMap<>();
     public ArrayList<String> appointmentList = new ArrayList<>();
-    static public boolean logIn;
 
     public Dentist() {
         this.dentistID = ID + "";
@@ -30,7 +29,6 @@ public class Dentist {
         this.dentistID = ID + "";
         ID++;
         dentists.add(this);
-
     }
 
     /**
@@ -70,7 +68,7 @@ public class Dentist {
 
 
     public static Dentist logIn(String email, String password) {
-        for(int i=0; i< dentists.size(); i++) {
+        for (int i = 0; i < dentists.size(); i++) {
             if (dentists.get(i).email.equalsIgnoreCase(email) && dentists.get(i).password.equals(password)) {
                 return dentists.get(i);
             }
@@ -184,12 +182,12 @@ public class Dentist {
         System.out.println("ID: " + this.dentistID);
         System.out.println("First name: " + this.firstName);
         System.out.println("Last name: " + this.lastName);
-        System.out.println("Telephone number:" + this.telNo);
+        System.out.println("Telephone number: " + this.telNo);
         System.out.println("E-mail: " + this.email);
         System.out.println("Exercise License: " + this.exerciseLicense);
-        System.out.println("University of studies:" + this.universityAttended);
-        System.out.println("Infirmary location:" + this.infirmaryLocation);
-        System.out.println("Work experience time:" + this.timeOfExperience);
+        System.out.println("University of studies: " + this.universityAttended);
+        System.out.println("Infirmary location: " + this.infirmaryLocation);
+        System.out.println("Work experience time: " + this.timeOfExperience);
         System.out.println("---------------------------------");
     }
 
