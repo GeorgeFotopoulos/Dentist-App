@@ -5,15 +5,18 @@ public class Engine {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
+        Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "Fotakis23@gmail.com", "AK-47", "AUEB", "Artis 23", "6", "123456723");
+        Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
+        Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
         printMenu();
-        printMenu();
-       // printMenu();
-        seeListOfDentists();
+        //seeListOfDentists();
     }
 
+
     private static void seeListOfDentists() {
-        for(int i=0;i<Dentist.dentists.size();i++)
-            System.out.println(Dentist.dentists.get(i).dentistID+" - " +Dentist.dentists.get(i).firstName);
+        for (int i = 0; i < Dentist.dentists.size(); i++) {
+            Dentist.dentists.get(i).printDentistData();
+        }
     }
 
     private static void printMenu() {
@@ -31,6 +34,7 @@ public class Engine {
 
         if (choice == 1) {
             SignInDentists();
+
         } else {
             menuforClients();
         }
@@ -55,7 +59,7 @@ public class Engine {
         if (choice == 1) {
             createAccount();
         } else {
-            menuforClients();
+            LogInDentists();
         }
     }
 
@@ -155,7 +159,7 @@ public class Engine {
                     } catch (Exception e) {
                         choice = 0 + "";
                     }
-                    if(choice.equalsIgnoreCase("back")) {
+                    if (choice.equalsIgnoreCase("back")) {
                         break;
                     }
                 }
@@ -167,14 +171,29 @@ public class Engine {
                 }
 
             } while (!choice.equals(temppas));
-            if(choice.equals(temppas))break;
+            if (choice.equals(temppas)) break;
         }
         newReg.setPassword(temppas);
 
 
-
     }
 
+    private static Dentist LogInDentists(){
+        Scanner in = new Scanner(System.in);
+        String email, password;
+        System.out.println("Enter your e-mail address: ");
+        email = in.nextLine();
+        System.out.println("Enter your password: ");
+        password = in.nextLine();
+        Dentist D = Dentist.logIn(email, password);
+        if (D == null) {
+            System.out.println("Wrong Details.Try again!");
+            LogInDentists();
+        }else{
+            System.out.println("The details are valid.");
+        }
+        return D;
+    }
     private static void menuforClients() {
         Scanner in = new Scanner(System.in);
         System.out.println("1. For Dentist");
