@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Engine {
     static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
         Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "Fotakis23@gmail.com", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
@@ -10,6 +11,9 @@ public class Engine {
         //Dentist.seeListOfDentists();
     }
 
+    /**
+     * This is the main menu of our application.
+     */
     private static void printMenu() {
         System.out.println("1. Dentist Menu");
         System.out.println("2. Client Menu");
@@ -23,13 +27,16 @@ public class Engine {
             }
         } while (choice != 1 && choice != 2);
         if (choice == 1) {
-            SignInDentists();
+            dentistSignIn();
         } else {
             clientMenu();
         }
     }
 
-    private static void SignInDentists() {
+    /**
+     * This method is used whenever a dentist wants to sign in his account or sign up for a new one.
+     */
+    private static void dentistSignIn() {
         System.out.println("Dentist Application");
         System.out.println("1. Sign Up");
         System.out.println("2. Log In");
@@ -43,14 +50,16 @@ public class Engine {
                 continue;
             }
         } while (choice != 1 && choice != 2);
-
         if (choice == 1) {
             createAccount();
         } else {
-            LogInDentists();
+            dentistLogIn();
         }
     }
 
+    /**
+     * This method is called whenever a dentist wants to create a new account and is prompted to enter his data.
+     */
     private static void createAccount() {
         Dentist newReg = new Dentist();
         String choice;
@@ -163,7 +172,12 @@ public class Engine {
         newReg.setPassword(tempPassword);
     }
 
-    private static Dentist LogInDentists() {
+    /**
+     * This method prompts the user to enter his/her email and password in order to log in the system.
+     *
+     * @return Returns the dentist that was logged in the system using his/her credentials.
+     */
+    private static Dentist dentistLogIn() {
         Scanner in = new Scanner(System.in);
         String email, password;
         System.out.println("Enter your e-mail address: ");
@@ -173,13 +187,16 @@ public class Engine {
         Dentist D = Dentist.logIn(email, password);
         if (D == null) {
             System.out.println("The e-mail or password you entered was invalid. Please try again!");
-            LogInDentists();
+            dentistLogIn();
         } else {
             System.out.println("Login successful!");
         }
         return D;
     }
 
+    /**
+     * This is the client menu.
+     */
     private static void clientMenu() {
         //    Scanner in = new Scanner(System.in);
         //    System.out.println("1. For Dentist");

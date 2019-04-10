@@ -59,7 +59,12 @@ public class Dentist {
         return appointmentList;
     }
 
-
+    /**
+     * This method takes an email and a password as parameters and checks if they match any dentist's email and password.
+     * @param email The email given as an input from the user.
+     * @param password The password given as an input from the user.
+     * @return Returns the dentist who matches the email and password given as input.
+     */
     public static Dentist logIn(String email, String password) {
         for (int i = 0; i < dentists.size(); i++) {
             if (dentists.get(i).email.equalsIgnoreCase(email) && dentists.get(i).password.equals(password)) {
@@ -92,6 +97,7 @@ public class Dentist {
             dentists.get(i).printDentistData();
         }
     }
+
     /**
      * This method modifies the current firstName attribute and sets a new one, the one given as a parameter.
      *
