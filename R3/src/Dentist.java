@@ -3,11 +3,20 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dentist {
+    static ArrayList<Dentist> dentists =new ArrayList<Dentist>();
+    static int ID=15139;
     public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience, password, dentistID;
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, String> statistics = new HashMap<>();
     public ArrayList<String> appointmentList = new ArrayList<>();
     static public boolean logIn;
+
+    public Dentist(){
+        int tempID=ID;
+        this.dentistID = tempID+"";
+        ID++;
+        dentists.add(this);
+    }
 
     public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password, String dentistID) {
         this.firstName = firstName;
@@ -19,7 +28,9 @@ public class Dentist {
         this.infirmaryLocation = infirmaryLocation;
         this.timeOfExperience = timeOfExperience;
         this.password = password;
-        this.dentistID = dentistID;
+        this.dentistID = ID+"";
+        dentists.add(this);
+        ID++;
     }
 
     /**
