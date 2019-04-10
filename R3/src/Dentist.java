@@ -3,9 +3,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dentist {
-    static ArrayList<Dentist> dentists = new ArrayList<>();
+    private static ArrayList<Dentist> dentists = new ArrayList<>();
     static int ID = 15139;
-    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience, password, dentistID;
+    private String password;
+    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience, dentistID;
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, String> statistics = new HashMap<>();
     public ArrayList<String> appointmentList = new ArrayList<>();
@@ -94,6 +95,11 @@ public class Dentist {
         }
     }
 
+    public static void seeListOfDentists() {
+        for (int i = 0; i < Dentist.dentists.size(); i++) {
+            dentists.get(i).printDentistData();
+        }
+    }
     /**
      * This method modifies the current firstName attribute and sets a new one, the one given as a parameter.
      *

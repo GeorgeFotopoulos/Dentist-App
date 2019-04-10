@@ -9,14 +9,9 @@ public class Engine {
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
         Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
         //printMenu();
-        //seeListOfDentists();
+        Dentist.seeListOfDentists();
     }
 
-    private static void seeListOfDentists() {
-        for (int i = 0; i < Dentist.dentists.size(); i++) {
-            Dentist.dentists.get(i).printDentistData();
-        }
-    }
 
     private static void printMenu() {
         System.out.println("1. For Dentist");
@@ -189,6 +184,7 @@ public class Engine {
             System.out.println("The details are valid.");
         }
         return D;
+
     }
 
     private static void menuforClients() {
