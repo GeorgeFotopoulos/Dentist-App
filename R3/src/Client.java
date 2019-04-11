@@ -12,6 +12,14 @@ public class Client {
         this.email = email;
         this.AMKA = AMKA;
     }
+    
+    /**
+     * 
+     * @return
+     */
+    public Dentist searchDentist() {
+    	return null;
+    }
 
     /**
      * This method is called by the client, after he has searched and decided which dentist he

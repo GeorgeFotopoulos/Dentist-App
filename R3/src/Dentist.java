@@ -1,22 +1,38 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dentist {
-    static ArrayList<Dentist> dentists = new ArrayList<Dentist>();
+    private static ArrayList<Dentist> dentists = new ArrayList<>();
     static int ID = 15139;
-    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience, password, dentistID;
+    private String password;
+    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience;
+    public int dentistID;
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, String> statistics = new HashMap<>();
-    public ArrayList<String> appointmentList = new ArrayList<>();
-    static public boolean logIn;
-
+    public static HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
+    
+    /**
+     * Default constructor.
+     */
     public Dentist() {
-        this.dentistID = ID + "";
-        ID++;
+        this.dentistID = ID++;
         dentists.add(this);
     }
 
+    /**
+     * Constructor with parameters for each field of data.
+     * @param firstName Dentist's first name.
+     * @param lastName Dentist's last name.
+     * @param telNo Dentist's telephone number.
+     * @param email Dentist's e-mail address, used for the login.
+     * @param exerciseLicense Dentist's exercise license number.
+     * @param universityAttended Dentist's university of attendance.
+     * @param infirmaryLocation Dentist's infirmary location.
+     * @param timeOfExperience Dentist's time of experience.
+     * @param password Dentist's password, used for the login.
+     */
     public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,18 +43,8 @@ public class Dentist {
         this.infirmaryLocation = infirmaryLocation;
         this.timeOfExperience = timeOfExperience;
         this.password = password;
-        this.dentistID = ID + "";
-        ID++;
+        this.dentistID = ID++;
         dentists.add(this);
-
-    }
-
-    /**
-     * @param dentist The dentist who will be registered to the system.
-     * @return The Hash Map containing that dentist's Username and Password.
-     */
-    public HashMap<String, String> register(Dentist dentist) {
-        return dentist.credentials;
     }
 
     /**
@@ -58,19 +64,30 @@ public class Dentist {
     public void createPatientCard(String AMKA) {
 
     }
-
-    /**
-     * This method is used by a particular dentist so that he can have access to all the current requests for appointments by the clients.
-     *
-     * @return Appointment list for the dentist that called the method.
-     */
-    public ArrayList<String> viewAppointmentList() {
-        return appointmentList;
+    
+    public void viewAppointmentRequests() {
+    	for(int i=0; i<Appointment.appointments.size(); i++){
+    		System.out.println(Appointment.appointments.get(i).clientName);
+    		System.out.println(Appointment.appointments.get(i).time);
+    	}
+    }
+    
+    public void viewApprovedAppointments() {
+    	for(String key : appointmentList.keySet()){
+    		System.out.println(appointmentList.get(key).get(0).time);
+    		System.out.println(appointmentList.get(key).get(1).time);
+    		System.out.println(appointmentList.get(key).get(2).time);
+    	}
     }
 
-
+    /**
+     * This method takes an email and a password as parameters and checks if they match any dentist's email and password.
+     * @param email The email given as an input from the user.
+     * @param password The password given as an input from the user.
+     * @return Returns the dentist who matches the email and password given as input.
+     */
     public static Dentist logIn(String email, String password) {
-        for(int i=0; i< dentists.size(); i++) {
+        for (int i = 0; i < dentists.size(); i++) {
             if (dentists.get(i).email.equalsIgnoreCase(email) && dentists.get(i).password.equals(password)) {
                 return dentists.get(i);
             }
@@ -85,7 +102,7 @@ public class Dentist {
         for (String key : this.statistics.keySet()) {
             System.out.println(this.statistics.get(key));
         }
-    }
+    } // TODO;
 
     /**
      * This method is called by the dentist whenever he wants to view a particular one of the statistics of all the services he/she has provided.
@@ -93,6 +110,15 @@ public class Dentist {
     public void viewSpecificStatistics(String service) {
         for (String key : this.statistics.keySet()) {
             System.out.println(this.statistics.get(key).equals(service));
+        }
+    } // TODO;
+
+    /**
+     * This method prints all dentists' data.
+     */
+    public static void seeListOfDentists() {
+        for (int i = 0; i < Dentist.dentists.size(); i++) {
+            dentists.get(i).printDentistData();
         }
     }
 
@@ -184,12 +210,12 @@ public class Dentist {
         System.out.println("ID: " + this.dentistID);
         System.out.println("First name: " + this.firstName);
         System.out.println("Last name: " + this.lastName);
-        System.out.println("Telephone number:" + this.telNo);
+        System.out.println("Telephone number: " + this.telNo);
         System.out.println("E-mail: " + this.email);
         System.out.println("Exercise License: " + this.exerciseLicense);
-        System.out.println("University of studies:" + this.universityAttended);
-        System.out.println("Infirmary location:" + this.infirmaryLocation);
-        System.out.println("Work experience time:" + this.timeOfExperience);
+        System.out.println("University of studies: " + this.universityAttended);
+        System.out.println("Infirmary location: " + this.infirmaryLocation);
+        System.out.println("Work experience time: " + this.timeOfExperience);
         System.out.println("---------------------------------");
     }
 
@@ -198,45 +224,100 @@ public class Dentist {
      * with the one given as an input.
      */
     public void modifyData() {
+    	String newPassword, temp;
+    	int choice = -1;
         Scanner in = new Scanner(System.in);
-        System.out.println("1. Change first name\n2. Change last name\n3.Change telephone number\n" +
+        System.out.println("0. Exit\n1. Change first name\n2. Change last name\n3. Change telephone number\n" +
                 "4. Change e-mail address\n5. Change exercise license details\n6. Change university of studies\n" +
                 "7. Change infirmary location\n8. Change work experience time\n9. Change Password\n");
-        int choice = in.nextInt();
-        while (choice < 1 || choice > 9) {
+        try { 
+        	choice = Integer.parseInt(in.nextLine());
+        } catch (Exception e) {
+        	modifyData();
+        }
+        while (choice < 0 || choice > 9) {
             System.out.println("Invalid input, please choose a value between 1 and 9: ");
             in.nextInt();
         }
+        
         switch (choice) {
+        	case 0:
+        		System.out.println("Exiting...");
+        		break;
             case 1:
-                this.setFirstName(in.nextLine());
-                break;
+            	System.out.println("Enter new name: ");
+            	this.setFirstName(in.nextLine());
+            	break;
             case 2:
+            	System.out.println("Enter new surname: ");
                 this.setLastName(in.nextLine());
                 break;
             case 3:
+            	System.out.println("Enter new telephone number: ");
                 this.setTelNo(in.nextLine());
                 break;
             case 4:
+            	System.out.println("Enter new email address: ");
                 this.setEmail(in.nextLine());
                 break;
             case 5:
+            	System.out.println("Enter new exercise license number: ");
                 this.setExerciseLicense(in.nextLine());
                 break;
             case 6:
+            	System.out.println("Enter new value for university of attendance: ");
                 this.setUniversityAttended(in.nextLine());
                 break;
             case 7:
+            	System.out.println("Enter new location of infirmary: ");
                 this.setInfirmaryLocation(in.nextLine());
                 break;
             case 8:
+            	System.out.println("Enter new value for time of experience: ");
                 this.setTimeOfExperience(in.nextLine());
                 break;
             case 9:
-                this.setPassword(in.nextLine());
+                while (true) {
+                    do {
+                        try {
+                            System.out.println("Enter password (At least 8 characters): ");
+                            newPassword = in.nextLine();
+                        } catch (Exception e) {
+                        	newPassword = 0 + "";
+                        }
+                    } while (newPassword.length() < 8);
+                    temp = newPassword;
+                    do {
+                        if (!newPassword.equals(temp)) {
+                            System.out.println("Passwords do not match!");
+                            try {
+                                System.out.println("Type \"back\" if you want to return to the modify data menu./Press anything else if you want to retype the password.\n");
+                                newPassword = in.nextLine();
+                            } catch (Exception e) {
+                            	newPassword = 0 + "";
+                            }
+                            if (newPassword.equalsIgnoreCase("back")) {
+                                break;
+                            }
+                        }
+                        try {
+                            System.out.println("Re-enter password (At least 8 characters): ");
+                            newPassword = in.nextLine();
+                        } catch (Exception e) {
+                        	newPassword = 0 + "";
+                        }
+
+                    } while (!newPassword.equals(temp));
+                    if (newPassword.equals(temp) || newPassword.equalsIgnoreCase("back")) break;
+                }
                 break;
             default:
+                System.out.println("Not a valid choice, please choose between 0-9.");
                 break;
         }
-    }
+        if(choice!=0){
+        	modifyData();
+        }
+        in.close();
+    } // TODO elegxoi egkurothtas
 }
