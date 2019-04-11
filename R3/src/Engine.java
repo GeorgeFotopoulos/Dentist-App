@@ -7,17 +7,8 @@ public class Engine {
         Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "Fotakis23@gmail.com", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
         Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
-        //printMenu();
-        //D1.printDentistData();
-        //D1.modifyData();
-        //D1.printDentistData();
-        Appointment A1 = new Appointment("18/05/1995", 18, "George Fotopoulos", true, D1);
-        Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
-        Appointment A3 = new Appointment("18/05/1995", 13, "George Patrikis", true, D2);
-        
-        D1.viewAppointmentRequests();
-        System.out.println("----------------------------------");
-        D2.viewAppointmentRequests();
+        printMenu();
+        //Dentist.seeListOfDentists();
     }
 
     /**
@@ -159,7 +150,7 @@ public class Engine {
                 if (!choice.equals(tempPassword)) {
                     System.out.println("Passwords do not match!");
                     try {
-                        System.out.println("Type \"back\" if you want to return to the main menu./Press anything else if you want to retype the password.\n");
+                        System.out.println("Type \"back\" if you want to try a new password/Press anything else if you want to retype the password.\n");
                         choice = in.nextLine();
                     } catch (Exception e) {
                         choice = 0 + "";
@@ -201,10 +192,6 @@ public class Engine {
             System.out.println("Login successful!");
         }
         return D;
-    }
-    
-    public void viewAppointmentSchedule() {
-    	
     }
 
     /**
