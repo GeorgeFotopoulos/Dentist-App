@@ -11,12 +11,27 @@ public class Dentist {
     public HashMap<String, String> statistics = new HashMap<>();
     public ArrayList<String> appointmentList = new ArrayList<>();
 
+    /**
+     * Default constructor.
+     */
     public Dentist() {
         this.dentistID = ID + "";
         ID++;
         dentists.add(this);
     }
 
+    /**
+     * Constructor with parameters for each field of data.
+     * @param firstName Dentist's first name.
+     * @param lastName Dentist's last name.
+     * @param telNo Dentist's telephone number.
+     * @param email Dentist's e-mail address, used for the login.
+     * @param exerciseLicense Dentist's exercise license number.
+     * @param universityAttended Dentist's university of attendance.
+     * @param infirmaryLocation Dentist's infirmary location.
+     * @param timeOfExperience Dentist's time of experience.
+     * @param password Dentist's password, used for the login.
+     */
     public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -92,6 +107,9 @@ public class Dentist {
         }
     }
 
+    /**
+     * This method prints all dentists' data.
+     */
     public static void seeListOfDentists() {
         for (int i = 0; i < Dentist.dentists.size(); i++) {
             dentists.get(i).printDentistData();
