@@ -4,7 +4,7 @@ public class Engine {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "Fotakis23@gmail.com", "AK-47", "AUEB", "Artis 23", "6", "123456723");
+        Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "F", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
         Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
         Administrator.addService("Filling");
@@ -14,15 +14,16 @@ public class Engine {
         Administrator.addSpecialization("Pedodontic");
         Administrator.addSpecialization("Orthodontist");
         Administrator.addSpecialization("Prosthodontist");
-        printMenu();
+
         System.out.println(Administrator.services);
         System.out.println("------------------------------");
         System.out.println(Administrator.specializations);
         Appointment A1 = new Appointment("16/05/1995", 18, "George Fotopoulos", true, D1);
         Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
         Appointment A3 = new Appointment("19/05/1995", 13, "George Patrikis", true, D2);
-        Appointment A4 = new Appointment("16/05/1995", 12, "Tasos Zikapika", true, D1);
-        Appointment A5 = new Appointment("19/05/1995", 9, "Stamatis Bongos", true, D1);
+        Appointment A4 = new Appointment("16/05/1995", 12, "Tasos Zikapika", false, D1);
+        Appointment A5 = new Appointment("19/05/1995", 9, "Stamatis Bongos", true, D3);
+        printMenu();
     }
 
     /**
@@ -209,6 +210,8 @@ public class Engine {
             dentistLogIn();
         } else {
             System.out.println("Login successful!");
+            System.out.println();
+            dentistMenu(D);
         }
         return D;
     }
@@ -258,6 +261,51 @@ public class Engine {
             }
             masterMenu();
         }
+    }
+
+    /**
+     * This is the dentist Menu.
+     */
+    private static void dentistMenu(Dentist D) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("0. Log Out");
+        System.out.println("1. View Profile");
+        System.out.println("2. Update Account");
+        System.out.println("3. View Client History");
+        System.out.println("4. Appointment Managment");
+        System.out.println("5. View Statistics");
+        System.out.println("6. View Schedule");
+        System.out.println("7. Record Provided Service");
+
+        int choice;
+
+        choice = Integer.parseInt(in.next());
+        if (choice == 0) {
+            printMenu();
+        } else if (choice == 1) {
+            D.printDentistData();
+            dentistMenu(D);
+        } else if (choice == 2) {
+            D.modifyData();
+            dentistMenu(D);
+        } else if (choice == 3) {
+
+        } else if (choice == 4) {
+            D.viewAppointmentRequests();
+            dentistMenu(D);
+        } else if (choice == 5) {
+            D.findStatistics();
+            dentistMenu(D);
+        } else if (choice == 6) {
+            D.viewApprovedAppointments();
+            dentistMenu(D);
+        } else if (choice == 7) {
+
+        } else {
+            System.out.println("You have to choose between 0 - 7!");
+            dentistMenu(D);
+        }
+
     }
 
     /**

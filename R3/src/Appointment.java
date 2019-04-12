@@ -4,18 +4,18 @@ public class Appointment {
     public String clientName;
     public int time;
     public String date;
-    public boolean accepted;
+    public boolean status;
 
     public Appointment() {
-        this.accepted = false;
+        this.status = false;
     }
 
-    public Appointment(String date, int time, String clientName, boolean accepted, Dentist dentist) {
+    public Appointment(String date, int time, String clientName, boolean status, Dentist dentist) {
         boolean flag = true;
         this.date = date;
         this.time = time;
         this.clientName = clientName;
-        this.accepted = false;
+        this.status = status;
         ArrayList<Appointment> appointments = dentist.appointmentList.get(date);
         if (appointments == null) {
             appointments = new ArrayList<>();

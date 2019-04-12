@@ -30,10 +30,10 @@ public class Client {
      * @return
      */
     public Dentist searchDentist() {
-        return null;
-    }
+     return null;
+     }
 
-    /**
+     /**
      * This method is called by the client, after he has searched and decided which dentist he
      * wants to visit so that he can request an appointment.
      *

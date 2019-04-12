@@ -9,7 +9,8 @@ public class Dentist {
     public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience;
     public int dentistID;
     public HashMap<String, String> credentials = new HashMap<>();
-    public HashMap<String, String> statistics = new HashMap<>();
+    public HashMap<String, Integer> statistics = new HashMap<>();
+
     public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
 
     /**
@@ -72,7 +73,7 @@ public class Dentist {
         System.out.println("Appointments Waiting to be Approved!!");
         for (String key : this.appointmentList.keySet()) {
             for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
-                if (!this.appointmentList.get(key).get(i).accepted) {
+                if (!this.appointmentList.get(key).get(i).status) {
                     System.out.println();
                     System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
                     System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
@@ -81,7 +82,7 @@ public class Dentist {
                     System.out.println("Press 1 to accept the appointment ,2 to decline it, or anything else to review later!");
                     choice = in.nextLine();
                     if (choice.equals("1")) {
-                        this.appointmentList.get(key).get(i).accepted = true;
+                        this.appointmentList.get(key).get(i).status = true;
                         System.out.println("Appointment Approved Successfully!");
                     } else if (choice.equals("2")) {
                         this.appointmentList.get(key).remove(i);
@@ -110,7 +111,7 @@ public class Dentist {
             OK = 0;
             if (!this.appointmentList.get(key).isEmpty()) {
                 for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
-                    if (this.appointmentList.get(key).get(i).accepted) {
+                    if (this.appointmentList.get(key).get(i).status) {
                         OK++;
                         OKAY++;
                         if (OKAY == 1) {
@@ -135,7 +136,7 @@ public class Dentist {
             if (!this.appointmentList.get(key).isEmpty()) {
 
                 for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
-                    if (!this.appointmentList.get(key).get(i).accepted) {
+                    if (!this.appointmentList.get(key).get(i).status) {
                         OK++;
                         OKAY++;
                         if (OKAY == 1) {
@@ -175,8 +176,16 @@ public class Dentist {
      * This method is called by the dentist whenever he wants to view all of the statistics of all the services he/she has provided.
      */
     public void viewAllStatistics() {
+        boolean flag = false;
         for (String key : this.statistics.keySet()) {
-            System.out.println(this.statistics.get(key));
+            if (this.statistics.get(key) != 0) {
+                System.out.println("Service: " + key + " - " + this.statistics.get(key) + "Successful operations!");
+                flag = true;
+            }
+        }
+        if (!flag) {
+            System.out.println("The doctor hasn't done any operations yet :( ");
+            System.out.println();
         }
     } // TODO;
 
@@ -184,10 +193,44 @@ public class Dentist {
      * This method is called by the dentist whenever he wants to view a particular one of the statistics of all the services he/she has provided.
      */
     public void viewSpecificStatistics(String service) {
-        for (String key : this.statistics.keySet()) {
-            System.out.println(this.statistics.get(key).equals(service));
+
+        if (this.statistics.get(service) != null) {
+            System.out.println("Service: " + service + " - " + this.statistics.get(service) + " successful operations!");
+        } else {
+            System.out.println("The doctor hasn't done any " + service + " operations yet :( ");
+            System.out.println();
         }
+
     } // TODO;
+
+    public void findStatistics() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("0. Exit");
+        System.out.println("1. View General Statistics");
+        System.out.println("2. View Statistics for a specific Service");
+        int choice;
+        do {
+            choice = Integer.parseInt(in.next());
+            if (choice == 1) {
+                this.viewAllStatistics();
+            } else if (choice == 2) {
+                System.out.println("Select one of the available services below:");
+                for (int i = 0; i < Administrator.services.size(); i++) {
+                    System.out.println(i + 1 + ". " + Administrator.services.get(i));
+                }
+                System.out.print("> ");
+                do {
+                    choice = Integer.parseInt(in.next());
+                    if (choice < 1 || choice > Administrator.services.size()) {
+                        System.out.println("Choose between 1 - " + Administrator.services.size() + ".Please ,try again.");
+                        System.out.print("> ");
+                    }
+                } while (choice < 1 || choice > Administrator.services.size());
+                System.out.print(Administrator.services.get(choice - 1));
+                this.viewSpecificStatistics(Administrator.services.get(choice - 1));
+            }
+        } while (choice != 0 && choice != 1 && choice != 2);
+    }
 
     /**
      * This method prints all dentists' data.
