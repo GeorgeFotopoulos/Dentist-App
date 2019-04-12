@@ -211,18 +211,5 @@ public class Engine {
      * This is the client menu.
      */
     private static void clientMenu() {
-        //    Scanner in = new Scanner(System.in);
-        //    System.out.println("1. For Dentist");
-        //    System.out.println("2. for Clients");
-        //    int choice;
-        //    do {
-        //        try {
-        //            System.out.println("Give 1 or 2,depending on the use you want");
-        //            choice = Integer.parseInt(in.next());
-        //        } catch (Exception e) {
-        //            choice = 0;
-        //            continue;
-        //        }
-        //    } while (choice != 1 && choice != 2);
     }
 }

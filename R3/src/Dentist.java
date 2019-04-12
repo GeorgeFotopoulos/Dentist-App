@@ -66,6 +66,9 @@ public class Dentist {
 
     }
 
+    /**
+     * This method prints out all the clients' requests for appointments for a particular dentist.
+     */
     public void viewAppointmentRequests() {
         for (int i = 0; i < Appointment.appointments.size(); i++) {
             System.out.println(Appointment.appointments.get(i).clientName);
@@ -73,6 +76,9 @@ public class Dentist {
         }
     }
 
+    /**
+     * This method prints out all the approved appointment requests for a particular dentist.
+     */
     public void viewApprovedAppointments() {
         for (String key : appointmentList.keySet()) {
             System.out.println(appointmentList.get(key).get(0).time);
@@ -241,7 +247,6 @@ public class Dentist {
             System.out.println("Invalid input, please choose a value between 1 and 9: ");
             in.nextInt();
         }
-
         switch (choice) {
             case 0:
                 System.out.println("Exiting...");
