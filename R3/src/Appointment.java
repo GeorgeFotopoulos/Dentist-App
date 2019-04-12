@@ -7,7 +7,7 @@ public class Appointment {
     public int time;
     public String date;
     public boolean accepted;
-    public static ArrayList<Appointment> appointments = new ArrayList<Appointment>();
+
 
     public Appointment() {
         this.accepted = false;
@@ -19,7 +19,7 @@ public class Appointment {
         this.time = time;
         this.clientName = clientName;
         this.accepted = false;
-        appointments = dentist.appointmentList.get(date);
+        ArrayList<Appointment> appointments = dentist.appointmentList.get(date);
         if (appointments == null) {
             appointments = new ArrayList<Appointment>();
             appointments.add(this);
@@ -56,7 +56,9 @@ public class Appointment {
                 appointments.add(this);
             }
         }
-        dentist.appointmentList.put(this.date, appointments);
+        // appointments.put(this.date, appointments);
+        dentist.appointmentList.put(date, appointments);
+
     }
 
 }

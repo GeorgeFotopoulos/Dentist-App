@@ -18,6 +18,7 @@ public class Engine {
         D1.viewAppointmentRequests();
         System.out.println("----------------------------------");
         D2.viewAppointmentRequests();
+
     }
 
     /**

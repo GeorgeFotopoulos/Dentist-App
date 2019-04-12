@@ -11,7 +11,8 @@ public class Dentist {
     public int dentistID;
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, String> statistics = new HashMap<>();
-    public static HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
+    public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
+    public static ArrayList<Appointment> appointments = new ArrayList<Appointment>();
 
     /**
      * Default constructor.
@@ -66,19 +67,14 @@ public class Dentist {
 
     }
 
-    /**
-     * This method prints out all the clients' requests for appointments for a particular dentist.
-     */
     public void viewAppointmentRequests() {
-        for (int i = 0; i < Appointment.appointments.size(); i++) {
-            System.out.println(Appointment.appointments.get(i).clientName);
-            System.out.println(Appointment.appointments.get(i).time);
-        }
+        for (String key : this.appointmentList.keySet())
+            for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
+                System.out.println(this.appointmentList.get(key).get(i).clientName);
+                System.out.println(this.appointmentList.get(key).get(i).time);
+            }
     }
 
-    /**
-     * This method prints out all the approved appointment requests for a particular dentist.
-     */
     public void viewApprovedAppointments() {
         for (String key : appointmentList.keySet()) {
             System.out.println(appointmentList.get(key).get(0).time);
@@ -247,6 +243,7 @@ public class Dentist {
             System.out.println("Invalid input, please choose a value between 1 and 9: ");
             in.nextInt();
         }
+
         switch (choice) {
             case 0:
                 System.out.println("Exiting...");
