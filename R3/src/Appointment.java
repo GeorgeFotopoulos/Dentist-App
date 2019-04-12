@@ -6,10 +6,6 @@ public class Appointment {
     public String date;
     public boolean status;
 
-    public Appointment() {
-        this.status = false;
-    }
-
     public Appointment(String date, int time, String clientName, boolean status, Dentist dentist) {
         boolean flag = true;
         this.date = date;

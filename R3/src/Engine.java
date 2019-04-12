@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Engine {
     static Scanner in = new Scanner(System.in);
-
     public static void main(String[] args) {
         Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "F", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
@@ -180,7 +179,6 @@ public class Engine {
                 } catch (Exception e) {
                     choice = 0 + "";
                 }
-
             } while (!choice.equals(tempPassword));
             if (choice.equals(tempPassword)) break;
         }
@@ -243,7 +241,6 @@ public class Engine {
                     System.out.println("This Service already exists.Give another one or press 0 to go to the menu: ");
                 }
             } while (Administrator.services.contains(service) && !service.equals("0"));
-
             if (!service.equals("0")) {
                 Administrator.addService(service);
             }
@@ -272,14 +269,11 @@ public class Engine {
         System.out.println("1. View Profile");
         System.out.println("2. Update Account");
         System.out.println("3. View Client History");
-        System.out.println("4. Appointment Managment");
+        System.out.println("4. Appointment Management");
         System.out.println("5. View Statistics");
         System.out.println("6. View Schedule");
         System.out.println("7. Record Provided Service");
-
-        int choice;
-
-        choice = Integer.parseInt(in.next());
+        int choice = Integer.parseInt(in.next());
         if (choice == 0) {
             printMenu();
         } else if (choice == 1) {
@@ -302,15 +296,14 @@ public class Engine {
         } else if (choice == 7) {
 
         } else {
-            System.out.println("You have to choose between 0 - 7!");
+            System.out.println("Wrong input, you have to choose between 0-7!");
             dentistMenu(D);
         }
-
     }
 
     /**
      * This is the client Menu.
      */
-    private static void clientMenu() {
+    public static void clientMenu() {
     }
 }

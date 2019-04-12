@@ -3,15 +3,14 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dentist {
-    private static ArrayList<Dentist> dentists = new ArrayList<>();
-    static int ID = 15139;
-    private String password;
     public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience;
+    private String password;
     public int dentistID;
+    static int ID = 15139;
+    public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, Integer> statistics = new HashMap<>();
-
-    public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
+    public static ArrayList<Dentist> dentists = new ArrayList<>();
 
     /**
      * Default constructor.
@@ -66,8 +65,11 @@ public class Dentist {
 
     }
 
+    /**
+     * This method prints all the appointment requests the clients have made on a particular dentist.
+     */
     public void viewAppointmentRequests() {
-        ArrayList<String> toBeRemoved = new ArrayList<String>();
+        ArrayList<String> toBeRemoved = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         String choice;
         System.out.println("Appointments Waiting to be Approved!!");
@@ -103,8 +105,11 @@ public class Dentist {
         }
     }
 
+    /**
+     * This method prints all the doctor's approved and pending appointments on the screen.
+     */
     public void viewApprovedAppointments() {
-        int OK = 0;
+        int OK;
         int OKAY = 0;
         System.out.println();
         for (String key : this.appointmentList.keySet()) {
@@ -187,7 +192,7 @@ public class Dentist {
             System.out.println("The doctor hasn't done any operations yet :( ");
             System.out.println();
         }
-    } // TODO;
+    }
 
     /**
      * This method is called by the dentist whenever he wants to view a particular one of the statistics of all the services he/she has provided.
@@ -235,7 +240,7 @@ public class Dentist {
     /**
      * This method prints all dentists' data.
      */
-    public static void seeListOfDentists() {
+    public static void printListOfDentists() {
         for (int i = 0; i < Dentist.dentists.size(); i++) {
             dentists.get(i).printDentistData();
         }
@@ -348,7 +353,7 @@ public class Dentist {
         Scanner in = new Scanner(System.in);
         System.out.println("0. Exit\n1. Change first name\n2. Change last name\n3. Change telephone number\n" +
                 "4. Change e-mail address\n5. Change exercise license details\n6. Change university of studies\n" +
-                "7. Change infirmary location\n8. Change work experience time\n9. Change Password\n");
+                "7. Change infirmary location\n8. Change work experience time\n9. Change password\n");
         try {
             choice = Integer.parseInt(in.nextLine());
         } catch (Exception e) {
@@ -358,7 +363,6 @@ public class Dentist {
             System.out.println("Invalid input, please choose a value between 1 and 9: ");
             in.nextInt();
         }
-
         switch (choice) {
             case 0:
                 System.out.println("Exiting...");
@@ -438,5 +442,5 @@ public class Dentist {
             modifyData();
         }
         in.close();
-    } // TODO elegxoi egkurothtas
+    }
 }
