@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -108,7 +107,6 @@ public class Dentist {
         int OKAY = 0;
         System.out.println();
         for (String key : this.appointmentList.keySet()) {
-
             OK = 0;
             if (!this.appointmentList.get(key).isEmpty()) {
                 for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
@@ -124,17 +122,14 @@ public class Dentist {
                         }
                         System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
                         System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
-
                     }
                 }
             } else {
                 System.out.println("No appointments!");
             }
         }
-
         OKAY = 0;
         System.out.println();
-
         for (String key : this.appointmentList.keySet()) {
             OK = 0;
             if (!this.appointmentList.get(key).isEmpty()) {
@@ -158,7 +153,6 @@ public class Dentist {
                 System.out.println("No appointments!");
             }
         }
-
     }
 
     /**

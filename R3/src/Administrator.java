@@ -10,26 +10,21 @@ public class Administrator {
         this.password = password;
     }
 
-    public static String getUsername(){
+    public static String getUsername() {
         return username;
     }
 
-    public static String getPassword(){
+    public static String getPassword() {
         return password;
     }
+
     /**
      * This method adds the service given as parameter to the list containing all the available services.
      *
      * @param service Service to be added in the list.
      */
     public static void addService(String service) {
-
         services.add(service);
-    }
-
-    public static void addSpecializations(String specialization) {
-
-        specializations.add(specialization);
     }
 
     /**
@@ -37,7 +32,7 @@ public class Administrator {
      *
      * @param specialization Specialization to be added in the list.
      */
-    public void addSpecialization(String specialization) {
+    public static void addSpecialization(String specialization) {
         specializations.add(specialization);
     }
 }
