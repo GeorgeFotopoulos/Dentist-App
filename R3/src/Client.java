@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Client {
     public ArrayList<String> appointmentsRequested = new ArrayList<>();
     public String firstName, lastName, address, telNo, email, AMKA;
+    public ArrayList<String> servicesProvided = new ArrayList<>();
 
     public Client(String firstName, String lastName, String address, String telNo, String email, String AMKA) {
         this.firstName = firstName;

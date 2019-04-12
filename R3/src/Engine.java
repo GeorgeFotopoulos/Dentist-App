@@ -2,12 +2,28 @@ import java.util.Scanner;
 
 public class Engine {
     static Scanner in = new Scanner(System.in);
+    static Administrator ADMIN = new Administrator("MASTER", "ADMIN");
 
     public static void main(String[] args) {
+
         Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "Fotakis23@gmail.com", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
         Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
-        //printMenu();
+
+        Administrator.addService("Filling");
+        Administrator.addService("Teeth Whitening");
+        Administrator.addService("Dental Cleaning");
+
+        Administrator.addSpecializations("Endodontic");
+        Administrator.addSpecializations("Pedodontic");
+        Administrator.addSpecializations("Orthodontist");
+        Administrator.addSpecializations("Prosthodontist");
+
+
+        printMenu();
+        System.out.println(Administrator.services);
+        System.out.println("------------------------------");
+        System.out.println(Administrator.specializations);
         //D1.printDentistData();
         //D1.modifyData();
         //D1.printDentistData();
@@ -17,7 +33,7 @@ public class Engine {
         Appointment A4 = new Appointment("16/05/1995", 12, "Tasos Zikapika", true, D1);
         Appointment A5 = new Appointment("19/05/1995", 9, "Stamatis Bongos", true, D1);
 
-        D1.viewAppointmentRequests();
+       /* D1.viewAppointmentRequests();
         System.out.println("----------------------------------");
         D1.viewApprovedAppointments();
 
@@ -25,6 +41,7 @@ public class Engine {
         System.out.println("----------------------------------");
         D1.viewApprovedAppointments();
 
+        */
     }
 
     /**
@@ -200,6 +217,11 @@ public class Engine {
         email = in.nextLine();
         System.out.println("Enter your password: ");
         password = in.nextLine();
+        if (email.equalsIgnoreCase(Administrator.getUsername()) && password.equals(Administrator.getPassword())) {
+            System.out.println("Master Login successful!");
+            masterMenu();
+            return null;
+        }
         Dentist D = Dentist.logIn(email, password);
         if (D == null) {
             System.out.println("The e-mail or password you entered was invalid. Please try again!");
@@ -210,6 +232,52 @@ public class Engine {
         return D;
     }
 
+    private static void masterMenu() {
+        Scanner in = new Scanner(System.in);
+        String service, specialization;
+        System.out.println("1. Add Services");
+        System.out.println("2. Add Specialization");
+        System.out.println("0. Exit");
+        int choice;
+        do {
+            try {
+                System.out.println("Type 1 for services or 2 for specialization: ");
+                choice = Integer.parseInt(in.next());
+            } catch (Exception e) {
+                choice = -1;
+                continue;
+            }
+        } while (choice != 1 && choice != 2 && choice != 0);
+        if (choice == 1) {
+
+            System.out.println("Give Service: ");
+            do {
+                service = in.next();
+                if (Administrator.services.contains(service)) {
+                    System.out.println("This Service already exists.Give another one or press 0 to go to the menu: ");
+                }
+            } while (Administrator.services.contains(service) && !service.equals("0"));
+
+            if (!service.equals("0")) {
+                Administrator.addService(service);
+            }
+            masterMenu();
+
+        } else if (choice == 2) {
+            System.out.println("Give Specialization: ");
+            do {
+                specialization = in.next();
+                if (Administrator.specializations.contains(specialization)) {
+                    System.out.println("This Specialization already exists.Give another one or press 0 to go to the menu: ");
+                }
+            } while (Administrator.specializations.contains(specialization) && !specialization.equals("0"));
+
+            if (!specialization.equals("0")) {
+                Administrator.addSpecializations(specialization);
+            }
+            masterMenu();
+        }
+    }
 
     /**
      * This is the client menu.

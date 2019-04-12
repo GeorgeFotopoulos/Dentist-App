@@ -61,4 +61,9 @@ public class Appointment {
 
     }
 
+    /*public void AppointmentDone(Service S){
+
+        Client.servicesProvided.add(s);
+    }
+    */
 }
