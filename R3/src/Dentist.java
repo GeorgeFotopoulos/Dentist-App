@@ -12,7 +12,7 @@ public class Dentist {
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, String> statistics = new HashMap<>();
     public static HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
-    
+
     /**
      * Default constructor.
      */
@@ -23,15 +23,16 @@ public class Dentist {
 
     /**
      * Constructor with parameters for each field of data.
-     * @param firstName Dentist's first name.
-     * @param lastName Dentist's last name.
-     * @param telNo Dentist's telephone number.
-     * @param email Dentist's e-mail address, used for the login.
-     * @param exerciseLicense Dentist's exercise license number.
+     *
+     * @param firstName          Dentist's first name.
+     * @param lastName           Dentist's last name.
+     * @param telNo              Dentist's telephone number.
+     * @param email              Dentist's e-mail address, used for the login.
+     * @param exerciseLicense    Dentist's exercise license number.
      * @param universityAttended Dentist's university of attendance.
-     * @param infirmaryLocation Dentist's infirmary location.
-     * @param timeOfExperience Dentist's time of experience.
-     * @param password Dentist's password, used for the login.
+     * @param infirmaryLocation  Dentist's infirmary location.
+     * @param timeOfExperience   Dentist's time of experience.
+     * @param password           Dentist's password, used for the login.
      */
     public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password) {
         this.firstName = firstName;
@@ -64,25 +65,26 @@ public class Dentist {
     public void createPatientCard(String AMKA) {
 
     }
-    
+
     public void viewAppointmentRequests() {
-    	for(int i=0; i<Appointment.appointments.size(); i++){
-    		System.out.println(Appointment.appointments.get(i).clientName);
-    		System.out.println(Appointment.appointments.get(i).time);
-    	}
+        for (int i = 0; i < Appointment.appointments.size(); i++) {
+            System.out.println(Appointment.appointments.get(i).clientName);
+            System.out.println(Appointment.appointments.get(i).time);
+        }
     }
-    
+
     public void viewApprovedAppointments() {
-    	for(String key : appointmentList.keySet()){
-    		System.out.println(appointmentList.get(key).get(0).time);
-    		System.out.println(appointmentList.get(key).get(1).time);
-    		System.out.println(appointmentList.get(key).get(2).time);
-    	}
+        for (String key : appointmentList.keySet()) {
+            System.out.println(appointmentList.get(key).get(0).time);
+            System.out.println(appointmentList.get(key).get(1).time);
+            System.out.println(appointmentList.get(key).get(2).time);
+        }
     }
 
     /**
      * This method takes an email and a password as parameters and checks if they match any dentist's email and password.
-     * @param email The email given as an input from the user.
+     *
+     * @param email    The email given as an input from the user.
      * @param password The password given as an input from the user.
      * @return Returns the dentist who matches the email and password given as input.
      */
@@ -224,56 +226,56 @@ public class Dentist {
      * with the one given as an input.
      */
     public void modifyData() {
-    	String newPassword, temp;
-    	int choice = -1;
+        String newPassword, temp;
+        int choice = -1;
         Scanner in = new Scanner(System.in);
         System.out.println("0. Exit\n1. Change first name\n2. Change last name\n3. Change telephone number\n" +
                 "4. Change e-mail address\n5. Change exercise license details\n6. Change university of studies\n" +
                 "7. Change infirmary location\n8. Change work experience time\n9. Change Password\n");
-        try { 
-        	choice = Integer.parseInt(in.nextLine());
+        try {
+            choice = Integer.parseInt(in.nextLine());
         } catch (Exception e) {
-        	modifyData();
+            modifyData();
         }
         while (choice < 0 || choice > 9) {
             System.out.println("Invalid input, please choose a value between 1 and 9: ");
             in.nextInt();
         }
-        
+
         switch (choice) {
-        	case 0:
-        		System.out.println("Exiting...");
-        		break;
+            case 0:
+                System.out.println("Exiting...");
+                break;
             case 1:
-            	System.out.println("Enter new name: ");
-            	this.setFirstName(in.nextLine());
-            	break;
+                System.out.println("Enter new name: ");
+                this.setFirstName(in.nextLine());
+                break;
             case 2:
-            	System.out.println("Enter new surname: ");
+                System.out.println("Enter new surname: ");
                 this.setLastName(in.nextLine());
                 break;
             case 3:
-            	System.out.println("Enter new telephone number: ");
+                System.out.println("Enter new telephone number: ");
                 this.setTelNo(in.nextLine());
                 break;
             case 4:
-            	System.out.println("Enter new email address: ");
+                System.out.println("Enter new email address: ");
                 this.setEmail(in.nextLine());
                 break;
             case 5:
-            	System.out.println("Enter new exercise license number: ");
+                System.out.println("Enter new exercise license number: ");
                 this.setExerciseLicense(in.nextLine());
                 break;
             case 6:
-            	System.out.println("Enter new value for university of attendance: ");
+                System.out.println("Enter new value for university of attendance: ");
                 this.setUniversityAttended(in.nextLine());
                 break;
             case 7:
-            	System.out.println("Enter new location of infirmary: ");
+                System.out.println("Enter new location of infirmary: ");
                 this.setInfirmaryLocation(in.nextLine());
                 break;
             case 8:
-            	System.out.println("Enter new value for time of experience: ");
+                System.out.println("Enter new value for time of experience: ");
                 this.setTimeOfExperience(in.nextLine());
                 break;
             case 9:
@@ -283,7 +285,7 @@ public class Dentist {
                             System.out.println("Enter password (At least 8 characters): ");
                             newPassword = in.nextLine();
                         } catch (Exception e) {
-                        	newPassword = 0 + "";
+                            newPassword = 0 + "";
                         }
                     } while (newPassword.length() < 8);
                     temp = newPassword;
@@ -294,7 +296,7 @@ public class Dentist {
                                 System.out.println("Type \"back\" if you want to return to the modify data menu./Press anything else if you want to retype the password.\n");
                                 newPassword = in.nextLine();
                             } catch (Exception e) {
-                            	newPassword = 0 + "";
+                                newPassword = 0 + "";
                             }
                             if (newPassword.equalsIgnoreCase("back")) {
                                 break;
@@ -304,7 +306,7 @@ public class Dentist {
                             System.out.println("Re-enter password (At least 8 characters): ");
                             newPassword = in.nextLine();
                         } catch (Exception e) {
-                        	newPassword = 0 + "";
+                            newPassword = 0 + "";
                         }
 
                     } while (!newPassword.equals(temp));
@@ -315,8 +317,8 @@ public class Dentist {
                 System.out.println("Not a valid choice, please choose between 0-9.");
                 break;
         }
-        if(choice!=0){
-        	modifyData();
+        if (choice != 0) {
+            modifyData();
         }
         in.close();
     } // TODO elegxoi egkurothtas

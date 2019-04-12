@@ -14,46 +14,45 @@ public class Appointment {
     }
 
     public Appointment(String date, int time, String clientName, boolean accepted, Dentist dentist) {
-        boolean flag=true;
+        boolean flag = true;
         this.date = date;
         this.time = time;
         this.clientName = clientName;
         this.accepted = false;
-        appointments=dentist.appointmentList.get(date);
-        if(appointments==null){
+        appointments = dentist.appointmentList.get(date);
+        if (appointments == null) {
             appointments = new ArrayList<Appointment>();
             appointments.add(this);
         } else {
-            for(int i=0; i<appointments.size(); i++) {
-                if(appointments.get(i).time==time) {
-                    flag=false;
+            for (int i = 0; i < appointments.size(); i++) {
+                if (appointments.get(i).time == time) {
+                    flag = false;
                     System.out.println("This time is not available for a new appointment, request denied.");
                     break;
                 } else if (appointments.get(i).time > time) {
                     Appointment temp = appointments.get(i);
                     appointments.set(i, this);
-                    try{
-                        if(appointments.get(i+1)==null){
+                    try {
+                        if (appointments.get(i + 1) == null) {
                             appointments.add(temp);
                             break;
                         }
-                    }
-                    catch(Exception e){
+                    } catch (Exception e) {
                         appointments.add(temp);
                         break;
                     }
 
-                    for(int j=i+1; j<appointments.size(); j++){
-                        Appointment temp2=appointments.get(j);
+                    for (int j = i + 1; j < appointments.size(); j++) {
+                        Appointment temp2 = appointments.get(j);
                         appointments.set(j, temp);
-                        temp=temp2;
+                        temp = temp2;
                     }
                     appointments.add(temp);
                     break;
 
                 }
             }
-            if(!appointments.contains(this)&&flag){
+            if (!appointments.contains(this) && flag) {
                 appointments.add(this);
             }
         }

@@ -14,7 +14,7 @@ public class Engine {
         Appointment A1 = new Appointment("18/05/1995", 18, "George Fotopoulos", true, D1);
         Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
         Appointment A3 = new Appointment("18/05/1995", 13, "George Patrikis", true, D2);
-        
+
         D1.viewAppointmentRequests();
         System.out.println("----------------------------------");
         D2.viewAppointmentRequests();
@@ -202,9 +202,9 @@ public class Engine {
         }
         return D;
     }
-    
+
     public void viewAppointmentSchedule() {
-    	
+
     }
 
     /**

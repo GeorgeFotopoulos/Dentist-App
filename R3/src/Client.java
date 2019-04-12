@@ -12,13 +12,12 @@ public class Client {
         this.email = email;
         this.AMKA = AMKA;
     }
-    
+
     /**
-     * 
      * @return
      */
     public Dentist searchDentist() {
-    	return null;
+        return null;
     }
 
     /**
