@@ -11,13 +11,19 @@ public class Engine {
         //D1.printDentistData();
         //D1.modifyData();
         //D1.printDentistData();
-        Appointment A1 = new Appointment("18/05/1995", 18, "George Fotopoulos", true, D1);
+        Appointment A1 = new Appointment("16/05/1995", 18, "George Fotopoulos", true, D1);
         Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
-        Appointment A3 = new Appointment("18/05/1995", 13, "George Patrikis", true, D2);
+        Appointment A3 = new Appointment("19/05/1995", 13, "George Patrikis", true, D2);
+        Appointment A4 = new Appointment("16/05/1995", 12, "Tasos Zikapika", true, D1);
+        Appointment A5 = new Appointment("19/05/1995", 9, "Stamatis Bongos", true, D1);
 
         D1.viewAppointmentRequests();
         System.out.println("----------------------------------");
-        D2.viewAppointmentRequests();
+        D1.viewApprovedAppointments();
+
+        D1.viewAppointmentRequests();
+        System.out.println("----------------------------------");
+        D1.viewApprovedAppointments();
 
     }
 
@@ -204,9 +210,6 @@ public class Engine {
         return D;
     }
 
-    public void viewAppointmentSchedule() {
-
-    }
 
     /**
      * This is the client menu.

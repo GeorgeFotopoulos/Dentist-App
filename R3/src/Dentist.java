@@ -12,7 +12,6 @@ public class Dentist {
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, String> statistics = new HashMap<>();
     public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
-    public static ArrayList<Appointment> appointments = new ArrayList<Appointment>();
 
     /**
      * Default constructor.
@@ -68,19 +67,98 @@ public class Dentist {
     }
 
     public void viewAppointmentRequests() {
-        for (String key : this.appointmentList.keySet())
+        ArrayList<String> toBeRemoved = new ArrayList<String>();
+        Scanner in = new Scanner(System.in);
+        String choice;
+        System.out.println("Appointments Waiting to be Approved!!");
+        for (String key : this.appointmentList.keySet()) {
             for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
-                System.out.println(this.appointmentList.get(key).get(i).clientName);
-                System.out.println(this.appointmentList.get(key).get(i).time);
+                if (!this.appointmentList.get(key).get(i).accepted) {
+                    System.out.println();
+                    System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
+                    System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
+                    System.out.println("Date: " + key);
+                    System.out.println();
+                    System.out.println("Press 1 to accept the appointment ,2 to decline it, or anything else to review later!");
+                    choice = in.nextLine();
+                    if (choice.equals("1")) {
+                        this.appointmentList.get(key).get(i).accepted = true;
+                        System.out.println("Appointment Approved Successfully!");
+                    } else if (choice.equals("2")) {
+                        this.appointmentList.get(key).remove(i);
+                        i--;
+                        if (this.appointmentList.get(key).isEmpty()) {
+                            System.out.println("Appointment Removed Successfully!");
+                            toBeRemoved.add(key);
+                            break;
+                        }
+                    }
+                }
             }
+        }
+        if (!toBeRemoved.isEmpty()) {
+            for (int i = 0; i < toBeRemoved.size(); i++) {
+                this.appointmentList.remove(toBeRemoved.get(i));
+            }
+        }
     }
 
     public void viewApprovedAppointments() {
-        for (String key : appointmentList.keySet()) {
-            System.out.println(appointmentList.get(key).get(0).time);
-            System.out.println(appointmentList.get(key).get(1).time);
-            System.out.println(appointmentList.get(key).get(2).time);
+        int OK = 0;
+        int OKAY = 0;
+        System.out.println();
+        for (String key : this.appointmentList.keySet()) {
+
+            OK = 0;
+            if (!this.appointmentList.get(key).isEmpty()) {
+                for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
+                    if (this.appointmentList.get(key).get(i).accepted) {
+                        OK++;
+                        OKAY++;
+                        if (OKAY == 1) {
+                            System.out.println("APPROVED...");
+                        }
+                        if (OK == 1) {
+                            System.out.println();
+                            System.out.println("Appointments of the Day: " + key);
+                        }
+                        System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
+                        System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
+
+                    }
+                }
+            } else {
+                System.out.println("No appointments!");
+            }
         }
+
+        OKAY = 0;
+        System.out.println();
+
+        for (String key : this.appointmentList.keySet()) {
+            OK = 0;
+            if (!this.appointmentList.get(key).isEmpty()) {
+
+                for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
+                    if (!this.appointmentList.get(key).get(i).accepted) {
+                        OK++;
+                        OKAY++;
+                        if (OKAY == 1) {
+                            System.out.println("PENDING...");
+                        }
+                        if (OK == 1) {
+                            System.out.println();
+                            System.out.println("Appointments of the Day: " + key);
+                        }
+                        System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
+                        System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
+                    }
+                }
+            } else {
+                System.out.println("No appointments!");
+            }
+        }
+
     }
 
     /**
