@@ -5,15 +5,31 @@ public class Administrator {
     public static ArrayList<String> specializations = new ArrayList<>();
     private static String username, password;
 
+    /**
+     * Administrator constructor.
+     *
+     * @param username Admin's username.
+     * @param password Admin's password.
+     */
     public Administrator(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
+    /**
+     * This method returns the admin's username.
+     *
+     * @return Administrator's username.
+     */
     public static String getUsername() {
         return username;
     }
 
+    /**
+     * This method returns the admin's password.
+     *
+     * @return Administrator's password.
+     */
     public static String getPassword() {
         return password;
     }
