@@ -213,12 +213,15 @@ public class Engine {
         return D;
     }
 
+    /**
+     * This is the administrator Menu.
+     */
     private static void masterMenu() {
         Scanner in = new Scanner(System.in);
         String service, specialization;
-        System.out.println("1. Add Services");
-        System.out.println("2. Add Specialization");
         System.out.println("0. Exit");
+        System.out.println("1. Add Service");
+        System.out.println("2. Add Specialization");
         int choice;
         do {
             try {
@@ -258,7 +261,7 @@ public class Engine {
     }
 
     /**
-     * This is the client menu.
+     * This is the client Menu.
      */
     private static void clientMenu() {
     }
