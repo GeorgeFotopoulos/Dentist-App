@@ -4,9 +4,9 @@ public class Engine {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "F", "AK-47", "AUEB", "Artis 23", "6", "123456723");
-        Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
-        Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465");
+        Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "F", "AK-47", "AUEB", "Artis 23", "6", "123456723", "Endodontic");
+        Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234", "Pedodontic");
+        Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465", "Orthodontist");
         Administrator.addService("Filling");
         Administrator.addService("Teeth Whitening");
         Administrator.addService("Dental Cleaning");
@@ -15,9 +15,8 @@ public class Engine {
         Administrator.addSpecialization("Orthodontist");
         Administrator.addSpecialization("Prosthodontist");
 
-        System.out.println(Administrator.services);
-        System.out.println("------------------------------");
-        System.out.println(Administrator.specializations);
+        D1.statistics.put("Filling",4);
+        D1.statistics.put("Dental Cleaning",10);
         Appointment A1 = new Appointment("16/05/1995", 18, "George Fotopoulos", true, D1);
         Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
         Appointment A3 = new Appointment("19/05/1995", 13, "George Patrikis", true, D2);
@@ -306,5 +305,50 @@ public class Engine {
      * This is the client Menu.
      */
     private static void clientMenu() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("0. Exit");
+        System.out.println("1. Make Appointment");
+        int choice;
+        String name;
+        choice = Integer.parseInt(in.next());
+        if (choice == 0) {
+            printMenu();
+        } else if (choice == 1) {
+            System.out.println("Choose one of the doctors IDs below or press 0 to exit:");
+            Dentist.printListOfDentists();
+            System.out.println("Give ID:");
+            do {
+                choice = Integer.parseInt(in.next());
+                if (choice == 0) {
+                    clientMenu();
+                } else if (choice > 0 && choice < Dentist.dentists.size()) {
+                    Dentist D = Client.chooseDentist(choice - 1);
+                    System.out.println("View The statistics of Dr. " + D.lastName);
+                    D.findStatistics();
+                    System.out.println("Do you want to make an appointment with Dr. " + D.lastName + "?");
+                    System.out.println("Press 1 for 'Yes' or anything else for 'No'");
+                    choice = Integer.parseInt(in.next());
+                    if (choice == 1) {
+                        System.out.println("Enter a name:");
+                        System.out.print(">");
+                        name = in.next();
+                        Client.requestAppointment(D, name);
+
+                        printMenu();
+                    } else {
+                        clientMenu();
+                    }
+                } else {
+                    System.out.println("Choose between 0 or " + Dentist.dentists.size() + ".Try again:");
+                }
+
+            } while (choice < 0 || choice > Dentist.dentists.size());
+
+        } else {
+            System.out.println("Choose between 0 or 1.Try again:");
+            clientMenu();
+        }
+
+
     }
 }

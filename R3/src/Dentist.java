@@ -3,10 +3,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dentist {
-    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience;
+    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience, specialization;
     private String password;
     public int dentistID;
-    static int ID = 15139;
+    static int ID = 1;
     public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
     public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, Integer> statistics = new HashMap<>();
@@ -33,7 +33,7 @@ public class Dentist {
      * @param timeOfExperience   Dentist's time of experience.
      * @param password           Dentist's password, used for the login.
      */
-    public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password) {
+    public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password, String specialization) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telNo = telNo;
@@ -43,6 +43,7 @@ public class Dentist {
         this.infirmaryLocation = infirmaryLocation;
         this.timeOfExperience = timeOfExperience;
         this.password = password;
+        this.specialization = specialization;
         this.dentistID = ID++;
         dentists.add(this);
     }
@@ -242,6 +243,7 @@ public class Dentist {
      */
     public static void printListOfDentists() {
         for (int i = 0; i < Dentist.dentists.size(); i++) {
+
             dentists.get(i).printDentistData();
         }
     }
@@ -340,6 +342,7 @@ public class Dentist {
         System.out.println("University of studies: " + this.universityAttended);
         System.out.println("Infirmary location: " + this.infirmaryLocation);
         System.out.println("Work experience time: " + this.timeOfExperience);
+        System.out.println("Specialization: " + this.specialization);
         System.out.println("---------------------------------");
     }
 
