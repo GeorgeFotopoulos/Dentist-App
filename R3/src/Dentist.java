@@ -279,7 +279,7 @@ public class Dentist {
             System.out.println();
             this.viewSpecificStatistics(Administrator.services.get(choice - 1));
         } else {
-            Engine.dentistMenu(this);
+            Engine.dentistOptions(this);
         }
     }
 

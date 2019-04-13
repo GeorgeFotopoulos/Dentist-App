@@ -4,9 +4,19 @@ public class Engine {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "F", "AK-47", "AUEB", "Artis 23", "6", "123456723", "Endodontic");
+        Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "F", "AK-47", "AUEB", "Artis 23", "6", "f", "Endodontic");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234", "Pedodontic");
         Dentist D3 = new Dentist("Takaros", "Gdimenos", "6981234563", "Rouxa80%Off@gmail.com", "Grenade", "Tipota", "Kalamatara", "20", "192837465", "Orthodontist");
+        Appointment A1 = new Appointment("16/05/1995", 18, "George Fotopoulos", true, D1);
+        Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
+        Appointment A3 = new Appointment("19/05/1995", 13, "George Patrikis", true, D2);
+        Appointment A4 = new Appointment("16/05/1995", 12, "Tasos Zikapika", false, D1);
+        Appointment A5 = new Appointment("19/05/1995", 9, "Stamatis Bongos", true, D3);
+        Client C1 = new Client("Takis", "Makis", "Kapou magika", "2721066666", "Magas98@gmail.com");
+        Services S1 = new Services("25/09/1998", "Filling", "");
+        Services S2 = new Services("26/09/1998", "Teeth Whitening", "");
+        Administrator admin = new Administrator("admin", "admin");
+
         Administrator.addService("Filling");
         Administrator.addService("Teeth Whitening");
         Administrator.addService("Dental Cleaning");
@@ -14,21 +24,11 @@ public class Engine {
         Administrator.addSpecialization("Pedodontic");
         Administrator.addSpecialization("Orthodontist");
         Administrator.addSpecialization("Prosthodontist");
-
-        Client C1 = new Client("Takis", "Makis", "Kapou magika", "2721066666", "Magas98@gmail.com");
-        Services S1 = new Services("25/09/1998", "Filling", "");
-        Services S2 = new Services("26/09/1998", "Teeth Whitening", "");
         C1.visits.add(S1);
         C1.visits.add(S2);
         Client.clients.put("160198", C1);
-
         D1.statistics.put("Filling", 4);
         D1.statistics.put("Dental Cleaning", 10);
-        Appointment A1 = new Appointment("16/05/1995", 18, "George Fotopoulos", true, D1);
-        Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
-        Appointment A3 = new Appointment("19/05/1995", 13, "George Patrikis", true, D2);
-        Appointment A4 = new Appointment("16/05/1995", 12, "Tasos Zikapika", false, D1);
-        Appointment A5 = new Appointment("19/05/1995", 9, "Stamatis Bongos", true, D3);
         printMenu();
     }
 
@@ -36,45 +36,49 @@ public class Engine {
      * This is the main menu of our application.
      */
     private static void printMenu() {
-        System.out.println("1. Dentist Menu");
-        System.out.println("2. Client Menu");
-        int choice;
+        System.out.println("MAIN MENU\n0. Exit\n1. Dentist Menu\n2. Client Menu");
+        int choice = -1;
         do {
             try {
-                System.out.println("Choose 1 for dentist menu or 2 for client menu: ");
+                System.out.print("Type 0 to exit the application, 1 to view the dentist menu or 2 to view the client menu:\n> ");
                 choice = Integer.parseInt(in.next());
             } catch (Exception e) {
-                choice = 0;
+                printMenu();
             }
-        } while (choice != 1 && choice != 2);
+        } while (choice < 0 || choice > 2);
         if (choice == 1) {
-            dentistSignIn();
-        } else {
+            dentistMenu();
+        } else if (choice == 2) {
             clientMenu();
+        } else {
+            System.out.println("Exiting application...");
+            System.exit(0);
         }
     }
 
     /**
      * This method is used whenever a dentist wants to sign in his account or sign up for a new one.
      */
-    private static void dentistSignIn() {
-        System.out.println("Dentist Application");
-        System.out.println("1. Sign Up");
-        System.out.println("2. Log In");
-        int choice;
+    private static void dentistMenu() {
+        System.out.println("DENTIST MENU\n0. Exit\n1. Sign Up\n2. Sign In\n3. Main Menu");
+        int choice = -1;
         do {
             try {
-                System.out.println("Type 1 for sign up or 2 f or log in: ");
+                System.out.print("Type 0 to exit the application, 1 to sign up, 2 to log in or 3 to return to Main Menu:\n> ");
                 choice = Integer.parseInt(in.next());
             } catch (Exception e) {
-                choice = 0;
-                continue;
+                dentistMenu();
             }
-        } while (choice != 1 && choice != 2);
-        if (choice == 1) {
+        } while (choice < 0 || choice > 3);
+        if (choice == 0) {
+            System.out.println("Exiting application...");
+            System.exit(0);
+        } else if (choice == 1) {
             createAccount();
-        } else {
+        } else if (choice == 2) {
             dentistLogIn();
+        } else {
+            printMenu();
         }
     }
 
@@ -84,9 +88,10 @@ public class Engine {
     private static void createAccount() {
         Dentist newReg = new Dentist();
         String choice;
+        in.nextLine();
         do {
             try {
-                System.out.println("Enter first name: ");
+                System.out.print("Enter first name: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -95,7 +100,7 @@ public class Engine {
         newReg.setFirstName(choice);
         do {
             try {
-                System.out.println("Enter last name: ");
+                System.out.print("Enter last name: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -104,7 +109,7 @@ public class Engine {
         newReg.setLastName(choice);
         do {
             try {
-                System.out.println("Enter telephone number: ");
+                System.out.print("Enter telephone number: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -113,7 +118,7 @@ public class Engine {
         newReg.setTelNo(choice);
         do {
             try {
-                System.out.println("Enter email address: ");
+                System.out.print("Enter email address: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -122,7 +127,7 @@ public class Engine {
         newReg.setEmail(choice);
         do {
             try {
-                System.out.println("Enter exercise license number: ");
+                System.out.print("Enter exercise license number: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -131,7 +136,7 @@ public class Engine {
         newReg.setExerciseLicense(choice);
         do {
             try {
-                System.out.println("Enter university of studies: ");
+                System.out.print("Enter university of studies: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -140,7 +145,7 @@ public class Engine {
         newReg.setUniversityAttended(choice);
         do {
             try {
-                System.out.println("Enter infirmary location: ");
+                System.out.print("Enter infirmary location: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -149,7 +154,7 @@ public class Engine {
         newReg.setInfirmaryLocation(choice);
         do {
             try {
-                System.out.println("Enter time of experience: ");
+                System.out.print("Enter time of experience: ");
                 choice = in.nextLine();
             } catch (Exception e) {
                 choice = 0 + "";
@@ -160,7 +165,7 @@ public class Engine {
         while (true) {
             do {
                 try {
-                    System.out.println("Enter password (At least 8 characters): ");
+                    System.out.print("Enter password (At least 8 characters): ");
                     choice = in.nextLine();
                 } catch (Exception e) {
                     choice = 0 + "";
@@ -171,54 +176,61 @@ public class Engine {
                 if (!choice.equals(tempPassword)) {
                     System.out.println("Passwords do not match!");
                     try {
-                        System.out.println("Type \"back\" if you want to return to the main menu./Press anything else if you want to retype the password.\n");
+                        System.out.print("Type \"back\" if you want to return to the Main Menu. Press anything else if you want to retype the password.\n> ");
                         choice = in.nextLine();
                     } catch (Exception e) {
                         choice = 0 + "";
                     }
                     if (choice.equalsIgnoreCase("back")) {
-                        break;
+                        dentistMenu();
                     }
                 }
                 try {
-                    System.out.println("Re-enter password (At least 8 characters): ");
+                    System.out.print("Re-enter password (At least 8 characters): ");
                     choice = in.nextLine();
                 } catch (Exception e) {
                     choice = 0 + "";
                 }
             } while (!choice.equals(tempPassword));
-            if (choice.equals(tempPassword)) break;
+            break;
         }
         newReg.setPassword(tempPassword);
     }
 
     /**
      * This method prompts the user to enter his/her email and password in order to log in the system.
-     *
-     * @return Returns the dentist that was logged in the system using his/her credentials.
      */
-    private static Dentist dentistLogIn() {
+    private static void dentistLogIn() {
         Scanner in = new Scanner(System.in);
         String email, password;
-        System.out.println("Enter your e-mail address: ");
+        int temp = -1;
+        System.out.print("Enter your e-mail address:\n> ");
         email = in.nextLine();
-        System.out.println("Enter your password: ");
+        System.out.print("Enter your password:\n> ");
         password = in.nextLine();
         if (email.equalsIgnoreCase(Administrator.getUsername()) && password.equals(Administrator.getPassword())) {
             System.out.println("Master Login successful!");
             masterMenu();
-            return null;
         }
         Dentist D = Dentist.logIn(email, password);
         if (D == null) {
-            System.out.println("The e-mail or password you entered was invalid. Please try again!");
-            dentistLogIn();
+            System.out.println("The e-mail or password you entered was invalid.");
+            do {
+                try {
+                    System.out.print("Type 0 to return to the Dentist Menu or 1 to try again:\n> ");
+                    temp = Integer.parseInt(in.next());
+                } catch (Exception e) {
+                }
+            } while (temp != 0 && temp != 1);
+            if (temp == 0) {
+                dentistMenu();
+            } else {
+                dentistLogIn();
+            }
         } else {
             System.out.println("Login successful!");
-            System.out.println();
-            dentistMenu(D);
+            dentistOptions(D);
         }
-        return D;
     }
 
     /**
@@ -227,25 +239,25 @@ public class Engine {
     private static void masterMenu() {
         Scanner in = new Scanner(System.in);
         String service, specialization;
-        System.out.println("0. Exit");
-        System.out.println("1. Add Service");
-        System.out.println("2. Add Specialization");
-        int choice;
+        System.out.println("MASTER MENU\n0. Exit\n1. Add Service\n2. Add Specialization\n3. Log Out");
+        int choice = -1;
         do {
             try {
-                System.out.println("Type 1 for services or 2 for specialization: ");
+                System.out.print("Type 0 to exit the application, 1 to add services, 2 to add specializations or 3 to log out:\n> ");
                 choice = Integer.parseInt(in.next());
             } catch (Exception e) {
-                choice = -1;
-                continue;
+                masterMenu();
             }
-        } while (choice != 1 && choice != 2 && choice != 0);
-        if (choice == 1) {
-            System.out.println("Give Service: ");
+        } while (choice < 0 || choice > 3);
+        if (choice == 0) {
+            System.out.println("Exiting application...");
+            System.exit(0);
+        } else if (choice == 1) {
+            System.out.print("Enter service:\n> ");
             do {
                 service = in.next();
                 if (Administrator.services.contains(service)) {
-                    System.out.println("This Service already exists.Give another one or press 0 to go to the menu: ");
+                    System.out.print("This service already exists. Enter a new one or press 0 to go to the menu.\n> ");
                 }
             } while (Administrator.services.contains(service) && !service.equals("0"));
             if (!service.equals("0")) {
@@ -253,60 +265,63 @@ public class Engine {
             }
             masterMenu();
         } else if (choice == 2) {
-            System.out.println("Give Specialization: ");
+            System.out.print("Enter specialization:\n> ");
             do {
                 specialization = in.next();
                 if (Administrator.specializations.contains(specialization)) {
-                    System.out.println("This Specialization already exists.Give another one or press 0 to go to the menu: ");
+                    System.out.print("This specialization already exists. Enter a new one or press 0 to go to the menu.\n> ");
                 }
             } while (Administrator.specializations.contains(specialization) && !specialization.equals("0"));
             if (!specialization.equals("0")) {
                 Administrator.addSpecialization(specialization);
             }
             masterMenu();
+        } else {
+            dentistMenu();
         }
     }
 
     /**
      * This is the dentist Menu.
      */
-    public static void dentistMenu(Dentist D) {
+    public static void dentistOptions(Dentist D) {
         Scanner in = new Scanner(System.in);
-        System.out.println("0. Log Out");
-        System.out.println("1. View Profile");
-        System.out.println("2. Update Account");
-        System.out.println("3. View Client History");
-        System.out.println("4. Appointment Management");
-        System.out.println("5. View Statistics");
-        System.out.println("6. View Schedule");
-        System.out.println("7. Record Provided Service");
-        int choice = Integer.parseInt(in.next());
+        System.out.print("OPTIONS\n0. Exit\n1. View Profile\n2. Update Account\n3. View Client History\n" +
+                "4. Appointment Management\n5. View Statistics\n6. View Schedule\n7. Record Provided Service\n8. Log Out\n> ");
+        int choice = -1;
+        try {
+            choice = Integer.parseInt(in.next());
+        } catch (Exception e) {
+        }
         if (choice == 0) {
-            printMenu();
+            System.out.println("Exiting application...");
+            System.exit(0);
         } else if (choice == 1) {
             D.printDentistData();
-            dentistMenu(D);
+            dentistOptions(D);
         } else if (choice == 2) {
             D.modifyData();
-            dentistMenu(D);
+            dentistOptions(D);
         } else if (choice == 3) {
             Client.viewClientHistory();
-            dentistMenu(D);
+            dentistOptions(D);
         } else if (choice == 4) {
             D.viewAppointmentRequests();
-            dentistMenu(D);
+            dentistOptions(D);
         } else if (choice == 5) {
             D.findStatistics();
-            dentistMenu(D);
+            dentistOptions(D);
         } else if (choice == 6) {
             D.viewApprovedAppointments();
-            dentistMenu(D);
+            dentistOptions(D);
         } else if (choice == 7) {
             D.recordService();
-            dentistMenu(D);
+            dentistOptions(D);
+        } else if (choice == 8) {
+            dentistMenu();
         } else {
             System.out.println("Wrong input, you have to choose between 0-7!");
-            dentistMenu(D);
+            dentistOptions(D);
         }
     }
 
@@ -315,19 +330,27 @@ public class Engine {
      */
     private static void clientMenu() {
         Scanner in = new Scanner(System.in);
-        System.out.println("0. Exit");
-        System.out.println("1. Make Appointment");
+        System.out.print("CLIENT MENU\n0. Exit\n1. Make Appointment\n2. Main Menu\n> ");
         int choice;
         String name;
-        choice = Integer.parseInt(in.next());
+        choice = -1;
+        try {
+            choice = Integer.parseInt(in.next());
+        } catch (Exception e) {
+        }
         if (choice == 0) {
-            printMenu();
+            System.out.println("Exiting application...");
+            System.exit(0);
         } else if (choice == 1) {
-            System.out.println("Choose one of the doctors IDs below or press 0 to exit: ");
+            System.out.println("Choose one of the doctors IDs below or press 0 to exit!");
             Dentist.printListOfDentists();
-            System.out.println("Enter dentist's ID: ");
+            System.out.print("Enter dentist's ID:\n> ");
             do {
-                choice = Integer.parseInt(in.next());
+                try {
+                    choice = Integer.parseInt(in.next());
+                } catch (Exception e) {
+                    choice = -1;
+                }
                 if (choice == 0) {
                     clientMenu();
                 } else if (choice > 0 && choice <= Dentist.dentists.size()) {
@@ -338,8 +361,7 @@ public class Engine {
                     System.out.println("Press 1 for 'Yes' or anything else for 'No'.");
                     choice = Integer.parseInt(in.next());
                     if (choice == 1) {
-                        System.out.println("Enter a name:");
-                        System.out.print("> ");
+                        System.out.println("Enter a name:\n> ");
                         name = in.next();
                         Client.requestAppointment(D, name);
                         printMenu();
@@ -347,11 +369,13 @@ public class Engine {
                         clientMenu();
                     }
                 } else {
-                    System.out.println("Choose between 0 or " + Dentist.dentists.size() + ". Try again: ");
+                    System.out.print("Choose 0 to quit looking for dentist or 1-" + Dentist.dentists.size() + " to choose a dentist:\n> ");
                 }
             } while (choice < 0 || choice > Dentist.dentists.size());
+        } else if (choice == 2) {
+            printMenu();
         } else {
-            System.out.println("Choose between 0 or 1. Try again: ");
+            System.out.println("Wrong input, you must choose between 0-2!");
             clientMenu();
         }
     }
