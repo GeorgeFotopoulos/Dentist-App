@@ -49,6 +49,9 @@ public class Appointment {
         dentist.appointmentList.put(date, appointments);
     }
 
+
+
+
     /*public void AppointmentDone(Service S){
 
         Client.servicesProvided.add(s);

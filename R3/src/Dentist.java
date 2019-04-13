@@ -215,27 +215,30 @@ public class Dentist {
         System.out.println("1. View General Statistics");
         System.out.println("2. View Statistics for a specific Service");
         int choice;
-        do {
-            choice = Integer.parseInt(in.next());
-            if (choice == 1) {
-                this.viewAllStatistics();
-            } else if (choice == 2) {
-                System.out.println("Select one of the available services below:");
-                for (int i = 0; i < Administrator.services.size(); i++) {
-                    System.out.println(i + 1 + ". " + Administrator.services.get(i));
-                }
-                System.out.print("> ");
-                do {
-                    choice = Integer.parseInt(in.next());
-                    if (choice < 1 || choice > Administrator.services.size()) {
-                        System.out.println("Choose between 1 - " + Administrator.services.size() + ".Please ,try again.");
-                        System.out.print("> ");
-                    }
-                } while (choice < 1 || choice > Administrator.services.size());
-                System.out.print(Administrator.services.get(choice - 1));
-                this.viewSpecificStatistics(Administrator.services.get(choice - 1));
+
+        choice = Integer.parseInt(in.next());
+        if (choice == 1) {
+            this.viewAllStatistics();
+        } else if (choice == 2) {
+            System.out.println("Select one of the available services below:");
+            for (int i = 0; i < Administrator.services.size(); i++) {
+                System.out.println(i + 1 + ". " + Administrator.services.get(i));
             }
-        } while (choice != 0 && choice != 1 && choice != 2);
+            System.out.print("> ");
+            do {
+                choice = Integer.parseInt(in.next());
+                if (choice < 1 || choice > Administrator.services.size()) {
+                    System.out.println("Choose between 1 - " + Administrator.services.size() + ".Please ,try again.");
+                    System.out.print("> ");
+                }
+            } while (choice < 1 || choice > Administrator.services.size());
+            System.out.println();
+            this.viewSpecificStatistics(Administrator.services.get(choice - 1));
+        }
+        else{
+            Engine.dentistMenu(this);
+        }
+
     }
 
     /**

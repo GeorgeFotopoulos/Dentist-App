@@ -263,7 +263,7 @@ public class Engine {
     /**
      * This is the dentist Menu.
      */
-    private static void dentistMenu(Dentist D) {
+    public static void dentistMenu(Dentist D) {
         Scanner in = new Scanner(System.in);
         System.out.println("0. Log Out");
         System.out.println("1. View Profile");
@@ -321,7 +321,7 @@ public class Engine {
                 choice = Integer.parseInt(in.next());
                 if (choice == 0) {
                     clientMenu();
-                } else if (choice > 0 && choice < Dentist.dentists.size()) {
+                } else if (choice > 0 && choice < Dentist.dentists.size()+1) {
                     Dentist D = Client.chooseDentist(choice - 1);
                     System.out.println("View The statistics of Dr. " + D.lastName);
                     D.findStatistics();
