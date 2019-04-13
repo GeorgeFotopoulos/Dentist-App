@@ -8,7 +8,6 @@ public class Dentist {
     public int dentistID;
     static int ID = 1;
     public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
-    public HashMap<String, String> credentials = new HashMap<>();
     public HashMap<String, Integer> statistics = new HashMap<>();
     public static ArrayList<Dentist> dentists = new ArrayList<>();
 
@@ -84,10 +83,6 @@ public class Dentist {
         }
         Services S = new Services(date, Administrator.services.get(choice - 1), comments);
         Client.clients.get(AMKA).visits.add(S);
-    }
-
-    {
-
     }
 
     /**
@@ -251,14 +246,12 @@ public class Dentist {
      * This method is called by the dentist whenever he wants to view a particular one of the statistics of all the services he/she has provided.
      */
     public void viewSpecificStatistics(String service) {
-
         if (this.statistics.get(service) != null) {
             System.out.println("Service: " + service + " - " + this.statistics.get(service) + " successful operations!");
         } else {
             System.out.println("The doctor hasn't done any " + service + " operations yet :( ");
             System.out.println();
         }
-
     }
 
     public void findStatistics() {
@@ -267,7 +260,6 @@ public class Dentist {
         System.out.println("1. View General Statistics");
         System.out.println("2. View Statistics for a specific Service");
         int choice;
-
         choice = Integer.parseInt(in.next());
         if (choice == 1) {
             this.viewAllStatistics();
@@ -289,7 +281,6 @@ public class Dentist {
         } else {
             Engine.dentistMenu(this);
         }
-
     }
 
     /**
@@ -297,7 +288,6 @@ public class Dentist {
      */
     public static void printListOfDentists() {
         for (int i = 0; i < Dentist.dentists.size(); i++) {
-
             dentists.get(i).printDentistData();
         }
     }
@@ -486,7 +476,6 @@ public class Dentist {
                         } catch (Exception e) {
                             newPassword = 0 + "";
                         }
-
                     } while (!newPassword.equals(temp));
                     if (newPassword.equals(temp) || newPassword.equalsIgnoreCase("back")) break;
                 }
@@ -498,8 +487,5 @@ public class Dentist {
         if (choice != 0) {
             modifyData();
         }
-
     }
-
-
 }

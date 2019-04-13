@@ -3,12 +3,11 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Client {
-    public static ArrayList<Appointment> appointmentsRequested = new ArrayList<>();
     public static String firstName, lastName, address, telNo, email;
     public static HashMap<String, Client> clients = new HashMap<>();
     public static ArrayList<Services> visits = new ArrayList<>();
+
     /**
-     * ArrayList<Appoint
      * Client constructor.
      *
      * @param firstName Client's name.
@@ -25,24 +24,20 @@ public class Client {
         this.email = email;
     }
 
-    public static void viewClientHistory(){
+    public static void viewClientHistory() {
         Scanner in = new Scanner(System.in);
         System.out.println("Give Client's AMKA: ");
         System.out.print(">");
         String AM = in.next();
-        if(clients.get(AM) != null){
+        if (clients.get(AM) != null) {
             System.out.println("Client's History: ");
-            for (int i=0; i<visits.size(); i++){
+            for (int i = 0; i < visits.size(); i++) {
                 System.out.println(Client.clients.get(160198).visits.get(i));
             }
-        }else{
+        } else {
             System.out.println("There's no Client in the system!! ");
-
         }
-
     }
-
-
 
     /**
      * This method includes the procedure the client follows in order to choose a dentist for his needs.
@@ -84,6 +79,5 @@ public class Client {
                 System.out.println("Dr. " + dentist.lastName + " will contact you ASAP!");
             }
         }
-
     }
 }

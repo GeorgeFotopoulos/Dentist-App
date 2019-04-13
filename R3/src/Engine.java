@@ -22,8 +22,6 @@ public class Engine {
         C1.visits.add(S2);
         Client.clients.put("160198", C1);
 
-
-
         D1.statistics.put("Filling", 4);
         D1.statistics.put("Dental Cleaning", 10);
         Appointment A1 = new Appointment("16/05/1995", 18, "George Fotopoulos", true, D1);
@@ -352,14 +350,10 @@ public class Engine {
                 } else {
                     System.out.println("Choose between 0 or " + Dentist.dentists.size() + ".Try again:");
                 }
-
             } while (choice < 0 || choice > Dentist.dentists.size());
-
         } else {
             System.out.println("Choose between 0 or 1.Try again:");
             clientMenu();
         }
-
-
     }
 }
