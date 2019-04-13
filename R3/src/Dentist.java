@@ -50,11 +50,44 @@ public class Dentist {
 
     /**
      * This method is called whenever a dentist wants to view the past visit history of a particular client who's given as a parameter.
-     *
-     * @param AMKA This indicates the AMKA of the client for whom the dentist wants to view the past visits' history.
      */
-    public void viewVisitHistory(String AMKA) {
+    public static void recordService() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Give Client's AMKA: ");
+        System.out.print(">");
+        String AMKA = in.next();
+        int choice;
+        if (Client.clients.get(AMKA) == null) {
+            createPatientCard(AMKA);
+        }
+        System.out.println("Select one of the available services below:");
+        for (int i = 0; i < Administrator.services.size(); i++) {
+            System.out.println(i + 1 + ". " + Administrator.services.get(i));
+        }
+        System.out.print("> ");
+        do {
+            choice = Integer.parseInt(in.next());
+            if (choice < 1 || choice > Administrator.services.size()) {
+                System.out.println("Choose between 1 - " + Administrator.services.size() + ".Please ,try again.");
+                System.out.print("> ");
+            }
+        } while (choice < 1 || choice > Administrator.services.size());
         System.out.println();
+        System.out.println("Give Date: ");
+        System.out.print("> ");
+        String date = in.next();
+        System.out.println("Give comments or press 0 to finish: ");
+        String comments = in.next();
+        comments += in.nextLine();
+        if (comments.equals("0")) {
+            comments = "";
+        }
+        Services S = new Services(date, Administrator.services.get(choice - 1), comments);
+        Client.clients.get(AMKA).visits.add(S);
+    }
+
+    {
+
     }
 
     /**
@@ -62,8 +95,27 @@ public class Dentist {
      *
      * @param AMKA This indicates the AMKA of the client for whom the dentist wants to create a tab for future use.
      */
-    public void createPatientCard(String AMKA) {
-
+    public static void createPatientCard(String AMKA) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Give Client's first name: ");
+        System.out.print("> ");
+        String fname = in.nextLine();
+        System.out.println("Give Client's last name: ");
+        System.out.print("> ");
+        String lname = in.nextLine();
+        System.out.println("Give Client's address: ");
+        System.out.print("> ");
+        String address = in.nextLine();
+        System.out.println("Give Client's phone number: ");
+        System.out.print("> ");
+        String phone = in.nextLine();
+        System.out.println("Give Client's e-mail: ");
+        System.out.print("> ");
+        String mail = in.nextLine();
+        Client C = new Client(fname, lname, address, phone, mail);
+        Client.clients.put(AMKA, C);
+        System.out.println("Client Profile Added Successfully!");
+        System.out.println();
     }
 
     /**
@@ -234,8 +286,7 @@ public class Dentist {
             } while (choice < 1 || choice > Administrator.services.size());
             System.out.println();
             this.viewSpecificStatistics(Administrator.services.get(choice - 1));
-        }
-        else{
+        } else {
             Engine.dentistMenu(this);
         }
 
@@ -447,6 +498,8 @@ public class Dentist {
         if (choice != 0) {
             modifyData();
         }
-        in.close();
+
     }
+
+
 }

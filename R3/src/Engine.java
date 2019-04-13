@@ -15,8 +15,17 @@ public class Engine {
         Administrator.addSpecialization("Orthodontist");
         Administrator.addSpecialization("Prosthodontist");
 
-        D1.statistics.put("Filling",4);
-        D1.statistics.put("Dental Cleaning",10);
+        Client C1 = new Client("Takis", "Makis", "Kapou magika", "2721066666", "Magas98@gmail.com");
+        Services S1 = new Services("25/09/1998", "Filling", "");
+        Services S2 = new Services("26/09/1998", "Teeth Whitening", "");
+        C1.visits.add(S1);
+        C1.visits.add(S2);
+        Client.clients.put("160198", C1);
+
+
+
+        D1.statistics.put("Filling", 4);
+        D1.statistics.put("Dental Cleaning", 10);
         Appointment A1 = new Appointment("16/05/1995", 18, "George Fotopoulos", true, D1);
         Appointment A2 = new Appointment("18/05/1995", 11, "Panagiotis Ntymenos", true, D1);
         Appointment A3 = new Appointment("19/05/1995", 13, "George Patrikis", true, D2);
@@ -283,7 +292,8 @@ public class Engine {
             D.modifyData();
             dentistMenu(D);
         } else if (choice == 3) {
-
+            Client.viewClientHistory();
+            dentistMenu(D);
         } else if (choice == 4) {
             D.viewAppointmentRequests();
             dentistMenu(D);
@@ -294,7 +304,8 @@ public class Engine {
             D.viewApprovedAppointments();
             dentistMenu(D);
         } else if (choice == 7) {
-
+            D.recordService();
+            dentistMenu(D);
         } else {
             System.out.println("Wrong input, you have to choose between 0-7!");
             dentistMenu(D);
@@ -321,7 +332,7 @@ public class Engine {
                 choice = Integer.parseInt(in.next());
                 if (choice == 0) {
                     clientMenu();
-                } else if (choice > 0 && choice < Dentist.dentists.size()+1) {
+                } else if (choice > 0 && choice <= Dentist.dentists.size()) {
                     Dentist D = Client.chooseDentist(choice - 1);
                     System.out.println("View The statistics of Dr. " + D.lastName);
                     D.findStatistics();

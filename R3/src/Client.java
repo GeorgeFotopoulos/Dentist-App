@@ -1,12 +1,14 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Client {
     public static ArrayList<Appointment> appointmentsRequested = new ArrayList<>();
-    public ArrayList<String> servicesProvided = new ArrayList<>();
-    public static String firstName, lastName, address, telNo, email, AMKA;
-
+    public static String firstName, lastName, address, telNo, email;
+    public static HashMap<String, Client> clients = new HashMap<>();
+    public static ArrayList<Services> visits = new ArrayList<>();
     /**
+     * ArrayList<Appoint
      * Client constructor.
      *
      * @param firstName Client's name.
@@ -14,16 +16,32 @@ public class Client {
      * @param address   Client's home address.
      * @param telNo     Client's telephone number.
      * @param email     Client's email address.
-     * @param AMKA      Client's AMKA number.
      */
-    public Client(String firstName, String lastName, String address, String telNo, String email, String AMKA) {
+    public Client(String firstName, String lastName, String address, String telNo, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.telNo = telNo;
         this.email = email;
-        this.AMKA = AMKA;
     }
+
+    public static void viewClientHistory(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Give Client's AMKA: ");
+        System.out.print(">");
+        String AM = in.next();
+        if(clients.get(AM) != null){
+            System.out.println("Client's History: ");
+            for (int i=0; i<visits.size(); i++){
+                System.out.println(Client.clients.get(160198).visits.get(i));
+            }
+        }else{
+            System.out.println("There's no Client in the system!! ");
+
+        }
+
+    }
+
 
 
     /**
@@ -52,7 +70,7 @@ public class Client {
         if (dentist.appointmentList.get(date) == null) {
             new Appointment(date, time, name, false, dentist);
             System.out.println("Appointment Successful.Waiting for approval!");
-            System.out.println("Dr. "+dentist.lastName+" will contact you ASAP!");
+            System.out.println("Dr. " + dentist.lastName + " will contact you ASAP!");
         } else if (dentist.appointmentList.get(date) != null) {
             for (int i = 0; i < dentist.appointmentList.get(date).size(); i++) {
                 if (dentist.appointmentList.get(date).get(i).time == time) {
@@ -60,10 +78,10 @@ public class Client {
                     flag = true;
                 }
             }
-            if (!flag){
+            if (!flag) {
                 new Appointment(date, time, name, false, dentist);
                 System.out.println("Appointment Successful.Waiting for approval!");
-                System.out.println("Dr. "+dentist.lastName+" will contact you ASAP!");
+                System.out.println("Dr. " + dentist.lastName + " will contact you ASAP!");
             }
         }
 
