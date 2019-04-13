@@ -1,5 +1,5 @@
 public class Services {
-    String date, service, comments;
+    private String date, service, comments;
 
     public Services(String date, String service, String comments) {
         this.date = date;
@@ -8,7 +8,7 @@ public class Services {
     }
 
     public String toString() {
-        if (comments != "") {
+        if (!comments.equals("")) {
             return "Date: " + date + ", Service: " + service + ", Comments: " + comments;
         } else {
             return "Date: " + date + ", Service: " + service;
