@@ -1,5 +1,4 @@
 public class Services {
-
     String date, service, comments;
 
     public Services(String date, String service, String comments) {
@@ -9,11 +8,10 @@ public class Services {
     }
 
     public String toString() {
-
         if (comments != "") {
-            return "Date: " + date + " - Service: " + service + " - Comments: " + comments;
+            return "Date: " + date + ", Service: " + service + ", Comments: " + comments;
         } else {
-            return "Date: " + date + " - Service: " + service;
+            return "Date: " + date + ", Service: " + service;
         }
     }
 }

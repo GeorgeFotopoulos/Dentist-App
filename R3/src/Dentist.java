@@ -67,7 +67,7 @@ public class Dentist {
         do {
             choice = Integer.parseInt(in.next());
             if (choice < 1 || choice > Administrator.services.size()) {
-                System.out.println("Choose between 1 - " + Administrator.services.size() + ".Please ,try again.");
+                System.out.println("Choose between 1 - " + Administrator.services.size() + ". Please ,try again!");
                 System.out.print("> ");
             }
         } while (choice < 1 || choice > Administrator.services.size());
@@ -92,22 +92,22 @@ public class Dentist {
      */
     public static void createPatientCard(String AMKA) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Give Client's first name: ");
+        System.out.println("Enter client's first name: ");
         System.out.print("> ");
         String fname = in.nextLine();
-        System.out.println("Give Client's last name: ");
+        System.out.println("Enter client's last name: ");
         System.out.print("> ");
         String lname = in.nextLine();
-        System.out.println("Give Client's address: ");
+        System.out.println("Enter client's address: ");
         System.out.print("> ");
         String address = in.nextLine();
-        System.out.println("Give Client's phone number: ");
+        System.out.println("Enter client's phone number: ");
         System.out.print("> ");
         String phone = in.nextLine();
-        System.out.println("Give Client's e-mail: ");
+        System.out.println("Enter client's email address: ");
         System.out.print("> ");
-        String mail = in.nextLine();
-        Client C = new Client(fname, lname, address, phone, mail);
+        String email = in.nextLine();
+        Client C = new Client(fname, lname, address, phone, email);
         Client.clients.put(AMKA, C);
         System.out.println("Client Profile Added Successfully!");
         System.out.println();
@@ -120,25 +120,25 @@ public class Dentist {
         ArrayList<String> toBeRemoved = new ArrayList<>();
         Scanner in = new Scanner(System.in);
         String choice;
-        System.out.println("Appointments Waiting to be Approved!!");
+        System.out.println("Appointments waiting to be approved!");
         for (String key : this.appointmentList.keySet()) {
             for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
                 if (!this.appointmentList.get(key).get(i).status) {
                     System.out.println();
-                    System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
+                    System.out.println("Client's name: " + this.appointmentList.get(key).get(i).clientName);
                     System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
                     System.out.println("Date: " + key);
                     System.out.println();
-                    System.out.println("Press 1 to accept the appointment ,2 to decline it, or anything else to review later!");
+                    System.out.println("Press 1 to accept the appointment, 2 to decline it, or anything else to review later!");
                     choice = in.nextLine();
                     if (choice.equals("1")) {
                         this.appointmentList.get(key).get(i).status = true;
-                        System.out.println("Appointment Approved Successfully!");
+                        System.out.println("Appointment approved successfully!");
                     } else if (choice.equals("2")) {
                         this.appointmentList.get(key).remove(i);
                         i--;
                         if (this.appointmentList.get(key).isEmpty()) {
-                            System.out.println("Appointment Removed Successfully!");
+                            System.out.println("Appointment removed successfully!");
                             toBeRemoved.add(key);
                             break;
                         }
@@ -172,9 +172,9 @@ public class Dentist {
                         }
                         if (OK == 1) {
                             System.out.println();
-                            System.out.println("Appointments of the Day: " + key);
+                            System.out.println("Appointments of the day: " + key);
                         }
-                        System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
+                        System.out.println("Client's name: " + this.appointmentList.get(key).get(i).clientName);
                         System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
                     }
                 }
@@ -197,9 +197,9 @@ public class Dentist {
                         }
                         if (OK == 1) {
                             System.out.println();
-                            System.out.println("Appointments of the Day: " + key);
+                            System.out.println("Appointments of the day: " + key);
                         }
-                        System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
+                        System.out.println("Client's name: " + this.appointmentList.get(key).get(i).clientName);
                         System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
                     }
                 }
@@ -232,12 +232,12 @@ public class Dentist {
         boolean flag = false;
         for (String key : this.statistics.keySet()) {
             if (this.statistics.get(key) != 0) {
-                System.out.println("Service: " + key + " - " + this.statistics.get(key) + "Successful operations!");
+                System.out.println("Service: " + key + " - " + this.statistics.get(key) + " successful operations!");
                 flag = true;
             }
         }
         if (!flag) {
-            System.out.println("The doctor hasn't done any operations yet :( ");
+            System.out.println("The doctor hasn't done any operations yet!");
             System.out.println();
         }
     }
@@ -249,7 +249,7 @@ public class Dentist {
         if (this.statistics.get(service) != null) {
             System.out.println("Service: " + service + " - " + this.statistics.get(service) + " successful operations!");
         } else {
-            System.out.println("The doctor hasn't done any " + service + " operations yet :( ");
+            System.out.println("The doctor hasn't done any " + service + " operations yet!");
             System.out.println();
         }
     }
@@ -272,7 +272,7 @@ public class Dentist {
             do {
                 choice = Integer.parseInt(in.next());
                 if (choice < 1 || choice > Administrator.services.size()) {
-                    System.out.println("Choose between 1 - " + Administrator.services.size() + ".Please ,try again.");
+                    System.out.println("Choose between 1 - " + Administrator.services.size() + ". Please try again!");
                     System.out.print("> ");
                 }
             } while (choice < 1 || choice > Administrator.services.size());

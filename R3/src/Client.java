@@ -27,7 +27,7 @@ public class Client {
     public static void viewClientHistory() {
         Scanner in = new Scanner(System.in);
         System.out.println("Give Client's AMKA: ");
-        System.out.print(">");
+        System.out.print("> ");
         String AM = in.next();
         if (clients.get(AM) != null) {
             System.out.println("Client's History: ");

@@ -323,36 +323,35 @@ public class Engine {
         if (choice == 0) {
             printMenu();
         } else if (choice == 1) {
-            System.out.println("Choose one of the doctors IDs below or press 0 to exit:");
+            System.out.println("Choose one of the doctors IDs below or press 0 to exit: ");
             Dentist.printListOfDentists();
-            System.out.println("Give ID:");
+            System.out.println("Enter dentist's ID: ");
             do {
                 choice = Integer.parseInt(in.next());
                 if (choice == 0) {
                     clientMenu();
                 } else if (choice > 0 && choice <= Dentist.dentists.size()) {
                     Dentist D = Client.chooseDentist(choice - 1);
-                    System.out.println("View The statistics of Dr. " + D.lastName);
+                    System.out.println("View the statistics of Dr. " + D.lastName);
                     D.findStatistics();
                     System.out.println("Do you want to make an appointment with Dr. " + D.lastName + "?");
-                    System.out.println("Press 1 for 'Yes' or anything else for 'No'");
+                    System.out.println("Press 1 for 'Yes' or anything else for 'No'.");
                     choice = Integer.parseInt(in.next());
                     if (choice == 1) {
                         System.out.println("Enter a name:");
-                        System.out.print(">");
+                        System.out.print("> ");
                         name = in.next();
                         Client.requestAppointment(D, name);
-
                         printMenu();
                     } else {
                         clientMenu();
                     }
                 } else {
-                    System.out.println("Choose between 0 or " + Dentist.dentists.size() + ".Try again:");
+                    System.out.println("Choose between 0 or " + Dentist.dentists.size() + ". Try again: ");
                 }
             } while (choice < 0 || choice > Dentist.dentists.size());
         } else {
-            System.out.println("Choose between 0 or 1.Try again:");
+            System.out.println("Choose between 0 or 1. Try again: ");
             clientMenu();
         }
     }
