@@ -1,17 +1,18 @@
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Dentist {
-    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience;
-    private String password;
-    public int dentistID;
+    private static ArrayList<Dentist> dentists = new ArrayList<>();
     static int ID = 15139;
-    public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
+    private String password;
+    public String firstName, lastName, telNo, email, exerciseLicense, universityAttended, infirmaryLocation, timeOfExperience;
+    public int dentistID;
     public HashMap<String, String> credentials = new HashMap<>();
-    public HashMap<String, Integer> statistics = new HashMap<>();
-    public static ArrayList<Dentist> dentists = new ArrayList<>();
-
+    public HashMap<String, String> statistics = new HashMap<>();
+    public HashMap<String, ArrayList<Appointment>> appointmentList = new HashMap<>();
+    public static ArrayList<Appointment> appointments = new ArrayList<Appointment>();
     /**
      * Default constructor.
      */
@@ -22,16 +23,15 @@ public class Dentist {
 
     /**
      * Constructor with parameters for each field of data.
-     *
-     * @param firstName          Dentist's first name.
-     * @param lastName           Dentist's last name.
-     * @param telNo              Dentist's telephone number.
-     * @param email              Dentist's e-mail address, used for the login.
-     * @param exerciseLicense    Dentist's exercise license number.
+     * @param firstName Dentist's first name.
+     * @param lastName Dentist's last name.
+     * @param telNo Dentist's telephone number.
+     * @param email Dentist's e-mail address, used for the login.
+     * @param exerciseLicense Dentist's exercise license number.
      * @param universityAttended Dentist's university of attendance.
-     * @param infirmaryLocation  Dentist's infirmary location.
-     * @param timeOfExperience   Dentist's time of experience.
-     * @param password           Dentist's password, used for the login.
+     * @param infirmaryLocation Dentist's infirmary location.
+     * @param timeOfExperience Dentist's time of experience.
+     * @param password Dentist's password, used for the login.
      */
     public Dentist(String firstName, String lastName, String telNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, String timeOfExperience, String password) {
         this.firstName = firstName;
@@ -64,107 +64,26 @@ public class Dentist {
     public void createPatientCard(String AMKA) {
 
     }
-
-    /**
-     * This method prints all the appointment requests the clients have made on a particular dentist.
-     */
+    
     public void viewAppointmentRequests() {
-        ArrayList<String> toBeRemoved = new ArrayList<>();
-        Scanner in = new Scanner(System.in);
-        String choice;
-        System.out.println("Appointments Waiting to be Approved!!");
-        for (String key : this.appointmentList.keySet()) {
-            for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
-                if (!this.appointmentList.get(key).get(i).status) {
-                    System.out.println();
-                    System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
-                    System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
-                    System.out.println("Date: " + key);
-                    System.out.println();
-                    System.out.println("Press 1 to accept the appointment ,2 to decline it, or anything else to review later!");
-                    choice = in.nextLine();
-                    if (choice.equals("1")) {
-                        this.appointmentList.get(key).get(i).status = true;
-                        System.out.println("Appointment Approved Successfully!");
-                    } else if (choice.equals("2")) {
-                        this.appointmentList.get(key).remove(i);
-                        i--;
-                        if (this.appointmentList.get(key).isEmpty()) {
-                            System.out.println("Appointment Removed Successfully!");
-                            toBeRemoved.add(key);
-                            break;
-                        }
-                    }
-                }
-            }
-        }
-        if (!toBeRemoved.isEmpty()) {
-            for (int i = 0; i < toBeRemoved.size(); i++) {
-                this.appointmentList.remove(toBeRemoved.get(i));
-            }
-        }
+        for(String key : this.appointmentList.keySet() )
+    	for(int i=0; i<this.appointmentList.get(key).size(); i++){
+    		System.out.println(this.appointmentList.get(key).get(i).clientName);
+    		System.out.println(this.appointmentList.get(key).get(i).time);
+    	}
     }
-
-    /**
-     * This method prints all the doctor's approved and pending appointments on the screen.
-     */
+    
     public void viewApprovedAppointments() {
-        int OK;
-        int OKAY = 0;
-        System.out.println();
-        for (String key : this.appointmentList.keySet()) {
-            OK = 0;
-            if (!this.appointmentList.get(key).isEmpty()) {
-                for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
-                    if (this.appointmentList.get(key).get(i).status) {
-                        OK++;
-                        OKAY++;
-                        if (OKAY == 1) {
-                            System.out.println("APPROVED...");
-                        }
-                        if (OK == 1) {
-                            System.out.println();
-                            System.out.println("Appointments of the Day: " + key);
-                        }
-                        System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
-                        System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
-                    }
-                }
-            } else {
-                System.out.println("No appointments!");
-            }
-        }
-        OKAY = 0;
-        System.out.println();
-        for (String key : this.appointmentList.keySet()) {
-            OK = 0;
-            if (!this.appointmentList.get(key).isEmpty()) {
-
-                for (int i = 0; i < this.appointmentList.get(key).size(); i++) {
-                    if (!this.appointmentList.get(key).get(i).status) {
-                        OK++;
-                        OKAY++;
-                        if (OKAY == 1) {
-                            System.out.println("PENDING...");
-                        }
-                        if (OK == 1) {
-                            System.out.println();
-                            System.out.println("Appointments of the Day: " + key);
-                        }
-                        System.out.println("Client's Name: " + this.appointmentList.get(key).get(i).clientName);
-                        System.out.println("Time: " + this.appointmentList.get(key).get(i).time + ":00");
-                    }
-                }
-            } else {
-                System.out.println("No appointments!");
-            }
-        }
+    	for(String key : appointmentList.keySet()){
+    		System.out.println(appointmentList.get(key).get(0).time);
+    		System.out.println(appointmentList.get(key).get(1).time);
+    		System.out.println(appointmentList.get(key).get(2).time);
+    	}
     }
 
     /**
      * This method takes an email and a password as parameters and checks if they match any dentist's email and password.
-     *
-     * @param email    The email given as an input from the user.
+     * @param email The email given as an input from the user.
      * @param password The password given as an input from the user.
      * @return Returns the dentist who matches the email and password given as input.
      */
@@ -181,66 +100,24 @@ public class Dentist {
      * This method is called by the dentist whenever he wants to view all of the statistics of all the services he/she has provided.
      */
     public void viewAllStatistics() {
-        boolean flag = false;
         for (String key : this.statistics.keySet()) {
-            if (this.statistics.get(key) != 0) {
-                System.out.println("Service: " + key + " - " + this.statistics.get(key) + "Successful operations!");
-                flag = true;
-            }
+            System.out.println(this.statistics.get(key));
         }
-        if (!flag) {
-            System.out.println("The doctor hasn't done any operations yet :( ");
-            System.out.println();
-        }
-    }
+    } // TODO;
 
     /**
      * This method is called by the dentist whenever he wants to view a particular one of the statistics of all the services he/she has provided.
      */
     public void viewSpecificStatistics(String service) {
-
-        if (this.statistics.get(service) != null) {
-            System.out.println("Service: " + service + " - " + this.statistics.get(service) + " successful operations!");
-        } else {
-            System.out.println("The doctor hasn't done any " + service + " operations yet :( ");
-            System.out.println();
+        for (String key : this.statistics.keySet()) {
+            System.out.println(this.statistics.get(key).equals(service));
         }
-
-    }
-
-    public void findStatistics() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("0. Exit");
-        System.out.println("1. View General Statistics");
-        System.out.println("2. View Statistics for a specific Service");
-        int choice;
-        do {
-            choice = Integer.parseInt(in.next());
-            if (choice == 1) {
-                this.viewAllStatistics();
-            } else if (choice == 2) {
-                System.out.println("Select one of the available services below:");
-                for (int i = 0; i < Administrator.services.size(); i++) {
-                    System.out.println(i + 1 + ". " + Administrator.services.get(i));
-                }
-                System.out.print("> ");
-                do {
-                    choice = Integer.parseInt(in.next());
-                    if (choice < 1 || choice > Administrator.services.size()) {
-                        System.out.println("Choose between 1 - " + Administrator.services.size() + ".Please ,try again.");
-                        System.out.print("> ");
-                    }
-                } while (choice < 1 || choice > Administrator.services.size());
-                System.out.print(Administrator.services.get(choice - 1));
-                this.viewSpecificStatistics(Administrator.services.get(choice - 1));
-            }
-        } while (choice != 0 && choice != 1 && choice != 2);
-    }
+    } // TODO;
 
     /**
      * This method prints all dentists' data.
      */
-    public static void printListOfDentists() {
+    public static void seeListOfDentists() {
         for (int i = 0; i < Dentist.dentists.size(); i++) {
             dentists.get(i).printDentistData();
         }
@@ -348,55 +225,56 @@ public class Dentist {
      * with the one given as an input.
      */
     public void modifyData() {
-        String newPassword, temp;
-        int choice = -1;
+    	String newPassword, temp;
+    	int choice = -1;
         Scanner in = new Scanner(System.in);
         System.out.println("0. Exit\n1. Change first name\n2. Change last name\n3. Change telephone number\n" +
                 "4. Change e-mail address\n5. Change exercise license details\n6. Change university of studies\n" +
-                "7. Change infirmary location\n8. Change work experience time\n9. Change password\n");
-        try {
-            choice = Integer.parseInt(in.nextLine());
+                "7. Change infirmary location\n8. Change work experience time\n9. Change Password\n");
+        try { 
+        	choice = Integer.parseInt(in.nextLine());
         } catch (Exception e) {
-            modifyData();
+        	modifyData();
         }
         while (choice < 0 || choice > 9) {
             System.out.println("Invalid input, please choose a value between 1 and 9: ");
             in.nextInt();
         }
+        
         switch (choice) {
-            case 0:
-                System.out.println("Exiting...");
-                break;
+        	case 0:
+        		System.out.println("Exiting...");
+        		break;
             case 1:
-                System.out.println("Enter new name: ");
-                this.setFirstName(in.nextLine());
-                break;
+            	System.out.println("Enter new name: ");
+            	this.setFirstName(in.nextLine());
+            	break;
             case 2:
-                System.out.println("Enter new surname: ");
+            	System.out.println("Enter new surname: ");
                 this.setLastName(in.nextLine());
                 break;
             case 3:
-                System.out.println("Enter new telephone number: ");
+            	System.out.println("Enter new telephone number: ");
                 this.setTelNo(in.nextLine());
                 break;
             case 4:
-                System.out.println("Enter new email address: ");
+            	System.out.println("Enter new email address: ");
                 this.setEmail(in.nextLine());
                 break;
             case 5:
-                System.out.println("Enter new exercise license number: ");
+            	System.out.println("Enter new exercise license number: ");
                 this.setExerciseLicense(in.nextLine());
                 break;
             case 6:
-                System.out.println("Enter new value for university of attendance: ");
+            	System.out.println("Enter new value for university of attendance: ");
                 this.setUniversityAttended(in.nextLine());
                 break;
             case 7:
-                System.out.println("Enter new location of infirmary: ");
+            	System.out.println("Enter new location of infirmary: ");
                 this.setInfirmaryLocation(in.nextLine());
                 break;
             case 8:
-                System.out.println("Enter new value for time of experience: ");
+            	System.out.println("Enter new value for time of experience: ");
                 this.setTimeOfExperience(in.nextLine());
                 break;
             case 9:
@@ -406,7 +284,7 @@ public class Dentist {
                             System.out.println("Enter password (At least 8 characters): ");
                             newPassword = in.nextLine();
                         } catch (Exception e) {
-                            newPassword = 0 + "";
+                        	newPassword = 0 + "";
                         }
                     } while (newPassword.length() < 8);
                     temp = newPassword;
@@ -417,7 +295,7 @@ public class Dentist {
                                 System.out.println("Type \"back\" if you want to return to the modify data menu./Press anything else if you want to retype the password.\n");
                                 newPassword = in.nextLine();
                             } catch (Exception e) {
-                                newPassword = 0 + "";
+                            	newPassword = 0 + "";
                             }
                             if (newPassword.equalsIgnoreCase("back")) {
                                 break;
@@ -427,7 +305,7 @@ public class Dentist {
                             System.out.println("Re-enter password (At least 8 characters): ");
                             newPassword = in.nextLine();
                         } catch (Exception e) {
-                            newPassword = 0 + "";
+                        	newPassword = 0 + "";
                         }
 
                     } while (!newPassword.equals(temp));
@@ -438,9 +316,9 @@ public class Dentist {
                 System.out.println("Not a valid choice, please choose between 0-9.");
                 break;
         }
-        if (choice != 0) {
-            modifyData();
+        if(choice!=0){
+        	modifyData();
         }
         in.close();
-    }
+    } // TODO elegxoi egkurothtas
 }
