@@ -35,25 +35,30 @@ public class Client {
         Scanner input = new Scanner(System.in);
         String option;
         Dentist.printListOfDentists();
-        System.out.println("Press \"back\" if you would like to quit searching for Dentist: ");
+        System.out.println("Press \"back\" if you would like to quit searching for a dentist or any button to continue: ");
         option = input.next();
         if (option.equalsIgnoreCase("back")) {
-            Engine.clientMenu();
+            return null;
         } else {
-            d = chooseDentist();
+            System.out.println("Enter the service you're interested in: ");
+            String service = input.next();
+            d = chooseDentist(service);
             return d;
         }
-        return null;
     }
 
     /**
      * This method includes the procedure the client follows in order to choose a dentist for his needs.
      *
-     * @return The dentist the client chose.
+     * @return The dentist with the most experience on a particular service, the client needs.
      */
-    public Dentist chooseDentist() {
-        Dentist d;
-        d = Dentist.dentists.get(0);
+    public Dentist chooseDentist(String service) {
+        Dentist d = Dentist.dentists.get(0);
+        for (int i = 1; i < Dentist.dentists.size(); i++) {
+            if (Dentist.dentists.get(i).statistics.get(service) > d.statistics.get(service)) {
+                d = Dentist.dentists.get(i);
+            }
+        }
         return d;
     }
 

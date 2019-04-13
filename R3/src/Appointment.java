@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
 public class Appointment {
-    public String clientName;
+    public String clientName, date;
     public int time;
-    public String date;
     public boolean status;
 
     public Appointment(String date, int time, String clientName, boolean status, Dentist dentist) {

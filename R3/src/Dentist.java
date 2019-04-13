@@ -206,7 +206,7 @@ public class Dentist {
             System.out.println();
         }
 
-    } // TODO;
+    }
 
     public void findStatistics() {
         Scanner in = new Scanner(System.in);

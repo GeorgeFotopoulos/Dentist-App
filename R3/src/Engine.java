@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class Engine {
     static Scanner in = new Scanner(System.in);
+
     public static void main(String[] args) {
         Dentist D1 = new Dentist("Giorhs", "Fotakis", "6988888883", "F", "AK-47", "AUEB", "Artis 23", "6", "123456723");
         Dentist D2 = new Dentist("Tzortz", "Pat", "6987777883", "GpaokMono4@gmail.com", "M4A1", "Huawei", "Folegandrou 10", "1", "12341234");
@@ -304,6 +305,6 @@ public class Engine {
     /**
      * This is the client Menu.
      */
-    public static void clientMenu() {
+    private static void clientMenu() {
     }
 }
