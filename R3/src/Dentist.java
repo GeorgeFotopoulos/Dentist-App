@@ -398,59 +398,58 @@ public class Dentist {
         String newPassword, temp;
         int choice = -1;
         Scanner in = new Scanner(System.in);
-        System.out.println("0. Exit\n1. Change first name\n2. Change last name\n3. Change telephone number\n" +
+        System.out.print("0. Back\n1. Change first name\n2. Change last name\n3. Change telephone number\n" +
                 "4. Change e-mail address\n5. Change exercise license details\n6. Change university of studies\n" +
-                "7. Change infirmary location\n8. Change work experience time\n9. Change password\n");
+                "7. Change infirmary location\n8. Change work experience time\n9. Change password\n> ");
         try {
             choice = Integer.parseInt(in.nextLine());
         } catch (Exception e) {
             modifyData();
         }
         while (choice < 0 || choice > 9) {
-            System.out.println("Invalid input, please choose a value between 1 and 9: ");
+            System.out.print("Invalid input, please choose a value between 1 and 9:\n> ");
             in.nextInt();
         }
         switch (choice) {
             case 0:
-                System.out.println("Exiting...");
                 break;
             case 1:
-                System.out.println("Enter new name: ");
+                System.out.print("Enter new name: ");
                 this.setFirstName(in.nextLine());
                 break;
             case 2:
-                System.out.println("Enter new surname: ");
+                System.out.print("Enter new surname: ");
                 this.setLastName(in.nextLine());
                 break;
             case 3:
-                System.out.println("Enter new telephone number: ");
+                System.out.print("Enter new telephone number: ");
                 this.setTelNo(in.nextLine());
                 break;
             case 4:
-                System.out.println("Enter new email address: ");
+                System.out.print("Enter new email address: ");
                 this.setEmail(in.nextLine());
                 break;
             case 5:
-                System.out.println("Enter new exercise license number: ");
+                System.out.print("Enter new exercise license number: ");
                 this.setExerciseLicense(in.nextLine());
                 break;
             case 6:
-                System.out.println("Enter new value for university of attendance: ");
+                System.out.print("Enter new value for university of attendance: ");
                 this.setUniversityAttended(in.nextLine());
                 break;
             case 7:
-                System.out.println("Enter new location of infirmary: ");
+                System.out.print("Enter new location of infirmary: ");
                 this.setInfirmaryLocation(in.nextLine());
                 break;
             case 8:
-                System.out.println("Enter new value for time of experience: ");
+                System.out.print("Enter new value for time of experience: ");
                 this.setTimeOfExperience(in.nextLine());
                 break;
             case 9:
                 while (true) {
                     do {
                         try {
-                            System.out.println("Enter password (At least 8 characters): ");
+                            System.out.print("Enter password (At least 8 characters): ");
                             newPassword = in.nextLine();
                         } catch (Exception e) {
                             newPassword = 0 + "";
@@ -461,7 +460,7 @@ public class Dentist {
                         if (!newPassword.equals(temp)) {
                             System.out.println("Passwords do not match!");
                             try {
-                                System.out.println("Type \"back\" if you want to return to the modify data menu./Press anything else if you want to retype the password.\n");
+                                System.out.print("Type \"back\" if you want to return to the modify data menu. Press anything else if you want to retype the password.\n> ");
                                 newPassword = in.nextLine();
                             } catch (Exception e) {
                                 newPassword = 0 + "";
@@ -471,7 +470,7 @@ public class Dentist {
                             }
                         }
                         try {
-                            System.out.println("Re-enter password (At least 8 characters): ");
+                            System.out.print("Re-enter password (At least 8 characters): ");
                             newPassword = in.nextLine();
                         } catch (Exception e) {
                             newPassword = 0 + "";
