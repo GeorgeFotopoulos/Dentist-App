@@ -57,11 +57,29 @@ public class Client {
      */
     public static void requestAppointment(Dentist dentist, String name) {
         boolean flag = false;
+        String date;
+        int time;
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter desired date for the appointment: ");
-        String date = input.nextLine();
-        System.out.println("Enter desired time for the appointment: ");
-        int time = Integer.parseInt(input.next());
+        System.out.print("Enter desired date for the appointment:\n> ");
+        try {
+            date = input.nextLine();
+        } catch (Exception e) {
+            date = null;
+        }
+        System.out.print("Enter desired time for the appointment:\n> ");
+        try {
+            time = Integer.parseInt(input.next());
+        } catch (Exception e) {
+            time = -1;
+        }
+        if (date == null) {
+            System.out.println("The date you entered was not valid, therefore the appointment request has failed.");
+            Engine.clientMenu();
+        }
+        if (time == -1 || time == 0) {
+            System.out.println("The time you entered was not valid, therefore the appointment request has failed.");
+            Engine.clientMenu();
+        }
         if (dentist.appointmentList.get(date) == null) {
             new Appointment(date, time, name, false, dentist);
             System.out.println("Appointment requested successfully. Waiting for approval.\nDr. " + dentist.lastName + " will contact you as soon as possible.");
