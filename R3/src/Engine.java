@@ -355,7 +355,7 @@ public class Engine {
                     clientMenu();
                 } else if (choice > 0 && choice <= Dentist.dentists.size()) {
                     Dentist D = Client.chooseDentist(choice - 1);
-                    System.out.println("View the statistics of Dr. " + D.lastName);
+                    System.out.println("View the statistics of Dr. " + D.lastName+": ");
                     D.findStatistics();
                     System.out.println("Do you want to make an appointment with Dr. " + D.lastName + "?");
                     System.out.println("Press 1 for 'Yes' or anything else for 'No'.");

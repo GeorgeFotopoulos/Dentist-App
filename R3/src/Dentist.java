@@ -256,12 +256,18 @@ public class Dentist {
 
     public void findStatistics() {
         Scanner in = new Scanner(System.in);
-        System.out.println("0. Exit");
-        System.out.println("1. View General Statistics");
-        System.out.println("2. View Statistics for a specific Service");
-        int choice;
-        choice = Integer.parseInt(in.next());
-        if (choice == 1) {
+        int choice = -1;
+        do {
+            System.out.print("0. Exit\n1. View General Statistics\n2. View Statistics for a specific Service\n3. Back\n> ");
+            try {
+                choice = Integer.parseInt(in.next());
+            } catch (Exception e) {
+            }
+        } while (choice < 0 || choice > 3);
+        if (choice == 0) {
+            System.out.println("Exiting application...");
+            System.exit(0);
+        } else if (choice == 1) {
             this.viewAllStatistics();
         } else if (choice == 2) {
             System.out.println("Select one of the available services below:");
