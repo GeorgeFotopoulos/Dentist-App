@@ -309,7 +309,7 @@ public class Engine {
             D.viewAppointmentRequests();
             dentistOptions(D);
         } else if (choice == 5) {
-            D.findStatistics();
+            D.findStatistics(true);
             dentistOptions(D);
         } else if (choice == 6) {
             D.viewApprovedAppointments();
@@ -328,7 +328,7 @@ public class Engine {
     /**
      * This is the client Menu.
      */
-    private static void clientMenu() {
+    public static void clientMenu() {
         Scanner in = new Scanner(System.in);
         System.out.print("CLIENT MENU\n0. Exit\n1. Make Appointment\n2. Main Menu\n> ");
         int choice;
@@ -342,7 +342,7 @@ public class Engine {
             System.out.println("Exiting application...");
             System.exit(0);
         } else if (choice == 1) {
-            System.out.println("Choose one of the doctors IDs below or press 0 to exit!");
+            System.out.println("Choose one of the dentists' ID below or press 0 to exit!");
             Dentist.printListOfDentists();
             System.out.print("Enter dentist's ID:\n> ");
             do {
@@ -355,13 +355,16 @@ public class Engine {
                     clientMenu();
                 } else if (choice > 0 && choice <= Dentist.dentists.size()) {
                     Dentist D = Client.chooseDentist(choice - 1);
-                    System.out.println("View the statistics of Dr. " + D.lastName+": ");
-                    D.findStatistics();
+                    System.out.println("View the statistics of Dr. " + D.lastName + ": ");
+                    D.findStatistics(false);
                     System.out.println("Do you want to make an appointment with Dr. " + D.lastName + "?");
                     System.out.println("Press 1 for 'Yes' or anything else for 'No'.");
-                    choice = Integer.parseInt(in.next());
+                    try {
+                        choice = Integer.parseInt(in.next());
+                    } catch (Exception e) {
+                    }
                     if (choice == 1) {
-                        System.out.println("Enter a name:\n> ");
+                        System.out.print("Enter a name:\n> ");
                         name = in.next();
                         Client.requestAppointment(D, name);
                         printMenu();

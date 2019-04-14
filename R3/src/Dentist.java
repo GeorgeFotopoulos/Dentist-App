@@ -92,25 +92,19 @@ public class Dentist {
      */
     public static void createPatientCard(String AMKA) {
         Scanner in = new Scanner(System.in);
-        System.out.println("Enter client's first name: ");
-        System.out.print("> ");
+        System.out.print("Enter client's first name:\n> ");
         String fname = in.nextLine();
-        System.out.println("Enter client's last name: ");
-        System.out.print("> ");
+        System.out.print("Enter client's last name:\n> ");
         String lname = in.nextLine();
-        System.out.println("Enter client's address: ");
-        System.out.print("> ");
+        System.out.print("Enter client's address:\n> ");
         String address = in.nextLine();
-        System.out.println("Enter client's phone number: ");
-        System.out.print("> ");
+        System.out.print("Enter client's phone number:\n> ");
         String phone = in.nextLine();
-        System.out.println("Enter client's email address: ");
-        System.out.print("> ");
+        System.out.print("Enter client's email address:\n> ");
         String email = in.nextLine();
         Client C = new Client(fname, lname, address, phone, email);
         Client.clients.put(AMKA, C);
         System.out.println("Client Profile Added Successfully!");
-        System.out.println();
     }
 
     /**
@@ -238,7 +232,6 @@ public class Dentist {
         }
         if (!flag) {
             System.out.println("The doctor hasn't done any operations yet!");
-            System.out.println();
         }
     }
 
@@ -250,11 +243,10 @@ public class Dentist {
             System.out.println("Service: " + service + " - " + this.statistics.get(service) + " successful operations!");
         } else {
             System.out.println("The doctor hasn't done any " + service + " operations yet!");
-            System.out.println();
         }
     }
 
-    public void findStatistics() {
+    public void findStatistics(boolean flag) {
         Scanner in = new Scanner(System.in);
         int choice = -1;
         do {
@@ -282,10 +274,13 @@ public class Dentist {
                     System.out.print("> ");
                 }
             } while (choice < 1 || choice > Administrator.services.size());
-            System.out.println();
             this.viewSpecificStatistics(Administrator.services.get(choice - 1));
         } else {
-            Engine.dentistOptions(this);
+            if (flag) {
+                Engine.dentistOptions(this);
+            } else {
+                Engine.clientMenu();
+            }
         }
     }
 

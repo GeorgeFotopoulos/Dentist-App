@@ -64,19 +64,17 @@ public class Client {
         int time = Integer.parseInt(input.next());
         if (dentist.appointmentList.get(date) == null) {
             new Appointment(date, time, name, false, dentist);
-            System.out.println("Appointment Successful.Waiting for approval!");
-            System.out.println("Dr. " + dentist.lastName + " will contact you ASAP!");
+            System.out.println("Appointment requested successfully. Waiting for approval.\nDr. " + dentist.lastName + " will contact you as soon as possible.");
         } else if (dentist.appointmentList.get(date) != null) {
             for (int i = 0; i < dentist.appointmentList.get(date).size(); i++) {
                 if (dentist.appointmentList.get(date).get(i).time == time) {
-                    System.out.println("Sorry man! No appointment fo you.Brush your teeth!!!! ");
+                    System.out.println("Unfortunately, there is already an appointment for that particular date and time.");
                     flag = true;
                 }
             }
             if (!flag) {
                 new Appointment(date, time, name, false, dentist);
-                System.out.println("Appointment Successful.Waiting for approval!");
-                System.out.println("Dr. " + dentist.lastName + " will contact you ASAP!");
+                System.out.println("Appointment requested successfully. Waiting for approval.\nDr. " + dentist.lastName + " will contact you as soon as possible.");
             }
         }
     }
