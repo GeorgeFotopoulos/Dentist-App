@@ -407,15 +407,17 @@ public class Dentist {
         System.out.print("0. Back\n1. Change first name\n2. Change last name\n3. Change telephone number\n" +
                 "4. Change e-mail address\n5. Change exercise license details\n6. Change university of studies\n" +
                 "7. Change infirmary location\n8. Change work experience time\n9. Change password\n> ");
-        try {
-            choice = Integer.parseInt(in.nextLine());
-        } catch (Exception e) {
-            modifyData();
-        }
-        while (choice < 0 || choice > 9) {
-            System.out.print("Invalid input, please choose a value between 1 and 9:\n> ");
-            in.nextInt();
-        }
+        do {
+            try {
+                choice = Integer.parseInt(in.nextLine());
+                if (choice < 0 || choice > 9) {
+                    System.out.println("Invalid input, please choose a value between 1 and 9:");
+                    modifyData();
+                }
+            } catch (Exception e) {
+                modifyData();
+            }
+        } while (choice < 0 || choice > 9);
         switch (choice) {
             case 0:
                 break;
