@@ -342,9 +342,9 @@ public class Engine {
             System.out.println("Exiting application...");
             System.exit(0);
         } else if (choice == 1) {
-            System.out.println("Choose one of the dentists' ID below or press 0 to exit!");
+            System.out.println("LIST OF DENTISTS");
             Dentist.printListOfDentists();
-            System.out.print("Enter dentist's ID:\n> ");
+            System.out.print("Choose one of the dentists' ID above or press 0 to exit:\n> ");
             do {
                 try {
                     choice = Integer.parseInt(in.next());
