@@ -195,6 +195,8 @@ public class Engine {
             break;
         }
         newReg.setPassword(tempPassword);
+        System.out.println("Account was created successfully!\n");
+        dentistMenu();
     }
 
     /**
@@ -209,7 +211,7 @@ public class Engine {
         System.out.print("Enter your password:\n> ");
         password = in.nextLine();
         if (email.equalsIgnoreCase(Administrator.getUsername()) && password.equals(Administrator.getPassword())) {
-            System.out.println("Master Login successful!");
+            System.out.println("Master Login successful!\n");
             masterMenu();
         }
         Dentist D = Dentist.logIn(email, password);
@@ -228,7 +230,7 @@ public class Engine {
                 dentistLogIn();
             }
         } else {
-            System.out.println("Login successful!");
+            System.out.println("Login successful!\n");
             dentistOptions(D);
         }
     }
@@ -287,7 +289,7 @@ public class Engine {
     public static void dentistOptions(Dentist D) {
         Scanner in = new Scanner(System.in);
         System.out.print("OPTIONS\n0. Exit\n1. View Profile\n2. Update Account\n3. View Client History\n" +
-                "4. Appointment Management\n5. View Statistics\n6. View Schedule\n7. Record Provided Service\n8. Log Out\n> ");
+                "4. Appointment Management\n5. View Statistics\n6. View Appointment Schedule\n7. Record Provided Service\n8. Log Out\n> ");
         int choice = -1;
         try {
             choice = Integer.parseInt(in.next());

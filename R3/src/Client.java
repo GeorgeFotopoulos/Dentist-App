@@ -26,8 +26,7 @@ public class Client {
 
     public static void viewClientHistory() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Give Client's AMKA: ");
-        System.out.print("> ");
+        System.out.print("Enter Client's AMKA:\n> ");
         String AM = in.next();
         if (clients.get(AM) != null) {
             System.out.println("Client's History: ");
@@ -35,7 +34,7 @@ public class Client {
                 System.out.println(Client.clients.get(160198).visits.get(i));
             }
         } else {
-            System.out.println("There's no Client in the system!! ");
+            System.out.println("No client was found in the system with AMKA" + AM + ".\n");
         }
     }
 

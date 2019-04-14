@@ -52,8 +52,7 @@ public class Dentist {
      */
     public static void recordService() {
         Scanner in = new Scanner(System.in);
-        System.out.println("Give Client's AMKA: ");
-        System.out.print(">");
+        System.out.print("Enter client's AMKA:\n> ");
         String AMKA = in.next();
         int choice;
         if (Client.clients.get(AMKA) == null) {
@@ -67,15 +66,12 @@ public class Dentist {
         do {
             choice = Integer.parseInt(in.next());
             if (choice < 1 || choice > Administrator.services.size()) {
-                System.out.println("Choose between 1 - " + Administrator.services.size() + ". Please ,try again!");
-                System.out.print("> ");
+                System.out.print("Wrong input, please choose between 1 - " + Administrator.services.size() + ":\n> ");
             }
         } while (choice < 1 || choice > Administrator.services.size());
-        System.out.println();
-        System.out.println("Give Date: ");
-        System.out.print("> ");
+        System.out.print("Enter Date:\n> ");
         String date = in.next();
-        System.out.println("Give comments or press 0 to finish: ");
+        System.out.print("Enter comments or press 0 to finish:\n> ");
         String comments = in.next();
         comments += in.nextLine();
         if (comments.equals("0")) {
@@ -231,7 +227,7 @@ public class Dentist {
             }
         }
         if (!flag) {
-            System.out.println("The doctor hasn't done any operations yet!");
+            System.out.println("Dr. " + this.lastName + " hasn't done any operations yet!");
         }
     }
 
@@ -242,7 +238,7 @@ public class Dentist {
         if (this.statistics.get(service) != null) {
             System.out.println("Service: " + service + " - " + this.statistics.get(service) + " successful operations!");
         } else {
-            System.out.println("The doctor hasn't done any " + service + " operations yet!");
+            System.out.println("Dr. " + this.lastName + " hasn't done any " + service + " operations yet!");
         }
     }
 
