@@ -1,7 +1,18 @@
 package com.example.efarmoghgiaodontiatrous;
 
 public class Client {
-    private String firstName, lastName, address, telephoneNo, email, AMKA;
+    private String firstName, lastName, telephoneNo, email, AMKA;
+
+    public Client() {
+    }
+
+    public Client(String firstName, String lastName, String telephoneNo, String email, String AMKA) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephoneNo = telephoneNo;
+        this.email = email;
+        this.AMKA = AMKA;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -17,14 +28,6 @@ public class Client {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getTelephoneNo() {

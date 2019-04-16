@@ -3,6 +3,14 @@ package com.example.efarmoghgiaodontiatrous;
 public class Service {
     private String serviceName, serviceID;
 
+    public Service() {
+    }
+
+    public Service(String serviceName, String serviceID) {
+        this.serviceName = serviceName;
+        this.serviceID = serviceID;
+    }
+
     public String getServiceName() {
         return serviceName;
     }

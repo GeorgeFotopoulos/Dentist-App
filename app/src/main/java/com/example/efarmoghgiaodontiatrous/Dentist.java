@@ -4,15 +4,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Dentist {
-    private String firstName, lastName, telephoneNo, email, exerciseLicense, universityAttended, infirmaryLocation, password, dentistID;
+    private String firstName, lastName, telephoneNo, email, exerciseLicense, universityAttended, password, dentistID;
     private int timeOfExperience;
+    private Address infirmaryLocation;
     private Set<Specialization> specializations = new HashSet<>();
     private Set<Service> services = new HashSet<>();
+    private Set<Appointment> appointments = new HashSet<>();
 
     public Dentist() {
     }
 
-    public Dentist(String firstName, String lastName, String telephoneNo, String email, String exerciseLicense, String universityAttended, String infirmaryLocation, int timeOfExperience, String password, String dentistID) {
+    public Dentist(String firstName, String lastName, String telephoneNo, String email, String exerciseLicense, String universityAttended, Address infirmaryLocation, int timeOfExperience, String password, String dentistID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNo = telephoneNo;
@@ -81,11 +83,11 @@ public class Dentist {
         this.universityAttended = universityAttended;
     }
 
-    public String getInfirmaryLocation() {
+    public Address getInfirmaryLocation() {
         return infirmaryLocation;
     }
 
-    public void setInfirmaryLocation(String infirmaryLocation) {
+    public void setInfirmaryLocation(Address infirmaryLocation) {
         this.infirmaryLocation = infirmaryLocation;
     }
 
@@ -113,6 +115,10 @@ public class Dentist {
         return new HashSet<>(services);
     }
 
+    public Set<Appointment> getAppointments() {
+        return new HashSet<>(appointments);
+    }
+
     public void addService(Service service) {
         if (service != null) {
             this.services.add(service);
@@ -134,6 +140,18 @@ public class Dentist {
     public void removeSpecialization(Specialization specialization) {
         if (specialization != null) {
             this.specializations.remove(specialization);
+        }
+    }
+
+    public void addAppointment(Appointment appointment) {
+        if(appointment != null){
+            this.appointments.add(appointment);
+        }
+    }
+
+    public void removeAppointment(Appointment appointment) {
+        if(appointment != null){
+            this.appointments.remove(appointment);
         }
     }
 }

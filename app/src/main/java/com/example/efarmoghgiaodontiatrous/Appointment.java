@@ -1,9 +1,29 @@
 package com.example.efarmoghgiaodontiatrous;
 
 public class Appointment {
-    Dentist dentist;
-
     private String firstName, lastName, telephoneNo, email;
+    private AppointmentState state;
+    private Dentist dentist;
+
+    public Appointment() {
+    }
+
+    public Appointment(String firstName, String lastName, String telephoneNo, String email, AppointmentState state, Dentist dentist) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.telephoneNo = telephoneNo;
+        this.email = email;
+        this.state = state;
+        this.dentist = dentist;
+    }
+
+    public Dentist getDentist() {
+        return dentist;
+    }
+
+    public void setDentist(Dentist dentist) {
+        this.dentist = dentist;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -35,5 +55,13 @@ public class Appointment {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public AppointmentState getState() {
+        return state;
+    }
+
+    public void setState(AppointmentState state) {
+        this.state = state;
     }
 }

@@ -40,7 +40,7 @@ ID οδοντιάτρου: String
 διεύθυνση: String
 τηλέφωνο: String
 email: String
-ΑΜΚΑ: ΑΜΚΑ
+ΑΜΚΑ: String
 --
 ..</panel_attributes>
     <additional_attributes/>

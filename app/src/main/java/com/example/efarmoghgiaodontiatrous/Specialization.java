@@ -3,6 +3,14 @@ package com.example.efarmoghgiaodontiatrous;
 public class Specialization {
     private String specializationName, specializationID;
 
+    public Specialization() {
+    }
+
+    public Specialization(String specializationName, String specializationID) {
+        this.specializationName = specializationName;
+        this.specializationID = specializationID;
+    }
+
     public String getSpecializationName() {
         return specializationName;
     }
