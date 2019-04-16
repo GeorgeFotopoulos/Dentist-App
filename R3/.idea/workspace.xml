@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="052c9f93-4b22-46ec-bd3a-20c13200ec9e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/GeorgeF.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/efarmoghgiaodontiatrous/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/efarmoghgiaodontiatrous/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/efarmoghgiaodontiatrous/Specialization.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/efarmoghgiaodontiatrous/Specialization.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app/src/main/java/com/example/efarmoghgiaodontiatrous/Visit.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app/src/main/java/com/example/efarmoghgiaodontiatrous/Visit.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,6 +85,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../.." />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
