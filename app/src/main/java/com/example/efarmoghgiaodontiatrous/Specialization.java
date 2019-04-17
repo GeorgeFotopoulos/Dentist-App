@@ -26,4 +26,22 @@ public class Specialization {
     public void setSpecializationID(String specializationID) {
         this.specializationID = specializationID;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Specialization that = (Specialization) o;
+
+        if (!specializationName.equals(that.specializationName)) return false;
+        return specializationID.equals(that.specializationID);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = specializationName.hashCode();
+        result = 31 * result + specializationID.hashCode();
+        return result;
+    }
 }

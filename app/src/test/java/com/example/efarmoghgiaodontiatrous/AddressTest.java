@@ -1,9 +1,12 @@
 package com.example.efarmoghgiaodontiatrous;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AddressTest {
     Address address1;
@@ -18,6 +21,7 @@ public class AddressTest {
         Address address2 = new Address(address1);
         Address address3 = new Address("Lesvou", "8-10", "Athina", "Ellada", 11256);
         Address address4 = new Address(null, null, null, null, 0);
+
         assertFalse(address1.equals(null));
 
         assertTrue(address2.equals(address1));

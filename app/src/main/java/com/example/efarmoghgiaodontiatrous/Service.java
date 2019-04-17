@@ -26,4 +26,22 @@ public class Service {
     public void setServiceID(String serviceID) {
         this.serviceID = serviceID;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Service service = (Service) o;
+
+        if (!serviceName.equals(service.serviceName)) return false;
+        return serviceID.equals(service.serviceID);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = serviceName.hashCode();
+        result = 31 * result + serviceID.hashCode();
+        return result;
+    }
 }
