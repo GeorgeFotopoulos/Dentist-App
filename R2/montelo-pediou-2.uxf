@@ -17,7 +17,7 @@
 email: String
 άδεια άσκησης επαγγέλματος: String
 πανεπιστήμιο φοίτησης: String
-τοποθεσία ιατρείου: String
+τοποθεσία ιατρείου: Address
 χρόνια προϋπηρεσίας: int
 κωδικός πρόσβασης: String
 ID οδοντιάτρου: String
@@ -37,7 +37,7 @@ ID οδοντιάτρου: String
 --
 όνομα: String
 επώνυμο: String
-διεύθυνση: String
+διεύθυνση: Address
 τηλέφωνο: String
 email: String
 ΑΜΚΑ: String
@@ -65,10 +65,10 @@ email: String
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>143</x>
+      <x>130</x>
       <y>442</y>
-      <w>195</w>
-      <h>156</h>
+      <w>234</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes>Ραντεβού
 --
@@ -76,6 +76,7 @@ email: String
 επώνυμο: String
 τηλέφωνο: String
 email: String
+ημερομηνία ραντεβού: Date
 --
 ..</panel_attributes>
     <additional_attributes/>
@@ -83,16 +84,16 @@ email: String
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>325</x>
+      <x>351</x>
       <y>494</y>
-      <w>234</w>
+      <w>208</w>
       <h>65</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=*
 m2=1
 &lt; κλείνει</panel_attributes>
-    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;140.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

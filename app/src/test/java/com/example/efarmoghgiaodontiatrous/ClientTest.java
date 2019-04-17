@@ -44,5 +44,4 @@ public class ClientTest {
         assertNotEquals("panagiwths.nty@gmail.com", otherClient.getEmail());
         assertNotEquals("17099800037", otherClient.getAMKA());
     }
-
 }

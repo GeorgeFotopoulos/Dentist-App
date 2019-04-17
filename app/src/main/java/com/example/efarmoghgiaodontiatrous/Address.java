@@ -15,6 +15,14 @@ public class Address {
         this.country = address.getCountry();
     }
 
+    public Address(String street, String number, String city, String country, int zip) {
+        this.street = street;
+        this.number = number;
+        this.city = city;
+        this.country = country;
+        this.zip = zip;
+    }
+
     public void setStreet(String street) {
         this.street = street;
     }
@@ -56,6 +64,7 @@ public class Address {
         return country;
     }
 
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -69,12 +78,17 @@ public class Address {
         return country.equals(address.country);
     }
 
+    @Override
     public int hashCode() {
-        int result = street.hashCode();
-        result = 31 * result + number.hashCode();
-        result = 31 * result + city.hashCode();
-        result = 31 * result + country.hashCode();
-        result = 31 * result + zip;
+        if (street == null && number == null && city == null && zip == 0 && country == null) {
+            return 0;
+        }
+        int result = 0;
+        result = street == null ? result : 13 * result + street.hashCode();
+        result = number == null ? result : 13 * result + number.hashCode();
+        result = city == null ? result : 13 * result + city.hashCode();
+        result = zip == 0 ? result : 13 * result + zip;
+        result = country == null ? result : 13 * result + country.hashCode();
         return result;
     }
 }
