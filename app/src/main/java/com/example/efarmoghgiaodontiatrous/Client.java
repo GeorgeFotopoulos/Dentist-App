@@ -53,4 +53,19 @@ public class Client {
     public void setAMKA(String AMKA) {
         this.AMKA = AMKA;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Client client = (Client) o;
+
+        return AMKA.equals(client.AMKA);
+    }
+
+    @Override
+    public int hashCode() {
+        return AMKA.hashCode();
+    }
 }

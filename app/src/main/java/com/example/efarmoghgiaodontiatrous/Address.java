@@ -56,34 +56,25 @@ public class Address {
         return country;
     }
 
-    public boolean equals(Object other) {
-        if (other == null) {
-            return false;
-        }
-        if (this == other) {
-            return true;
-        }
-        if (!(other instanceof Address)) {
-            return false;
-        }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
 
-        Address theAddress = (Address) other;
-        if (!(street == null ? theAddress.street == null : street.equals(theAddress.street))) {
-            return false;
-        }
-        if (!(number == null ? theAddress.number == null : number.equals(theAddress.number))) {
-            return false;
-        }
-        if (!(city == null ? theAddress.city == null : city.equals(theAddress.city))) {
-            return false;
-        }
-        if (!(zip == 0 ? theAddress.zip == 0 : zip == theAddress.zip)) {
-            return false;
-        }
-        if (!(country == null ? theAddress.country == null : country.equals(theAddress.country))) {
-            return false;
-        }
-        return true;
+        Address address = (Address) o;
+
+        if (zip != address.zip) return false;
+        if (!street.equals(address.street)) return false;
+        if (!number.equals(address.number)) return false;
+        if (!city.equals(address.city)) return false;
+        return country.equals(address.country);
     }
 
+    public int hashCode() {
+        int result = street.hashCode();
+        result = 31 * result + number.hashCode();
+        result = 31 * result + city.hashCode();
+        result = 31 * result + country.hashCode();
+        result = 31 * result + zip;
+        return result;
+    }
 }
