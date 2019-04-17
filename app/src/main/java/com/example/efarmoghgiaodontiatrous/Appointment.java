@@ -23,6 +23,8 @@ public class Appointment {
         this.bookDate = bookDate;
     }
 
+    //TODO addAppointment( DENTIST )
+
     public Dentist getDentist() {
         return dentist;
     }

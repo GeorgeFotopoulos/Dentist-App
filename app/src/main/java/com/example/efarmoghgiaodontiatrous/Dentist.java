@@ -12,10 +12,22 @@ public class Dentist {
     private Set<Service> services = new HashSet<>();
     private Set<Appointment> appointments = new HashSet<>();
 
+
+    //TODO boolean or void addclientToSystem(CLIENT)
+    //TODO recordVisit(CLIENT,date,comments,listofservices)
+    //TODO login()
+   /*
+    TODO
+    Appointment app1;
+    public void acceptApp(){}
+    public void declineApp(){};
+     */
     public Dentist() {
         this.dentistID = ID + "";
         ID++;
     }
+
+
 
     public Dentist(String firstName, String lastName, String telephoneNo, String email, String exerciseLicense, String universityAttended, Address infirmaryLocation, int timeOfExperience, String password, String dentistID) {
         this.firstName = firstName;
