@@ -7,11 +7,14 @@ public class Dentist {
     private String firstName, lastName, telephoneNo, email, exerciseLicense, universityAttended, password, dentistID;
     private int timeOfExperience;
     private Address infirmaryLocation;
+    private static int ID = 0;
     private Set<Specialization> specializations = new HashSet<>();
     private Set<Service> services = new HashSet<>();
     private Set<Appointment> appointments = new HashSet<>();
 
     public Dentist() {
+        this.dentistID = ID + "";
+        ID++;
     }
 
     public Dentist(String firstName, String lastName, String telephoneNo, String email, String exerciseLicense, String universityAttended, Address infirmaryLocation, int timeOfExperience, String password, String dentistID) {
@@ -144,14 +147,29 @@ public class Dentist {
     }
 
     public void addAppointment(Appointment appointment) {
-        if(appointment != null){
+        if (appointment != null) {
             this.appointments.add(appointment);
         }
     }
 
     public void removeAppointment(Appointment appointment) {
-        if(appointment != null){
+        if (appointment != null) {
             this.appointments.remove(appointment);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Dentist dentist = (Dentist) o;
+
+        return dentistID.equals(dentist.dentistID);
+    }
+
+    @Override
+    public int hashCode() {
+        return dentistID.hashCode();
     }
 }

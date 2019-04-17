@@ -1,15 +1,19 @@
 package com.example.efarmoghgiaodontiatrous;
 
+import java.util.Calendar;
+
 public class Appointment {
     private String firstName, lastName, telephoneNo, email;
     private AppointmentState state;
     private Dentist dentist;
-    private SystemDate bookDate;
+    private SimpleCalendar bookDate;
 
     public Appointment() {
+        new Dentist();
+        new SimpleCalendar(Calendar.getInstance());
     }
 
-    public Appointment(String firstName, String lastName, String telephoneNo, String email, AppointmentState state, Dentist dentist, SystemDate bookDate) {
+    public Appointment(String firstName, String lastName, String telephoneNo, String email, AppointmentState state, Dentist dentist, SimpleCalendar bookDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNo = telephoneNo;
@@ -67,11 +71,11 @@ public class Appointment {
         this.state = state;
     }
 
-    public SystemDate getBookDate() {
+    public SimpleCalendar getBookDate() {
         return bookDate;
     }
 
-    public void setBookDate(SystemDate bookDate) {
+    public void setBookDate(SimpleCalendar bookDate) {
         this.bookDate = bookDate;
     }
 

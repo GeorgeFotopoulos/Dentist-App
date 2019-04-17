@@ -3,8 +3,6 @@ package com.example.efarmoghgiaodontiatrous;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Calendar;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
@@ -13,30 +11,25 @@ import static org.junit.Assert.assertTrue;
 public class AppointmentTest {
     Appointment appointment;
     Dentist dentist;
-    Calendar calendar;
-    SystemDate stub;
+    SimpleCalendar calendar;
 
     @Before
     public void setUp() {
-        calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2019);
-        calendar.set(Calendar.MONTH, 0);
-        calendar.set(Calendar.DAY_OF_MONTH, 16);
-        stub.setStub(new SimpleCalendar(calendar));
+        calendar = new SimpleCalendar(10, 10, 2010);
         dentist = new Dentist();
-        appointment = new Appointment("George", "Patrikis", "6986888788", "geopatg4@gmail.com", AppointmentState.DECLINED, dentist, stub);
+        appointment = new Appointment("George", "Patrikis", "6986888788", "geopatg4@gmail.com", AppointmentState.DECLINED, dentist, calendar);
     }
 
     @Test
     public void equals() {
-        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", AppointmentState.ACCEPTED, dentist, stub);
+        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", AppointmentState.ACCEPTED, dentist, calendar);
         assertTrue(other.equals(appointment));
         assertEquals(other.hashCode(), appointment.hashCode());
     }
 
     @Test
     public void differentAppointments() {
-        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", AppointmentState.ACCEPTED, new Dentist(), new SystemDate());
+        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", AppointmentState.ACCEPTED, new Dentist(), new SimpleCalendar(1, 1, 2010));
         assertFalse(other.equals(appointment));
         assertNotEquals(other.hashCode(), appointment.hashCode());
     }
@@ -44,28 +37,21 @@ public class AppointmentTest {
     @Test
     public void testGettersSetters() {
         Appointment other = new Appointment();
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.YEAR, 2019);
-        calendar.set(Calendar.MONTH, 0);
-        calendar.set(Calendar.DAY_OF_MONTH, 16);
-        SystemDate stub2 = new SystemDate();
-        calendar.set(Calendar.YEAR, 2019);
-        calendar.set(Calendar.MONTH, 0);
-        calendar.set(Calendar.DAY_OF_MONTH, 16);
-        stub2.setStub(new SimpleCalendar(calendar));
+        Dentist dentist = new Dentist();
+        SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
         other.setFirstName("George");
         other.setLastName("Fotopoulos");
         other.setTelephoneNo("6980793051");
         other.setEmail("giorgos.fotopoulos7@gmail.com");
         other.setState(AppointmentState.PENDING);
-        other.setDentist(new Dentist());
-        other.setBookDate(stub);
+        other.setDentist(dentist);
+        other.setBookDate(calendar);
         assertNotEquals("Panagiotis", other.getFirstName());
         assertNotEquals("Ntymenos", other.getLastName());
         assertNotEquals("6948554284", other.getTelephoneNo());
         assertNotEquals("panagiwths.nty@gmail.com", other.getEmail());
         assertNotEquals(AppointmentState.ACCEPTED, other.getState());
         assertNotEquals(new Dentist(), other.getDentist());
-        assertNotEquals(SystemDate.now(), other.getBookDate());
+        assertNotEquals(new SimpleCalendar(1, 1, 2001), other.getBookDate());
     }
 }
