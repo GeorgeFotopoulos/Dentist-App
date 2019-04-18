@@ -37,18 +37,18 @@ public class Dentist {
         this.setState(ConnectionState.DISCONNECTED);
     }
 
-    public Dentist(Dentist other) {
-        this.firstName = other.getFirstName();
-        this.lastName = other.getLastName();
-        this.telephoneNo = other.getTelephoneNo();
-        this.email = other.getEmail();
-        this.exerciseLicense = other.getExerciseLicense();
-        this.universityAttended = other.getUniversityAttended();
-        this.infirmaryLocation = other.getInfirmaryLocation();
-        this.timeOfExperience = other.getTimeOfExperience();
-        this.password = other.getPassword();
-        this.dentistID = other.getID();
-        this.state = other.getState();
+    public Dentist(Dentist dentist) {
+        this.firstName = dentist.getFirstName();
+        this.lastName = dentist.getLastName();
+        this.telephoneNo = dentist.getTelephoneNo();
+        this.email = dentist.getEmail();
+        this.exerciseLicense = dentist.getExerciseLicense();
+        this.universityAttended = dentist.getUniversityAttended();
+        this.infirmaryLocation = dentist.getInfirmaryLocation();
+        this.timeOfExperience = dentist.getTimeOfExperience();
+        this.password = dentist.getPassword();
+        this.dentistID = dentist.getID();
+        this.state = dentist.getState();
     }
 
     public Dentist(String firstName, String lastName, String telephoneNo, String email, String exerciseLicense, String universityAttended, Address infirmaryLocation, int timeOfExperience, String password) {

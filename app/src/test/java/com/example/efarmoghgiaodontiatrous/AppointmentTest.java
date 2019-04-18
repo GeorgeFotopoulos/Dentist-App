@@ -32,11 +32,20 @@ public class AppointmentTest {
     @Test
     public void differentAppointments() {
         Dentist dentist2 = new Dentist();
-        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", dentist2, new SimpleCalendar(1, 1, 2010));
+        Appointment appointment2 = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", dentist2, new SimpleCalendar(1, 1, 2010));
         dentist2.setEmail("abc123@gmail.com");
         dentist2.setPassword("abc123");
-        assertFalse(other.equals(appointment));
-        assertNotEquals(other.hashCode(), appointment.hashCode());
+
+        assertFalse(appointment2.equals(appointment));
+        assertNotEquals(appointment2.hashCode(), appointment.hashCode());
+
+        Appointment appointment3 = new Appointment(null, null, null, null, null, null);
+        assertFalse(appointment3.equals(null));
+        assertEquals(0, appointment3.hashCode());
+
+        Appointment appointment4 = new Appointment(appointment);
+        assertTrue(appointment4.equals(appointment));
+        assertEquals(appointment4.hashCode(), appointment.hashCode());
     }
 
     @Test
@@ -44,7 +53,7 @@ public class AppointmentTest {
         Appointment other = new Appointment();
         Dentist d = new Dentist();
         d.setEmail("test@gmail.com");
-        d.setPassword("testpwd");
+        d.setPassword("testPassword");
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
         other.setFirstName("George");
         other.setLastName("Fotopoulos");

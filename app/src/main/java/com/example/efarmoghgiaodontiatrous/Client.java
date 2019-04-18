@@ -6,6 +6,14 @@ public class Client {
     public Client() {
     }
 
+    public Client(Client client){
+        this.setFirstName(client.getFirstName());
+        this.setLastName(client.getLastName());
+        this.setTelephoneNo(client.getTelephoneNo());
+        this.setEmail(client.getEmail());
+        this.setAMKA(client.getAMKA());
+    }
+
     public Client(String firstName, String lastName, String telephoneNo, String email, String AMKA) {
         this.firstName = firstName;
         this.lastName = lastName;

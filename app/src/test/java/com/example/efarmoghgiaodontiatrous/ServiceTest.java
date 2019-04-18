@@ -20,6 +20,8 @@ public class ServiceTest {
     public void testEqualsObject() {
         Service service2 = new Service("Filling", "1");
         Service service3 = new Service("Teeth whitening", "2");
+        Service service4 = new Service(service);
+
         assertFalse(service.equals(null));
 
         assertTrue(service2.equals(service));
@@ -27,6 +29,9 @@ public class ServiceTest {
 
         assertFalse(service3.equals(service));
         assertNotEquals(service3.hashCode(), service.hashCode());
+
+        assertTrue(service4.equals(service));
+        assertEquals(service4.hashCode(), service.hashCode());
     }
 
     @Test

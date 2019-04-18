@@ -80,45 +80,27 @@ public class SimpleCalendar implements Comparable<SimpleCalendar> {
         return date.compareTo(other.date);
     }
 
-
     @Override
     public boolean equals(Object other) {
-        if (other == null) {
-            return false;
-        }
-
-        if (this == other) {
-            return true;
-        }
-
-        if (!(other instanceof SimpleCalendar)) {
-            return false;
-        }
+        if (other == null) return false;
+        if (this == other) return true;
+        if (!(other instanceof SimpleCalendar)) return false;
 
         SimpleCalendar theDate = (SimpleCalendar) other;
 
-        if (date == null) {
-            return theDate.date == null;
-        }
-
-        if (getYear() != theDate.getYear()) {
-            return false;
-        }
-
-        if (getMonth() != theDate.getMonth()) {
-            return false;
-        }
-
-        if (getDayOfMonth() != theDate.getDayOfMonth()) {
-            return false;
-        }
-
+        if (date == null) return theDate.date == null;
+        if (getYear() != theDate.getYear()) return false;
+        if (getMonth() != theDate.getMonth()) return false;
+        if (getDayOfMonth() != theDate.getDayOfMonth()) return false;
         return true;
     }
 
     @Override
     public int hashCode() {
-        return date == null ? 0 : date.hashCode();
+        if (date == null|| this.getYear() < 1950 || this.getMonth() < 0 || this.getMonth() > 12 || this.getDayOfMonth() < 0 || this.getDayOfMonth() > 31) {
+            return 0;
+        } else {
+            return date.hashCode();
+        }
     }
-
 }

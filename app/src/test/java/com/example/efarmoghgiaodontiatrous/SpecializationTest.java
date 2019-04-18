@@ -20,6 +20,8 @@ public class SpecializationTest {
     public void testEqualsObject() {
         Specialization specialization2 = new Specialization("Endodontic", "1");
         Specialization specialization3 = new Specialization("Pedodontic", "2");
+        Specialization specialization4 = new Specialization(specialization);
+
         assertFalse(specialization.equals(null));
 
         assertTrue(specialization2.equals(specialization));
@@ -27,6 +29,9 @@ public class SpecializationTest {
 
         assertFalse(specialization3.equals(specialization));
         assertNotEquals(specialization3.hashCode(), specialization.hashCode());
+
+        assertTrue(specialization4.equals(specialization));
+        assertEquals(specialization4.hashCode(), specialization.hashCode());
     }
 
     @Test

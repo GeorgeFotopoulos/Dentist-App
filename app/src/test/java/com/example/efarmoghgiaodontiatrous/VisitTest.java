@@ -40,7 +40,10 @@ public class VisitTest {
     @Test
     public void testGettersSetters() {
         Dentist otherDentist = new Dentist();
+        otherDentist.setEmail("test@gmail.com");
+        otherDentist.setPassword("testPassword");
         Client otherClient = new Client();
+        otherClient.setAMKA("18059500037");
         Set<Service> otherServices = new HashSet<>();
         otherServices.add(new Service("Dental cleaning", "3"));
         assertNotEquals(new SimpleCalendar(1,1,2001), visit.getDateOfVisit());

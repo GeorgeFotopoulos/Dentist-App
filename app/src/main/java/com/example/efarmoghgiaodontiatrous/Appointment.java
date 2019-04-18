@@ -14,6 +14,16 @@ public class Appointment {
         this.setState(AppointmentState.PENDING);
     }
 
+    public Appointment(Appointment appointment){
+        this.setFirstName(appointment.getFirstName());
+        this.setLastName(appointment.getLastName());
+        this.setTelephoneNo(appointment.getTelephoneNo());
+        this.setEmail(appointment.getEmail());
+        this.setDentist(appointment.getDentist());
+        this.setBookDate(appointment.getBookDate());
+        this.setState(AppointmentState.PENDING);
+    }
+
     public Appointment(String firstName, String lastName, String telephoneNo, String email, Dentist dentist, SimpleCalendar bookDate) {
         this.firstName = firstName;
         this.lastName = lastName;

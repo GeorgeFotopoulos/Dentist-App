@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Visit {
+    Visit visit;
     private SimpleCalendar dateOfVisit;
     private String comments;
     private Dentist dentist;
@@ -11,6 +12,14 @@ public class Visit {
     private Set<Service> services = new HashSet<>();
 
     public Visit() {
+    }
+
+    public Visit(Visit other) {
+        this.setDateOfVisit(other.getDateOfVisit());
+        this.setComments(other.getComments());
+        this.setDentist(other.getDentist());
+        this.setClient(other.getClient());
+        this.setServices(other.getServices());
     }
 
     public Visit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Set<Service> services) {
