@@ -9,6 +9,7 @@ public class Dentist {
     private Address infirmaryLocation;
     private static int ID = 0;
     private ConnectionState state;
+    Visit visit;
     private Set<Specialization> specializations = new HashSet<>();
     private Set<Service> services = new HashSet<>();
     private Set<Appointment> appointments = new HashSet<>();
@@ -187,15 +188,15 @@ public class Dentist {
         }
     }
 
-    public void login(Dentist dentist, String email, String password) {
-        if (dentist.getEmail().equals(email) && dentist.getPassword().equals(password)) {
-            dentist.setState(ConnectionState.CONNECTED);
+    public void login(String email, String password) {
+        if (this.getEmail().equals(email) && this.getPassword().equals(password)) {
+            this.setState(ConnectionState.CONNECTED);
         }
     }
 
-    public void recordVisit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Set<Service> services) {
-        if (dentist.services.contains(services)) {
-            Visit visit = new Visit(dateOfVisit, comments, dentist, client, services);
+    public void recordVisit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Service service) {
+        if (dentist.services.contains(service)) {
+            visit = new Visit(dateOfVisit, comments, dentist, client, services);
         }
     }
 

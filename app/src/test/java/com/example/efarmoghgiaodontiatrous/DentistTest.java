@@ -14,6 +14,7 @@ public class DentistTest {
     @Before
     public void setUp() {
         dentist = new Dentist("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", "ABC123", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "asd123");
+        dentist.addService(new Service("Filling", "1"));
     }
 
     @Test
@@ -64,6 +65,36 @@ public class DentistTest {
         Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
         dentist.acceptAppointment(appointment);
         dentist.declineAppointment(appointment);
+    }
+
+    @Test
+    public void testLogin() {
+        String email = "giorgos.fotopoulos7@gmail.com";
+        String password = "asd123";
+        dentist.login(email, password);
+    }
+
+    @Test
+    public void testGetAppointments() {
+        SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
+        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        dentist.acceptAppointment(appointment);
+        dentist.getAppointments();
+    }
+
+    @Test
+    public void testRecordVisit() {
+        SimpleCalendar dateOfVisit = new SimpleCalendar(10, 10, 2010);
+        String comments = "Comments...";
+        Client client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
+        Service service = new Service("Filling", "1");
+        dentist.recordVisit(dateOfVisit, comments, dentist, client, service);
+    }
+
+    @Test
+    public void testCreateClientCard() {
+        String AMKA = "18059500037";
+        dentist.createClientCard(AMKA);
     }
 
     @Test
