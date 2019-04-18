@@ -2,12 +2,12 @@ package com.example.efarmoghgiaodontiatrous;
 
 import org.junit.Test;
 
+import java.util.Calendar;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
-
-import java.util.Calendar;
 
 public class SimpleCalendarTest {
 
@@ -32,14 +32,6 @@ public class SimpleCalendarTest {
     }
 
     @Test
-    public void addDays() {
-        SimpleCalendar date = new SimpleCalendar(2007, 2, 28);
-        SimpleCalendar march_1_2007 = date.addDays(1);
-        assert1stMarch2007(march_1_2007);
-        assertFalse(date.equals(march_1_2007));
-    }
-
-    @Test
     public void beforeAndAfter() {
         SimpleCalendar date = new SimpleCalendar(2007, 3, 1);
         SimpleCalendar date2 = new SimpleCalendar(2007, 2, 28);
@@ -57,20 +49,6 @@ public class SimpleCalendarTest {
 
         assertEquals(0, other.hashCode());
         assertNotEquals(date2.hashCode(), date.hashCode());
-    }
-
-    @Test
-    public void getJavaCalendar() {
-        SimpleCalendar date = new SimpleCalendar(2007, 3, 1);
-        Calendar javaDate = date.getJavaCalendar();
-
-        assertEquals(2007, javaDate.get(Calendar.YEAR));
-        assertEquals(Calendar.MARCH, javaDate.get(Calendar.MONTH));
-        assertEquals(1, javaDate.get(Calendar.DAY_OF_MONTH));
-        assertEquals(0, javaDate.get(Calendar.HOUR_OF_DAY));
-        assertEquals(0, javaDate.get(Calendar.MINUTE));
-        assertEquals(0, javaDate.get(Calendar.SECOND));
-        assertEquals(0, javaDate.get(Calendar.MILLISECOND));
     }
 
     @Test

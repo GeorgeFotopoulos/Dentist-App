@@ -4,9 +4,17 @@ public class Address {
     private String street, number, city, country = "Greece";
     private int zip;
 
+    /**
+     * Default Constructor.
+     */
     public Address() {
     }
 
+    /**
+     * Address constructor where another Address object is given as parameter and its fields are copied.
+     *
+     * @param address Address object whose values are getting copied to the other Address object
+     */
     public Address(Address address) {
         this.street = address.getStreet();
         this.number = address.getNumber();
@@ -15,6 +23,15 @@ public class Address {
         this.country = address.getCountry();
     }
 
+    /**
+     * Address constructor where all values are given as parameters.
+     *
+     * @param street  Street name
+     * @param number  Street number
+     * @param city    City name
+     * @param country Country name
+     * @param zip     Zip code
+     */
     public Address(String street, String number, String city, String country, int zip) {
         this.street = street;
         this.number = number;
@@ -23,45 +40,94 @@ public class Address {
         this.zip = zip;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
+    /**
+     * Returns the Address street.
+     *
+     * @return Address's street
+     */
     public String getStreet() {
         return street;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    /**
+     * Sets the Address street.
+     *
+     * @param street Address's street
+     */
+    public void setStreet(String street) {
+        this.street = street;
     }
 
+    /**
+     * Returns the Address street number.
+     *
+     * @return Address's street number
+     */
     public String getNumber() {
         return number;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    /**
+     * Sets the Address street number.
+     *
+     * @param number Address's street number
+     */
+    public void setNumber(String number) {
+        this.number = number;
     }
 
-
+    /**
+     * Returns the Address city.
+     *
+     * @return Address's city
+     */
     public String getCity() {
         return city;
     }
 
-    public void setZipCode(int zipcode) {
-        this.zip = zipcode;
+    /**
+     * Sets the Address city.
+     *
+     * @param city Address's city
+     */
+    public void setCity(String city) {
+        this.city = city;
     }
 
+    /**
+     * Returns the Address zip code.
+     *
+     * @return Address's zip code
+     */
     public int getZipCode() {
         return zip;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    /**
+     * Sets the Address zip code.
+     *
+     * @param zipcode Address's zip code
+     */
+    public void setZipCode(int zipcode) {
+        this.zip = zipcode;
     }
 
+    /**
+     * Returns the Address country.
+     *
+     * @return Address's country
+     */
     public String getCountry() {
         return country;
+    }
+
+    /**
+     * Sets the Address country.
+     *
+     * @param country Address's country
+     */
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     @Override
