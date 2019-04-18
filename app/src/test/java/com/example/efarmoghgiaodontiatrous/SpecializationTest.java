@@ -21,6 +21,7 @@ public class SpecializationTest {
         Specialization specialization2 = new Specialization("Endodontic", "1");
         Specialization specialization3 = new Specialization("Pedodontic", "2");
         Specialization specialization4 = new Specialization(specialization);
+        Specialization specialization5 = new Specialization("Orthodontic", null);
 
         assertFalse(specialization.equals(null));
 
@@ -32,6 +33,8 @@ public class SpecializationTest {
 
         assertTrue(specialization4.equals(specialization));
         assertEquals(specialization4.hashCode(), specialization.hashCode());
+
+        assertEquals(0, specialization5.hashCode());
     }
 
     @Test
