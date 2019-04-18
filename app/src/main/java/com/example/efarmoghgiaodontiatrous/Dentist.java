@@ -1,6 +1,5 @@
 package com.example.efarmoghgiaodontiatrous;
 
-import java.sql.Connection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,26 +9,9 @@ public class Dentist {
     private Address infirmaryLocation;
     private static int ID = 0;
     private ConnectionState state;
-    private Set<Specialization> specializations = new HashSet<>(); // Elegxos an einai meta3u twn eidikothtwn tou giatrou (contains)
-    private Set<Service> services = new HashSet<>(); // Elegxos an einai meta3u twn services tou giatrou (contains)
+    private Set<Specialization> specializations = new HashSet<>();
+    private Set<Service> services = new HashSet<>();
     private Set<Appointment> appointments = new HashSet<>();
-
-    /*
-    TODO boolean or void addclientToSystem(CLIENT)
-    Dhmiourgw profil pelath (Client.AMKA) - den ton topo8etw kapou
-     */
-
-    /*
-        TODO recordVisit(CLIENT,date,comments,listofservices)
-        public void recordVisit(Client client){
-            Date systemDate;
-            String comments;
-            Dentist dentist;
-            Set<Service> services;
-            Visit visit = new Visit(...);
-            Elegxos oti ta services pou tou parhx8hsan einai services pou parexei o giatros
-        }
-     */
 
     public Dentist() {
         this.dentistID = ID + "";
@@ -191,29 +173,35 @@ public class Dentist {
     }
 
     public void acceptAppointment(Appointment appointment) {
-        if (this.appointments.contains(appointment)) {
-            this.appointments.remove(appointment);
-        }
+        this.appointments.remove(appointment);
         if (appointment != null) {
-            if (!appointment.getState().equals(AppointmentState.ACCEPTED)) {
+            if (!appointment.getState().equals(AppointmentState.ACCEPTED))
                 appointment.setState(AppointmentState.ACCEPTED);
-            }
             this.appointments.add(appointment);
         }
     }
 
     public void declineAppointment(Appointment appointment) {
         if (appointment != null) {
-            if (this.appointments.contains(appointment)) {
-                this.appointments.remove(appointment);
-            }
+            this.appointments.remove(appointment);
         }
     }
 
-    public void login(Dentist dentist, String email, String password){
-        if(dentist.getEmail().equals(email) && dentist.getPassword().equals(password)){
+    public void login(Dentist dentist, String email, String password) {
+        if (dentist.getEmail().equals(email) && dentist.getPassword().equals(password)) {
             dentist.setState(ConnectionState.CONNECTED);
         }
+    }
+
+    public void recordVisit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Set<Service> services) {
+        if (dentist.services.contains(services)) {
+            Visit visit = new Visit(dateOfVisit, comments, dentist, client, services);
+        }
+    }
+
+    public void createClientCard(String AMKA) {
+        Client client = new Client();
+        client.setAMKA(AMKA);
     }
 
     @Override

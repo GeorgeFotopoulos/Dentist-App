@@ -24,6 +24,13 @@ public class ClientTest {
     }
 
     @Test
+    public void sameObject() {
+        Client otherClient = new Client(client);
+        assertTrue(otherClient.equals(client));
+        assertEquals(otherClient.hashCode(), client.hashCode());
+    }
+
+    @Test
     public void differentCustomers() {
         Client otherClient = new Client("George", "Patrikis", "6986888788", "geopatg4@gmail.com", "16019800037");
         assertFalse(otherClient.equals(client));

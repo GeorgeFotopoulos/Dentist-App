@@ -21,10 +21,10 @@ public class VisitTest {
     @Before
     public void setUp() {
         date = new SimpleCalendar(10,10,2010);
-        visit = new Visit();
-        dentist = new Dentist();
-        client = new Client();
+        dentist = new Dentist("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", "ABC123", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "asd123");
+        client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
         services.add(new Service("Filling","1"));
+        visit = new Visit();
         visit.setDateOfVisit(date);
         visit.setComments("Comments...");
         visit.setDentist(dentist);
@@ -34,7 +34,28 @@ public class VisitTest {
 
     @Test
     public void testEqualsObject() {
+        SimpleCalendar otherDate = new SimpleCalendar(1, 1, 2001);
+        String otherComments = "Other Comments...";
+        Dentist otherDentist = new Dentist();
+        otherDentist.setEmail("test@gmail.com");
+        otherDentist.setPassword("testPassword");
+        Client otherClient = new Client();
+        otherClient.setAMKA("18059500037");
+        Set<Service> otherServices = new HashSet<>();
+        otherServices.add(new Service("Dental cleaning", "3"));
 
+        Visit otherVisit = new Visit(otherDate, otherComments, otherDentist, otherClient, otherServices);
+        Visit equalVisit = new Visit(visit);
+        Visit nullVisit = new Visit(null, null, null, null, null);
+
+        assertFalse(otherVisit.equals(visit));
+        assertNotEquals(otherVisit.hashCode(), visit.hashCode());
+
+        assertFalse(nullVisit.equals(null));
+        assertEquals(0, nullVisit.hashCode());
+
+        assertTrue(equalVisit.equals(visit));
+        assertEquals(equalVisit.hashCode(), visit.hashCode());
     }
 
     @Test

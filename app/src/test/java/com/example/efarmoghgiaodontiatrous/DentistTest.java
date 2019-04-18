@@ -20,16 +20,50 @@ public class DentistTest {
     public void testEqualsObject() {
         Dentist dentist2 = new Dentist(dentist);
         Dentist dentist3 = new Dentist("Giorgos", "Patrikis", "6958687888", "geopatrikis12@gmail.com", "ABC123456", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc123456");
-        Dentist dentist4 = new Dentist(null,null,null,null,null,null,null,0,null);
+        Dentist dentist4 = new Dentist(null, null, null, null, null, null, null, 0, null);
         assertFalse(dentist.equals(null));
 
         assertTrue(dentist2.equals(dentist));
         assertEquals(dentist2.hashCode(), dentist.hashCode());
 
         assertFalse(dentist3.equals(dentist));
-        assertNotEquals(dentist3.hashCode(),dentist.hashCode());
+        assertNotEquals(dentist3.hashCode(), dentist.hashCode());
 
-        assertEquals(0,dentist4.hashCode());
+        assertEquals(0, dentist4.hashCode());
+    }
+
+    @Test
+    public void testSpecializations() {
+        Dentist dentist = new Dentist();
+        Specialization specialization = new Specialization("Orthodontic", "4");
+        dentist.addSpecialization(specialization);
+        dentist.getSpecializations();
+        dentist.removeSpecialization(specialization);
+    }
+
+    @Test
+    public void testServices() {
+        Dentist dentist = new Dentist();
+        Service service = new Service("Filling", "1");
+        dentist.addService(service);
+        dentist.getServices();
+        dentist.removeService(service);
+    }
+
+    @Test
+    public void testAcceptAppointment() {
+        SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
+        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        dentist.acceptAppointment(appointment);
+        dentist.acceptAppointment(appointment);
+    }
+
+    @Test
+    public void testDeclineAppointment() {
+        SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
+        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        dentist.acceptAppointment(appointment);
+        dentist.declineAppointment(appointment);
     }
 
     @Test
@@ -44,6 +78,7 @@ public class DentistTest {
         other.setInfirmaryLocation(new Address("Lesvou", "8-10", "Athina", "Ellada", 11256));
         other.setTimeOfExperience(8);
         other.setPassword("qwerty123456");
+        other.setID("-1");
         assertNotEquals("Giorgos", other.getFirstName());
         assertNotEquals("Patrikis", other.getLastName());
         assertNotEquals("6958687888", other.getTelephoneNo());
@@ -53,5 +88,6 @@ public class DentistTest {
         assertNotEquals(new Address("Lesvou", "8-10", "Athens", "Greece", 15127), other.getInfirmaryLocation());
         assertNotEquals(9, other.getTimeOfExperience());
         assertNotEquals("abc123", other.getPassword());
+        assertEquals("-1", other.getID());
     }
 }
