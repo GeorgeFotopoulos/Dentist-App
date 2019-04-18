@@ -6,6 +6,11 @@ public class Service {
     public Service() {
     }
 
+    public Service(Service other){
+        this.serviceName = other.serviceName;
+        this.serviceID = other.serviceID;
+    }
+
     public Service(String serviceName, String serviceID) {
         this.serviceName = serviceName;
         this.serviceID = serviceID;
@@ -34,14 +39,14 @@ public class Service {
 
         Service service = (Service) o;
 
-        if (!serviceName.equals(service.serviceName)) return false;
         return serviceID.equals(service.serviceID);
     }
 
     @Override
     public int hashCode() {
-        int result = serviceName.hashCode();
-        result = 31 * result + serviceID.hashCode();
-        return result;
+        if (serviceID == null) {
+            return 0;
+        }
+        return serviceID.hashCode();
     }
 }

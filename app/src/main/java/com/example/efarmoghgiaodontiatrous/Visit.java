@@ -1,11 +1,10 @@
 package com.example.efarmoghgiaodontiatrous;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Visit {
-    private Date dateOfVisit;
+    private SimpleCalendar dateOfVisit;
     private String comments;
     private Dentist dentist;
     private Client client;
@@ -14,7 +13,7 @@ public class Visit {
     public Visit() {
     }
 
-    public Visit(Date dateOfVisit, String comments, Dentist dentist, Client client, Set<Service> services) {
+    public Visit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Set<Service> services) {
         this.dateOfVisit = dateOfVisit;
         this.comments = comments;
         this.dentist = dentist;
@@ -22,11 +21,11 @@ public class Visit {
         this.services = services;
     }
 
-    public Date getDateOfVisit() {
+    public SimpleCalendar getDateOfVisit() {
         return dateOfVisit;
     }
 
-    public void setDateOfVisit(Date dateOfVisit) {
+    public void setDateOfVisit(SimpleCalendar dateOfVisit) {
         this.dateOfVisit = dateOfVisit;
     }
 
@@ -60,5 +59,32 @@ public class Visit {
 
     public void setServices(Set<Service> services) {
         this.services = services;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Visit visit = (Visit) o;
+
+        if (!dateOfVisit.equals(visit.dateOfVisit)) return false;
+        if (!comments.equals(visit.comments)) return false;
+        if (!dentist.equals(visit.dentist)) return false;
+        if (!client.equals(visit.client)) return false;
+        return services.equals(visit.services);
+    }
+
+    @Override
+    public int hashCode() {
+        if (dateOfVisit == null && comments == null && dentist == null && client == null && services == null) {
+            return 0;
+        }
+        int result = dateOfVisit.hashCode();
+        result = 31 * result + comments.hashCode();
+        result = 31 * result + dentist.hashCode();
+        result = 31 * result + client.hashCode();
+        result = 31 * result + services.hashCode();
+        return result;
     }
 }

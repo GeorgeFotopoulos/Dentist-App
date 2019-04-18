@@ -11,24 +11,25 @@ public class Appointment {
     public Appointment() {
         new Dentist();
         new SimpleCalendar(Calendar.getInstance());
+        this.setState(AppointmentState.PENDING);
     }
 
-    public Appointment(String firstName, String lastName, String telephoneNo, String email, AppointmentState state, Dentist dentist, SimpleCalendar bookDate) {
+    public Appointment(String firstName, String lastName, String telephoneNo, String email, Dentist dentist, SimpleCalendar bookDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNo = telephoneNo;
         this.email = email;
-        this.state = state;
         this.dentist = dentist;
         this.bookDate = bookDate;
+        this.setState(AppointmentState.PENDING);
     }
 
     public Dentist getDentist() {
         return dentist;
     }
 
-    public void setDentist(Dentist dentist) {
-        this.dentist = dentist;
+    public void setDentist(Dentist dentist){
+        this.dentist = new Dentist(dentist);
     }
 
     public String getFirstName() {
@@ -92,6 +93,9 @@ public class Appointment {
 
     @Override
     public int hashCode() {
+        if (dentist == null && bookDate == null) {
+            return 0;
+        }
         int result = dentist.hashCode();
         result = 31 * result + bookDate.hashCode();
         return result;

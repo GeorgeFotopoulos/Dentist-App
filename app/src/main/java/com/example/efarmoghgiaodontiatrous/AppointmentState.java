@@ -9,10 +9,5 @@ public enum AppointmentState {
     /**
      * Appointment was accepted by the Dentist.
      */
-    ACCEPTED,
-
-    /**
-     * Appointment was declined by the Dentist.
-     */
-    DECLINED
+    ACCEPTED
 }

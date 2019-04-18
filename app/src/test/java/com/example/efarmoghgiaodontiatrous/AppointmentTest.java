@@ -17,19 +17,24 @@ public class AppointmentTest {
     public void setUp() {
         calendar = new SimpleCalendar(10, 10, 2010);
         dentist = new Dentist();
-        appointment = new Appointment("George", "Patrikis", "6986888788", "geopatg4@gmail.com", AppointmentState.DECLINED, dentist, calendar);
+        dentist.setEmail("newEmail@gmail.com");
+        dentist.setPassword("newPassword");
+        appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
     }
 
     @Test
     public void equals() {
-        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", AppointmentState.ACCEPTED, dentist, calendar);
+        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", dentist, calendar);
         assertTrue(other.equals(appointment));
         assertEquals(other.hashCode(), appointment.hashCode());
     }
 
     @Test
     public void differentAppointments() {
-        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", AppointmentState.ACCEPTED, new Dentist(), new SimpleCalendar(1, 1, 2010));
+        Dentist dentist2 = new Dentist();
+        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", dentist2, new SimpleCalendar(1, 1, 2010));
+        dentist2.setEmail("abc123@gmail.com");
+        dentist2.setPassword("abc123");
         assertFalse(other.equals(appointment));
         assertNotEquals(other.hashCode(), appointment.hashCode());
     }
@@ -37,7 +42,9 @@ public class AppointmentTest {
     @Test
     public void testGettersSetters() {
         Appointment other = new Appointment();
-        Dentist dentist = new Dentist();
+        Dentist d = new Dentist();
+        d.setEmail("test@gmail.com");
+        d.setPassword("testpwd");
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
         other.setFirstName("George");
         other.setLastName("Fotopoulos");
@@ -51,7 +58,7 @@ public class AppointmentTest {
         assertNotEquals("6948554284", other.getTelephoneNo());
         assertNotEquals("panagiwths.nty@gmail.com", other.getEmail());
         assertNotEquals(AppointmentState.ACCEPTED, other.getState());
-        assertNotEquals(new Dentist(), other.getDentist());
+        assertNotEquals(d, other.getDentist());
         assertNotEquals(new SimpleCalendar(1, 1, 2001), other.getBookDate());
     }
 }

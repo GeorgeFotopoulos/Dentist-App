@@ -6,6 +6,11 @@ public class Specialization {
     public Specialization() {
     }
 
+    public Specialization(Specialization other) {
+        this.specializationName = other.specializationName;
+        this.specializationID = other.specializationID;
+    }
+
     public Specialization(String specializationName, String specializationID) {
         this.specializationName = specializationName;
         this.specializationID = specializationID;
@@ -34,14 +39,14 @@ public class Specialization {
 
         Specialization that = (Specialization) o;
 
-        if (!specializationName.equals(that.specializationName)) return false;
         return specializationID.equals(that.specializationID);
     }
 
     @Override
     public int hashCode() {
-        int result = specializationName.hashCode();
-        result = 31 * result + specializationID.hashCode();
-        return result;
+        if (specializationID == null) {
+            return 0;
+        }
+        return specializationID.hashCode();
     }
 }
