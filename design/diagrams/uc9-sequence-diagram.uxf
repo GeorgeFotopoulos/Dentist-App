@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>13</zoom_level>
+  <zoom_level>12</zoom_level>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>403</x>
-      <y>130</y>
-      <w>182</w>
-      <h>39</h>
+      <x>540</x>
+      <y>204</y>
+      <w>168</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>_:DentistResearchUI_</panel_attributes>
     <additional_attributes/>
@@ -15,10 +15,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>481</x>
-      <y>156</y>
-      <w>39</w>
-      <h>91</h>
+      <x>612</x>
+      <y>228</y>
+      <w>36</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -26,10 +26,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>611</x>
-      <y>130</y>
-      <w>234</w>
-      <h>39</h>
+      <x>732</x>
+      <y>204</y>
+      <w>216</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>_:DentistResearchController_</panel_attributes>
     <additional_attributes/>
@@ -37,10 +37,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>884</x>
-      <y>130</y>
-      <w>130</w>
-      <h>39</h>
+      <x>984</x>
+      <y>204</y>
+      <w>120</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>_:Dentist_</panel_attributes>
     <additional_attributes/>
@@ -48,10 +48,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>715</x>
-      <y>156</y>
-      <w>39</w>
-      <h>130</h>
+      <x>828</x>
+      <y>228</y>
+      <w>36</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
@@ -59,10 +59,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>156</y>
-      <w>39</w>
-      <h>169</h>
+      <x>1032</x>
+      <y>228</y>
+      <w>36</w>
+      <h>156</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
@@ -70,10 +70,10 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>208</x>
-      <y>39</y>
-      <w>78</w>
-      <h>143</h>
+      <x>360</x>
+      <y>120</y>
+      <w>72</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>Client</panel_attributes>
     <additional_attributes/>
@@ -81,10 +81,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>156</y>
-      <w>39</w>
-      <h>650</h>
+      <x>384</x>
+      <y>228</y>
+      <w>36</w>
+      <h>600</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;480.0</additional_attributes>
@@ -92,10 +92,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>221</y>
-      <w>273</w>
-      <h>65</h>
+      <x>384</x>
+      <y>288</y>
+      <w>252</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 Αναζήτηση Οδοντιάτρου
@@ -105,10 +105,10 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>481</x>
-      <y>221</y>
-      <w>26</w>
-      <h>234</h>
+      <x>612</x>
+      <y>288</y>
+      <w>24</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>bg=light_gray</panel_attributes>
     <additional_attributes/>
@@ -116,10 +116,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>507</y>
-      <w>273</w>
-      <h>65</h>
+      <x>384</x>
+      <y>552</y>
+      <w>252</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 Αναζήτηση Οδοντιάτρου
@@ -129,10 +129,10 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>494</x>
-      <y>260</y>
-      <w>247</w>
-      <h>52</h>
+      <x>624</x>
+      <y>324</y>
+      <w>228</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 searchDentist(name)</panel_attributes>
@@ -141,10 +141,10 @@ searchDentist(name)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>715</x>
-      <y>260</y>
-      <w>26</w>
-      <h>182</h>
+      <x>828</x>
+      <y>324</y>
+      <w>24</w>
+      <h>168</h>
     </coordinates>
     <panel_attributes>bg=gray</panel_attributes>
     <additional_attributes/>
@@ -152,10 +152,10 @@ searchDentist(name)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>299</y>
-      <w>234</w>
-      <h>52</h>
+      <x>840</x>
+      <y>360</y>
+      <w>216</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 listByName(name)</panel_attributes>
@@ -164,10 +164,10 @@ listByName(name)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>351</y>
-      <w>234</w>
-      <h>52</h>
+      <x>840</x>
+      <y>408</y>
+      <w>216</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 dentist info</panel_attributes>
@@ -176,10 +176,10 @@ dentist info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>494</x>
-      <y>390</y>
-      <w>247</w>
-      <h>52</h>
+      <x>624</x>
+      <y>444</y>
+      <w>228</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 dentist info</panel_attributes>
@@ -188,21 +188,22 @@ dentist info</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>299</y>
-      <w>26</w>
-      <h>104</h>
+      <x>1032</x>
+      <y>360</y>
+      <w>24</w>
+      <h>96</h>
     </coordinates>
-    <panel_attributes>bg=dark_gray</panel_attributes>
+    <panel_attributes>bg=dark_gray
+transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>481</x>
-      <y>442</y>
-      <w>39</w>
-      <h>91</h>
+      <x>612</x>
+      <y>492</y>
+      <w>36</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -210,10 +211,10 @@ dentist info</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>481</x>
-      <y>507</y>
-      <w>26</w>
-      <h>221</h>
+      <x>612</x>
+      <y>552</y>
+      <w>24</w>
+      <h>204</h>
     </coordinates>
     <panel_attributes>bg=light_gray</panel_attributes>
     <additional_attributes/>
@@ -221,10 +222,10 @@ dentist info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>494</x>
-      <y>546</y>
-      <w>247</w>
-      <h>52</h>
+      <x>624</x>
+      <y>588</y>
+      <w>228</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 searchByFilters(filters)</panel_attributes>
@@ -233,10 +234,10 @@ searchByFilters(filters)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>715</x>
-      <y>546</y>
-      <w>26</w>
-      <h>169</h>
+      <x>828</x>
+      <y>588</y>
+      <w>24</w>
+      <h>156</h>
     </coordinates>
     <panel_attributes>bg=gray</panel_attributes>
     <additional_attributes/>
@@ -244,10 +245,10 @@ searchByFilters(filters)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>715</x>
-      <y>429</y>
-      <w>39</w>
-      <h>143</h>
+      <x>828</x>
+      <y>480</y>
+      <w>36</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
@@ -255,10 +256,10 @@ searchByFilters(filters)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>390</y>
-      <w>39</w>
-      <h>208</h>
+      <x>1032</x>
+      <y>444</y>
+      <w>36</w>
+      <h>192</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
@@ -266,21 +267,22 @@ searchByFilters(filters)</panel_attributes>
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>936</x>
-      <y>572</y>
-      <w>26</w>
-      <h>104</h>
+      <x>1032</x>
+      <y>612</y>
+      <w>24</w>
+      <h>96</h>
     </coordinates>
-    <panel_attributes>bg=dark_gray</panel_attributes>
+    <panel_attributes>bg=dark_gray
+transparency=0</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>572</y>
-      <w>234</w>
-      <h>52</h>
+      <x>840</x>
+      <y>612</y>
+      <w>216</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;&gt;
 listByFilters(filters)</panel_attributes>
@@ -289,10 +291,10 @@ listByFilters(filters)</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>728</x>
-      <y>624</y>
-      <w>234</w>
-      <h>52</h>
+      <x>840</x>
+      <y>660</y>
+      <w>216</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 dentist info</panel_attributes>
@@ -301,10 +303,10 @@ dentist info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>494</x>
-      <y>663</y>
-      <w>247</w>
-      <h>52</h>
+      <x>624</x>
+      <y>696</y>
+      <w>228</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=&lt;.
 dentist info</panel_attributes>
@@ -313,10 +315,10 @@ dentist info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>481</x>
-      <y>715</y>
-      <w>39</w>
-      <h>91</h>
+      <x>612</x>
+      <y>744</y>
+      <w>36</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
@@ -324,10 +326,10 @@ dentist info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>715</x>
-      <y>702</y>
-      <w>39</w>
-      <h>104</h>
+      <x>828</x>
+      <y>732</y>
+      <w>36</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
@@ -335,10 +337,10 @@ dentist info</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>936</x>
-      <y>663</y>
-      <w>39</w>
-      <h>143</h>
+      <x>1032</x>
+      <y>696</y>
+      <w>36</w>
+      <h>132</h>
     </coordinates>
     <panel_attributes>lt=.</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
