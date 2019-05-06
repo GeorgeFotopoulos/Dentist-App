@@ -40,7 +40,6 @@ public class SystemDateStubTest {
     public void testWithStub() {
         SystemDateStub.setStub(stub);
         Assert.assertEquals(stub, SystemDate.now());
-
     }
 
     @Test

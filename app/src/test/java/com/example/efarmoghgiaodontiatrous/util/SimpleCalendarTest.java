@@ -10,7 +10,6 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SimpleCalendarTest {
-
     @Test
     public void creation() {
         SimpleCalendar march_1_2007 = new SimpleCalendar(2007, 3, 1);

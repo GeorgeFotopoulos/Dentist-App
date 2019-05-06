@@ -391,11 +391,14 @@ public class Dentist {
      * @param dentist     The Dentist that provided services during this appointment
      * @param client      The Client that visited the dentist
      * @param service     The service that was provided by the dentist
+     * @return The visit object
      */
-    public void recordVisit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Service service) {
+    public Visit recordVisit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Service service) {
+        Visit visit = null;
         if (dentist.services.contains(service)) {
             visit = new Visit(dateOfVisit, comments, dentist, client, services);
         }
+        return visit;
     }
 
     /**
@@ -403,10 +406,12 @@ public class Dentist {
      * a new card for a patient he/she provided service to.
      *
      * @param AMKA The new Client object's AMKA.
+     * @return The client object
      */
-    public void createClientCard(String AMKA) {
+    public Client createClientCard(String AMKA) {
         Client client = new Client();
         client.setAMKA(AMKA);
+        return client;
     }
 
     @Override
