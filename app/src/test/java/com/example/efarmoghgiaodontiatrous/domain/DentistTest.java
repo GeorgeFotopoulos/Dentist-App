@@ -1,6 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
 import com.example.efarmoghgiaodontiatrous.util.Address;
+import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
+import com.example.efarmoghgiaodontiatrous.util.ConnectionState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 import org.junit.Before;
@@ -40,26 +42,33 @@ public class DentistTest {
     public void testSpecializations() {
         Dentist dentist = new Dentist();
         Specialization specialization = new Specialization("Orthodontic", "4");
+        assertFalse(dentist.getSpecializations().contains(new Specialization("Orthodontic", "4")));
         dentist.addSpecialization(specialization);
-        dentist.getSpecializations();
+        assertTrue(dentist.getSpecializations().contains(new Specialization("Orthodontic", "4")));
         dentist.removeSpecialization(specialization);
+        assertFalse(dentist.getSpecializations().contains(new Specialization("Orthodontic", "4")));
     }
 
     @Test
     public void testServices() {
         Dentist dentist = new Dentist();
         Service service = new Service("Filling", "1");
+        assertFalse(dentist.getServices().contains(new Service("Filling", "1")));
         dentist.addService(service);
-        dentist.getServices();
+        assertTrue(dentist.getServices().contains(new Service("Filling", "1")));
         dentist.removeService(service);
+        assertFalse(dentist.getServices().contains(new Service("Filling", "1")));
     }
 
+
+    //TODO Add list to appointments and not when accepting
     @Test
     public void testAcceptAppointment() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
         Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        assertNotEquals(appointment.getState(), AppointmentState.ACCEPTED);
         dentist.acceptAppointment(appointment);
-        dentist.acceptAppointment(appointment);
+        assertEquals(appointment.getState(), AppointmentState.ACCEPTED);
     }
 
     @Test
@@ -67,37 +76,58 @@ public class DentistTest {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
         Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
         dentist.acceptAppointment(appointment);
+        assertEquals(appointment.getState(), AppointmentState.ACCEPTED);
+        assertTrue(dentist.getAppointments().contains(appointment));
         dentist.declineAppointment(appointment);
+        assertFalse(dentist.getAppointments().contains(appointment));
     }
 
     @Test
     public void testLogin() {
         String email = "giorgos.fotopoulos7@gmail.com";
-        String password = "asd123";
-        dentist.login(email, password);
+        String password = "asdd123";
+        assertFalse(dentist.login(email, password));
+        assertNotEquals(dentist.getState(), ConnectionState.CONNECTED);
+
+        email = "giorgos.fotopoulos7@gmail.com";
+        password = "asd123";
+        assertTrue(dentist.login(email, password));
+        assertEquals(dentist.getState(), ConnectionState.CONNECTED);
     }
 
     @Test
     public void testGetAppointments() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
         Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        assertTrue(dentist.getAppointments().isEmpty());
         dentist.acceptAppointment(appointment);
         dentist.getAppointments();
+        assertTrue(dentist.getAppointments().contains(new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar)));
     }
 
     @Test
     public void testRecordVisit() {
+        assertEquals(dentist.recordVisit(null, null, dentist, null, null),null);
+        Service service = new Service("Filling", "1");
+        assertEquals(dentist.recordVisit(null, null, dentist, null, service),null);
         SimpleCalendar dateOfVisit = new SimpleCalendar(10, 10, 2010);
         String comments = "Comments...";
         Client client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
-        Service service = new Service("Filling", "1");
-        dentist.recordVisit(dateOfVisit, comments, dentist, client, service);
+        assertNotEquals(dentist.recordVisit(dateOfVisit, comments, dentist, client, service),null);
+        Dentist dentist2 = new Dentist("George", "Patrikis", "698079sad051", "giorgos.foto7@gmail.com", "AB23", "Aths University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "as123");
+        dentist2.addService(new Service("Filling", "1"));
+        assertEquals(dentist.recordVisit(dateOfVisit, comments, dentist2, client, service),null);
     }
 
+
+    //TODO WHY IS AMKA HERE ?Should it not be in visits?
     @Test
     public void testCreateClientCard() {
         String AMKA = "18059500037";
-        dentist.createClientCard(AMKA);
+
+        assertEquals( dentist.createClientCard(null),null);
+        assertEquals(dentist.createClientCard(AMKA).getAMKA(),"18059500037");
+        assertNotEquals(dentist.createClientCard(AMKA).getAMKA(),"18059500038");
     }
 
     @Test

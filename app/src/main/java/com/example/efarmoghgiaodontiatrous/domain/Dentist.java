@@ -10,7 +10,6 @@ import java.util.Set;
 
 public class Dentist {
     private static int ID = 0;
-    Visit visit;
     private String firstName, lastName, telephoneNo, email, exerciseLicense, universityAttended, password, dentistID;
     private int timeOfExperience;
     private Address infirmaryLocation;
@@ -377,10 +376,12 @@ public class Dentist {
      * @param email    The email given as parameter, used for test purposes
      * @param password The password given as parameter, used for test purposes
      */
-    public void login(String email, String password) {
+    public boolean login(String email, String password) {
         if (this.getEmail().equals(email) && this.getPassword().equals(password)) {
             this.setState(ConnectionState.CONNECTED);
+            return true;
         }
+        return false;
     }
 
     /**
@@ -396,6 +397,8 @@ public class Dentist {
     public Visit recordVisit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Service service) {
         Visit visit = null;
         if (dentist.services.contains(service)) {
+            if(dateOfVisit==null||(!dentist.equals(this))||client==null)
+                return null;
             visit = new Visit(dateOfVisit, comments, dentist, client, services);
         }
         return visit;
@@ -409,6 +412,8 @@ public class Dentist {
      * @return The client object
      */
     public Client createClientCard(String AMKA) {
+        if(AMKA==null)
+            return null;
         Client client = new Client();
         client.setAMKA(AMKA);
         return client;
