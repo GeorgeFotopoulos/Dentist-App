@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="14.3.0">
-  <zoom_level>8</zoom_level>
+  <zoom_level>9</zoom_level>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1176</x>
-      <y>976</y>
-      <w>192</w>
-      <h>80</h>
+      <x>1260</x>
+      <y>963</y>
+      <w>216</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Enumeration&gt;&gt;
 ConnectionState
@@ -20,10 +20,10 @@ DISCONNECTED: ConnectionState</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>168</x>
+      <x>1269</x>
       <y>1080</y>
-      <w>168</w>
-      <h>80</h>
+      <w>189</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Enumeration&gt;&gt;
 AppointmentState
@@ -36,10 +36,10 @@ ACCEPTED: AppointmentState</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>424</x>
-      <y>80</y>
-      <w>168</w>
-      <h>120</h>
+      <x>414</x>
+      <y>81</y>
+      <w>189</w>
+      <h>135</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 SystemDate
@@ -56,10 +56,10 @@ SystemDate
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>152</x>
-      <y>400</y>
-      <w>176</w>
-      <h>192</h>
+      <x>108</x>
+      <y>441</y>
+      <w>198</w>
+      <h>216</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 Service
@@ -82,10 +82,10 @@ Service
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1168</x>
-      <y>752</y>
-      <w>208</w>
-      <h>192</h>
+      <x>1251</x>
+      <y>729</y>
+      <w>234</w>
+      <h>225</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 Specialization
@@ -108,10 +108,10 @@ Specialization
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>712</x>
-      <y>80</y>
-      <w>208</w>
-      <h>248</h>
+      <x>738</x>
+      <y>81</y>
+      <w>234</w>
+      <h>279</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 SimpleCalendar
@@ -138,10 +138,10 @@ SimpleCalendar
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1160</x>
-      <y>408</y>
-      <w>224</w>
-      <h>312</h>
+      <x>1242</x>
+      <y>369</y>
+      <w>252</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 Address
@@ -173,10 +173,10 @@ Address
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1160</x>
-      <y>16</y>
-      <w>224</w>
-      <h>296</h>
+      <x>1242</x>
+      <y>9</y>
+      <w>252</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 Client
@@ -208,10 +208,10 @@ Client
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>88</x>
-      <y>8</y>
-      <w>312</w>
-      <h>312</h>
+      <x>36</x>
+      <y>0</y>
+      <w>351</w>
+      <h>351</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 Visit
@@ -243,10 +243,10 @@ Visit
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>64</x>
-      <y>624</y>
-      <w>352</w>
-      <h>376</h>
+      <x>9</x>
+      <y>693</y>
+      <w>396</w>
+      <h>423</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 Appointment
@@ -283,10 +283,10 @@ Appointment
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>584</x>
-      <y>432</y>
-      <w>368</w>
-      <h>760</h>
+      <x>594</x>
+      <y>477</y>
+      <w>414</w>
+      <h>819</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Java Class&gt;&gt;
 Dentist
@@ -306,8 +306,6 @@ Dentist
 - state: ConnectionState
 - specializations: Set&lt;Specialization&gt;
 - services: Set&lt;Service&gt;
-- appointments: Set&lt;Appointment&gt;
-- visit: Visit
 --
 + Dentist()
 + Dentist(Dentist)
@@ -353,74 +351,22 @@ Dentist
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>944</x>
-      <y>480</y>
-      <w>232</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=infirmaryLocation    1
-m2=1</panel_attributes>
-    <additional_attributes>270.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>944</x>
-      <y>984</y>
-      <w>248</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=state     1
-m2=1</panel_attributes>
-    <additional_attributes>290.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>944</x>
-      <y>760</y>
-      <w>240</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=specializations     0..*
-m2=1</panel_attributes>
-    <additional_attributes>280.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>328</x>
-      <y>1080</y>
-      <w>272</w>
-      <h>32</h>
+      <x>999</x>
+      <y>1089</y>
+      <w>288</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;..
 </panel_attributes>
-    <additional_attributes>10.0;20.0;320.0;20.0</additional_attributes>
+    <additional_attributes>300.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>656</y>
-      <w>192</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=dentist    1
-m2=1</panel_attributes>
-    <additional_attributes>220.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>408</x>
-      <y>624</y>
-      <w>192</w>
-      <h>32</h>
+      <x>396</x>
+      <y>711</y>
+      <w>216</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..* appointments
@@ -430,10 +376,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>800</x>
-      <y>320</y>
-      <w>24</w>
-      <h>128</h>
+      <x>837</x>
+      <y>351</y>
+      <w>27</w>
+      <h>144</h>
     </coordinates>
     <panel_attributes>lt=&lt;..
 </panel_attributes>
@@ -442,75 +388,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>584</x>
-      <y>88</y>
-      <w>144</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=stub   0..1
-m2=1</panel_attributes>
-    <additional_attributes>160.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>240</x>
-      <y>992</y>
-      <w>64</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1    state
-m2=1</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>384</x>
-      <y>296</y>
-      <w>344</w>
-      <h>344</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=bookDate    1
-m2=1</panel_attributes>
-    <additional_attributes>410.0;10.0;200.0;10.0;200.0;400.0;10.0;400.0;10.0;410.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>392</x>
-      <y>224</y>
-      <w>336</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=dateOfVisit    1
-m2=1</panel_attributes>
-    <additional_attributes>400.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>392</x>
-      <y>24</y>
-      <w>784</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=client   1
-m2=1</panel_attributes>
-    <additional_attributes>960.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>944</x>
-      <y>264</y>
-      <w>232</w>
-      <h>200</h>
+      <x>999</x>
+      <y>288</y>
+      <w>261</w>
+      <h>225</h>
     </coordinates>
     <panel_attributes>lt=&lt;..</panel_attributes>
     <additional_attributes>270.0;10.0;160.0;10.0;160.0;230.0;10.0;230.0</additional_attributes>
@@ -518,49 +399,10 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>312</y>
-      <w>96</w>
-      <h>104</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*    services
-m2=1</panel_attributes>
-    <additional_attributes>10.0;110.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>320</x>
-      <y>488</y>
-      <w>280</w>
-      <h>32</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=0..*    services
-m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;330.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>392</x>
-      <y>272</y>
-      <w>280</w>
-      <h>176</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-
-m1=1   dentist
-m2=1</panel_attributes>
-    <additional_attributes>270.0;200.0;270.0;10.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>368</x>
-      <y>312</y>
-      <w>232</w>
-      <h>160</h>
+      <x>351</x>
+      <y>342</y>
+      <w>261</w>
+      <h>180</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=0..*    visit
