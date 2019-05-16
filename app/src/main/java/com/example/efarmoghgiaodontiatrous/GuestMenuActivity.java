@@ -12,8 +12,8 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guest_menu);
         findViewById(R.id.search_dentist_by_name).setOnClickListener(new View.OnClickListener() {
-            String lastname=R.id.lastname+"";
-            String firstname=R.id.firstname+"";
+            String lastname=findViewById(R.id.lastname).toString();
+            String firstname=findViewById(R.id.firstname).toString();
             public void onClick(View v) {
                 presenter.onSearchDentistByName(lastname,firstname);
             }
