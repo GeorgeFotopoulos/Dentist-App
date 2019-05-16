@@ -12,4 +12,11 @@ public class MainActivityPresenter {
         this.view = view;
     }
 
+    public void onGuestMenu() {
+        view.guestMenu();
+    }
+
+    public void onDentistMenu() {
+        view.dentistMenu();
+    }
 }
