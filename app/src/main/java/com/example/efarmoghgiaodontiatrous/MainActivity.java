@@ -1,5 +1,6 @@
 package com.example.efarmoghgiaodontiatrous;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,5 +29,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView{
 
     public void dentistMenu(){};
 
-    public void guestMenu(){};
+    public void guestMenu(){
+        Intent intent = new Intent(MainActivity.this, GuestMenuActivity.class);
+        startActivity(intent);
+    };
 }
