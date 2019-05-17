@@ -18,8 +18,6 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
     private RecyclerView.LayoutManager mLayoutManager;
     private DentistSearchPresenter dentistSearchPresenter;
 
-    public static final String BOOK_ID_EXTRA = "book_id";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +32,7 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         dentistSearchPresenter = new DentistSearchPresenter(this);
         Set<Dentist> result = dentistSearchPresenter.searchDentists(lastname, firstname);
         // Update UI with the result
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        recyclerView = findViewById(R.id.recycler_view);
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
@@ -45,7 +43,7 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         mAdapter = new DentistAdapter(new ArrayList<Dentist>(result));
         recyclerView.setAdapter(mAdapter);
         // register the current activity as listener for book selection events
-        mAdapter.setDentistSelectionListener(this);
+       // mAdapter.setDentistSelectionListener(this);
     }
 
     /**

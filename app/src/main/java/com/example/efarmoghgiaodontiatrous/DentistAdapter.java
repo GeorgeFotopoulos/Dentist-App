@@ -12,10 +12,10 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 
 import java.util.List;
 
-class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
+public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
     private List<Dentist> itemList;
 
-    private ItemSelectionListener<Dentist> bookSelectionListener;
+    private ItemSelectionListener<Dentist> dentSelectionListener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
@@ -37,10 +37,10 @@ class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
 
     /**
      * Set a listener to be notified of book selection (click on the TextView)
-     * @param bookSelectionListener
+     * @param dentSelectionListener
      */
-    public void setDentistSelectionListener(ItemSelectionListener<Dentist> bookSelectionListener) {
-        this.bookSelectionListener = bookSelectionListener;
+    public void setDentistSelectionListener(ItemSelectionListener<Dentist> dentSelectionListener) {
+        this.dentSelectionListener = dentSelectionListener;
     }
 
     @Override
@@ -56,20 +56,19 @@ class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         // - get element from your dataset at this position
-        final Dentist bookAtPosition = itemList.get(position);
+        final Dentist dentAtPosition = itemList.get(position);
 
         // - replace the contents of the view with data from the dataset item at this position
-        holder.txtDentist.setText(bookAtPosition.getLastName());
+        holder.txtDentist.setText(dentAtPosition.getLastName());
         holder.btnSelectDentist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // notify the Activity of the selected book
-                if (bookSelectionListener != null) {
-                    bookSelectionListener.onItemSelected(bookAtPosition);
+                if (dentSelectionListener!= null) {
+                    dentSelectionListener.onItemSelected(dentAtPosition);
                 }
             }
         });
-
     }
 
     // Return the size of your dataset (invoked by the layout manager)
