@@ -24,7 +24,7 @@ class DentistSearchPresenter {
 
         Dentist dentist3 = new Dentist("Giorgos", "Patrikis", "6958687888", "geopatrikis12@gmail.com", "ABC123456", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc123456");
         result.add(dentist3);
-        Dentist dentist2 = new Dentist("Dimitris", "Patrikis", "6958687888", "geopikis@gmail.com", "ABC1256", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc1456");
+        Dentist dentist2 = new Dentist("Dimitris", "Parikis", "6958687888", "geopikis@gmail.com", "ABC1256", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc1456");
         result.add(dentist2);
     return result;
 

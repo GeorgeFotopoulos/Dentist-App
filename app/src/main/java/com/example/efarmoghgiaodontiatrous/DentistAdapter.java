@@ -59,7 +59,7 @@ class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
         final Dentist bookAtPosition = itemList.get(position);
 
         // - replace the contents of the view with data from the dataset item at this position
-        holder.txtDentist.setText(bookAtPosition.getID());
+        holder.txtDentist.setText(bookAtPosition.getLastName());
         holder.btnSelectDentist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
