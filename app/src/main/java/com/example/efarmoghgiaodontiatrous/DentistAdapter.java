@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
         // each data item is just a string in this case
         public ViewGroup listItem;
         public TextView txtDentist;
-        public ImageButton btnSelectDentist;
+        public Button btnSelectDentist;
 
         public ViewHolder(ViewGroup v) {
             super(v);
