@@ -38,17 +38,14 @@ class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
      * Set a listener to be notified of book selection (click on the TextView)
      * @param bookSelectionListener
      */
-    public void setBookSelectionListener(ItemSelectionListener<Dentist> bookSelectionListener) {
+    public void setDentistSelectionListener(ItemSelectionListener<Dentist> bookSelectionListener) {
         this.bookSelectionListener = bookSelectionListener;
     }
 
     @Override
-    public DentistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
+    public DentistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,int viewType) {
         // create a new view for the list
-        ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_dentist_result, parent, false);
-
+        ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.list_dentist_result, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }

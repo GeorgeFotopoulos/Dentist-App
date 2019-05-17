@@ -9,6 +9,9 @@ public class GuestMenuPresenter {
      * Αρχικοποιεί τον Presenter.
      * @param view Ένα instance του view
      */
+    public GuestMenuPresenter(GuestMenuView view) {
+        this.view = view;
+    }
 
 
     public void searchbyname(String title, String author){
