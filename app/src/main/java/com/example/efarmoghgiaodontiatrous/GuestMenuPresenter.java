@@ -1,5 +1,7 @@
 package com.example.efarmoghgiaodontiatrous;
 
+import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+
 public class GuestMenuPresenter {
     private GuestMenuView view;
 
@@ -7,15 +9,16 @@ public class GuestMenuPresenter {
      * Αρχικοποιεί τον Presenter.
      * @param view Ένα instance του view
      */
-    public GuestMenuPresenter(GuestMenuView view)
-    {
-        this.view = view;
-    }
 
-    public void onSearchDentistByName(String surname,String firstname){
-        if(surname.equals("kardivoukis"))
-            System.out.println("paok");
-        view.searchDentistByName(surname,firstname);
-    };
+
+    public void searchbyname(String title, String author){
+        if (title.isEmpty() && author.isEmpty()){
+            view.showError("Παρακαλώ συμπληρώστε ένα από τα πεδία");
+            return;
+        }
+
+        view.showSearchView(title, author);
+
+    }
 
 }

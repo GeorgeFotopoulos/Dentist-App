@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous;
 
 public interface GuestMenuView {
-    void searchDentistByName(String Lastname,String Firstname);
+
+    void showError(String msg);
+
+    void showSearchView(String title, String author);
 }
