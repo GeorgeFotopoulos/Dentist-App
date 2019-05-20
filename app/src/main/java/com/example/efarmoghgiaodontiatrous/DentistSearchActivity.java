@@ -43,7 +43,7 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         mAdapter = new DentistAdapter(new ArrayList<Dentist>(result));
         recyclerView.setAdapter(mAdapter);
         // register the current activity as listener for book selection events
-       // mAdapter.setDentistSelectionListener(this);
+        mAdapter.setDentistSelectionListener(this);
     }
 
     /**
@@ -56,4 +56,11 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         dentistSearchPresenter.onDentistSelected(item);
     }
 
+
+    @Override
+    public void requestAppointment(Dentist item) {
+        Intent intent = new Intent(this, RequestAppointmentActivity.class);
+        intent.putExtra("DentistID", item.getID());
+        startActivityForResult(intent,1);
+    }
 }
