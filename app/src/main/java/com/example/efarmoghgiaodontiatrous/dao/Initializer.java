@@ -1,5 +1,11 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.dao;
 
+import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
+import com.example.efarmoghgiaodontiatrous.dao.ClientDAO;
+import com.example.efarmoghgiaodontiatrous.dao.DentistDAO;
+import com.example.efarmoghgiaodontiatrous.dao.ServiceDAO;
+import com.example.efarmoghgiaodontiatrous.dao.SpecializationDAO;
+import com.example.efarmoghgiaodontiatrous.dao.VisitDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Appointment;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
@@ -53,8 +59,8 @@ public abstract class Initializer {
 
         d.addSpecialization(specializationDAO.find(1 + ""));
         d.addSpecialization(specializationDAO.find(2 + ""));
-        d=dentistDAO.find(2 + "");
-        d.addSpecialization(specializationDAO.find(1+ ""));
+        d = dentistDAO.find(2 + "");
+        d.addSpecialization(specializationDAO.find(1 + ""));
         d.addSpecialization(specializationDAO.find(3 + ""));
 
         ClientDAO clientDAO = getClientDAO();

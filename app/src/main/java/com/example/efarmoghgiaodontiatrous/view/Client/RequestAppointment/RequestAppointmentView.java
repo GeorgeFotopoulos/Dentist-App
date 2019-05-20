@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Client.RequestAppointment;
 
 public interface RequestAppointmentView {
     void showError(String msg);

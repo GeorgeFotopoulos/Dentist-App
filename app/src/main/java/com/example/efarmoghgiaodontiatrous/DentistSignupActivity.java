@@ -8,7 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 
 import static java.lang.Integer.parseInt;

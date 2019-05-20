@@ -1,5 +1,6 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.memorydao;
 
+import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Appointment;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 

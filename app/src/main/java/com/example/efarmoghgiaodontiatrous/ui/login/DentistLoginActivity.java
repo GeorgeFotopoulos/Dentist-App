@@ -20,10 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.efarmoghgiaodontiatrous.DentistSignupActivity;
-import com.example.efarmoghgiaodontiatrous.MainActivityView;
 import com.example.efarmoghgiaodontiatrous.R;
-import com.example.efarmoghgiaodontiatrous.ui.login.LoginViewModel;
-import com.example.efarmoghgiaodontiatrous.ui.login.LoginViewModelFactory;
 
 public class DentistLoginActivity extends AppCompatActivity {
 

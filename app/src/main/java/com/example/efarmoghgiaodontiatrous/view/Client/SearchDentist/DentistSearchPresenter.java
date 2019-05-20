@@ -1,9 +1,8 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Client.SearchDentist;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
-import com.example.efarmoghgiaodontiatrous.util.Address;
+import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -15,13 +14,12 @@ public class DentistSearchPresenter {
         this.view = view;
     }
 
-    public Set<Dentist> searchDentists(String lastName, String firstName){
+    public Set<Dentist> searchDentists(String lastName, String firstName) {
         Set<Dentist> result = new HashSet<>();
         List<Dentist> resultA;
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
-        resultA=dDAOMemory.findByName(lastName,firstName);
+        resultA = dDAOMemory.findByName(lastName, firstName);
         result.addAll(resultA);
-
 
 
         return result;
@@ -36,7 +34,7 @@ public class DentistSearchPresenter {
         Set<Dentist> result = new HashSet<>();
         List<Dentist> resultA;
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
-        resultA=dDAOMemory.findwithFilters(region,specialization);
+        resultA = dDAOMemory.findwithFilters(region, specialization);
         result.addAll(resultA);
         return result;
     }

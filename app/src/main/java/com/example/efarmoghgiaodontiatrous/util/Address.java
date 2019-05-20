@@ -23,8 +23,8 @@ public class Address {
         this.country = address.getCountry();
     }
 
-    public String print(){
-        return (country+", "+city+", "+street+" "+number+", "+zip );
+    public String print() {
+        return (country + ", " + city + ", " + street + " " + number + ", " + zip);
     }
 
 

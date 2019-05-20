@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.dao;
 
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 
@@ -36,6 +36,7 @@ public interface SpecializationDAO {
 
     /**
      * Επιστρέφει τον επόμενο κωδικό που μπορεί να αποδοθεί σε μια ειδικότητα.
+     *
      * @return Ο κωδικός της ειδικότητας
      */
     String nextId();

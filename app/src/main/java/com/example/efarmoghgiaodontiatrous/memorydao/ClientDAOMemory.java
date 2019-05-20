@@ -1,5 +1,6 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.memorydao;
 
+import com.example.efarmoghgiaodontiatrous.dao.ClientDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
 
 import java.util.ArrayList;

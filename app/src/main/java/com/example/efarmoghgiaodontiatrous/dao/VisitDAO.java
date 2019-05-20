@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.dao;
 
 import com.example.efarmoghgiaodontiatrous.domain.Visit;
 

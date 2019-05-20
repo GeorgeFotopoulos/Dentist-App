@@ -3,10 +3,8 @@ package com.example.efarmoghgiaodontiatrous.ui.login;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
-import android.util.Patterns;
 
-import com.example.efarmoghgiaodontiatrous.DentistDAO;
-import com.example.efarmoghgiaodontiatrous.DentistDAOMemory;
+import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.data.LoginRepository;
 import com.example.efarmoghgiaodontiatrous.data.Result;
 import com.example.efarmoghgiaodontiatrous.data.model.LoggedInUser;

@@ -37,6 +37,7 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
 
     /**
      * Set a listener to be notified of book selection (click on the TextView)
+     *
      * @param dentSelectionListener
      */
     public void setDentistSelectionListener(ItemSelectionListener<Dentist> dentSelectionListener) {
@@ -44,7 +45,7 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
     }
 
     @Override
-    public DentistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent,int viewType) {
+    public DentistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view for the list
         ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.list_dentist_result, parent, false);
         ViewHolder vh = new ViewHolder(v);
@@ -59,12 +60,12 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
         final Dentist dentAtPosition = itemList.get(position);
 
         // - replace the contents of the view with data from the dataset item at this position
-        holder.txtDentist.setText(dentAtPosition.getLastName()+" "+dentAtPosition.getFirstName()+"\n" +dentAtPosition.getInfirmaryLocation().print()+"\nEmail: "+dentAtPosition.getEmail()+ " \nTel. "+dentAtPosition.getTelephoneNo()+"\nSpecializations: "+dentAtPosition.printSpecializations()+"\nProviding Services: "+dentAtPosition.printServices());
+        holder.txtDentist.setText(dentAtPosition.getLastName() + " " + dentAtPosition.getFirstName() + "\n" + dentAtPosition.getInfirmaryLocation().print() + "\nEmail: " + dentAtPosition.getEmail() + " \nTel. " + dentAtPosition.getTelephoneNo() + "\nSpecializations: " + dentAtPosition.printSpecializations() + "\nProviding Services: " + dentAtPosition.printServices());
         holder.btnSelectDentist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // notify the Activity of the selected book
-                if (dentSelectionListener!= null) {
+                if (dentSelectionListener != null) {
                     dentSelectionListener.onItemSelected(dentAtPosition);
                 }
             }

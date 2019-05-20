@@ -10,7 +10,7 @@ public class Appointment {
     private AppointmentState state;
     private Dentist dentist;
     private SimpleCalendar bookDate;
-    private int hour,minutes;
+    private int hour, minutes;
 
     /**
      * Default Constructor.
@@ -47,14 +47,14 @@ public class Appointment {
      * @param dentist     The dentist that the patient will visit
      * @param bookDate    The date that the visit will be taking place
      */
-    public Appointment(String firstName, String lastName, String telephoneNo, Dentist dentist, SimpleCalendar bookDate,int hour,int minutes) {
+    public Appointment(String firstName, String lastName, String telephoneNo, Dentist dentist, SimpleCalendar bookDate, int hour, int minutes) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNo = telephoneNo;
         this.dentist = dentist;
         this.bookDate = bookDate;
-        this.hour=hour;
-        this.minutes=minutes;
+        this.hour = hour;
+        this.minutes = minutes;
         this.setState(AppointmentState.PENDING);
     }
 
@@ -182,6 +182,42 @@ public class Appointment {
      */
     public void setState(AppointmentState state) {
         this.state = state;
+    }
+
+    /**
+     * Returns the Appointment's hour value.
+     *
+     * @return The appointment's hour value
+     */
+    public int getHour() {
+        return hour;
+    }
+
+    /**
+     * Sets the Appointment's hour value.
+     *
+     * @param hour The hour value of the appointment
+     */
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    /**
+     * Returns the Appointment's minute value.
+     *
+     * @return The appointment's minute value
+     */
+    public int getMinutes() {
+        return minutes;
+    }
+
+    /**
+     * Sets the Appointment's minute value.
+     *
+     * @param minutes The minutes value of the appointment
+     */
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 
     @Override

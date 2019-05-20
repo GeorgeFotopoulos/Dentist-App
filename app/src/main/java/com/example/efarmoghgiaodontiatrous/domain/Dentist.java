@@ -397,7 +397,7 @@ public class Dentist {
     public Visit recordVisit(SimpleCalendar dateOfVisit, String comments, Dentist dentist, Client client, Service service) {
         Visit visit = null;
         if (dentist.services.contains(service)) {
-            if(dateOfVisit==null||(!dentist.equals(this))||client==null)
+            if (dateOfVisit == null || (!dentist.equals(this)) || client == null)
                 return null;
             visit = new Visit(dateOfVisit, comments, dentist, client, services);
         }
@@ -412,7 +412,7 @@ public class Dentist {
      * @return The client object
      */
     public Client createClientCard(String AMKA) {
-        if(AMKA==null)
+        if (AMKA == null)
             return null;
         Client client = new Client();
         client.setAMKA(AMKA);
@@ -441,16 +441,17 @@ public class Dentist {
     }
 
     public String printSpecializations() {
-        String out="";
-        for(Specialization sp: specializations){
-            out+=sp.getSpecializationName()+" ";
+        String out = "";
+        for (Specialization sp : specializations) {
+            out += sp.getSpecializationName() + " ";
         }
         return out;
     }
+
     public String printServices() {
-        String out="";
-        for(Service sp: services){
-            out+=sp.getServiceName()+" ";
+        String out = "";
+        for (Service sp : services) {
+            out += sp.getServiceName() + " ";
         }
         return out;
     }

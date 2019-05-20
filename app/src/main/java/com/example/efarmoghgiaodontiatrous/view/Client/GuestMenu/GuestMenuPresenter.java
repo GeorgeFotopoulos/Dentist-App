@@ -1,7 +1,7 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu;
 
-import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
+import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 
 import java.util.List;
 
@@ -10,6 +10,7 @@ public class GuestMenuPresenter {
 
     /**
      * Αρχικοποιεί τον Presenter.
+     *
      * @param view Ένα instance του view
      */
     public GuestMenuPresenter(GuestMenuView view) {
@@ -17,8 +18,8 @@ public class GuestMenuPresenter {
     }
 
 
-    public void searchbyname(String title, String author){
-        if (title.isEmpty() && author.isEmpty()){
+    public void searchbyname(String title, String author) {
+        if (title.isEmpty() && author.isEmpty()) {
             view.showError("The field \"Lastname\" is not optional");
             return;
         }
@@ -28,15 +29,15 @@ public class GuestMenuPresenter {
     }
 
     public List<Specialization> getSpecializations() {
-        SpecializationDAOMemory dao=new SpecializationDAOMemory();
+        SpecializationDAOMemory dao = new SpecializationDAOMemory();
         return dao.findAll();
     }
 
     public void searchbyfilters(String region, String specialization) {
-        if (region.equals("") && specialization.equals("") ){
+        if (region.equals("") && specialization.equals("")) {
             view.showError("You have to fill at least a value");
             return;
         }
-        view.showSearchViewFilters(region,specialization);
+        view.showSearchViewFilters(region, specialization);
     }
 }

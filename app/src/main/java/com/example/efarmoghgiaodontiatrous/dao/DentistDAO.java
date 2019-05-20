@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.dao;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 
@@ -47,5 +47,5 @@ public interface DentistDAO {
      */
     List<Dentist> findAll();
 
-    List<Dentist> findwithFilters(String region,String specialization);
+    List<Dentist> findwithFilters(String region, String specialization);
 }

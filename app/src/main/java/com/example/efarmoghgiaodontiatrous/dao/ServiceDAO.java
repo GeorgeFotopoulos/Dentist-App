@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.dao;
 
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 
@@ -36,6 +36,7 @@ public interface ServiceDAO {
 
     /**
      * Επιστρέφει τον επόμενο κωδικό που μπορεί να αποδοθεί σε μια υπηρεσία.
+     *
      * @return Ο κωδικός της υπηρεσίας
      */
     String nextId();

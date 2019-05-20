@@ -1,5 +1,12 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.memorydao;
 
+import com.example.efarmoghgiaodontiatrous.dao.Initializer;
+import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
+import com.example.efarmoghgiaodontiatrous.dao.ClientDAO;
+import com.example.efarmoghgiaodontiatrous.dao.DentistDAO;
+import com.example.efarmoghgiaodontiatrous.dao.ServiceDAO;
+import com.example.efarmoghgiaodontiatrous.dao.SpecializationDAO;
+import com.example.efarmoghgiaodontiatrous.dao.VisitDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Appointment;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;

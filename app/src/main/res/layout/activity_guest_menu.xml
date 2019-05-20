@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GuestMenuActivity">
+    tools:context=".view.Client.GuestMenu.GuestMenuActivity">
 
     <Button
         android:id="@+id/search_dentist_by_name"

@@ -1,6 +1,5 @@
 package com.example.efarmoghgiaodontiatrous.ui.login;
 
-import com.example.efarmoghgiaodontiatrous.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 
 /**
