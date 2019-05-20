@@ -126,7 +126,7 @@ public class DentistLoginActivity extends AppCompatActivity {
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
-        String welcome = "Welcome Dr. "  + model.getDisplayName();
+        String welcome = "Welcome Dr. " + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
     }
@@ -135,8 +135,8 @@ public class DentistLoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), errorString, Toast.LENGTH_SHORT).show();
     }
 
-    public void signUp(){
+    public void signUp() {
         Intent intent = new Intent(DentistLoginActivity.this, DentistSignupActivity.class);
         startActivity(intent);
-    };
+    }
 }

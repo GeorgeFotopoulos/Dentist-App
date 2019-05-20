@@ -33,4 +33,10 @@ public interface ServiceDAO {
      * @return Η υπηρεσία που βρέθηκε ή null
      */
     Service find(String serviceId);
+
+    /**
+     * Επιστρέφει τον επόμενο κωδικό που μπορεί να αποδοθεί σε μια υπηρεσία.
+     * @return Ο κωδικός της υπηρεσίας
+     */
+    String nextId();
 }

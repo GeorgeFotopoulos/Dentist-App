@@ -22,12 +22,12 @@ public class AppointmentTest {
         dentist = new Dentist();
         dentist.setEmail("newEmail@gmail.com");
         dentist.setPassword("newPassword");
-        appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 13, 0);
     }
 
     @Test
     public void equals() {
-        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", dentist, calendar);
+        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", dentist, calendar, 13, 30);
         assertTrue(other.equals(appointment));
         assertEquals(other.hashCode(), appointment.hashCode());
     }
@@ -35,14 +35,14 @@ public class AppointmentTest {
     @Test
     public void differentAppointments() {
         Dentist dentist2 = new Dentist();
-        Appointment appointment2 = new Appointment("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", dentist2, new SimpleCalendar(1, 1, 2010));
+        Appointment appointment2 = new Appointment("George", "Fotopoulos", "6980793051", dentist2, new SimpleCalendar(1, 1, 2010), 15, 30);
         dentist2.setEmail("abc123@gmail.com");
         dentist2.setPassword("abc123");
 
         assertFalse(appointment2.equals(appointment));
         assertNotEquals(appointment2.hashCode(), appointment.hashCode());
 
-        Appointment appointment3 = new Appointment(null, null, null, null, null, null);
+        Appointment appointment3 = new Appointment(null, null, null, null, null, 0, 0);
         assertFalse(appointment3.equals(null));
         assertEquals(0, appointment3.hashCode());
 

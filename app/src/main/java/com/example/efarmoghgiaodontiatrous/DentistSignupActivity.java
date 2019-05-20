@@ -41,7 +41,6 @@ public class DentistSignupActivity extends AppCompatActivity {
         findViewById(R.id.btn_signup).setEnabled(false);
 
 
-
         // TODO: Implement your own signup logic here.
 
         new Handler().postDelayed(
@@ -57,26 +56,26 @@ public class DentistSignupActivity extends AppCompatActivity {
 
 
     public void onSignupSuccess() {
-        String firstName =((EditText) findViewById(R.id.input_fname)).getText().toString();
-        String lastName =((EditText) findViewById(R.id.input_lname)).getText().toString();
+        String firstName = ((EditText) findViewById(R.id.input_fname)).getText().toString();
+        String lastName = ((EditText) findViewById(R.id.input_lname)).getText().toString();
         String email = ((EditText) findViewById(R.id.input_email)).getText().toString();
-        String password =((EditText) findViewById(R.id.input_password)).getText().toString();
-        String phone =((EditText) findViewById(R.id.input_phone)).getText().toString();
-        String street =((EditText) findViewById(R.id.input_street)).getText().toString();
-        String strno =((EditText) findViewById(R.id.input_num)).getText().toString();
-        String city=((EditText) findViewById(R.id.input_city)).getText().toString();
-        int zip =Integer.parseInt(((EditText) findViewById(R.id.input_zip)).getText().toString());
-        String country =((EditText) findViewById(R.id.input_country)).getText().toString();
-        String uni =((EditText) findViewById(R.id.input_uni)).getText().toString();
-        int years =Integer.parseInt(((EditText) findViewById(R.id.input_years)).getText().toString());
-        String license =((EditText) findViewById(R.id.input_license)).getText().toString();
+        String password = ((EditText) findViewById(R.id.input_password)).getText().toString();
+        String phone = ((EditText) findViewById(R.id.input_phone)).getText().toString();
+        String street = ((EditText) findViewById(R.id.input_street)).getText().toString();
+        String strno = ((EditText) findViewById(R.id.input_num)).getText().toString();
+        String city = ((EditText) findViewById(R.id.input_city)).getText().toString();
+        int zip = Integer.parseInt(((EditText) findViewById(R.id.input_zip)).getText().toString());
+        String country = ((EditText) findViewById(R.id.input_country)).getText().toString();
+        String uni = ((EditText) findViewById(R.id.input_uni)).getText().toString();
+        int years = Integer.parseInt(((EditText) findViewById(R.id.input_years)).getText().toString());
+        String license = ((EditText) findViewById(R.id.input_license)).getText().toString();
 
-        DentistDAOMemory dentist =  new DentistDAOMemory();
+        DentistDAOMemory dentist = new DentistDAOMemory();
 
         findViewById(R.id.btn_signup).setEnabled(true);
         setResult(RESULT_OK, null);
         finish();
-        dentist.save(new Dentist(firstName, lastName, phone, email, license, uni, new Address(street,strno,city,country,zip), years, password));
+        dentist.save(new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password));
         Toast.makeText(getBaseContext(), "Sign Up Successful!!", Toast.LENGTH_LONG).show();
     }
 
@@ -89,9 +88,9 @@ public class DentistSignupActivity extends AppCompatActivity {
     public boolean validate() {
         boolean valid = true;
 
-        String name =((EditText) findViewById(R.id.input_fname)).getText().toString();
+        String name = ((EditText) findViewById(R.id.input_fname)).getText().toString();
         String email = ((EditText) findViewById(R.id.input_email)).getText().toString();
-        String password =((EditText) findViewById(R.id.input_password)).getText().toString();
+        String password = ((EditText) findViewById(R.id.input_password)).getText().toString();
 
         if (name.isEmpty() || name.length() < 3) {
             ((EditText) findViewById(R.id.input_fname)).setError("at least 3 characters");
@@ -107,7 +106,7 @@ public class DentistSignupActivity extends AppCompatActivity {
             ((EditText) findViewById(R.id.input_email)).setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10) {
+        if (password.isEmpty() || password.length() < 8) {
             ((EditText) findViewById(R.id.input_password)).setError("At least 8 characters");
             valid = false;
         } else {

@@ -65,7 +65,7 @@ public class DentistTest {
     @Test
     public void testAcceptAppointment() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
-        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 15, 30);
         assertNotEquals(appointment.getState(), AppointmentState.ACCEPTED);
         dentist.acceptAppointment(appointment);
         assertEquals(appointment.getState(), AppointmentState.ACCEPTED);
@@ -74,7 +74,7 @@ public class DentistTest {
     @Test
     public void testDeclineAppointment() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
-        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 22, 30);
         dentist.acceptAppointment(appointment);
         assertEquals(appointment.getState(), AppointmentState.ACCEPTED);
         assertTrue(dentist.getAppointments().contains(appointment));
@@ -98,25 +98,25 @@ public class DentistTest {
     @Test
     public void testGetAppointments() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
-        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar);
+        Appointment appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 13, 0);
         assertTrue(dentist.getAppointments().isEmpty());
         dentist.acceptAppointment(appointment);
         dentist.getAppointments();
-        assertTrue(dentist.getAppointments().contains(new Appointment("George", "Patrikis", "6986888788", "geopatrikis12@gmail.com", dentist, calendar)));
+        assertTrue(dentist.getAppointments().contains(new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 11, 30)));
     }
 
     @Test
     public void testRecordVisit() {
-        assertEquals(dentist.recordVisit(null, null, dentist, null, null),null);
+        assertEquals(dentist.recordVisit(null, null, dentist, null, null), null);
         Service service = new Service("Filling", "1");
-        assertEquals(dentist.recordVisit(null, null, dentist, null, service),null);
+        assertEquals(dentist.recordVisit(null, null, dentist, null, service), null);
         SimpleCalendar dateOfVisit = new SimpleCalendar(10, 10, 2010);
         String comments = "Comments...";
         Client client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
-        assertNotEquals(dentist.recordVisit(dateOfVisit, comments, dentist, client, service),null);
+        assertNotEquals(dentist.recordVisit(dateOfVisit, comments, dentist, client, service), null);
         Dentist dentist2 = new Dentist("George", "Patrikis", "698079sad051", "giorgos.foto7@gmail.com", "AB23", "Aths University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "as123");
         dentist2.addService(new Service("Filling", "1"));
-        assertEquals(dentist.recordVisit(dateOfVisit, comments, dentist2, client, service),null);
+        assertEquals(dentist.recordVisit(dateOfVisit, comments, dentist2, client, service), null);
     }
 
 
@@ -125,9 +125,9 @@ public class DentistTest {
     public void testCreateClientCard() {
         String AMKA = "18059500037";
 
-        assertEquals( dentist.createClientCard(null),null);
-        assertEquals(dentist.createClientCard(AMKA).getAMKA(),"18059500037");
-        assertNotEquals(dentist.createClientCard(AMKA).getAMKA(),"18059500038");
+        assertEquals(dentist.createClientCard(null), null);
+        assertEquals(dentist.createClientCard(AMKA).getAMKA(), "18059500037");
+        assertNotEquals(dentist.createClientCard(AMKA).getAMKA(), "18059500038");
     }
 
     @Test

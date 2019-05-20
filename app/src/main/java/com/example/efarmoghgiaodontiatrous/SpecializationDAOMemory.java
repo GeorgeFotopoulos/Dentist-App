@@ -34,4 +34,13 @@ public class SpecializationDAOMemory implements SpecializationDAO {
         }
         return null;
     }
+
+    @Override
+    public String nextId() {
+        if (entities.size() > 0) {
+            return Integer.parseInt(entities.get(entities.size() - 1).getSpecializationID()) + 1 + "";
+        } else {
+            return 1 + "";
+        }
+    }
 }
