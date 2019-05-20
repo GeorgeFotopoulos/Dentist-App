@@ -10,6 +10,7 @@ public class Appointment {
     private AppointmentState state;
     private Dentist dentist;
     private SimpleCalendar bookDate;
+    private int hour,minutes;
 
     /**
      * Default Constructor.
@@ -43,17 +44,17 @@ public class Appointment {
      * @param firstName   Client's first name
      * @param lastName    Client's last name
      * @param telephoneNo Client's telephone number
-     * @param email       Client's email
      * @param dentist     The dentist that the patient will visit
      * @param bookDate    The date that the visit will be taking place
      */
-    public Appointment(String firstName, String lastName, String telephoneNo, String email, Dentist dentist, SimpleCalendar bookDate) {
+    public Appointment(String firstName, String lastName, String telephoneNo, Dentist dentist, SimpleCalendar bookDate,int hour,int minutes) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNo = telephoneNo;
-        this.email = email;
         this.dentist = dentist;
         this.bookDate = bookDate;
+        this.hour=hour;
+        this.minutes=minutes;
         this.setState(AppointmentState.PENDING);
     }
 
