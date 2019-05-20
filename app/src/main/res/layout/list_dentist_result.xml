@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/txt_dentist_info"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+        android:layout_gravity="center_vertical"
         android:layout_marginLeft="0dp"
         android:layout_marginTop="0dp"
         android:layout_weight="1"
-        android:layout_gravity="center_vertical"
         android:paddingLeft="8dp"
         android:paddingTop="8dp"
         android:text="TextView" />
 
     <Button
         android:id="@+id/btn_select_dentist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:layout_weight="0"
-        android:text="GO"
+        android:text="Request Appointment"
         app:srcCompat="@android:drawable/ic_menu_add"
-        tools:text="GO" />
+        tools:text="Request Appointment" />
 
 </LinearLayout>

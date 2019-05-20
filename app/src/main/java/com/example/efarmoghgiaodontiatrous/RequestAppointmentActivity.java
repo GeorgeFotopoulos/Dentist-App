@@ -41,8 +41,10 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
             public void onClick(View v) {
                 SimpleCalendar AppDate=dateOfAppointment ;
                 String Time=((EditText) findViewById(R.id.AppointmentTime)).getText().toString();
+                String Lastname=((EditText) findViewById(R.id.lastname)).getText().toString();
+                String Firstname=((EditText) findViewById(R.id.firstname)).getText().toString();
                 String Tel=((EditText) findViewById(R.id.ContactNum)).getText().toString();
-                Presenter.reqAppointment(D, AppDate,Time,Tel);
+                Presenter.reqAppointment(D, AppDate,Time,Tel,Lastname,Firstname);
             }
         });
     }
@@ -50,4 +52,9 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
     public void showError(String errorMsg) {
         Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
     }
+
+    public void success(String msg){
+        Toast.makeText(this,msg,Toast.LENGTH_LONG).show();
+    }
+
 }
