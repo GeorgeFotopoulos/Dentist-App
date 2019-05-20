@@ -17,7 +17,7 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
     private GuestMenuPresenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-       presenter= new GuestMenuPresenter(this);
+        presenter= new GuestMenuPresenter(this);
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_guest_menu);

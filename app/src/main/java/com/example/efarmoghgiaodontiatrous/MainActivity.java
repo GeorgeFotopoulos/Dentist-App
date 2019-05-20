@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
+
 public class MainActivity extends AppCompatActivity implements MainActivityView{
 
     @Override
@@ -27,7 +29,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView{
         });
     }
 
-    public void dentistMenu(){};
+    public void dentistMenu(){
+        Intent intent = new Intent(MainActivity.this, DentistLoginActivity.class);
+        startActivity(intent);
+    };
 
     public void guestMenu(){
         Intent intent = new Intent(MainActivity.this, GuestMenuActivity.class);

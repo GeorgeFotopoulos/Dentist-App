@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DentistAdapter"></activity>
+        <activity
+            android:name=".DentistSignupActivity"
+            android:label="@string/title_activity_dentist_signup"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.login.DentistLoginActivity"
+            android:label="@string/title_activity_dentist_login" />
         <activity android:name=".DentistSearchActivity" />
         <activity android:name=".GuestMenuActivity" />
         <activity android:name=".MainActivity">

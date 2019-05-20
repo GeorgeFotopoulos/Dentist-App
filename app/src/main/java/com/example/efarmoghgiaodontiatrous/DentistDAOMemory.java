@@ -5,7 +5,7 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import java.util.ArrayList;
 import java.util.List;
 
-class DentistDAOMemory implements DentistDAO {
+public class DentistDAOMemory implements DentistDAO {
     protected static List<Dentist> entities = new ArrayList<>();
 
     @Override
@@ -17,6 +17,16 @@ class DentistDAOMemory implements DentistDAO {
         }
         return null;
     }
+
+    public Dentist findByEmail(String email) {
+        for (Dentist dentist : entities) {
+            if (dentist.getEmail().equals(email)) {
+                return dentist;
+            }
+        }
+        return null;
+    }
+
 
     @Override
     public void save(Dentist entity) {

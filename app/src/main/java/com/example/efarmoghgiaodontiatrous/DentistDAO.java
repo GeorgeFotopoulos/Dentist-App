@@ -21,6 +21,9 @@ public interface DentistDAO {
      */
     Dentist find(String dentistID);
 
+
+    Dentist findByEmail(String email);
+
     /**
      * Αποθηκεύει ένα αντικείμενο στην εξωτερική πηγή δεδομένων.
      * Το αντικείμενο μπορεί να είναι κάποιο νέο αντικείμενο που δεν υπάρχει
