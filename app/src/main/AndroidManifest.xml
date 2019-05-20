@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".DentistAdapter"></activity>
         <activity android:name=".DentistSearchActivity" />
+        <activity android:name=".RequestAppointmentActivity" />
+
         <activity android:name=".GuestMenuActivity" />
         <activity android:name=".ui.login.DentistLoginActivity" />
         <activity android:name=".DentistSignupActivity" />

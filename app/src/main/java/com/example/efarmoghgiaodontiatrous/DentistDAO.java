@@ -46,4 +46,6 @@ public interface DentistDAO {
      * @return Ο κατάλογος των αντικειμένων
      */
     List<Dentist> findAll();
+
+    List<Dentist> findwithFilters(String region,String specialization);
 }

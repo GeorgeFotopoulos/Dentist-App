@@ -34,4 +34,12 @@ public class GuestMenuPresenter {
         dao.save(new Specialization("PAasdadadasdadaOK","1asd2"));
         return dao.findAll();
     }
+
+    public void searchbyfilters(String region, String specialization) {
+        if (region.equals("") && specialization.equals("") ){
+            view.showError("You have to fill at least a value");
+            return;
+        }
+        view.showSearchViewFilters(region,specialization);
+    }
 }

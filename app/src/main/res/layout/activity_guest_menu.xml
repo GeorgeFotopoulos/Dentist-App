@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/Region" />
 
     <EditText
         android:id="@+id/lastname"
@@ -86,7 +86,7 @@
 
     <Spinner
         android:id="@+id/spinner"
-        style="@android:style/Widget.Spinner.DropDown"
+        style="@android:style/Widget.Spinner"
         android:layout_width="194dp"
         android:layout_height="39dp"
         android:layout_marginTop="28dp"
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toTopOf="@+id/spinner" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/Region"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

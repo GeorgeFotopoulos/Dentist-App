@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityView{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Initializer initializer = new MemoryInitializer();
+        initializer.prepareData();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 

@@ -22,14 +22,7 @@ public class DentistSearchPresenter {
         resultA=dDAOMemory.findByName(lastName,firstName);
         result.addAll(resultA);
 
-        Dentist dentist3 = new Dentist("Giorgos", "Patrikis", "6958687888", "geopatrikis12@gmail.com", "ABC123456", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc123456");
-        result.add(dentist3);
-        Dentist dentist2 = new Dentist("Dimitris", "Parikis", "6958687888", "geopikis@gmail.com", "ABC1256", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc1456");
-        result.add(dentist2);
-        Dentist dentist1 = new Dentist("Dimitriss", "Parikis", "6958687888", "geopikasdgmail.com", "ABC125asd6", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc1adasda456");
-        result.add(dentist1);
-        dDAOMemory.save(dentist1);
-        dDAOMemory.save(dentist2);dDAOMemory.save(dentist3);
+
 
         return result;
 
@@ -37,5 +30,16 @@ public class DentistSearchPresenter {
 
     public void onDentistSelected(Dentist item) {
         view.requestAppointment(item);
+    }
+
+    public Set<Dentist> searchDentistsWithFilters(String region, String specialization) {
+
+        Set<Dentist> result = new HashSet<>();
+        List<Dentist> resultA;
+        DentistDAOMemory dDAOMemory = new DentistDAOMemory();
+
+        resultA=dDAOMemory.findwithFilters(region,specialization);
+        result.addAll(resultA);
+        return result;
     }
 }
