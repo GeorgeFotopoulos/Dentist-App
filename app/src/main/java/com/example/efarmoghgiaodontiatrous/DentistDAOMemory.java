@@ -79,7 +79,7 @@ public class DentistDAOMemory implements DentistDAO {
             for (Dentist dentist : entities) {
                 Set<Specialization> temp = dentist.getSpecializations();
                 for (Specialization sp : temp) {
-                    if (sp.getSpecializationName().equals("specialization")) {
+                    if (sp.getSpecializationName().equals(specialization)) {
                         output.add(dentist);
                         break;
                     }

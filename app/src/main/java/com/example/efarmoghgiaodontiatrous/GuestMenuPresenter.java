@@ -29,9 +29,6 @@ public class GuestMenuPresenter {
 
     public List<Specialization> getSpecializations() {
         SpecializationDAOMemory dao=new SpecializationDAOMemory();
-        dao.save(new Specialization("PAOK","12"));
-        dao.save(new Specialization("PadasK","1as2"));
-        dao.save(new Specialization("PAasdadadasdadaOK","1asd2"));
         return dao.findAll();
     }
 

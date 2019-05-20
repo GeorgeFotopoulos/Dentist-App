@@ -23,6 +23,11 @@ public class Address {
         this.country = address.getCountry();
     }
 
+    public String print(){
+        return (country+", "+city+", "+street+" "+number+", "+zip );
+    }
+
+
     /**
      * Address constructor where all values are given as parameters.
      *

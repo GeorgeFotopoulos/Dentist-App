@@ -439,4 +439,19 @@ public class Dentist {
         result = 31 * result + password.hashCode();
         return result;
     }
+
+    public String printSpecializations() {
+        String out="";
+        for(Specialization sp: specializations){
+            out+=sp.getSpecializationName()+" ";
+        }
+        return out;
+    }
+    public String printServices() {
+        String out="";
+        for(Service sp: services){
+            out+=sp.getServiceName()+" ";
+        }
+        return out;
+    }
 }

@@ -33,11 +33,9 @@ public class DentistSearchPresenter {
     }
 
     public Set<Dentist> searchDentistsWithFilters(String region, String specialization) {
-
         Set<Dentist> result = new HashSet<>();
         List<Dentist> resultA;
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
-
         resultA=dDAOMemory.findwithFilters(region,specialization);
         result.addAll(resultA);
         return result;
