@@ -30,36 +30,33 @@
                 android:id="@+id/input_fname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="@+id/textView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <EditText
                 android:id="@+id/input_lname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
             <EditText
                 android:id="@+id/input_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                app:layout_constraintStart_toStartOf="@+id/textView11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
             <EditText
@@ -67,13 +64,12 @@
                 style="@style/Widget.AppCompat.AutoCompleteTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPassword"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/textView12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
@@ -82,7 +78,7 @@
                 android:layout_height="22dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="24dp"
                 android:text="First name:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView25" />
@@ -124,12 +120,11 @@
                 android:id="@+id/input_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="@+id/textView13"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
             <TextView
@@ -147,26 +142,25 @@
                 android:id="@+id/input_uni"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="@+id/textView26"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
             <EditText
                 android:id="@+id/input_street"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Street"
                 android:inputType="textPersonName|textPostalAddress"
-                app:layout_constraintStart_toStartOf="@+id/textView22"
+                app:layout_constraintEnd_toStartOf="@+id/input_num"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/input_city"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
             <TextView
@@ -195,12 +189,11 @@
                 android:id="@+id/input_years"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="@+id/textView24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
             <TextView
@@ -209,7 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="16dp"
                 android:text="Years of Experience:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/input_city" />
@@ -230,14 +223,10 @@
 
             <TextView
                 android:id="@+id/textView25"
-                android:layout_width="90dp"
+                android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:text="Sign Up Now!"
+                android:text="Registeration Form"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="#ED000000"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.508"
@@ -248,8 +237,8 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
                 android:text="Exercise License:"
                 app:layout_constraintStart_toStartOf="parent"
@@ -259,22 +248,23 @@
                 android:id="@+id/input_license"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <EditText
                 android:id="@+id/input_num"
-                android:layout_width="40dp"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginLeft="4dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="No."
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toStartOf="@+id/input_zip"
                 app:layout_constraintStart_toEndOf="@+id/input_street"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -282,28 +272,24 @@
                 android:id="@+id/input_city"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="City"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/input_years"
                 app:layout_constraintTop_toBottomOf="@+id/input_street" />
 
             <EditText
                 android:id="@+id/input_zip"
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginLeft="12dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Zip Code"
                 android:inputType="number"
-                app:layout_constraintStart_toEndOf="@+id/input_num"
+                app:layout_constraintEnd_toEndOf="@+id/input_country"
                 app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
             <EditText
@@ -313,10 +299,13 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:ems="10"
                 android:gravity="center"
                 android:hint="Country"
                 android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/input_years"
                 app:layout_constraintStart_toEndOf="@+id/input_city"
                 app:layout_constraintTop_toBottomOf="@+id/input_street" />
 
