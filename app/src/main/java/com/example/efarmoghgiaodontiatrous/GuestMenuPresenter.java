@@ -16,7 +16,7 @@ public class GuestMenuPresenter {
 
     public void searchbyname(String title, String author){
         if (title.isEmpty() && author.isEmpty()){
-            view.showError("Παρακαλώ συμπληρώστε ένα από τα πεδία");
+            view.showError("The field \"Lastname\" is not optional");
             return;
         }
 

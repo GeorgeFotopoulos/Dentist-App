@@ -8,6 +8,8 @@ import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
@@ -39,8 +41,13 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
             public void onClick(View v) {
                 SimpleCalendar AppDate=dateOfAppointment ;
                 String Time=((EditText) findViewById(R.id.AppointmentTime)).getText().toString();
-                Presenter.reqAppointment(D, AppDate,Time);
+                String Tel=((EditText) findViewById(R.id.ContactNum)).getText().toString();
+                Presenter.reqAppointment(D, AppDate,Time,Tel);
             }
         });
+    }
+
+    public void showError(String errorMsg) {
+        Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
     }
 }
