@@ -140,6 +140,7 @@ public class DentistLoginActivity extends AppCompatActivity {
     }
 
     public void dentistMenu() {
+
         Intent intent = new Intent(DentistLoginActivity.this, DentistMenuActivity.class);
         startActivity(intent);
     }

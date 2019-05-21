@@ -6,28 +6,84 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.Integer.parseInt;
 
-public class DentistSignupActivity extends AppCompatActivity {
+public class DentistSignupActivity extends AppCompatActivity implements DentistSignupView {
     private static final String TAG = "SignupActivity";
-
+    List<String> tempSpecialization ;
+    private DentisSignupPresenter presenter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        presenter=new DentisSignupPresenter(this);
+        tempSpecialization=new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dentist_signup);
+        // Get listview checkbox.
+        final ListView listViewWithCheckbox = (ListView)findViewById(R.id.list_view_with_checkbox);
 
+        // Initiate listview data.
+        final List<ListViewItemDTO> initItemList = this.getInitViewItemDtoList();
+
+        // Create a custom list view adapter with checkbox control.
+        final ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemList);
+
+        listViewDataAdapter.notifyDataSetChanged();
+
+        // Set data adapter to list view.
+        listViewWithCheckbox.setAdapter(listViewDataAdapter);
+
+        // When list view item is clicked.
+        listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long l) {
+                // Get user selected item.
+                Object itemObject = adapterView.getAdapter().getItem(itemIndex);
+
+                // Translate the selected item to DTO object.
+                ListViewItemDTO itemDto = (ListViewItemDTO)itemObject;
+
+                // Get the checkbox.
+                CheckBox itemCheckbox = (CheckBox) view.findViewById(R.id.list_view_item_checkbox);
+
+                // Reverse the checkbox and clicked item check state.
+                if(itemDto.isChecked())
+                {
+                    itemCheckbox.setChecked(false);
+                    itemDto.setChecked(false);
+                    if(tempSpecialization.contains(itemDto.getItemText())){
+                        tempSpecialization.remove(itemDto.getItemText());
+                    }
+                }else
+                {
+                    itemCheckbox.setChecked(true);
+                    itemDto.setChecked(true);
+                    if(!tempSpecialization.contains(itemDto.getItemText())){
+                        tempSpecialization.add(itemDto.getItemText());
+                    }
+                }
+
+                //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
+            }
+        });
         findViewById(R.id.btn_signup).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println(tempSpecialization);
                 signup();
+                dentistMenu();
             }
         });
 
@@ -80,7 +136,7 @@ public class DentistSignupActivity extends AppCompatActivity {
         finish();
         dentist.save(new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password));
         Toast.makeText(getBaseContext(), "Sign Up Successful!!", Toast.LENGTH_LONG).show();
-        dentistMenu();
+
     }
 
     public void onSignupFailed() {
@@ -118,6 +174,27 @@ public class DentistSignupActivity extends AppCompatActivity {
         }
 
         return valid;
+    }
+
+    private List<ListViewItemDTO> getInitViewItemDtoList()
+    {
+
+        String itemTextArr[] = presenter.getSpecializationList();
+        List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
+        int length = itemTextArr.length;
+
+        for(int i=0;i<length;i++)
+        {
+            String itemText = itemTextArr[i];
+
+            ListViewItemDTO dto = new ListViewItemDTO();
+            dto.setChecked(false);
+            dto.setItemText(itemText);
+
+            ret.add(dto);
+        }
+
+        return ret;
     }
 
 
