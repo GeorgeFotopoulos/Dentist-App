@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DentistMenuActivity"></activity>
+        <activity android:name=".DentistViewProfileActivity"></activity>
+        <activity android:name=".DentistMenuPresenter" />
+        <activity android:name=".DentistMenuActivity" />
         <activity android:name=".DentistAdapter" />
         <activity android:name=".view.Client.SearchDentist.DentistSearchActivity" />
         <activity android:name=".view.Client.RequestAppointment.RequestAppointmentActivity" />

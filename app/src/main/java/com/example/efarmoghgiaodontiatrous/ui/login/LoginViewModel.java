@@ -10,7 +10,7 @@ import com.example.efarmoghgiaodontiatrous.data.Result;
 import com.example.efarmoghgiaodontiatrous.data.model.LoggedInUser;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
-import com.example.efarmoghgiaodontiatrous.util.Address;
+
 
 public class LoginViewModel extends ViewModel {
 

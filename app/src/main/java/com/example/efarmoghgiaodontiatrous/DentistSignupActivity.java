@@ -14,6 +14,8 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 
+import java.io.Serializable;
+
 import static java.lang.Integer.parseInt;
 
 public class DentistSignupActivity extends AppCompatActivity {
@@ -78,9 +80,11 @@ public class DentistSignupActivity extends AppCompatActivity {
         findViewById(R.id.btn_signup).setEnabled(true);
         setResult(RESULT_OK, null);
         finish();
-        dentist.save(new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password));
+        Dentist d = new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password);
+        dentist.save(d);
+
         Toast.makeText(getBaseContext(), "Sign Up Successful!!", Toast.LENGTH_LONG).show();
-        dentistMenu();
+        dentistMenu(d.getID());
     }
 
     public void onSignupFailed() {
@@ -121,8 +125,9 @@ public class DentistSignupActivity extends AppCompatActivity {
     }
 
 
-    public void dentistMenu() {
+    public void dentistMenu(String ID) {
         Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);
+        intent.putExtra("Logged-In User", ID);
         startActivity(intent);
     }
 }
