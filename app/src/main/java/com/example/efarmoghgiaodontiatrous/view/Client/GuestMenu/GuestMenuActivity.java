@@ -45,14 +45,20 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         for (int i = 1; i <= services.size(); i++) {
             Services[i] = services.get(i - 1).getServiceName();
         }
-        s1 = findViewById(R.id.spinner);
+        s1 = findViewById(R.id.spinner2);
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Services);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1.setAdapter(adapter1);
 
+        String Regions[] = {"","Marousi","Chalandri","Athens","Nea Smyrni","Peristeri","Faliro"};
+        s2 = findViewById(R.id.spinner3);
+        ArrayAdapter<String> adapter2= new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Regions);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s2.setAdapter(adapter2);
+
         findViewById(R.id.search_dentist_with_filters).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String region = ((EditText) findViewById(R.id.Region)).getText().toString();
+                String region =  s2.getSelectedItem().toString();
                 String specialization = s.getSelectedItem().toString();
                 String service = s1.getSelectedItem().toString();
                 presenter.searchbyfilters(region, specialization, service);
