@@ -15,7 +15,7 @@ public class DentistSearchPresenterTest {
     DentistSearchViewStub view;
 
     @Before
-    public void setup() {
+    public void setUp() {
         Initializer initializer = new MemoryInitializer();
         initializer.prepareData();
 

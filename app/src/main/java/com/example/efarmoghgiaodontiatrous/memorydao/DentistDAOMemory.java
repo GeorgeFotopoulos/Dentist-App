@@ -7,7 +7,6 @@ import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class DentistDAOMemory implements DentistDAO {
     protected static List<Dentist> entities = new ArrayList<>();
@@ -46,7 +45,7 @@ public class DentistDAOMemory implements DentistDAO {
     @Override
     public List<Dentist> findByName(String lastName, String firstName) {
         List<Dentist> output = new ArrayList<>();
-        if (lastName == null && lastName.equals("")) {
+        if (lastName == null || lastName.equals("")) {
             return null;
         } else if (firstName == null || firstName.equals("")) {
             for (Dentist dentist : entities) {
@@ -115,9 +114,7 @@ public class DentistDAOMemory implements DentistDAO {
             }
         }
         if (specialization.equals("")) {
-            if (region.equals("")) {
-                return new ArrayList<>(outputB);
-            } else if (service.equals("")) {
+            if (service.equals("")) {
                 return new ArrayList<>(outputC);
             } else {
                 for (int i = 0; i < outputB.size(); i++) {
@@ -138,7 +135,6 @@ public class DentistDAOMemory implements DentistDAO {
                 output.add(outputA.get(i));
             }
         }
-
         return new ArrayList<>(output);
     }
 }

@@ -12,7 +12,6 @@ public interface DentistDAO {
      */
     List<Dentist> findByName(String lastName, String firstName);
 
-
     /**
      * Βρίσκει έναν οδοντίατρο με βάση τον κωδικό του.
      *
@@ -21,7 +20,12 @@ public interface DentistDAO {
      */
     Dentist find(String dentistID);
 
-
+    /**
+     * Returns the dentist that owns the email given as a parameter.
+     *
+     * @param email The dentist's email.
+     * @return The dentist object that owns the email given as a parameter
+     */
     Dentist findByEmail(String email);
 
     /**
@@ -47,5 +51,13 @@ public interface DentistDAO {
      */
     List<Dentist> findAll();
 
+    /**
+     * Returns all the dentist objects that meet the criteria below.
+     *
+     * @param region         The region of the infirmary
+     * @param specialization The dentist's specialization(s)
+     * @param service        The dentist's provided service(s)
+     * @return Returns the dentist(s) who meet the criteria given as parameters
+     */
     List<Dentist> findWithFilters(String region, String specialization, String service);
 }

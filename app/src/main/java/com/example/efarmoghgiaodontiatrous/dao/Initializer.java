@@ -40,13 +40,12 @@ public abstract class Initializer {
         dentistDAO.save(new Dentist("Helias", "Fotopoulos", "+30 697 254 9705", "ilfwto@gmail.com", "Athens:171224", "National and Kapodistrian University of Athens", new Address("Artis", "24", "Athens", "Greece", 17124), 10, "asdfg123"));
         dentistDAO.save(new Dentist("Spyros", "Fotopoulos", "+30 697 254 4705", "spirosfot.23@gmail.com", "Athens:171225", "University of Piraeus", new Address("Artis", "23", "Aghios Dimitrios", "Greece", 17341), 12, "asdfg123"));
 
-        Dentist d;
-        d = dentistDAO.find("0");
+        Dentist d = dentistDAO.find("0");
         d.addSpecialization(specializationDAO.find("2"));
         d.addService(serviceDAO.find("1"));
         d.addService(serviceDAO.find("2"));
 
-        d = dentistDAO.find(1 + "");
+        d = dentistDAO.find("1");
         d.addSpecialization(specializationDAO.find("1"));
         d.addSpecialization(specializationDAO.find("2"));
         d.addService(serviceDAO.find("2"));
@@ -70,7 +69,7 @@ public abstract class Initializer {
         services1.add(serviceDAO.find("1"));
         visitDAO.save(new Visit(new SimpleCalendar(2018, 5, 18), "Operation successful!", dentistDAO.find("1"), clientDAO.find("17099800037"), services1));
         Set<Service> services2 = new HashSet<>();
-        services1.add(serviceDAO.find("2"));
+        services2.add(serviceDAO.find("2"));
         visitDAO.save(new Visit(new SimpleCalendar(2018, 5, 18), "Operation unsuccessful!", dentistDAO.find("2"), clientDAO.find("17090000037"), services2));
     }
 
