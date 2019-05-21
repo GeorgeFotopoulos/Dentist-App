@@ -127,7 +127,7 @@ public class DentistLoginActivity extends AppCompatActivity {
         String welcome = "Welcome Dr. " + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        dentistMenu();
+        dentistMenu(model.getID());
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
@@ -139,9 +139,9 @@ public class DentistLoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void dentistMenu() {
-
+    public void dentistMenu(String ID) {
         Intent intent = new Intent(DentistLoginActivity.this, DentistMenuActivity.class);
+        intent.putExtra("Logged-In User",ID);
         startActivity(intent);
     }
 }
