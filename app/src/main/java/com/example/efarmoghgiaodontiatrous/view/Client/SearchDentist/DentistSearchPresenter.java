@@ -20,21 +20,18 @@ public class DentistSearchPresenter {
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
         resultA = dDAOMemory.findByName(lastName, firstName);
         result.addAll(resultA);
-
-
         return result;
-
     }
 
     public void onDentistSelected(Dentist item) {
         view.requestAppointment(item);
     }
 
-    public Set<Dentist> searchDentistsWithFilters(String region, String specialization) {
+    public Set<Dentist> searchDentistsWithFilters(String region, String specialization, String service) {
         Set<Dentist> result = new HashSet<>();
         List<Dentist> resultA;
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
-        resultA = dDAOMemory.findwithFilters(region, specialization);
+        resultA = dDAOMemory.findwithFilters(region, specialization, service);
         result.addAll(resultA);
         return result;
     }

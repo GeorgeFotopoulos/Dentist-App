@@ -30,7 +30,6 @@ public class DentistDAOMemory implements DentistDAO {
         return null;
     }
 
-
     @Override
     public void save(Dentist entity) {
         if (!entities.contains(entity)) {
@@ -72,9 +71,9 @@ public class DentistDAOMemory implements DentistDAO {
     }
 
     @Override
-    public List<Dentist> findwithFilters(String region, String specialization) {
+    public List<Dentist> findwithFilters(String region, String specialization, String service) {
         List<Dentist> output = new ArrayList<>();
-        if ((region == null || region.equals("")) && (specialization == null || specialization.equals(""))) {
+        if ((region == null || region.equals("")) && (specialization == null || specialization.equals("") && (service == null || service.equals("")))) {
             return null;
         } else if (region == null || region.equals("")) {
             for (Dentist dentist : entities) {
@@ -92,6 +91,8 @@ public class DentistDAOMemory implements DentistDAO {
                     output.add(dentist);
                 }
             }
+        } else if (service == null || service.equals("")){
+
         } else {
             for (Dentist dentist : entities) {
                 if (dentist.getInfirmaryLocation().getCity().equals(region)) {
@@ -105,7 +106,6 @@ public class DentistDAOMemory implements DentistDAO {
                 }
             }
         }
-
         return new ArrayList<>(output);
     }
 }

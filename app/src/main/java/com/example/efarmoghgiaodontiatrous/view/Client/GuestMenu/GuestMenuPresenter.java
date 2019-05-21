@@ -1,6 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu;
 
+import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
+import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 
 import java.util.List;
@@ -23,9 +25,7 @@ public class GuestMenuPresenter {
             view.showError("The field \"Lastname\" is not optional");
             return;
         }
-
         view.showSearchView(title, author);
-
     }
 
     public List<Specialization> getSpecializations() {
@@ -33,11 +33,16 @@ public class GuestMenuPresenter {
         return dao.findAll();
     }
 
-    public void searchbyfilters(String region, String specialization) {
-        if (region.equals("") && specialization.equals("")) {
+    public List<Service> getServices() {
+        ServiceDAOMemory dao = new ServiceDAOMemory();
+        return dao.findAll();
+    }
+
+    public void searchbyfilters(String region, String specialization, String service) {
+        if (region.equals("") && specialization.equals("") && service.equals("")) {
             view.showError("You have to fill at least a value");
             return;
         }
-        view.showSearchViewFilters(region, specialization);
+        view.showSearchViewFilters(region, specialization, service);
     }
 }

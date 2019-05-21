@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-
 public class DentistSearchActivity extends AppCompatActivity implements ItemSelectionListener<Dentist>, DentistSearchView {
     RecyclerView recyclerView;
     private DentistAdapter mAdapter;
@@ -38,10 +37,10 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         } else if (intent.hasExtra("region")) {
             String region = intent.getStringExtra("region");
             String specialization = intent.getStringExtra("specialization");
-            result = dentistSearchPresenter.searchDentistsWithFilters(region, specialization);
+            String service = intent.getStringExtra("service");
+            result = dentistSearchPresenter.searchDentistsWithFilters(region, specialization, service);
         }
         // find search result
-
 
         // Update UI with the result
         recyclerView = findViewById(R.id.recycler_view);
@@ -67,7 +66,6 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
     public void onItemSelected(Dentist item) {
         dentistSearchPresenter.onDentistSelected(item);
     }
-
 
     @Override
     public void requestAppointment(Dentist item) {

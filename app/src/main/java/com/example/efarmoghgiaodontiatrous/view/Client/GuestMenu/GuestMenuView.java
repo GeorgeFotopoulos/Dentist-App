@@ -6,5 +6,5 @@ public interface GuestMenuView {
 
     void showSearchView(String title, String author);
 
-    void showSearchViewFilters(String region, String specialization);
+    void showSearchViewFilters(String region, String specialization, String service);
 }

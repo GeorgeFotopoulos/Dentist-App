@@ -47,5 +47,5 @@ public interface DentistDAO {
      */
     List<Dentist> findAll();
 
-    List<Dentist> findwithFilters(String region, String specialization);
+    List<Dentist> findwithFilters(String region, String specialization, String service);
 }
