@@ -9,10 +9,10 @@ class LoginFormState {
     @Nullable
     private Integer usernameError;
     @Nullable
-    private Integer passwordError;
+    private String passwordError;
     private boolean isDataValid;
 
-    LoginFormState(@Nullable Integer usernameError, @Nullable Integer passwordError) {
+    LoginFormState(@Nullable Integer usernameError, @Nullable String passwordError) {
         this.usernameError = usernameError;
         this.passwordError = passwordError;
         this.isDataValid = false;
@@ -30,7 +30,7 @@ class LoginFormState {
     }
 
     @Nullable
-    Integer getPasswordError() {
+    String getPasswordError() {
         return passwordError;
     }
 

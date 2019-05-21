@@ -33,9 +33,8 @@ public class LoginViewModel extends ViewModel {
 
     public void login(String username, String password) {
         DentistDAOMemory d = new DentistDAOMemory() ;
-        d.save(new Dentist("Giorgos", "Patrikis", "6958687888", "geopatrikis12@gmail.com", "ABC123456", "AUEB", new Address("Lesvou", "8-10", "Athens", "Greece", 15127), 9, "abc123456"));
         // can be launched in a separate asynchronous job
-       Result<LoggedInUser> result = loginRepository.login(username, password);
+        Result<LoggedInUser> result = loginRepository.login(username, password);
 
         if (d.findByEmail(username) != null) {
             Dentist dentist = d.findByEmail(username);
@@ -55,7 +54,8 @@ public class LoginViewModel extends ViewModel {
         if (!isUserNameValid(username)) {
             loginFormState.setValue(new LoginFormState(R.string.invalid_username, null));
         } else if (!isPasswordValid(password)) {
-            loginFormState.setValue(new LoginFormState(null, R.string.invalid_password));
+            loginFormState.setValue(new LoginFormState(null, "Password must be at least 8 characters!"));
+
         } else {
             loginFormState.setValue(new LoginFormState(true));
         }

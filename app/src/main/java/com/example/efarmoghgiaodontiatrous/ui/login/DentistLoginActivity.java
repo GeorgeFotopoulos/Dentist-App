@@ -57,7 +57,7 @@ public class DentistLoginActivity extends AppCompatActivity {
                     usernameEditText.setError(getString(loginFormState.getUsernameError()));
                 }
                 if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
+                    passwordEditText.setError(loginFormState.getPasswordError());
                 }
             }
         });
