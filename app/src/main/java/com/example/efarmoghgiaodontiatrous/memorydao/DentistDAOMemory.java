@@ -72,7 +72,7 @@ public class DentistDAOMemory implements DentistDAO {
     }
 
     @Override
-    public List<Dentist> findwithFilters(String region, String specialization, String service) {
+    public List<Dentist> findWithFilters(String region, String specialization, String service) {
         List<Dentist> output = new ArrayList<>();
         if ((region == null || region.equals("")) && (specialization == null || specialization.equals("") && (service == null || service.equals("")))) {
             return null;

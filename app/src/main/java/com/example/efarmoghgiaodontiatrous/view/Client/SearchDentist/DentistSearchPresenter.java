@@ -31,7 +31,7 @@ public class DentistSearchPresenter {
         Set<Dentist> result = new HashSet<>();
         List<Dentist> resultA;
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
-        resultA = dDAOMemory.findwithFilters(region, specialization, service);
+        resultA = dDAOMemory.findWithFilters(region, specialization, service);
         result.addAll(resultA);
         return result;
     }
