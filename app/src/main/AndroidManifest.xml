@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DentistViewProfileActivity"></activity>
+        <activity android:name=".ViewHistoryPresenter"></activity>
+        <activity android:name=".ViewHistoryActivity" />
+        <activity android:name=".DentistUpdateAccountActivity" />
+        <activity android:name=".DentistViewProfileActivity" />
         <activity android:name=".DentistMenuPresenter" />
         <activity android:name=".DentistMenuActivity" />
         <activity android:name=".DentistAdapter" />

@@ -27,12 +27,13 @@ public class VisitDAOMemory implements VisitDAO {
     }
 
     @Override
-    public Visit find(String AMKA) {
+    public List<Visit> find(String AMKA) {
+        List<Visit> visits = new ArrayList<>();
         for (Visit visit : entities) {
             if (visit.getClient().getAMKA().equals(AMKA)) {
-                return visit;
+                visits.add(visit);
             }
         }
-        return null;
+        return visits;
     }
 }

@@ -32,5 +32,5 @@ public interface VisitDAO {
      * @param AMKA Ο κωδικός AMKA του πελάτη της επίσκεψης
      * @return Η επίσκεψη που βρέθηκε ή null
      */
-    Visit find(String AMKA);
+    List<Visit> find(String AMKA);
 }

@@ -10,7 +10,7 @@ import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
 
 public class DentistMenuActivity extends AppCompatActivity implements DentistMenuView{
     private DentistMenuPresenter presenter;
-    public String Dentist_ID;
+    private String Dentist_ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,13 +72,13 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
     }
 
     public void updateAccount(){
-        Intent intent = new Intent(DentistMenuActivity.this, DentistLoginActivity.class);
+        Intent intent = new Intent(DentistMenuActivity.this, DentistUpdateAccountActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
 
     public void viewClientHistory(){
-        Intent intent = new Intent(DentistMenuActivity.this, DentistLoginActivity.class);
+        Intent intent = new Intent(DentistMenuActivity.this, ViewHistoryActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }

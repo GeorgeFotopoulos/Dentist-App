@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
             }
         });
 
-        findViewById(R.id.TEST_BUTTON).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                presenter.onTestMenu();
-            }
-        });
+       // findViewById(R.id.TEST_BUTTON).setOnClickListener(new View.OnClickListener() {
+          //  public void onClick(View v) {
+           //     presenter.onTestMenu();
+           // }
+        //});
     }
 
     public void dentistMenu() {
