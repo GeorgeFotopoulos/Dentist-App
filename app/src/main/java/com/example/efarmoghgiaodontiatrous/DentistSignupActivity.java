@@ -24,26 +24,64 @@ import static java.lang.Integer.parseInt;
 public class DentistSignupActivity extends AppCompatActivity implements DentistSignupView {
     private static final String TAG = "SignupActivity";
     List<String> tempSpecialization ;
+    List<String> tempServices;
     private DentisSignupPresenter presenter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         presenter=new DentisSignupPresenter(this);
         tempSpecialization=new ArrayList<>();
+        tempServices=new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dentist_signup);
         // Get listview checkbox.
         final ListView listViewWithCheckbox = (ListView)findViewById(R.id.list_view_with_checkbox);
-
+        final ListView listViewWithCheckbox2 = (ListView)findViewById(R.id.list_view_with_checkbox2);
         // Initiate listview data.
-        final List<ListViewItemDTO> initItemList = this.getInitViewItemDtoList();
-
+        final List<ListViewItemDTO> initItemListSpec = this.getInitViewItemDtoList();
+        final List<ListViewItemDTO> initItemListServ = this.getInitViewItemDtoListServ();
         // Create a custom list view adapter with checkbox control.
-        final ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemList);
+        final ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListSpec);
+        final ListViewItemCheckboxBaseAdapter listViewDataAdapter2 = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListServ);
 
         listViewDataAdapter.notifyDataSetChanged();
+        listViewDataAdapter2.notifyDataSetChanged();
 
         // Set data adapter to list view.
         listViewWithCheckbox.setAdapter(listViewDataAdapter);
+        listViewWithCheckbox2.setAdapter(listViewDataAdapter2);
+
+        listViewWithCheckbox2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long l) {
+                // Get user selected item.
+                Object itemObject = adapterView.getAdapter().getItem(itemIndex);
+
+                // Translate the selected item to DTO object.
+                ListViewItemDTO itemDto = (ListViewItemDTO)itemObject;
+
+                // Get the checkbox.
+                CheckBox itemCheckbox = (CheckBox) view.findViewById(R.id.list_view_item_checkbox);
+
+                // Reverse the checkbox and clicked item check state.
+                if(itemDto.isChecked())
+                {
+                    itemCheckbox.setChecked(false);
+                    itemDto.setChecked(false);
+                    if(tempServices.contains(itemDto.getItemText())){
+                        tempServices.remove(itemDto.getItemText());
+                    }
+                }else
+                {
+                    itemCheckbox.setChecked(true);
+                    itemDto.setChecked(true);
+                    if(!tempServices.contains(itemDto.getItemText())){
+                        tempServices.add(itemDto.getItemText());
+                    }
+                }
+
+                //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // When list view item is clicked.
         listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -197,6 +235,26 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         return ret;
     }
 
+    private List<ListViewItemDTO> getInitViewItemDtoListServ()
+    {
+
+        String itemTextArr[] = presenter.getService();
+        List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
+        int length = itemTextArr.length;
+
+        for(int i=0;i<length;i++)
+        {
+            String itemText = itemTextArr[i];
+
+            ListViewItemDTO dto = new ListViewItemDTO();
+            dto.setChecked(false);
+            dto.setItemText(itemText);
+
+            ret.add(dto);
+        }
+
+        return ret;
+    }
 
     public void dentistMenu() {
         Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);
