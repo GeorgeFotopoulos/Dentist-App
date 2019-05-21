@@ -2,6 +2,7 @@ package com.example.efarmoghgiaodontiatrous.memorydao;
 
 import com.example.efarmoghgiaodontiatrous.dao.DentistDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 
 import java.util.ArrayList;
@@ -75,37 +76,69 @@ public class DentistDAOMemory implements DentistDAO {
         List<Dentist> output = new ArrayList<>();
         if ((region == null || region.equals("")) && (specialization == null || specialization.equals("") && (service == null || service.equals("")))) {
             return null;
-        } else if (region == null || region.equals("")) {
-            for (Dentist dentist : entities) {
-                Set<Specialization> temp = dentist.getSpecializations();
-                for (Specialization sp : temp) {
-                    if (sp.getSpecializationName().equals(specialization)) {
-                        output.add(dentist);
-                        break;
-                    }
-                }
-            }
-        } else if (specialization == null || specialization.equals("")) {
-            for (Dentist dentist : entities) {
-                if (dentist.getInfirmaryLocation().getCity().equals(region)) {
-                    output.add(dentist);
-                }
-            }
-        } else if (service == null || service.equals("")){
-
-        } else {
-            for (Dentist dentist : entities) {
-                if (dentist.getInfirmaryLocation().getCity().equals(region)) {
-                    Set<Specialization> temp = dentist.getSpecializations();
-                    for (Specialization sp : temp) {
-                        if (sp.getSpecializationName().equals(specialization)) {
-                            output.add(dentist);
-                            break;
-                        }
-                    }
+        }
+        List<Dentist> outputA = new ArrayList<>();
+        List<Dentist> outputB = new ArrayList<>();
+        List<Dentist> outputC = new ArrayList<>();
+        List<Dentist> outputD = new ArrayList<>();
+        for (Dentist dentist : entities) {
+            for (Specialization sp : dentist.getSpecializations()) {
+                if (sp.getSpecializationName().equals(specialization)) {
+                    outputA.add(dentist);
                 }
             }
         }
+        for (Dentist dentist : entities) {
+            for (Service sp : dentist.getServices()) {
+                if (sp.getServiceName().equals(service)) {
+                    outputB.add(dentist);
+                }
+            }
+        }
+        for (Dentist dentist : entities) {
+            if (dentist.getInfirmaryLocation().getCity().equals(region)) {
+                outputC.add(dentist);
+            }
+        }
+        if (region.equals("")) {
+            if (specialization.equals("")) {
+                return new ArrayList<>(outputB);
+            } else if (service.equals("")) {
+                return new ArrayList<>(outputA);
+            } else {
+                for (int i = 0; i < outputB.size(); i++) {
+                    if (outputA.contains(outputB.get(i))) {
+                        output.add(outputB.get(i));
+                    }
+                }
+                return new ArrayList<>(output);
+            }
+        }
+        if (specialization.equals("")) {
+            if (region.equals("")) {
+                return new ArrayList<>(outputB);
+            } else if (service.equals("")) {
+                return new ArrayList<>(outputC);
+            } else {
+                for (int i = 0; i < outputB.size(); i++) {
+                    if (outputC.contains(outputB.get(i))) {
+                        output.add(outputB.get(i));
+                    }
+                }
+                return new ArrayList<>(output);
+            }
+        }
+        for (int i = 0; i < outputB.size(); i++) {
+            if (outputC.contains(outputB.get(i))) {
+                outputD.add(outputB.get(i));
+            }
+        }
+        for(int i=0;i<outputA.size();i++){
+            if(outputD.contains(outputA.get(i))){
+                output.add(outputA.get(i));
+            }
+        }
+
         return new ArrayList<>(output);
     }
 }
