@@ -8,7 +8,6 @@ import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.domain.Visit;
 
 import com.example.efarmoghgiaodontiatrous.util.Address;
-import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 import java.util.HashSet;
@@ -19,19 +18,6 @@ public abstract class Initializer {
      * Deletes all stored data.
      */
     protected abstract void eraseData();
-
-    /**
-     * Changes the state of the appointment given as a parameter.
-     *
-     * @param appointment The appointment
-     * @return The appointment
-     */
-    public Appointment makeAvailable(Appointment appointment) {
-        if (appointment.getState().equals(AppointmentState.PENDING)) {
-            appointment.setState(AppointmentState.ACCEPTED);
-        }
-        return appointment;
-    }
 
     /**
      * Initializes all test data.
@@ -55,21 +41,21 @@ public abstract class Initializer {
         dentistDAO.save(new Dentist("Spyros", "Fotopoulos", "+30 697 254 4705", "spirosfot.23@gmail.com", "Athens:171225", "University of Piraeus", new Address("Artis", "23", "Aghios Dimitrios", "Greece", 17341), 12, "asdfg123"));
 
         Dentist d;
-        d = dentistDAO.find(0 + "");
-        d.addSpecialization(specializationDAO.find(3 + ""));
-        d.addService(serviceDAO.find(1 + ""));
-        d.addService(serviceDAO.find(2 + ""));
+        d = dentistDAO.find("0");
+        d.addSpecialization(specializationDAO.find("2"));
+        d.addService(serviceDAO.find("1"));
+        d.addService(serviceDAO.find("2"));
 
         d = dentistDAO.find(1 + "");
-        d.addSpecialization(specializationDAO.find(1 + ""));
-        d.addSpecialization(specializationDAO.find(2 + ""));
-        d.addService(serviceDAO.find(2 + ""));
+        d.addSpecialization(specializationDAO.find("1"));
+        d.addSpecialization(specializationDAO.find("2"));
+        d.addService(serviceDAO.find("2"));
 
-        d = dentistDAO.find(2 + "");
-        d.addSpecialization(specializationDAO.find(1 + ""));
-        d.addSpecialization(specializationDAO.find(3 + ""));
-        d.addService(serviceDAO.find(2 + ""));
-        d.addService(serviceDAO.find(3 + ""));
+        d = dentistDAO.find("2");
+        d.addSpecialization(specializationDAO.find("1"));
+        d.addSpecialization(specializationDAO.find("3"));
+        d.addService(serviceDAO.find("2"));
+        d.addService(serviceDAO.find("3"));
 
         ClientDAO clientDAO = getClientDAO();
         clientDAO.save(new Client("Panagiotis", "Ntymenos", "+30 698 096 8644", "panagiotis.nty@gmail.com", "17099800037"));

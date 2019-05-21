@@ -50,7 +50,7 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1.setAdapter(adapter1);
 
-        String Regions[] = {"","Marousi","Chalandri","Athens","Nea Smyrni","Peristeri","Faliro"};
+        String Regions[] = {"","Marousi","Chalandri","Athens","Nea Smyrni","Aghios Dimitrios","Peristeri","Faliro"};
         s2 = findViewById(R.id.spinner3);
         ArrayAdapter<String> adapter2= new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Regions);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

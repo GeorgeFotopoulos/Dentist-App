@@ -57,7 +57,7 @@ public class DentistLoginActivity extends AppCompatActivity {
                     usernameEditText.setError(getString(loginFormState.getUsernameError()));
                 }
                 if (loginFormState.getPasswordError() != null) {
-                    passwordEditText.setError(loginFormState.getPasswordError());
+                    passwordEditText.setError(getString(loginFormState.getPasswordError()));
                 }
             }
         });
@@ -127,7 +127,7 @@ public class DentistLoginActivity extends AppCompatActivity {
         String welcome = "Welcome Dr. " + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
-        dentistMenu(model.getID());
+        dentistMenu();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
@@ -139,9 +139,9 @@ public class DentistLoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void dentistMenu(String ID) {
+    public void dentistMenu() {
+
         Intent intent = new Intent(DentistLoginActivity.this, DentistMenuActivity.class);
-        intent.putExtra("Logged-In User", ID);
         startActivity(intent);
     }
 }
