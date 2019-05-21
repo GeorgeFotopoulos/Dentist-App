@@ -1,19 +1,20 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewProfile;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
+import com.example.efarmoghgiaodontiatrous.R;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount.DentistUpdateAccountActivity;
 
 public class DentistViewProfileActivity extends AppCompatActivity implements DentistViewProfileView {
+    protected DentistViewProfilePresenter presenter;
+    protected String ID;
 
-    private DentistViewProfilePresenter presenter;
-    private String ID;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dentist_view_profile);
 
@@ -32,15 +33,14 @@ public class DentistViewProfileActivity extends AppCompatActivity implements Den
         });
     }
 
+    //@Override
+    //public String showProfile(String ID) {
+    //    return null;
+    //}
 
-    @Override
-    public String showProfile(String ID) {
-        return null;
-    }
-
-    public void updateAccount(){
+    public void updateAccount() {
         Intent intent = new Intent(DentistViewProfileActivity.this, DentistUpdateAccountActivity.class);
-        intent.putExtra("ID",ID);
+        intent.putExtra("ID", ID);
         startActivity(intent);
     }
 }

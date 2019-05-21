@@ -1,16 +1,16 @@
 package com.example.efarmoghgiaodontiatrous.view.Client.SearchDentist;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.efarmoghgiaodontiatrous.DentistAdapter;
 import com.example.efarmoghgiaodontiatrous.ItemSelectionListener;
 import com.example.efarmoghgiaodontiatrous.R;
-import com.example.efarmoghgiaodontiatrous.view.Client.RequestAppointment.RequestAppointmentActivity;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.view.Client.RequestAppointment.RequestAppointmentActivity;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,6 +1,5 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
-import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
@@ -447,25 +446,27 @@ public class Dentist {
     public String printSpecializations() {
         String out = "";
         for (Specialization sp : specializations) {
-            out += sp.getSpecializationName() + " ";
+            out += sp.getSpecializationName() + ", ";
         }
+        out = out.substring(0, out.length() - 2);
         return out;
     }
 
     public String printServices() {
         String out = "";
         for (Service sp : services) {
-            out += sp.getServiceName() + " ";
+            out += sp.getServiceName() + ", ";
         }
+        out = out.substring(0, out.length() - 2);
         return out;
     }
 
     public void addSpecializations(List<String> tempSpecialization) {
-        SpecializationDAOMemory DAO =new SpecializationDAOMemory();
-        List<Specialization> temp=DAO.findAll();
-        for(int i=0;i<temp.size();i++){
-            for(int j=0;j<tempSpecialization.size();j++){
-                if(tempSpecialization.get(j).equals(temp.get(i).getSpecializationName())){
+        SpecializationDAOMemory DAO = new SpecializationDAOMemory();
+        List<Specialization> temp = DAO.findAll();
+        for (int i = 0; i < temp.size(); i++) {
+            for (int j = 0; j < tempSpecialization.size(); j++) {
+                if (tempSpecialization.get(j).equals(temp.get(i).getSpecializationName())) {
                     specializations.add(temp.get(i));
                     break;
                 }
@@ -474,11 +475,11 @@ public class Dentist {
     }
 
     public void addServices(List<String> tempServices) {
-        ServiceDAOMemory DAO =new ServiceDAOMemory();
-        List<Service> temp=DAO.findAll();
-        for(int i=0;i<temp.size();i++){
-            for(int j=0;j<tempServices.size();j++){
-                if(tempServices.get(j).equals(temp.get(i).getServiceName())){
+        ServiceDAOMemory DAO = new ServiceDAOMemory();
+        List<Service> temp = DAO.findAll();
+        for (int i = 0; i < temp.size(); i++) {
+            for (int j = 0; j < tempServices.size(); j++) {
+                if (tempServices.get(j).equals(temp.get(i).getServiceName())) {
                     services.add(temp.get(i));
                     break;
                 }

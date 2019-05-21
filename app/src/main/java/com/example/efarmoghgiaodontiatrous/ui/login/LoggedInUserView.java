@@ -2,8 +2,6 @@ package com.example.efarmoghgiaodontiatrous.ui.login;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 
-import static android.os.Build.ID;
-
 /**
  * Class exposing authenticated user details to the UI.
  */

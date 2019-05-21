@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistSignup;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,31 +12,33 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.efarmoghgiaodontiatrous.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.ListViewItemDTO;
+import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
-import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
-
 public class DentistSignupActivity extends AppCompatActivity implements DentistSignupView {
     private static final String TAG = "SignupActivity";
-    List<String> tempSpecialization ;
+    List<String> tempSpecialization;
     List<String> tempServices;
-    private DentistSignupPresenter presenter;
     String ID;
+    private DentistSignupPresenter presenter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        presenter=new DentistSignupPresenter(this);
-        tempSpecialization=new ArrayList<>();
-        tempServices=new ArrayList<>();
+        presenter = new DentistSignupPresenter(this);
+        tempSpecialization = new ArrayList<>();
+        tempServices = new ArrayList<>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dentist_signup);
-        // Get listview checkbox.
-        final ListView listViewWithCheckbox = (ListView)findViewById(R.id.list_view_with_checkbox);
-        final ListView listViewWithCheckbox2 = (ListView)findViewById(R.id.list_view_with_checkbox2);
+
+        final ListView listViewWithCheckbox = findViewById(R.id.list_view_with_checkbox);
+        final ListView listViewWithCheckbox2 = findViewById(R.id.list_view_with_checkbox2);
         // Initiate listview data.
         final List<ListViewItemDTO> initItemListSpec = this.getInitViewItemDtoList();
         final List<ListViewItemDTO> initItemListServ = this.getInitViewItemDtoListServ();
@@ -57,29 +59,21 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
                 // Get user selected item.
                 Object itemObject = adapterView.getAdapter().getItem(itemIndex);
 
-                // Translate the selected item to DTO object.
-                ListViewItemDTO itemDto = (ListViewItemDTO)itemObject;
+                ListViewItemDTO itemDto = (ListViewItemDTO) itemObject;
 
-                // Get the checkbox.
-                CheckBox itemCheckbox = (CheckBox) view.findViewById(R.id.list_view_item_checkbox);
+                CheckBox itemCheckbox = view.findViewById(R.id.list_view_item_checkbox);
 
-                // Reverse the checkbox and clicked item check state.
-                if(itemDto.isChecked())
-                {
+                if (itemDto.isChecked()) {
                     itemCheckbox.setChecked(false);
                     itemDto.setChecked(false);
-                    if(tempServices.contains(itemDto.getItemText())){
-                        tempServices.remove(itemDto.getItemText());
-                    }
-                }else
-                {
+                    tempServices.remove(itemDto.getItemText());
+                } else {
                     itemCheckbox.setChecked(true);
                     itemDto.setChecked(true);
-                    if(!tempServices.contains(itemDto.getItemText())){
+                    if (!tempServices.contains(itemDto.getItemText())) {
                         tempServices.add(itemDto.getItemText());
                     }
                 }
-
                 //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
             }
         });
@@ -88,45 +82,34 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long l) {
-                // Get user selected item.
                 Object itemObject = adapterView.getAdapter().getItem(itemIndex);
 
-                // Translate the selected item to DTO object.
-                ListViewItemDTO itemDto = (ListViewItemDTO)itemObject;
+                ListViewItemDTO itemDto = (ListViewItemDTO) itemObject;
 
-                // Get the checkbox.
-                CheckBox itemCheckbox = (CheckBox) view.findViewById(R.id.list_view_item_checkbox);
+                CheckBox itemCheckbox = view.findViewById(R.id.list_view_item_checkbox);
 
-                // Reverse the checkbox and clicked item check state.
-                if(itemDto.isChecked())
-                {
+                if (itemDto.isChecked()) {
                     itemCheckbox.setChecked(false);
                     itemDto.setChecked(false);
-                    if(tempSpecialization.contains(itemDto.getItemText())){
-                        tempSpecialization.remove(itemDto.getItemText());
-                    }
-                }else
-                {
+                    tempSpecialization.remove(itemDto.getItemText());
+                } else {
                     itemCheckbox.setChecked(true);
                     itemDto.setChecked(true);
-                    if(!tempSpecialization.contains(itemDto.getItemText())){
+                    if (!tempSpecialization.contains(itemDto.getItemText())) {
                         tempSpecialization.add(itemDto.getItemText());
                     }
                 }
-
                 //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
             }
         });
         findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 save(presenter.getDentistSize());
                 signup();
                 dentistMenu();
             }
         });
-
     }
 
     public void signup() {
@@ -139,20 +122,16 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
 
         findViewById(R.id.btn_update).setEnabled(false);
 
-
-        // TODO: Implement your own signup logic here.
-
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
                         // On complete call either onSignupSuccess or onSignupFailed
                         // depending on success
-                         onSignupSuccess();
+                        onSignupSuccess();
                         // onSignupFailed();
                     }
-                }, 3000);
+                }, 1000);
     }
-
 
     public void onSignupSuccess() {
         String firstName = ((EditText) findViewById(R.id.input_fname)).getText().toString();
@@ -169,26 +148,22 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         int years = Integer.parseInt(((EditText) findViewById(R.id.input_years)).getText().toString());
         String license = ((EditText) findViewById(R.id.input_license)).getText().toString();
 
-
-
         findViewById(R.id.btn_update).setEnabled(true);
         setResult(RESULT_OK, null);
         finish();
-        Dentist d=new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password);
+        Dentist d = new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password);
         d.addSpecializations(tempSpecialization);
         d.addServices(tempServices);
         presenter.saveDentist(d);
-        Toast.makeText(getBaseContext(), "Sign Up Successful!!", Toast.LENGTH_LONG).show();
-
+        Toast.makeText(getBaseContext(), "Sign Up Successful!", Toast.LENGTH_LONG).show();
     }
 
-    public void save(String ID){
-      this.ID=ID;
+    public void save(String ID) {
+        this.ID = ID;
     }
 
     public void onSignupFailed() {
         Toast.makeText(getBaseContext(), "Sign Up Failed, try again!", Toast.LENGTH_LONG).show();
-
         findViewById(R.id.btn_update).setEnabled(true);
     }
 
@@ -219,19 +194,15 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         } else {
             ((EditText) findViewById(R.id.input_password)).setError(null);
         }
-
         return valid;
     }
 
-    private List<ListViewItemDTO> getInitViewItemDtoList()
-    {
-
-        String itemTextArr[] = presenter.getSpecializationList();
+    private List<ListViewItemDTO> getInitViewItemDtoList() {
+        String[] itemTextArr = presenter.getSpecializationList();
         List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
         int length = itemTextArr.length;
 
-        for(int i=0;i<length;i++)
-        {
+        for (int i = 0; i < length; i++) {
             String itemText = itemTextArr[i];
 
             ListViewItemDTO dto = new ListViewItemDTO();
@@ -240,19 +211,15 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
 
             ret.add(dto);
         }
-
         return ret;
     }
 
-    private List<ListViewItemDTO> getInitViewItemDtoListServ()
-    {
-
-        String itemTextArr[] = presenter.getService();
+    private List<ListViewItemDTO> getInitViewItemDtoListServ() {
+        String[] itemTextArr = presenter.getService();
         List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
         int length = itemTextArr.length;
 
-        for(int i=0;i<length;i++)
-        {
+        for (int i = 0; i < length; i++) {
             String itemText = itemTextArr[i];
 
             ListViewItemDTO dto = new ListViewItemDTO();
@@ -260,14 +227,13 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
             dto.setItemText(itemText);
 
             ret.add(dto);
-}
-
+        }
         return ret;
-                }
+    }
 
     public void dentistMenu() {
         Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);
-        intent.putExtra("Logged-In User",ID);
+        intent.putExtra("Logged-In User", ID);
         startActivity(intent);
     }
 }

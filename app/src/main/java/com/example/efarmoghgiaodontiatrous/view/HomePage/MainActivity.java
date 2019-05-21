@@ -1,16 +1,16 @@
 package com.example.efarmoghgiaodontiatrous.view.HomePage;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.efarmoghgiaodontiatrous.DentistMenuActivity;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.dao.Initializer;
 import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
 import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
 import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
 

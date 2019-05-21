@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 

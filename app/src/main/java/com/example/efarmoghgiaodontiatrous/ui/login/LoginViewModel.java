@@ -4,12 +4,12 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
-import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
+import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.data.LoginRepository;
 import com.example.efarmoghgiaodontiatrous.data.Result;
 import com.example.efarmoghgiaodontiatrous.data.model.LoggedInUser;
-import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 
 
 public class LoginViewModel extends ViewModel {

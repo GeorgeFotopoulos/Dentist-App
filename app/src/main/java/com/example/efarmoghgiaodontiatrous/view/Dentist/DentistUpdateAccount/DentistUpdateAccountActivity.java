@@ -1,16 +1,18 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
-public class DentistUpdateAccountActivity extends AppCompatActivity implements DentistUpdateAccountView{
+public class DentistUpdateAccountActivity extends AppCompatActivity implements DentistUpdateAccountView {
 
     private DentistUpdateAccountPresenter presenter;
     private Dentist dentist;

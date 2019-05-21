@@ -23,11 +23,6 @@ public class Address {
         this.country = address.getCountry();
     }
 
-    public String print() {
-        return (country + ", " + city + ", " + street + " " + number + ", " + zip);
-    }
-
-
     /**
      * Address constructor where all values are given as parameters.
      *
@@ -43,6 +38,10 @@ public class Address {
         this.city = city;
         this.country = country;
         this.zip = zip;
+    }
+
+    public String print() {
+        return (street + " " + number + ", " + zip + ", " + city + ", " + country);
     }
 
     /**

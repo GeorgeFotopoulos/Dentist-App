@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistSignup;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DentistSignupPresenter {
 
-    private DentistSignupView view;
+    protected DentistSignupView view;
 
     /**
      * Αρχικοποιεί τον Presenter.
@@ -22,7 +22,7 @@ public class DentistSignupPresenter {
         this.view = view;
     }
 
-    String[] getSpecializationList() {
+    public String[] getSpecializationList() {
         SpecializationDAOMemory sp = new SpecializationDAOMemory();
         String out[] = new String[sp.findAll().size()];
         List<Specialization> spec = sp.findAll();
@@ -49,6 +49,6 @@ public class DentistSignupPresenter {
 
     public String getDentistSize() {
         DentistDAOMemory DAO = new DentistDAOMemory();
-        return (DAO.findAll().size()+"");
+        return (DAO.findAll().size() + "");
     }
 }

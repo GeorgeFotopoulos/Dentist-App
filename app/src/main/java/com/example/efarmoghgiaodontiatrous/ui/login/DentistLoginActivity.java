@@ -19,9 +19,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.efarmoghgiaodontiatrous.DentistMenuActivity;
-import com.example.efarmoghgiaodontiatrous.DentistSignupActivity;
 import com.example.efarmoghgiaodontiatrous.R;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistSignup.DentistSignupActivity;
 
 public class DentistLoginActivity extends AppCompatActivity {
 

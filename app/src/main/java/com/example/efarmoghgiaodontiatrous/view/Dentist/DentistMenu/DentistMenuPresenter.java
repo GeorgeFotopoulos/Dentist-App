@@ -1,7 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
-
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu;
 
 public class DentistMenuPresenter {
     private DentistMenuView view;

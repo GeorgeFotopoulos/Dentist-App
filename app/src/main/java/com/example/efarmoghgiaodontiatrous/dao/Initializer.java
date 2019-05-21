@@ -6,7 +6,6 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.domain.Visit;
-
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
@@ -38,9 +37,9 @@ public abstract class Initializer {
         serviceDAO.save(new Service("Dental asdaning", serviceDAO.nextId()));
 
         DentistDAO dentistDAO = getDentistDAO();
-        dentistDAO.save(new Dentist("George", "Fotopoulos", "+30 698 079 3051", "giorgos.fotopoulos7@gmail.com", "Athens:171223", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 10, "asdfg123"));
-        dentistDAO.save(new Dentist("Helias", "Fotopoulos", "+30 697 254 9705", "ilfwto@gmail.com", "Athens:171224", "National and Kapodistrian University of Athens", new Address("Artis", "24", "Athens", "Greece", 17124), 10, "asdfg123"));
-        dentistDAO.save(new Dentist("Spyros", "Fotopoulos", "+30 697 254 4705", "spirosfot.23@gmail.com", "Athens:171225", "University of Piraeus", new Address("Artis", "23", "Aghios Dimitrios", "Greece", 17341), 12, "asdfg123"));
+        dentistDAO.save(new Dentist("George", "Fotopoulos", "+30 698 079 3051", "giorgos.fotopoulos7@gmail.com", "171223", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 10, "asdfg123"));
+        dentistDAO.save(new Dentist("Helias", "Fotopoulos", "+30 697 254 9705", "ilfwto@gmail.com", "171224", "National and Kapodistrian University of Athens", new Address("Artis", "24", "Athens", "Greece", 17124), 10, "asdfg123"));
+        dentistDAO.save(new Dentist("Spyros", "Fotopoulos", "+30 697 254 4705", "spirosfot.23@gmail.com", "171225", "University of Piraeus", new Address("Artis", "23", "Aghios Dimitrios", "Greece", 17341), 12, "asdfg123"));
 
         Dentist d = dentistDAO.find("0");
         d.addSpecialization(specializationDAO.find("2"));
