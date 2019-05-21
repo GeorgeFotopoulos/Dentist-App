@@ -23,8 +23,10 @@ import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 import com.example.efarmoghgiaodontiatrous.dao.Initializer;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -32,12 +34,12 @@ import java.util.List;
 import java.util.Set;
 
 public class DAOTest {
-    private AppointmentDAO appointmentDao;
-    private ClientDAO clientDao;
-    private DentistDAO dentistDao;
-    private ServiceDAO serviceDao;
-    private SpecializationDAO specializationDao;
-    private VisitDAO visitDao;
+    private static AppointmentDAO appointmentDao;
+    private static ClientDAO clientDao;
+    private static DentistDAO dentistDao;
+    private static ServiceDAO serviceDao;
+    private static SpecializationDAO specializationDao;
+    private static VisitDAO visitDao;
 
     private static final int INITIAL_APPOINTMENT_COUNT = 2;
     private static final int INITIAL_CLIENT_COUNT = 2;
@@ -46,8 +48,8 @@ public class DAOTest {
     private static final int INITIAL_SPECIALIZATION_COUNT = 3;
     private static final int INITIAL_VISIT_COUNT = 2;
 
-    @Before
-    public void setUp() {
+    @BeforeClass
+    public static void setUp() {
         Initializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
 
@@ -65,53 +67,101 @@ public class DAOTest {
         dentistDao.save(dentist);
         Assert.assertNotEquals(INITIAL_DENTIST_COUNT, dentistDao.findAll().size());
         Dentist d = dentistDao.findByEmail("ath.fotopoulos7@gmail.com");
+        Dentist d1 = dentistDao.findByEmail("test@gmail.com");
+        Assert.assertNull(d1);
         dentistDao.delete(d);
+
+        d1 = dentistDao.find("5");
+        Assert.assertNull(d1);
+
+        List<Dentist> nullName = dentistDao.findByName("Fotopoulos", null);
+        Assert.assertNotEquals(null, nullName.get(0).getFirstName());
+
+        List<Dentist> nullSurname = dentistDao.findByName("", "George");
+        Assert.assertNull(nullSurname);
+
+        List<Dentist> properNames = dentistDao.findByName("Fotopoulos", "George");
+        Assert.assertEquals("Fotopoulos", properNames.get(0).getLastName());
+        Assert.assertEquals("George", properNames.get(0).getFirstName());
+
+        List<Dentist> dentistsAthens = dentistDao.findWithFilters("Athens", "Pedodontic", "Filling");
+        List<Dentist> dentistsAghiosDimitrios = dentistDao.findWithFilters("Aghios Dimitrios", "Endodontic", "Teeth whitening");
+        Assert.assertNotEquals(dentistsAthens, dentistsAghiosDimitrios);
+
+        List<Dentist> dentistsNoSpecialization = dentistDao.findWithFilters("Athens", "", "Filling");
+        Assert.assertNotEquals("Pedodontic", dentistsNoSpecialization.get(0).getSpecializations());
+
+        List<Dentist> dentistsNoSpecializationRegion = dentistDao.findWithFilters("", "", "Dental cleaning");
+        Assert.assertNotEquals("Athens", dentistsNoSpecializationRegion.get(0).getInfirmaryLocation().getCity());
+
+        List<Dentist> dentistsNoServiceRegion = dentistDao.findWithFilters("", "Orthodontic", "");
+        Assert.assertNotEquals("Athens", dentistsNoServiceRegion.get(0).getInfirmaryLocation().getCity());
+
+        List<Dentist> dentistsNoRegion = dentistDao.findWithFilters("", "Orthodontic", "Dental cleaning");
+        Assert.assertNotEquals("Athens", dentistsNoRegion.get(0).getInfirmaryLocation().getCity());
+
+        List<Dentist> dentistsNoSpecializationService = dentistDao.findWithFilters("Athens", "", "");
+        Assert.assertNotEquals("Filling", dentistsNoSpecializationService.get(0).getServices());
+
+        List<Dentist> dentistNullFilters = dentistDao.findWithFilters(null, null, null);
+        Assert.assertNull(dentistNullFilters);
     }
 
     @Test
     public void testClients() {
-        List<Client> allClients = clientDao.findAll();
         Client client = new Client("Gioris", "Ntymenos", "+30 698 468 9046", "geo.nty@gmail.com", "17099600037");
         clientDao.save(client);
-        Assert.assertNotEquals(INITIAL_CLIENT_COUNT, allClients.size());
+        Assert.assertNotEquals(INITIAL_CLIENT_COUNT, clientDao.findAll().size());
         clientDao.delete(client);
+        Client client1 = clientDao.find("17099800037");
+        Assert.assertEquals("17099800037", client1.getAMKA());
+        Client client2 = clientDao.find("18059500037");
+        Assert.assertNull(client2);
     }
 
     @Test
     public void testAppointments() {
-        List<Appointment> allAppointments = appointmentDao.findAll();
-        Appointment appointment = new Appointment("George", "Patrikis", "+30 698 888 7766", dentistDao.find("1"), new SimpleCalendar(2019, 28, 5), 15, 0);
+        Appointment appointment = new Appointment("Georgios", "Patrikis", "+30 697 111 1111", dentistDao.find("1"), new SimpleCalendar(2019, 28, 6), 15, 30);
         appointmentDao.save(appointment);
-        Assert.assertEquals(INITIAL_APPOINTMENT_COUNT, allAppointments.size());
+        Assert.assertNotEquals(INITIAL_APPOINTMENT_COUNT, appointmentDao.findAll().size());
         appointmentDao.delete(appointment);
+        Appointment appointment1 = appointmentDao.find(dentistDao.find("3"));
+        Assert.assertNull(appointment1);
+        appointment1 = appointmentDao.find(dentistDao.find("1"));
+        Assert.assertEquals("Fotopoulos", appointment1.getDentist().getLastName());
     }
 
     @Test
     public void testServices() {
-        List<Service> allServices = serviceDao.findAll();
         Service service = new Service("Root canal", serviceDao.nextId());
         serviceDao.save(service);
-        Assert.assertNotEquals(INITIAL_SERVICE_COUNT, allServices.size());
+        Assert.assertNotEquals(INITIAL_SERVICE_COUNT, serviceDao.findAll().size());
         serviceDao.delete(service);
+        Service service1 = serviceDao.find("4");
+        Assert.assertNull(service1);
     }
 
     @Test
     public void testSpecializations() {
-        List<Specialization> allSpecializations = specializationDao.findAll();
         Specialization specialization = new Specialization("Periodontic", specializationDao.nextId());
         specializationDao.save(specialization);
-        Assert.assertNotEquals(INITIAL_SPECIALIZATION_COUNT, allSpecializations.size());
+        Assert.assertNotEquals(INITIAL_SPECIALIZATION_COUNT, specializationDao.findAll().size());
         specializationDao.delete(specialization);
+        specialization = specializationDao.find("5");
+        Assert.assertNull(specialization);
     }
 
     @Test
     public void testVisits() {
         Set<Service> servicesProvided = new HashSet<>();
         servicesProvided.add(serviceDao.find("1"));
-        List<Visit> allVisits = visitDao.findAll();
         Visit visit = new Visit(new SimpleCalendar(2018, 5, 18), "Operation unsuccessful!", dentistDao.find("2"), clientDao.find("17090000037"), servicesProvided);
         visitDao.save(visit);
-        Assert.assertNotEquals(INITIAL_VISIT_COUNT, allVisits.size());
+        Assert.assertNotEquals(INITIAL_VISIT_COUNT, visitDao.findAll().size());
         visitDao.delete(visit);
+        visit = visitDao.find("17099800037");
+        Assert.assertEquals("17099800037", visit.getClient().getAMKA());
+        visit = visitDao.find("18059500037");
+        Assert.assertNull(visit);
     }
 }
