@@ -29,11 +29,13 @@ public abstract class Initializer {
         specializationDAO.save(new Specialization("Endodontic", specializationDAO.nextId()));
         specializationDAO.save(new Specialization("Pedodontic", specializationDAO.nextId()));
         specializationDAO.save(new Specialization("Orthodontic", specializationDAO.nextId()));
+        specializationDAO.save(new Specialization("Pododontic", specializationDAO.nextId()));
 
         ServiceDAO serviceDAO = getServiceDAO();
         serviceDAO.save(new Service("Filling", serviceDAO.nextId()));
         serviceDAO.save(new Service("Teeth whitening", serviceDAO.nextId()));
         serviceDAO.save(new Service("Dental cleaning", serviceDAO.nextId()));
+        serviceDAO.save(new Service("Dental asdaning", serviceDAO.nextId()));
 
         DentistDAO dentistDAO = getDentistDAO();
         dentistDAO.save(new Dentist("George", "Fotopoulos", "+30 698 079 3051", "giorgos.fotopoulos7@gmail.com", "Athens:171223", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 10, "asdfg123"));

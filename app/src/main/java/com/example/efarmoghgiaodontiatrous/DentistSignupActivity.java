@@ -25,10 +25,11 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
     private static final String TAG = "SignupActivity";
     List<String> tempSpecialization ;
     List<String> tempServices;
-    private DentisSignupPresenter presenter;
+    private DentistSignupPresenter presenter;
+    String ID;
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        presenter=new DentisSignupPresenter(this);
+        presenter=new DentistSignupPresenter(this);
         tempSpecialization=new ArrayList<>();
         tempServices=new ArrayList<>();
         super.onCreate(savedInstanceState);
@@ -119,7 +120,8 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println(tempSpecialization);
+
+                save(presenter.getDentistSize());
                 signup();
                 dentistMenu();
             }
@@ -145,7 +147,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
                     public void run() {
                         // On complete call either onSignupSuccess or onSignupFailed
                         // depending on success
-                        onSignupSuccess();
+                         onSignupSuccess();
                         // onSignupFailed();
                     }
                 }, 3000);
@@ -167,14 +169,21 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         int years = Integer.parseInt(((EditText) findViewById(R.id.input_years)).getText().toString());
         String license = ((EditText) findViewById(R.id.input_license)).getText().toString();
 
-        DentistDAOMemory dentist = new DentistDAOMemory();
+
 
         findViewById(R.id.btn_update).setEnabled(true);
         setResult(RESULT_OK, null);
         finish();
-        dentist.save(new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password));
+        Dentist d=new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password);
+        d.addSpecializations(tempSpecialization);
+        d.addServices(tempServices);
+        presenter.saveDentist(d);
         Toast.makeText(getBaseContext(), "Sign Up Successful!!", Toast.LENGTH_LONG).show();
 
+    }
+
+    public void save(String ID){
+      this.ID=ID;
     }
 
     public void onSignupFailed() {
@@ -251,13 +260,14 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
             dto.setItemText(itemText);
 
             ret.add(dto);
-        }
+}
 
         return ret;
-    }
+                }
 
     public void dentistMenu() {
         Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);
+        intent.putExtra("Logged-In User",ID);
         startActivity(intent);
     }
 }

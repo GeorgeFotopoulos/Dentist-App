@@ -1,11 +1,15 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
+import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
+import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
+import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.ConnectionState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Dentist {
@@ -454,5 +458,31 @@ public class Dentist {
             out += sp.getServiceName() + " ";
         }
         return out;
+    }
+
+    public void addSpecializations(List<String> tempSpecialization) {
+        SpecializationDAOMemory DAO =new SpecializationDAOMemory();
+        List<Specialization> temp=DAO.findAll();
+        for(int i=0;i<temp.size();i++){
+            for(int j=0;j<tempSpecialization.size();j++){
+                if(tempSpecialization.get(j).equals(temp.get(i).getSpecializationName())){
+                    specializations.add(temp.get(i));
+                    break;
+                }
+            }
+        }
+    }
+
+    public void addServices(List<String> tempServices) {
+        ServiceDAOMemory DAO =new ServiceDAOMemory();
+        List<Service> temp=DAO.findAll();
+        for(int i=0;i<temp.size();i++){
+            for(int j=0;j<tempServices.size();j++){
+                if(tempServices.get(j).equals(temp.get(i).getServiceName())){
+                    services.add(temp.get(i));
+                    break;
+                }
+            }
+        }
     }
 }
