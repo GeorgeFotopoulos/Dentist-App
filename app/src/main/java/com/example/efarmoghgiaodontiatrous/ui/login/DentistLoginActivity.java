@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.efarmoghgiaodontiatrous.DentistMenuActivity;
 import com.example.efarmoghgiaodontiatrous.DentistSignupActivity;
 import com.example.efarmoghgiaodontiatrous.R;
 
@@ -126,6 +127,7 @@ public class DentistLoginActivity extends AppCompatActivity {
         String welcome = "Welcome Dr. " + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+        dentistMenu();
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
@@ -134,6 +136,11 @@ public class DentistLoginActivity extends AppCompatActivity {
 
     public void signUp() {
         Intent intent = new Intent(DentistLoginActivity.this, DentistSignupActivity.class);
+        startActivity(intent);
+    }
+
+    public void dentistMenu() {
+        Intent intent = new Intent(DentistLoginActivity.this, DentistMenuActivity.class);
         startActivity(intent);
     }
 }
