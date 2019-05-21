@@ -50,28 +50,36 @@ public abstract class Initializer {
         specializationDAO.save(new Specialization("Pedodontic", specializationDAO.nextId()));
         specializationDAO.save(new Specialization("Orthodontic", specializationDAO.nextId()));
 
-
-        DentistDAO dentistDAO = getDentistDAO();
-        dentistDAO.save(new Dentist("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", "Athens:171223", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 10, "asd123"));
-        dentistDAO.save(new Dentist("Helias", "Fotopoulos", "6972549705", "ilfwto@gmail.com", "Athens:171224", "National and Kapodistrian University of Athens", new Address("Artis", "24", "Athens", "Greece", 17124), 10, "asd123"));
-        dentistDAO.save(new Dentist("Spyros", "Fotopoulos", "6972544705", "spfwto@gmail.com", "Athens:171224", "National and Kapodistrian University of Athens", new Address("Artis", "24", "Athens", "Greece", 17124), 10, "asdfdg123"));
-        Dentist d = dentistDAO.find(1 + "");
-
-        d.addSpecialization(specializationDAO.find(1 + ""));
-        d.addSpecialization(specializationDAO.find(2 + ""));
-        d = dentistDAO.find(2 + "");
-        d.addSpecialization(specializationDAO.find(1 + ""));
-        d.addSpecialization(specializationDAO.find(3 + ""));
-
-        ClientDAO clientDAO = getClientDAO();
-        clientDAO.save(new Client("Panagiotis", "Ntymenos", "+30 698 096 8644", "panagiotis.nty@gmail.com", "17099800037"));
-        clientDAO.save(new Client("Liakos", "Ntymenos", "+30 698 864 4096", "liakos.nty@gmail.com", "17090000037"));
-
         ServiceDAO serviceDAO = getServiceDAO();
         serviceDAO.save(new Service("Filling", serviceDAO.nextId()));
         serviceDAO.save(new Service("Teeth whitening", serviceDAO.nextId()));
         serviceDAO.save(new Service("Dental cleaning", serviceDAO.nextId()));
 
+        DentistDAO dentistDAO = getDentistDAO();
+        dentistDAO.save(new Dentist("George", "Fotopoulos", "+30 698 079 3051", "giorgos.fotopoulos7@gmail.com", "Athens:171223", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 10, "asdfg123"));
+        dentistDAO.save(new Dentist("Helias", "Fotopoulos", "+30 697 254 9705", "ilfwto@gmail.com", "Athens:171224", "National and Kapodistrian University of Athens", new Address("Artis", "24", "Athens", "Greece", 17124), 10, "asdfg123"));
+        dentistDAO.save(new Dentist("Spyros", "Fotopoulos", "+30 697 254 4705", "spirosfot.23@gmail.com", "Athens:171225", "University of Piraeus", new Address("Artis", "23", "Aghios Dimitrios", "Greece", 17341), 12, "asdfg123"));
+
+        Dentist d;
+        d = dentistDAO.find(0 + "");
+        d.addSpecialization(specializationDAO.find(3 + ""));
+        d.addService(serviceDAO.find(1 + ""));
+        d.addService(serviceDAO.find(2 + ""));
+
+        d = dentistDAO.find(1 + "");
+        d.addSpecialization(specializationDAO.find(1 + ""));
+        d.addSpecialization(specializationDAO.find(2 + ""));
+        d.addService(serviceDAO.find(2 + ""));
+
+        d = dentistDAO.find(2 + "");
+        d.addSpecialization(specializationDAO.find(1 + ""));
+        d.addSpecialization(specializationDAO.find(3 + ""));
+        d.addService(serviceDAO.find(2 + ""));
+        d.addService(serviceDAO.find(3 + ""));
+
+        ClientDAO clientDAO = getClientDAO();
+        clientDAO.save(new Client("Panagiotis", "Ntymenos", "+30 698 096 8644", "panagiotis.nty@gmail.com", "17099800037"));
+        clientDAO.save(new Client("Liakos", "Ntymenos", "+30 698 864 4096", "liakos.nty@gmail.com", "17090000037"));
 
         AppointmentDAO appointmentDAO = getAppointmentDAO();
         appointmentDAO.save(new Appointment("George", "Patrikis", "+30 698 000 0000", dentistDAO.find("1"), new SimpleCalendar(2019, 28, 5), 15, 0));
