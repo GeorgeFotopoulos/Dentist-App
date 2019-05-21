@@ -1,5 +1,6 @@
 package com.example.efarmoghgiaodontiatrous;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -79,6 +80,7 @@ public class DentistSignupActivity extends AppCompatActivity {
         finish();
         dentist.save(new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password));
         Toast.makeText(getBaseContext(), "Sign Up Successful!!", Toast.LENGTH_LONG).show();
+        dentistMenu();
     }
 
     public void onSignupFailed() {
@@ -118,4 +120,9 @@ public class DentistSignupActivity extends AppCompatActivity {
         return valid;
     }
 
+
+    public void dentistMenu() {
+        Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);
+        startActivity(intent);
+    }
 }
