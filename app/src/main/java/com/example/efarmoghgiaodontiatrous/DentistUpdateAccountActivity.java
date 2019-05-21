@@ -9,7 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
-import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 
 public class DentistUpdateAccountActivity extends AppCompatActivity implements DentistUpdateAccountView{
 

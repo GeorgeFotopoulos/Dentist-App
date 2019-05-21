@@ -116,7 +116,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
                 //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
             }
         });
-        findViewById(R.id.btn_signup).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 System.out.println(tempSpecialization);
@@ -135,7 +135,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
             return;
         }
 
-        findViewById(R.id.btn_signup).setEnabled(false);
+        findViewById(R.id.btn_update).setEnabled(false);
 
 
         // TODO: Implement your own signup logic here.
@@ -169,7 +169,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
 
         DentistDAOMemory dentist = new DentistDAOMemory();
 
-        findViewById(R.id.btn_signup).setEnabled(true);
+        findViewById(R.id.btn_update).setEnabled(true);
         setResult(RESULT_OK, null);
         finish();
         dentist.save(new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password));
@@ -180,7 +180,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
     public void onSignupFailed() {
         Toast.makeText(getBaseContext(), "Sign Up Failed, try again!", Toast.LENGTH_LONG).show();
 
-        findViewById(R.id.btn_signup).setEnabled(true);
+        findViewById(R.id.btn_update).setEnabled(true);
     }
 
     public boolean validate() {
