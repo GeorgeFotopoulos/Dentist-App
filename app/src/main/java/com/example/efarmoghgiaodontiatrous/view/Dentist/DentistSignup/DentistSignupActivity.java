@@ -107,7 +107,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
             public void onClick(View v) {
                 save(presenter.getDentistSize());
                 signup();
-                dentistMenu();
+
             }
         });
     }
@@ -156,6 +156,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         d.addServices(tempServices);
         presenter.saveDentist(d);
         Toast.makeText(getBaseContext(), "Sign Up Successful!", Toast.LENGTH_LONG).show();
+        dentistMenu();
     }
 
     public void save(String ID) {
