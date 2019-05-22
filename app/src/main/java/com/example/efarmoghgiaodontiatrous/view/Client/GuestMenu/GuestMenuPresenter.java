@@ -22,7 +22,7 @@ public class GuestMenuPresenter {
 
     public void searchbyname(String title, String author) {
         if (title.isEmpty() && author.isEmpty()) {
-            view.showError("The field \"Lastname\" is not optional");
+            view.showError("The field \"Last Name\" is not optional!");
             return;
         }
         view.showSearchView(title, author);
@@ -40,7 +40,7 @@ public class GuestMenuPresenter {
 
     public void searchbyfilters(String region, String specialization, String service) {
         if (region.equals("") && specialization.equals("") && service.equals("")) {
-            view.showError("You have to fill at least a value");
+            view.showError("You have to fill in at least one value!");
             return;
         }
         view.showSearchViewFilters(region, specialization, service);

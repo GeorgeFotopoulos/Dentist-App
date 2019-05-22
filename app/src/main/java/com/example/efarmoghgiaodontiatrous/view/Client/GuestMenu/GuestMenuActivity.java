@@ -17,9 +17,8 @@ import com.example.efarmoghgiaodontiatrous.view.Client.SearchDentist.DentistSear
 import java.util.List;
 
 public class GuestMenuActivity extends AppCompatActivity implements GuestMenuView {
-    final int REQUEST_CODE_DENTIST_SEARCH = 1;
-    private GuestMenuPresenter presenter;
     Spinner s, s1, s2;
+    private GuestMenuPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,15 +49,15 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1.setAdapter(adapter1);
 
-        String Regions[] = {"","Marousi","Chalandri","Athens","Nea Smyrni","Aghios Dimitrios","Peristeri","Faliro"};
+        String Regions[] = {"", "Aghios Dimitrios", "Chalandri", "Faliro", "Marousi", "Nea Smyrni", "Peristeri"};
         s2 = findViewById(R.id.spinner3);
-        ArrayAdapter<String> adapter2= new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Regions);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Regions);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s2.setAdapter(adapter2);
 
         findViewById(R.id.search_dentist_with_filters).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String region =  s2.getSelectedItem().toString();
+                String region = s2.getSelectedItem().toString();
                 String specialization = s.getSelectedItem().toString();
                 String service = s1.getSelectedItem().toString();
                 presenter.searchbyfilters(region, specialization, service);

@@ -8,27 +8,22 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="89dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
+        android:gravity="left|center_vertical"
         android:text="Specialization"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toTopOf="@+id/spinner" />
 
     <Spinner
         android:id="@+id/spinner2"
         style="@android:style/Widget.Spinner"
-        android:layout_width="194dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:scrollbarStyle="outsideInset"
         app:layout_constraintEnd_toEndOf="@+id/spinner"
@@ -37,9 +32,8 @@
     <Spinner
         android:id="@+id/spinner3"
         style="@android:style/Widget.Spinner"
-        android:layout_width="194dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:scrollbarStyle="outsideInset"
         app:layout_constraintEnd_toEndOf="@+id/spinner2"
@@ -63,13 +57,9 @@
         android:id="@+id/search_dentist_with_filters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="SEARCH"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner3" />
 
@@ -82,7 +72,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Papadopoulos"
+        android:hint="e.g. Papadopoulos"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Giannis"
+        android:hint="e.g. Giannis"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/lastname"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -120,8 +110,8 @@
     <Spinner
         android:id="@+id/spinner"
         style="@android:style/Widget.Spinner"
-        android:layout_width="194dp"
-        android:layout_height="39dp"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -134,15 +124,10 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
         android:text="Search by filters"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_dentist_by_name" />
 
@@ -150,7 +135,6 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
         android:text="Search by Name"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/textView10"
@@ -159,24 +143,24 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="89dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="left|center_vertical"
         android:text="Service"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner2"
         app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="89dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="left|center_vertical"
         android:text="Location"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="@+id/spinner3"
         app:layout_constraintStart_toStartOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/spinner3" />
 
 </android.support.constraint.ConstraintLayout>
