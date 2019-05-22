@@ -106,9 +106,9 @@ public abstract class Initializer {
         clientDAO.save(new Client("Giorgos", "Ntymenos", "+30 698 468 9640", "giorgos.nty@gmail.com", "17099600037"));
 
         AppointmentDAO appointmentDAO = getAppointmentDAO();
-        appointmentDAO.save(new Appointment("George", "Patrikis", "+30 698 000 0000", dentistDAO.find("0"), new SimpleCalendar(2019, 28, 5), 15, 0));
-        appointmentDAO.save(new Appointment("Leuterakis", "Patrikis", "+30 698 111 1111", dentistDAO.find("1"), new SimpleCalendar(2019, 28, 5), 15, 30));
-        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("2"), new SimpleCalendar(2019, 28, 5), 16, 0));
+        appointmentDAO.save(new Appointment("George", "Patrikis", "+30 698 000 0000", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 15, 0));
+        appointmentDAO.save(new Appointment("Leuterakis", "Patrikis", "+30 698 111 1111", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 15, 30));
+        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 16, 0));
 
         VisitDAO visitDAO = getVisitDAO();
         Set<Service> services1 = new HashSet<>();
