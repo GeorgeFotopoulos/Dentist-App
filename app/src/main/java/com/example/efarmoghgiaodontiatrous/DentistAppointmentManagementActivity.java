@@ -23,7 +23,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dentist_appointment_management);
         Intent intent = getIntent();
-        Dentist_ID = intent.getStringExtra("Logged-In User");
+        Dentist_ID = intent.getStringExtra("ID");
         final ListView listViewWithCheckbox = findViewById(R.id.list_view_with_checkbox);
         // Initiate listview data.
         final List<ListViewItemDTO> initItemListSpec = this.getInitViewItemDtoList();
