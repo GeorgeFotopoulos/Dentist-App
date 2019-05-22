@@ -9,6 +9,7 @@ import com.example.efarmoghgiaodontiatrous.DentistAppointmentManagementActivity;
 import com.example.efarmoghgiaodontiatrous.DentistAppointmentManagementPresenter;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.RecordServiceActivity;
+import com.example.efarmoghgiaodontiatrous.ViewScheduleActivity;
 import com.example.efarmoghgiaodontiatrous.ViewStatisticsActivity;
 import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount.DentistUpdateAccountActivity;
@@ -109,7 +110,7 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
 
     public void viewAppointmentSchedule(){
         finish();
-        Intent intent = new Intent(DentistMenuActivity.this, DentistLoginActivity.class);
+        Intent intent = new Intent(DentistMenuActivity.this, ViewScheduleActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
