@@ -16,20 +16,6 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
 
     private ItemSelectionListener<Dentist> dentSelectionListener;
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public ViewGroup listItem;
-        public TextView txtDentist;
-        public Button btnSelectDentist;
-
-        public ViewHolder(ViewGroup v) {
-            super(v);
-            listItem = v;
-            txtDentist = listItem.findViewById(R.id.txt_dentist_info);
-            btnSelectDentist = listItem.findViewById(R.id.btn_select_dentist);
-        }
-    }
-
     public DentistAdapter(List<Dentist> myDataset) {
         itemList = myDataset;
     }
@@ -45,25 +31,19 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
 
     @Override
     public DentistAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view for the list
         ViewGroup v = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(R.layout.list_dentist_result, parent, false);
         ViewHolder vh = new ViewHolder(v);
         return vh;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-
-        // - get element from your dataset at this position
         final Dentist dentAtPosition = itemList.get(position);
 
-        // - replace the contents of the view with data from the dataset item at this position
-        holder.txtDentist.setText(dentAtPosition.getLastName() + " " + dentAtPosition.getFirstName() + "\n" + dentAtPosition.getInfirmaryLocation().print() + "\nEmail: " + dentAtPosition.getEmail() + " \nTel. " + dentAtPosition.getTelephoneNo() + "\nSpecializations: " + dentAtPosition.printSpecializations() + "\nProviding Services: " + dentAtPosition.printServices());
+        holder.txtDentist.setText("Name: " + dentAtPosition.getLastName() + " " + dentAtPosition.getFirstName() + "\nLocation: " + dentAtPosition.getInfirmaryLocation().print() + "\nEmail: " + dentAtPosition.getEmail() + " \nContact Number: " + dentAtPosition.getTelephoneNo() + "\nProviding Services: " + dentAtPosition.printServices() + "\nSpecializations: " + dentAtPosition.printSpecializations());
         holder.btnSelectDentist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // notify the Activity of the selected book
                 if (dentSelectionListener != null) {
                     dentSelectionListener.onItemSelected(dentAtPosition);
                 }
@@ -71,9 +51,21 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
         });
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
         return itemList.size();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public ViewGroup listItem;
+        public TextView txtDentist;
+        public Button btnSelectDentist;
+
+        public ViewHolder(ViewGroup v) {
+            super(v);
+            listItem = v;
+            txtDentist = listItem.findViewById(R.id.txt_dentist_info);
+            btnSelectDentist = listItem.findViewById(R.id.btn_select_dentist);
+        }
     }
 }

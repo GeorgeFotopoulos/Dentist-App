@@ -29,7 +29,6 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         Set<Dentist> result = new HashSet<>();
         Intent intent = getIntent();
         dentistSearchPresenter = new DentistSearchPresenter(this);
-        // extract search criteria from intent
         if (intent.hasExtra("lastname")) {
             String lastname = intent.getStringExtra("lastname");
             String firstname = intent.getStringExtra("firstname");
@@ -40,20 +39,13 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
             String service = intent.getStringExtra("service");
             result = dentistSearchPresenter.searchDentistsWithFilters(region, specialization, service);
         }
-        // find search result
 
-        // Update UI with the result
         recyclerView = findViewById(R.id.recycler_view);
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
-        // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
-        // specify an adapter (see also next example)
-        mAdapter = new DentistAdapter(new ArrayList<Dentist>(result));
+        mAdapter = new DentistAdapter(new ArrayList<>(result));
         recyclerView.setAdapter(mAdapter);
-        // register the current activity as listener for book selection events
         mAdapter.setDentistSelectionListener(this);
     }
 
