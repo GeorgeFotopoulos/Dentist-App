@@ -25,7 +25,6 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
         Intent intent = getIntent();
 
         CalendarView calender = findViewById(R.id.DateOfAppointment);
-        // extract search criteria from intent
         String DentistID = intent.getStringExtra("DentistID");
         final Dentist D = Presenter.updateDentInfoText(DentistID);
         System.out.println(D.getLastName());
@@ -33,18 +32,20 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
         calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                month++;
                 dateOfAppointment = new SimpleCalendar(year, month, dayOfMonth);
             }
         });
-        DentInfo.setText(D.getLastName() + " " + D.getFirstName() + "\n" + D.getInfirmaryLocation().getCity() + " " + D.getInfirmaryLocation().getStreet() + " " + D.getInfirmaryLocation().getNumber() + "\nEmail." + D.getEmail());
+        DentInfo.setText(D.getLastName() + " " + D.getFirstName() + "\n" + D.getInfirmaryLocation().getStreet() + " " + D.getInfirmaryLocation().getNumber() +
+                ", " + D.getInfirmaryLocation().getZipCode() + ", " + D.getInfirmaryLocation().getCity() + "\n" + D.getEmail());
         findViewById(R.id.submitAppointmentRequest).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 SimpleCalendar AppDate = dateOfAppointment;
-                String Time = ((EditText) findViewById(R.id.AppointmentTime)).getText().toString();
-                String Lastname = ((EditText) findViewById(R.id.lastname)).getText().toString();
-                String Firstname = ((EditText) findViewById(R.id.firstname)).getText().toString();
-                String Tel = ((EditText) findViewById(R.id.ContactNum)).getText().toString();
-                Presenter.reqAppointment(D, AppDate, Time, Tel, Lastname, Firstname);
+                String time = ((EditText) findViewById(R.id.AppointmentTime)).getText().toString();
+                String lastName = ((EditText) findViewById(R.id.lastname)).getText().toString();
+                String firstName = ((EditText) findViewById(R.id.firstname)).getText().toString();
+                String telNo = ((EditText) findViewById(R.id.ContactNum)).getText().toString();
+                Presenter.reqAppointment(D, AppDate, time, telNo, lastName, firstName);
             }
         });
     }

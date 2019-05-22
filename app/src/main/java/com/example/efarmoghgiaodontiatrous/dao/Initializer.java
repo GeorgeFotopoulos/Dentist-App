@@ -106,14 +106,14 @@ public abstract class Initializer {
         clientDAO.save(new Client("Giorgos", "Ntymenos", "+30 698 468 9640", "giorgos.nty@gmail.com", "17099600037"));
 
         AppointmentDAO appointmentDAO = getAppointmentDAO();
-        appointmentDAO.save(new Appointment("George", "Patrikis", "+30 698 000 0000", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 15, 00));
-        appointmentDAO.save(new Appointment("Leuterakis", "Patrikis", "+30 698 111 1111", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 15, 30));
-        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 16, 00));
-        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 17, 00));
-        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 13, 00));
-        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 12, 00));
-        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 11, 00));
-        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 28, 5), 10, 00));
+        appointmentDAO.save(new Appointment("George", "Patrikis", "+30 698 000 0000", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 15, 00));
+        appointmentDAO.save(new Appointment("Leuterakis", "Patrikis", "+30 698 111 1111", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 15, 30));
+        appointmentDAO.save(new Appointment("Georgios", "Patrikis", "+30 698 222 2222", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 16, 00));
+        appointmentDAO.save(new Appointment("Giorgos", "Patrikis", "+30 698 333 3333", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 16, 30));
+        appointmentDAO.save(new Appointment("Giorhs", "Patrikis", "+30 698 444 4444", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 17, 00));
+        appointmentDAO.save(new Appointment("Jorge", "Patrikis", "+30 698 555 5555", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 17, 30));
+        appointmentDAO.save(new Appointment("Geo", "Patrikis", "+30 698 666 6666", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 18, 00));
+        appointmentDAO.save(new Appointment("GPatPat", "Patrikis", "+30 698 777 7777", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 18, 30));
 
         VisitDAO visitDAO = getVisitDAO();
         Set<Service> services1 = new HashSet<>();

@@ -49,13 +49,13 @@ public class DentistDAOMemory implements DentistDAO {
             return null;
         } else if (firstName == null || firstName.equals("")) {
             for (Dentist dentist : entities) {
-                if (dentist.getLastName().equals(lastName)) {
+                if (dentist.getLastName().equalsIgnoreCase(lastName)) {
                     output.add(dentist);
                 }
             }
         } else {
             for (Dentist dentist : entities) {
-                if (dentist.getLastName().equals(lastName)) {
+                if (dentist.getLastName().equalsIgnoreCase(lastName)) {
                     if (dentist.getFirstName().equals(firstName)) {
                         output.add(dentist);
                     }
