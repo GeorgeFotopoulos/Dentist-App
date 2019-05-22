@@ -125,13 +125,21 @@ public class DentistDAOMemory implements DentistDAO {
                 return new ArrayList<>(output);
             }
         }
+        if (service.equals("")) {
+            for (int i = 0; i < outputA.size(); i++) {
+                if (outputC.contains(outputA.get(i))) {
+                    output.add(outputA.get(i));
+                }
+            }
+            return new ArrayList<>(output);
+        }
         for (int i = 0; i < outputB.size(); i++) {
             if (outputC.contains(outputB.get(i))) {
                 outputD.add(outputB.get(i));
             }
         }
-        for(int i=0;i<outputA.size();i++){
-            if(outputD.contains(outputA.get(i))){
+        for (int i = 0; i < outputA.size(); i++) {
+            if (outputD.contains(outputA.get(i))) {
                 output.add(outputA.get(i));
             }
         }

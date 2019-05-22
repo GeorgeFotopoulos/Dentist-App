@@ -33,5 +33,7 @@ public interface AppointmentDAO {
      * @param dentist Ο κωδικός του οδοντιάτρου
      * @return Τα ραντεβού που βρέθηκαν ή null
      */
-    Appointment find(Dentist dentist);
+    List<Appointment> find(Dentist dentist);
+
+    public String[] findtoString(Dentist tempDent);
 }

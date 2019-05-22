@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".view.Dentist.DentistViewProfile.DentistViewProfileActivity"/>
+        <activity android:name=".DentistAppointmentManagementActivity"></activity>
+        <activity android:name=".view.Dentist.DentistViewProfile.DentistViewProfileActivity" />
         <activity android:name=".view.Dentist.DentistViewHistory.DentistViewHistoryActivity" />
         <activity android:name=".view.Dentist.DentistUpdateAccount.DentistUpdateAccountActivity" />
         <activity android:name=".view.Dentist.DentistMenu.DentistMenuActivity" />

@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AppointmentDAOMemory implements AppointmentDAO {
+
     protected static List<Appointment> entities = new ArrayList<>();
+
 
     @Override
     public void delete(Appointment entity) {
@@ -28,12 +30,21 @@ public class AppointmentDAOMemory implements AppointmentDAO {
     }
 
     @Override
-    public Appointment find(Dentist dentist) {
+    public List<Appointment> find(Dentist dentist) {
+        List<Appointment> Dentistentities = new ArrayList<>();
         for (Appointment appointment : entities) {
             if (appointment.getDentist() == dentist) {
-                return appointment;
+                Dentistentities.add(appointment);
             }
         }
-        return null;
+        return new ArrayList<>(Dentistentities);
+    }
+
+    public String[] findtoString(Dentist tempDent) {
+        List<Appointment> Dentistentities=find(tempDent);
+        String out[]=new String[Dentistentities.size()];
+        for(int i=0;i<Dentistentities.size();i++)
+            out[i]=i+". "+Dentistentities.get(i).getBookDate().getDayOfMonth()+"/"+Dentistentities.get(i).getBookDate().getMonth()+"/"+Dentistentities.get(i).getBookDate().getYear()+" "+Dentistentities.get(i).getHour()+":"+Dentistentities.get(i).getMinutes()+" "+Dentistentities.get(i).getLastName()+ " "+Dentistentities.get(i).getTelephoneNo();
+        return out;
     }
 }
