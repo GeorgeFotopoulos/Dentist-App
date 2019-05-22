@@ -38,6 +38,7 @@ public class ServiceDAOMemory implements ServiceDAO {
 
     @Override
     public String nextId() {
+        System.out.println(entities.size());
         if (entities.size() > 0) {
             return Integer.parseInt(entities.get(entities.size() - 1).getServiceID()) + 1 + "";
         } else {

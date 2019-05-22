@@ -63,6 +63,23 @@ public class SimpleCalendar implements Comparable<SimpleCalendar> {
         return date.get(Calendar.YEAR);
     }
 
+
+    /**
+     * Επιστρέφει το μήνα της ημερομηνίας (01-12).
+     *
+     * @return Ο μήνας
+     */
+    public String getStringMonth() {
+        int temp = (date.get(Calendar.MONTH) + 1);
+        if (temp >= 10) {
+            return (temp + "");
+        } else {
+            String ada="0"+temp;
+            return ada;
+        }
+    }
+
+
     /**
      * Επιστρέφει το μήνα της ημερομηνίας (1-12).
      *
@@ -70,6 +87,19 @@ public class SimpleCalendar implements Comparable<SimpleCalendar> {
      */
     public int getMonth() {
         return date.get(Calendar.MONTH) + 1;
+    }
+
+    /**
+     * Επιστρέφει την ημέρα σε του μήνα(string).
+     *
+     * @return Η ημέρα του μήνα
+     */
+
+    public String getStringDay() {
+        int temp = date.get(Calendar.DAY_OF_MONTH);
+        if (date.get(Calendar.DAY_OF_MONTH) >= 10) {
+            return (temp + "");
+        } else return ("0" + temp);
     }
 
     /**

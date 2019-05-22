@@ -23,26 +23,28 @@ public class MemoryInitializer extends Initializer {
         for (Appointment appointment : getAppointmentDAO().findAll()) {
             getAppointmentDAO().delete(appointment);
         }
+        System.out.println(getAppointmentDAO().findAll().size());
 
         for (Client client : getClientDAO().findAll()) {
             getClientDAO().delete(client);
         }
-
+        System.out.println(getClientDAO().findAll().size());
         for (Dentist dentist : getDentistDAO().findAll()) {
             getDentistDAO().delete(dentist);
         }
-
+        System.out.println(getDentistDAO().findAll().size());
         for (Service service : getServiceDAO().findAll()) {
             getServiceDAO().delete(service);
         }
-
+        System.out.println(getServiceDAO().findAll().size());
         for (Specialization specialization : getSpecializationDAO().findAll()) {
             getSpecializationDAO().delete(specialization);
         }
-
+        System.out.println(getSpecializationDAO().findAll().size());
         for (Visit visit : getVisitDAO().findAll()) {
             getVisitDAO().delete(visit);
         }
+        System.out.println(getVisitDAO().findAll().size());
     }
 
     /**

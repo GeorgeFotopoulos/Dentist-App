@@ -73,42 +73,49 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
     }
 
     public void viewProfile(){
+        finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistViewProfileActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
 
     public void updateAccount(){
+        finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistUpdateAccountActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
 
     public void viewClientHistory(){
+        finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistViewHistoryActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
 
     public void appointmentManagement(){
+        finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistAppointmentManagementActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
 
     public void viewStatistics(){
+        finish();
         Intent intent = new Intent(DentistMenuActivity.this, ViewStatisticsActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
 
     public void viewAppointmentSchedule(){
+        finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistLoginActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
     }
 
     public void recordProvidedService(){
+        finish();
         Intent intent = new Intent(DentistMenuActivity.this, RecordServiceActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);

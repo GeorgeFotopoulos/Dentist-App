@@ -36,10 +36,28 @@ public class AppointmentDAOMemory implements AppointmentDAO {
 
     @Override
     public List<Appointment> find(Dentist dentist,AppointmentState state) {
+        List<Long> TimePositions=new ArrayList<>();
         List<Appointment> Dentistentities = new ArrayList<>();
         for (Appointment appointment : entities) {
             if (appointment.getDentist() == dentist&& appointment.getState()==state) {
+                TimePositions.add(Long.parseLong(appointment.getBookDate().getYear()+""+appointment.getBookDate().getStringMonth()+""+appointment.getBookDate().getStringDay()+""+appointment.getHour()+appointment.getMinutes()));
                 Dentistentities.add(appointment);
+            }
+        }
+        if(TimePositions.size()>0) {
+            Long tempInt;
+            Appointment temp;
+            for (int i = 0; i < TimePositions.size(); i++) {
+                for (int j = 1; j < TimePositions.size()-i; j++) {
+                    if (TimePositions.get(j-1) >TimePositions.get(j)) {
+                        tempInt=TimePositions.get(j);
+                        TimePositions.set(j,TimePositions.get(j-1));
+                        TimePositions.set(j-1,tempInt);
+                        temp=Dentistentities.get(j);
+                        Dentistentities.set(j,Dentistentities.get(j-1));
+                        Dentistentities.set(j-1,temp);
+                    }
+                }
             }
         }
         return new ArrayList<>(Dentistentities);

@@ -69,7 +69,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
                 if (SelectedAppointments.size() > 0) {
                     presenter.AcceptAppointments(Dentist_ID, SelectedAppointments);
                     itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
-                    //finish();
+                    finish();
                     Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistAppointmentManagementActivity.class);
                     intent.putExtra("ID",Dentist_ID);
                     startActivity(intent);
@@ -82,7 +82,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
                 if (SelectedAppointments.size() > 0) {
                     presenter.DeclineAppointments(Dentist_ID, SelectedAppointments);
                     itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
-                 //   finish();
+                    finish();
                     Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistAppointmentManagementActivity.class);
                     intent.putExtra("ID",Dentist_ID);
                     startActivity(intent);
@@ -97,6 +97,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
 
     @Override
     public void onBackPressed() {
+        finish();
         Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistMenuActivity.class);
         intent.putExtra("Logged-In User",Dentist_ID);
         startActivity(intent);
