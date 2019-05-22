@@ -7,7 +7,7 @@ import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 public class RequestAppointmentPresenter {
-    RequestAppointmentView view;
+    protected RequestAppointmentView view;
 
     public RequestAppointmentPresenter(RequestAppointmentView view) {
         this.view = view;
@@ -19,46 +19,47 @@ public class RequestAppointmentPresenter {
         return D;
     }
 
-    public void reqAppointment(Dentist D, SimpleCalendar calendar, String Time, String Tel, String Lastname, String Firstname) {
-        if (D == null) {
-            view.showError("An error occured try again Later");
+    public void reqAppointment(Dentist dentist, SimpleCalendar calendar, String time, String telephone, String lastName, String firstName) {
+        if (dentist == null) {
+            view.showError("An error occurred, try again later!");
             return;
         } else if (calendar == null) {
-            view.showError("You have to select a day at the calendar !");
+            view.showError("You have to select a day at the calendar!");
             return;
-        } else if (Time == null || Time.equals("")) {
-            view.showError("You have to select a time");
+        } else if (time == null || time.equals("")) {
+            view.showError("You have to enter a time value!");
             return;
-        } else if (Tel.equals("")) {
-            view.showError("You have to give a valid Number,in which the doctor will contact you to approve your appointment");
+        } else if (telephone.equals("")) {
+            view.showError("You have to enter a valid Contact Number, which the doctor will use to contact you about your appointment!");
             return;
-        } else if (Lastname.equals("")) {
-            view.showError("You have to give a Last Name ");
+        } else if (lastName.equals("")) {
+            view.showError("You have to enter a Last Name!");
+            return;
+        } else if (firstName.equals("")) {
+            view.showError("You have to enter a First Name!");
             return;
         }
-
         try {
-            String hour = new StringBuilder().append(Time.charAt(0)).append(Time.charAt(1)).toString();
-            if (Time.charAt(0) == '0' && Time.charAt(1) != '9') {
-                view.showError("Wrong Time format. Should be of format \"hh:00\" or \"hh:30\" ");
+            String hour = new StringBuilder().append(time.charAt(0)).append(time.charAt(1)).toString();
+            if (time.charAt(0) == '0' && time.charAt(1) != '9') {
+                view.showError("Invalid input, please choose between 09:00 - 21:00!");
                 return;
             }
-            int Apphour = Integer.parseInt(hour);
-            if (Apphour > 21) {
-                view.showError("Wrong Time format. Should be of format \"hh:00\" or \"hh:30\" ");
+            int hourValue = Integer.parseInt(hour);
+            if (hourValue > 21) {
+                view.showError("Invalid input, please choose between 09:00 - 21:00!");
                 return;
             }
-            int appMinutes = Integer.parseInt(new StringBuilder().append(Time.charAt(3)).append(Time.charAt(4)).toString());
-            if (appMinutes != 00 && appMinutes != 30) {
-                view.showError("Wrong Time format. Should be of format \"hh:00\" or \"hh:30\" ");
+            int minuteValue = Integer.parseInt(new StringBuilder().append(time.charAt(3)).append(time.charAt(4)).toString());
+            if (minuteValue != 00 && minuteValue != 30) {
+                view.showError("Wrong Time format. Should be of format \"hh:00\" or \"hh:30\"");
                 return;
             }
             AppointmentDAOMemory DAO = new AppointmentDAOMemory();
-            DAO.save(new Appointment(Firstname, Lastname, Tel, D, calendar, Apphour, appMinutes));
-            view.success("Appointment request Submitted");
-
+            DAO.save(new Appointment(firstName, lastName, telephone, dentist, calendar, hourValue, minuteValue));
+            view.success("Appointment request submitted!");
         } catch (Exception e) {
-            view.showError("Wrong Time format. Should be in format \"hh:00\" or \"hh:30\" ");
+            view.showError("Wrong Time format. Should be in format \"hh:00\" or \"hh:30\"");
             return;
         }
     }

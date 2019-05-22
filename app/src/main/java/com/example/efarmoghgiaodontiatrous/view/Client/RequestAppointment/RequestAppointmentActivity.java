@@ -24,12 +24,12 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
         setContentView(R.layout.activity_request_appointment);
         Intent intent = getIntent();
 
-        CalendarView calender = (CalendarView) findViewById(R.id.DateOfAppointment);
+        CalendarView calender = findViewById(R.id.DateOfAppointment);
         // extract search criteria from intent
         String DentistID = intent.getStringExtra("DentistID");
         final Dentist D = Presenter.updateDentInfoText(DentistID);
         System.out.println(D.getLastName());
-        TextView DentInfo = (TextView) findViewById(R.id.dentistInfo);
+        TextView DentInfo = findViewById(R.id.dentistInfo);
         calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
