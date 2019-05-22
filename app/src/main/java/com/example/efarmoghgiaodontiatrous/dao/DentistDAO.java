@@ -15,10 +15,10 @@ public interface DentistDAO {
     /**
      * Βρίσκει έναν οδοντίατρο με βάση τον κωδικό του.
      *
-     * @param dentistID Ο κωδικός του οδοντιάτρου
+     * @param dentistId Ο κωδικός του οδοντιάτρου
      * @return Ο οδοντίατρος που βρέθηκε ή null
      */
-    Dentist find(String dentistID);
+    Dentist find(String dentistId);
 
     /**
      * Returns the dentist that owns the email given as a parameter.

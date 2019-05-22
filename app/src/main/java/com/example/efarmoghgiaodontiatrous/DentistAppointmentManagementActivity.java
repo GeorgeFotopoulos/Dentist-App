@@ -7,19 +7,24 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DentistAppointmentManagementActivity extends AppCompatActivity implements DentistAppointmentManagementView {
-
+    String[] itemTextArr;
     List<String> SelectedAppointments;
     private DentistAppointmentManagementPresenter presenter;
     String Dentist_ID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SelectedAppointments = new ArrayList<>();
-        presenter= new DentistAppointmentManagementPresenter(this);
+        presenter = new DentistAppointmentManagementPresenter(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dentist_appointment_management);
         Intent intent = getIntent();
@@ -28,10 +33,9 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
         // Initiate listview data.
         final List<ListViewItemDTO> initItemListSpec = this.getInitViewItemDtoList();
         // Create a custom list view adapter with checkbox control.
-        final ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListSpec);
+        ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListSpec);
 
         listViewDataAdapter.notifyDataSetChanged();
-
         // Set data adapter to list view.
         listViewWithCheckbox.setAdapter(listViewDataAdapter);
 
@@ -60,11 +64,49 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
             }
         });
 
+        findViewById(R.id.accept_apointment).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (SelectedAppointments.size() > 0) {
+                    presenter.AcceptAppointments(Dentist_ID, SelectedAppointments);
+                    itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
+                    //finish();
+                    Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistAppointmentManagementActivity.class);
+                    intent.putExtra("ID",Dentist_ID);
+                    startActivity(intent);
+                    // listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListSpec);
+                }
+            }
+        });
+        findViewById(R.id.decline_appointment).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (SelectedAppointments.size() > 0) {
+                    presenter.DeclineAppointments(Dentist_ID, SelectedAppointments);
+                    itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
+                 //   finish();
+                    Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistAppointmentManagementActivity.class);
+                    intent.putExtra("ID",Dentist_ID);
+                    startActivity(intent);
+                }
+                // listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListSpec);
+            }
+        });
+
 
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistMenuActivity.class);
+        intent.putExtra("Logged-In User",Dentist_ID);
+        startActivity(intent);
+    }
+
+    public void jobDone(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+    }
+
     private List<ListViewItemDTO> getInitViewItemDtoList() {
-        String[] itemTextArr = presenter.getAppointments(Dentist_ID);
+        itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
         List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
         int length = itemTextArr.length;
 

@@ -189,8 +189,10 @@ public class Appointment {
      *
      * @return The appointment's hour value
      */
-    public int getHour() {
-        return hour;
+    public String getHour() {
+        if(hour==9)
+            return "09";
+        return hour+"";
     }
 
     /**

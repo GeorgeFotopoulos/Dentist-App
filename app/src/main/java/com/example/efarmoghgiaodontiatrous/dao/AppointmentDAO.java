@@ -2,6 +2,7 @@ package com.example.efarmoghgiaodontiatrous.dao;
 
 import com.example.efarmoghgiaodontiatrous.domain.Appointment;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public interface AppointmentDAO {
      * @param dentist Ο κωδικός του οδοντιάτρου
      * @return Τα ραντεβού που βρέθηκαν ή null
      */
-    List<Appointment> find(Dentist dentist);
+    List<Appointment> find(Dentist dentist,AppointmentState state);
 
-    public String[] findtoString(Dentist tempDent);
+    public String[] findtoString(Dentist tempDent, AppointmentState state);
 }

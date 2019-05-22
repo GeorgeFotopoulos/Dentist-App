@@ -15,6 +15,7 @@ public class DentistDAOMemory implements DentistDAO {
     public Dentist find(String dentistId) {
         for (Dentist dentist : entities) {
             if (dentist.getID().equals(dentistId)) {
+
                 return dentist;
             }
         }
