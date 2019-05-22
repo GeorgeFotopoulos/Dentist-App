@@ -24,25 +24,6 @@ public class RequestAppointmentPresenter {
             view.showError("You have to pick a date and fill in all the data!");
             return;
         }
-        /*if (dentist == null) {
-            view.showError("An error occurred, try again later!");
-            return;
-        } else if (calendar == null) {
-            view.showError("You have to select a day at the calendar!");
-            return;
-        } else if (time == null || time.equals("")) {
-            view.showError("You have to enter a Τime value!");
-            return;
-        } else if (telephone.equals("")) {
-            view.showError("You have to enter a Contact Number!");
-            return;
-        } else if (lastName.equals("")) {
-            view.showError("You have to enter a Last Name!");
-            return;
-        } else if (firstName.equals("")) {
-            view.showError("You have to enter a First Name!");
-            return;
-        }*/
         try {
             String hour = new StringBuilder().append(time.charAt(0)).append(time.charAt(1)).toString();
             if (time.charAt(0) == '0' && time.charAt(1) != '9') {

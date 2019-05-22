@@ -11,21 +11,20 @@ public class GuestMenuPresenter {
     private GuestMenuView view;
 
     /**
-     * Αρχικοποιεί τον Presenter.
+     * Initializes the Presenter.
      *
-     * @param view Ένα instance του view
+     * @param view A view instance
      */
     public GuestMenuPresenter(GuestMenuView view) {
         this.view = view;
     }
 
-
-    public void searchbyname(String title, String author) {
-        if (title.isEmpty() && author.isEmpty()) {
+    public void searchbyname(String lastName, String firstName) {
+        if (lastName.isEmpty() && firstName.isEmpty()) {
             view.showError("The field \"Last Name\" is not optional!");
             return;
         }
-        view.showSearchView(title, author);
+        view.showSearchView(lastName, firstName);
     }
 
     public List<Specialization> getSpecializations() {

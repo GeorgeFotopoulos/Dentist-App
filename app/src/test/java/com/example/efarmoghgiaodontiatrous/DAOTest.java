@@ -123,10 +123,11 @@ public class DAOTest {
         appointmentDao.save(appointment);
         Assert.assertNotEquals(INITIAL_APPOINTMENT_COUNT, appointmentDao.findAll().size());
         appointmentDao.delete(appointment);
-        Appointment appointment1 = appointmentDao.find(dentistDao.find("3"));
-        Assert.assertNull(appointment1);
-        appointment1 = appointmentDao.find(dentistDao.find("1"));
-        Assert.assertEquals("Fotopoulos", appointment1.getDentist().getLastName());
+        List<Appointment> appointmentList;
+        appointmentList = appointmentDao.find(dentistDao.find("1500"));
+        Assert.assertNull(appointmentList);
+        appointmentList = appointmentDao.find(dentistDao.find("1"));
+        Assert.assertEquals("Fotopoulos", appointmentList.get(0).getDentist().getLastName());
     }
 
     @Test
@@ -157,9 +158,10 @@ public class DAOTest {
         visitDao.save(visit);
         Assert.assertNotEquals(INITIAL_VISIT_COUNT, visitDao.findAll().size());
         visitDao.delete(visit);
-        visit = visitDao.find("17099800037");
-        Assert.assertEquals("17099800037", visit.getClient().getAMKA());
-        visit = visitDao.find("18059500037");
-        Assert.assertNull(visit);
+        List<Visit> visitList;
+        visitList = visitDao.find("17099800037");
+        Assert.assertEquals("17099800037", visitList.get(0).getClient().getAMKA());
+        visitList = visitDao.find("18059500037");
+        Assert.assertNull(visitList);
     }
 }

@@ -2,7 +2,7 @@ package com.example.efarmoghgiaodontiatrous.view.Client.SearchDentist;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 
-public class DentistSearchViewStub implements DentistSearchView{
+public class DentistSearchViewStub implements DentistSearchView {
     private Dentist requestAppointmentResult;
 
     @Override
