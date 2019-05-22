@@ -86,6 +86,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
                     Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistAppointmentManagementActivity.class);
                     intent.putExtra("ID",Dentist_ID);
                     startActivity(intent);
+
                 }
                 // listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListSpec);
             }
