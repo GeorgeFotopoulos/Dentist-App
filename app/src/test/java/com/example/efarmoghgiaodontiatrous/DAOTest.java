@@ -24,7 +24,7 @@ import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -32,22 +32,21 @@ import java.util.List;
 import java.util.Set;
 
 public class DAOTest {
-    private static AppointmentDAO appointmentDao;
-    private static ClientDAO clientDao;
-    private static DentistDAO dentistDao;
-    private static ServiceDAO serviceDao;
-    private static SpecializationDAO specializationDao;
-    private static VisitDAO visitDao;
-
-    private static final int INITIAL_APPOINTMENT_COUNT = 2;
+    private static final int INITIAL_APPOINTMENT_COUNT = 8;
     private static final int INITIAL_CLIENT_COUNT = 2;
-    private static final int INITIAL_DENTIST_COUNT = 3;
+    private static final int INITIAL_DENTIST_COUNT = 9;
     private static final int INITIAL_SERVICE_COUNT = 3;
-    private static final int INITIAL_SPECIALIZATION_COUNT = 3;
-    private static final int INITIAL_VISIT_COUNT = 2;
+    private static final int INITIAL_SPECIALIZATION_COUNT = 4;
+    private static final int INITIAL_VISIT_COUNT = 6;
+    private AppointmentDAO appointmentDao;
+    private ClientDAO clientDao;
+    private DentistDAO dentistDao;
+    private ServiceDAO serviceDao;
+    private SpecializationDAO specializationDao;
+    private VisitDAO visitDao;
 
-    @BeforeClass
-    public static void setUp() {
+    @Before
+    public void setUp() {
         Initializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
 
@@ -69,7 +68,7 @@ public class DAOTest {
         Assert.assertNull(d1);
         dentistDao.delete(d);
 
-        d1 = dentistDao.find("5");
+        d1 = dentistDao.find("1555");
         Assert.assertNull(d1);
 
         List<Dentist> nullName = dentistDao.findByName("Fotopoulos", null);
@@ -125,9 +124,9 @@ public class DAOTest {
         appointmentDao.delete(appointment);
         List<Appointment> appointmentList;
         appointmentList = appointmentDao.find(dentistDao.find("1500"));
-        Assert.assertNull(appointmentList);
-        appointmentList = appointmentDao.find(dentistDao.find("1"));
-        Assert.assertEquals("Fotopoulos", appointmentList.get(0).getDentist().getLastName());
+        Assert.assertTrue(appointmentList.isEmpty());
+        appointmentList = appointmentDao.find(dentistDao.find("6"));
+        Assert.assertFalse(appointmentList.isEmpty());
     }
 
     @Test
@@ -162,6 +161,6 @@ public class DAOTest {
         visitList = visitDao.find("17099800037");
         Assert.assertEquals("17099800037", visitList.get(0).getClient().getAMKA());
         visitList = visitDao.find("18059500037");
-        Assert.assertNull(visitList);
+        Assert.assertNotNull(visitList);
     }
 }

@@ -11,7 +11,6 @@ public class AppointmentDAOMemory implements AppointmentDAO {
 
     protected static List<Appointment> entities = new ArrayList<>();
 
-
     @Override
     public void delete(Appointment entity) {
         entities.remove(entity);

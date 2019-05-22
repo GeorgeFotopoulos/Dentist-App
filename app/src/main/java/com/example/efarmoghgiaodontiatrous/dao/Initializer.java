@@ -6,6 +6,7 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.domain.Visit;
+import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
@@ -22,9 +23,10 @@ public abstract class Initializer {
      * Initializes all test data.
      */
     public void prepareData() {
+        SpecializationDAO specializationDAO;
         eraseData();
 
-        SpecializationDAO specializationDAO = getSpecializationDAO();
+        specializationDAO = getSpecializationDAO();
         specializationDAO.save(new Specialization("Endodontic", specializationDAO.nextId()));
         specializationDAO.save(new Specialization("Pedodontic", specializationDAO.nextId()));
         specializationDAO.save(new Specialization("Orthodontic", specializationDAO.nextId()));

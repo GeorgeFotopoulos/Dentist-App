@@ -31,17 +31,14 @@ public class GuestMenuPresenterTest {
         List<Service> services = presenter.getServices();
         Assert.assertEquals(3, services.size());
 
+        presenter.searchbyname("", "");
+        Assert.assertNull(view.getFirstName());
         presenter.searchbyname("Fotopoulos", "George");
         Assert.assertEquals("Fotopoulos", view.getLastName());
-        Assert.assertEquals("George", view.getFirstName());
-        presenter.searchbyname("", "");
-        Assert.assertNotNull(view.getFirstName());
 
+        presenter.searchbyfilters("", "", "");
+        Assert.assertNull(view.getRegion());
         presenter.searchbyfilters("Nea Smyrni", "Orthodontic", "Filling");
         Assert.assertEquals("Nea Smyrni", view.getRegion());
-        Assert.assertEquals("Orthodontic", view.getSpecialization());
-        Assert.assertEquals("Filling", view.getService());
-        presenter.searchbyfilters("", "", "");
-        Assert.assertNotNull(view.getRegion());
     }
 }
