@@ -60,8 +60,6 @@ public class DentistTest {
         assertFalse(dentist.getServices().contains(new Service("Filling", "1")));
     }
 
-
-    //TODO Add list to appointments and not when accepting
     @Test
     public void testAcceptAppointment() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
@@ -119,8 +117,6 @@ public class DentistTest {
         assertEquals(dentist.recordVisit(dateOfVisit, comments, dentist2, client, service), null);
     }
 
-
-    //TODO WHY IS AMKA HERE ?Should it not be in visits?
     @Test
     public void testCreateClientCard() {
         String AMKA = "18059500037";
