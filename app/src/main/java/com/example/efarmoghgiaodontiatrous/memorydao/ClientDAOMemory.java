@@ -16,9 +16,7 @@ public class ClientDAOMemory implements ClientDAO {
 
     @Override
     public List<Client> findAll() {
-        ArrayList<Client> result = new ArrayList<>();
-        result.addAll(entities);
-        return result;
+        return new ArrayList<>(entities);
     }
 
     @Override

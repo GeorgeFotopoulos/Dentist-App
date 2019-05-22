@@ -26,7 +26,7 @@ public class VisitTest {
         date = new SimpleCalendar(10, 10, 2010);
         dentist = new Dentist("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", "ABC123", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "asd123");
         client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
-        services.add(new Service("Filling"));
+        services.add(new Service("Filling", "1"));
         visit = new Visit();
         visit.setDateOfVisit(date);
         visit.setComments("Comments...");
@@ -45,7 +45,7 @@ public class VisitTest {
         Client otherClient = new Client();
         otherClient.setAMKA("18059500037");
         Set<Service> otherServices = new HashSet<>();
-        otherServices.add(new Service("Dental cleaning"));
+        otherServices.add(new Service("Dental cleaning", "3"));
 
         Visit otherVisit = new Visit(otherDate, otherComments, otherDentist, otherClient, otherServices);
         Visit equalVisit = new Visit(visit);
@@ -69,7 +69,7 @@ public class VisitTest {
         Client otherClient = new Client();
         otherClient.setAMKA("18059500037");
         Set<Service> otherServices = new HashSet<>();
-        otherServices.add(new Service("Dental cleaning"));
+        otherServices.add(new Service("Dental cleaning", "3"));
         assertNotEquals(new SimpleCalendar(1, 1, 2001), visit.getDateOfVisit());
         assertNotEquals("Test comments...", visit.getComments());
         assertNotEquals(otherDentist, visit.getDentist());

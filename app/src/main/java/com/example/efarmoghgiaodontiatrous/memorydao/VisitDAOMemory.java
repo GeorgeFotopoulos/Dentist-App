@@ -16,9 +16,7 @@ public class VisitDAOMemory implements VisitDAO {
 
     @Override
     public List<Visit> findAll() {
-        ArrayList<Visit> result = new ArrayList<>();
-        result.addAll(entities);
-        return result;
+        return new ArrayList<>(entities);
     }
 
     @Override

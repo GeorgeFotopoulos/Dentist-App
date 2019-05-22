@@ -30,18 +30,12 @@ public class GuestMenuPresenterTest {
         Assert.assertEquals(4, specializations.size());
         List<Service> services = presenter.getServices();
         Assert.assertEquals(3, services.size());
-    }
 
-    @Test
-    public void testSearchByName() {
         presenter.searchbyname("", "");
         Assert.assertNull(view.getFirstName());
         presenter.searchbyname("Fotopoulos", "George");
         Assert.assertEquals("Fotopoulos", view.getLastName());
-    }
 
-    @Test
-    public void testSearchByFilters(){
         presenter.searchbyfilters("", "", "");
         Assert.assertNull(view.getRegion());
         presenter.searchbyfilters("Nea Smyrni", "Orthodontic", "Filling");

@@ -67,9 +67,7 @@ public class DentistDAOMemory implements DentistDAO {
 
     @Override
     public List<Dentist> findAll() {
-        ArrayList<Dentist> result = new ArrayList<>();
-        result.addAll(entities);
-        return result;
+        return new ArrayList<>(entities);
     }
 
     @Override

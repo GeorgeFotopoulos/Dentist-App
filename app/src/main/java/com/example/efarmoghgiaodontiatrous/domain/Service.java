@@ -2,14 +2,11 @@ package com.example.efarmoghgiaodontiatrous.domain;
 
 public class Service {
     private String serviceName, serviceID;
-    private static int ID = 1;
 
     /**
      * Default Constructor.
      */
     public Service() {
-        this.serviceID = ID + "";
-        ID++;
     }
 
     /**
@@ -19,19 +16,18 @@ public class Service {
      */
     public Service(Service service) {
         this.serviceName = service.serviceName;
-        this.serviceID = ID+"";
-        ID++;
+        this.serviceID = service.serviceID;
     }
 
     /**
      * Service constructor where all values are given as parameters.
      *
      * @param serviceName Service's name
+     * @param serviceID   Service's ID
      */
-    public Service(String serviceName) {
+    public Service(String serviceName, String serviceID) {
         this.serviceName = serviceName;
-        this.serviceID = ID+"";
-        ID++;
+        this.serviceID = serviceID;
     }
 
     /**

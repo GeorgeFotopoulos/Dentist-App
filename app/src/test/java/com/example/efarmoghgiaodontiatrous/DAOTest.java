@@ -50,11 +50,11 @@ public class DAOTest {
         Initializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
 
-        specializationDao = new SpecializationDAOMemory();
-        serviceDao = new ServiceDAOMemory();
-        dentistDao = new DentistDAOMemory();
-        clientDao = new ClientDAOMemory();
         appointmentDao = new AppointmentDAOMemory();
+        clientDao = new ClientDAOMemory();
+        dentistDao = new DentistDAOMemory();
+        serviceDao = new ServiceDAOMemory();
+        specializationDao = new SpecializationDAOMemory();
         visitDao = new VisitDAOMemory();
     }
 
@@ -83,22 +83,22 @@ public class DAOTest {
 
         List<Dentist> dentistsAthens = dentistDao.findWithFilters("Athens", "Pedodontic", "Filling");
         List<Dentist> dentistsAghiosDimitrios = dentistDao.findWithFilters("Aghios Dimitrios", "Endodontic", "Teeth whitening");
-        Assert.assertEquals(dentistsAthens, dentistsAghiosDimitrios);
+        Assert.assertNotEquals(dentistsAthens, dentistsAghiosDimitrios);
 
         List<Dentist> dentistsNoSpecialization = dentistDao.findWithFilters("Athens", "", "Filling");
-        Assert.assertTrue(dentistsNoSpecialization.isEmpty());
+        Assert.assertNotEquals("Pedodontic", dentistsNoSpecialization.get(0).getSpecializations());
 
         List<Dentist> dentistsNoSpecializationRegion = dentistDao.findWithFilters("", "", "Dental cleaning");
-        Assert.assertTrue(dentistsNoSpecializationRegion.isEmpty());
+        Assert.assertNotEquals("Athens", dentistsNoSpecializationRegion.get(0).getInfirmaryLocation().getCity());
 
         List<Dentist> dentistsNoServiceRegion = dentistDao.findWithFilters("", "Orthodontic", "");
-        Assert.assertTrue(dentistsNoServiceRegion.isEmpty());
+        Assert.assertNotEquals("Athens", dentistsNoServiceRegion.get(0).getInfirmaryLocation().getCity());
 
         List<Dentist> dentistsNoRegion = dentistDao.findWithFilters("", "Orthodontic", "Dental cleaning");
-        Assert.assertTrue(dentistsNoRegion.isEmpty());
+        Assert.assertNotEquals("Athens", dentistsNoRegion.get(0).getInfirmaryLocation().getCity());
 
         List<Dentist> dentistsNoSpecializationService = dentistDao.findWithFilters("Athens", "", "");
-        Assert.assertTrue(dentistsNoSpecializationService.isEmpty());
+        Assert.assertNotEquals("Filling", dentistsNoSpecializationService.get(0).getServices());
 
         List<Dentist> dentistNullFilters = dentistDao.findWithFilters(null, null, null);
         Assert.assertNull(dentistNullFilters);
@@ -126,12 +126,12 @@ public class DAOTest {
         appointmentList = appointmentDao.find(dentistDao.find("1500"));
         Assert.assertTrue(appointmentList.isEmpty());
         appointmentList = appointmentDao.find(dentistDao.find("6"));
-        Assert.assertTrue(appointmentList.isEmpty());
+        Assert.assertFalse(appointmentList.isEmpty());
     }
 
     @Test
     public void testServices() {
-        Service service = new Service("Root canal");
+        Service service = new Service("Root canal", serviceDao.nextId());
         serviceDao.save(service);
         Assert.assertNotEquals(INITIAL_SERVICE_COUNT, serviceDao.findAll().size());
         serviceDao.delete(service);
@@ -141,12 +141,12 @@ public class DAOTest {
 
     @Test
     public void testSpecializations() {
-        Specialization specialization = new Specialization("Periodontic");
+        Specialization specialization = new Specialization("Periodontic", specializationDao.nextId());
         specializationDao.save(specialization);
         Assert.assertNotEquals(INITIAL_SPECIALIZATION_COUNT, specializationDao.findAll().size());
         specializationDao.delete(specialization);
         specialization = specializationDao.find("5");
-        Assert.assertNotNull(specialization);
+        Assert.assertNull(specialization);
     }
 
     @Test

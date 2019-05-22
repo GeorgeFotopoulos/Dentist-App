@@ -11,18 +11,15 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class DentistTest {
     Dentist dentist;
-    Service service;
 
     @Before
     public void setUp() {
         dentist = new Dentist("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", "ABC123", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "asd123");
-        service = new Service("Filling");
-        dentist.addService(service);
+        dentist.addService(new Service("Filling", "1"));
     }
 
     @Test
@@ -44,25 +41,27 @@ public class DentistTest {
     @Test
     public void testSpecializations() {
         Dentist dentist = new Dentist();
-        Specialization specialization = new Specialization("Orthodontic");
-        assertFalse(dentist.getSpecializations().contains(specialization));
+        Specialization specialization = new Specialization("Orthodontic", "4");
+        assertFalse(dentist.getSpecializations().contains(new Specialization("Orthodontic", "4")));
         dentist.addSpecialization(specialization);
-        assertTrue(dentist.getSpecializations().contains(specialization));
+        assertTrue(dentist.getSpecializations().contains(new Specialization("Orthodontic", "4")));
         dentist.removeSpecialization(specialization);
-        assertFalse(dentist.getSpecializations().contains(specialization));
+        assertFalse(dentist.getSpecializations().contains(new Specialization("Orthodontic", "4")));
     }
 
     @Test
     public void testServices() {
         Dentist dentist = new Dentist();
-        Service service = new Service("Filling");
-        assertFalse(dentist.getServices().contains(service));
+        Service service = new Service("Filling", "1");
+        assertFalse(dentist.getServices().contains(new Service("Filling", "1")));
         dentist.addService(service);
-        assertTrue(dentist.getServices().contains(service));
+        assertTrue(dentist.getServices().contains(new Service("Filling", "1")));
         dentist.removeService(service);
-        assertFalse(dentist.getServices().contains(service));
+        assertFalse(dentist.getServices().contains(new Service("Filling", "1")));
     }
 
+
+    //TODO Add list to appointments and not when accepting
     @Test
     public void testAcceptAppointment() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
@@ -103,26 +102,29 @@ public class DentistTest {
         assertTrue(dentist.getAppointments().isEmpty());
         dentist.acceptAppointment(appointment);
         dentist.getAppointments();
-        appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 11, 30);
-        assertFalse(dentist.getAppointments().contains(appointment));
+        assertTrue(dentist.getAppointments().contains(new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 11, 30)));
     }
 
     @Test
     public void testRecordVisit() {
         assertEquals(dentist.recordVisit(null, null, dentist, null, null), null);
+        Service service = new Service("Filling", "1");
         assertEquals(dentist.recordVisit(null, null, dentist, null, service), null);
-        SimpleCalendar dateOfVisit = new SimpleCalendar(2010, 10, 2010);
+        SimpleCalendar dateOfVisit = new SimpleCalendar(10, 10, 2010);
         String comments = "Comments...";
         Client client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
-        assertNotNull(dentist.recordVisit(dateOfVisit, comments, dentist, client, service));
+        assertNotEquals(dentist.recordVisit(dateOfVisit, comments, dentist, client, service), null);
         Dentist dentist2 = new Dentist("George", "Patrikis", "698079sad051", "giorgos.foto7@gmail.com", "AB23", "Aths University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "as123");
-        dentist2.addService(new Service("Filling"));
+        dentist2.addService(new Service("Filling", "1"));
         assertEquals(dentist.recordVisit(dateOfVisit, comments, dentist2, client, service), null);
     }
 
+
+    //TODO WHY IS AMKA HERE ?Should it not be in visits?
     @Test
     public void testCreateClientCard() {
         String AMKA = "18059500037";
+
         assertEquals(dentist.createClientCard(null), null);
         assertEquals(dentist.createClientCard(AMKA).getAMKA(), "18059500037");
         assertNotEquals(dentist.createClientCard(AMKA).getAMKA(), "18059500038");

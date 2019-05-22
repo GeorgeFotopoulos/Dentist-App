@@ -1,15 +1,12 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
 public class Specialization {
-    private static int ID = 1;
     private String specializationName, specializationID;
 
     /**
      * Default Constructor.
      */
     public Specialization() {
-        this.specializationID = ID + "";
-        ID++;
     }
 
     /**
@@ -19,19 +16,18 @@ public class Specialization {
      */
     public Specialization(Specialization specialization) {
         this.specializationName = specialization.specializationName;
-        this.specializationID = ID + "";
-        ID++;
+        this.specializationID = specialization.specializationID;
     }
 
     /**
      * Specialization constructor where all values are given as parameters.
      *
      * @param specializationName Specialization's name
+     * @param specializationID   Specialization's ID
      */
-    public Specialization(String specializationName) {
+    public Specialization(String specializationName, String specializationID) {
         this.specializationName = specializationName;
-        this.specializationID = ID+"";
-        ID++;
+        this.specializationID = specializationID;
     }
 
     /**

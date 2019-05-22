@@ -9,6 +9,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AppointmentTest {
     Appointment appointment;
@@ -27,6 +28,7 @@ public class AppointmentTest {
     @Test
     public void equals() {
         Appointment other = new Appointment("George", "Fotopoulos", "6980793051", dentist, calendar, 13, 30);
+        assertTrue(other.equals(appointment));
         assertEquals(other.hashCode(), appointment.hashCode());
     }
 
@@ -45,6 +47,7 @@ public class AppointmentTest {
         assertEquals(0, appointment3.hashCode());
 
         Appointment appointment4 = new Appointment(appointment);
+        assertTrue(appointment4.equals(appointment));
         assertEquals(appointment4.hashCode(), appointment.hashCode());
     }
 
