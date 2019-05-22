@@ -68,10 +68,12 @@ public abstract class Initializer {
         VisitDAO visitDAO = getVisitDAO();
         Set<Service> services1 = new HashSet<>();
         services1.add(serviceDAO.find("1"));
+        services1.add(serviceDAO.find("2"));
         visitDAO.save(new Visit(new SimpleCalendar(2018, 5, 18), "Operation successful!", dentistDAO.find("1"), clientDAO.find("17099800037"), services1));
         Set<Service> services2 = new HashSet<>();
         services2.add(serviceDAO.find("2"));
-        visitDAO.save(new Visit(new SimpleCalendar(2018, 5, 18), "Operation unsuccessful!", dentistDAO.find("2"), clientDAO.find("17090000037"), services2));
+        services2.add(serviceDAO.find("3"));
+        visitDAO.save(new Visit(new SimpleCalendar(2018, 5, 11), "Operation unsuccessful!", dentistDAO.find("2"), clientDAO.find("17099800037"), services2));
     }
 
     /**

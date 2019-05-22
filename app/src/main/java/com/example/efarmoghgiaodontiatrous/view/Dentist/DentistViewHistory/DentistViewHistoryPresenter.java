@@ -20,16 +20,19 @@ public class DentistViewHistoryPresenter {
         listToString = v.find(AMKA);
         String services, history;
         if (listToString.isEmpty()) {
-            return "Client has No History!";
+            return "Client has no recorded history!";
         } else {
-            history = "Client's Name: " + listToString.get(0).getClient().getFirstName() + " " + listToString.get(0).getClient().getLastName() + "\n ";
+            history = "Client's Name: " + listToString.get(0).getClient().getLastName() + " " + listToString.get(0).getClient().getFirstName() + "\n";
             for (Visit key : listToString) {
                 services = "";
                 for (Service s : key.getServices()) {
-                    services = services + s.getServiceName() + " ";
+                    services = services + s.getServiceName() + ", ";
                 }
-                history = history + " Date: " + key.getDateOfVisit().getDayOfMonth() + "/" + key.getDateOfVisit().getMonth() + "/" + key.getDateOfVisit().getYear() + " \n Dentist: " + key.getDentist().getLastName() + " " + key.getDentist().getFirstName() + " \n Services: " + services + " \n";
-                history = history + " \n";
+                services = services.substring(0, services.length() - 2);
+                history += "Date: " + key.getDateOfVisit().getDayOfMonth() + "/" + key.getDateOfVisit().getMonth() + "/" + key.getDateOfVisit().getYear() +
+                        "\nDentist: " + key.getDentist().getLastName() + " " + key.getDentist().getFirstName() +
+                        "\nServices: " + services + "\nComments: " + key.getComments();
+                history += "\n\n";
             }
         }
         return history;
