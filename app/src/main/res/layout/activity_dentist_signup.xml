@@ -208,6 +208,7 @@
 
             <Button
                 android:id="@+id/btn_update"
+                style="@android:style/Widget.DeviceDefault.Button"
                 android:layout_width="122dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

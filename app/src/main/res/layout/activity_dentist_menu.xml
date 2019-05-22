@@ -8,6 +8,7 @@
 
     <Button
         android:id="@+id/btn_view_profile"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -19,6 +20,7 @@
 
     <Button
         android:id="@+id/btn_update_account"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -30,6 +32,7 @@
 
     <Button
         android:id="@+id/btn_view_client_history"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -41,6 +44,7 @@
 
     <Button
         android:id="@+id/btn_appointment_management"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -52,6 +56,7 @@
 
     <Button
         android:id="@+id/btn_view_statistics"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -64,6 +69,7 @@
 
     <Button
         android:id="@+id/btn_view_appointment_schedule"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -75,6 +81,7 @@
 
     <Button
         android:id="@+id/btn_record_provided_service"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"

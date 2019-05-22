@@ -33,6 +33,7 @@
 
     <Button
         android:id="@+id/Guest_Button"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="click here"
@@ -52,6 +53,7 @@
 
     <Button
         android:id="@+id/Dentist_Button"
+        style="@android:style/Widget.DeviceDefault.Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="click here"
