@@ -22,7 +22,7 @@ public class DentistViewHistoryPresenter {
         if (listToString.isEmpty()) {
             return "Client has no recorded history!";
         } else {
-            history = "Client's Name: " + listToString.get(0).getClient().getLastName() + " " + listToString.get(0).getClient().getFirstName() + "\n";
+            history = "Client's Name: " + listToString.get(0).getClient().getLastName() + " " + listToString.get(0).getClient().getFirstName() + "\n\n";
             for (Visit key : listToString) {
                 services = "";
                 for (Service s : key.getServices()) {
