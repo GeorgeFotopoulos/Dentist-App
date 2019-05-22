@@ -207,8 +207,11 @@ public class Appointment {
      *
      * @return The appointment's minute value
      */
-    public int getMinutes() {
-        return minutes;
+    public String getMinutes() {
+        if(minutes==0){
+            return "00";
+        }
+        return minutes+"";
     }
 
     /**

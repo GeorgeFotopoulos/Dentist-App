@@ -44,7 +44,7 @@ public class AppointmentDAOMemory implements AppointmentDAO {
         List<Appointment> Dentistentities=find(tempDent);
         String out[]=new String[Dentistentities.size()];
         for(int i=0;i<Dentistentities.size();i++)
-            out[i]=i+". "+Dentistentities.get(i).getBookDate().getDayOfMonth()+"/"+Dentistentities.get(i).getBookDate().getMonth()+"/"+Dentistentities.get(i).getBookDate().getYear()+" "+Dentistentities.get(i).getHour()+":"+Dentistentities.get(i).getMinutes()+" "+Dentistentities.get(i).getLastName()+ " "+Dentistentities.get(i).getTelephoneNo();
+            out[i]=Dentistentities.get(i).getBookDate().getDayOfMonth()+"/"+Dentistentities.get(i).getBookDate().getMonth()+"/"+Dentistentities.get(i).getBookDate().getYear()+" "+Dentistentities.get(i).getHour()+":"+Dentistentities.get(i).getMinutes()+"\n"+Dentistentities.get(i).getLastName()+" "+Dentistentities.get(i).getFirstName()+ "\n"+Dentistentities.get(i).getTelephoneNo();
         return out;
     }
 }
