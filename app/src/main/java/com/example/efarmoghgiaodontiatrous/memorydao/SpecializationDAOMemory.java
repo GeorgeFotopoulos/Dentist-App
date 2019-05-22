@@ -16,7 +16,9 @@ public class SpecializationDAOMemory implements SpecializationDAO {
 
     @Override
     public List<Specialization> findAll() {
-        return new ArrayList<>(entities);
+        ArrayList<Specialization> result = new ArrayList<>();
+        result.addAll(entities);
+        return result;
     }
 
     @Override
@@ -34,14 +36,5 @@ public class SpecializationDAOMemory implements SpecializationDAO {
             }
         }
         return null;
-    }
-
-    @Override
-    public String nextId() {
-        if (entities.size() > 0) {
-            return Integer.parseInt(entities.get(entities.size() - 1).getSpecializationID()) + 1 + "";
-        } else {
-            return 1 + "";
-        }
     }
 }

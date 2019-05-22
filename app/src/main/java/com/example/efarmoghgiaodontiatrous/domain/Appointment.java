@@ -208,10 +208,10 @@ public class Appointment {
      * @return The appointment's minute value
      */
     public String getMinutes() {
-        if(minutes==0){
+        if (minutes == 0) {
             return "00";
         }
-        return minutes+"";
+        return minutes + "";
     }
 
     /**
@@ -231,7 +231,7 @@ public class Appointment {
         Appointment that = (Appointment) o;
 
         if (!dentist.equals(that.dentist)) return false;
-        return (bookDate.equals(that.bookDate)&&getHour()==that.getHour()&&getMinutes().equals(that.getMinutes()));
+        return (bookDate.equals(that.bookDate) && getHour() == that.getHour() && getMinutes().equals(that.getMinutes()));
     }
 
     @Override

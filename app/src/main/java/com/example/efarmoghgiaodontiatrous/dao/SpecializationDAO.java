@@ -33,11 +33,4 @@ public interface SpecializationDAO {
      * @return Η ειδικότητα που βρέθηκε ή null
      */
     Specialization find(String specializationId);
-
-    /**
-     * Επιστρέφει τον επόμενο κωδικό που μπορεί να αποδοθεί σε μια ειδικότητα.
-     *
-     * @return Ο κωδικός της ειδικότητας
-     */
-    String nextId();
 }

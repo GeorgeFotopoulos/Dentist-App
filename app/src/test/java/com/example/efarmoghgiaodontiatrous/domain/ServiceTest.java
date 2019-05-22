@@ -13,28 +13,24 @@ public class ServiceTest {
 
     @Before
     public void setUp() {
-        service = new Service("Filling", "1");
+        service = new Service("Filling");
     }
 
     @Test
     public void testEqualsObject() {
-        Service service2 = new Service("Filling", "1");
-        Service service3 = new Service("Teeth whitening", "2");
+        Service service2 = new Service("Filling");
+        Service service3 = new Service("Teeth whitening");
         Service service4 = new Service(service);
-        Service service5 = new Service("Dental cleaning", null);
 
         assertFalse(service.equals(null));
 
-        assertTrue(service2.equals(service));
-        assertEquals(service2.hashCode(), service.hashCode());
+        assertNotEquals(service2.hashCode(), service.hashCode());
 
         assertFalse(service3.equals(service));
         assertNotEquals(service3.hashCode(), service.hashCode());
 
-        assertTrue(service4.equals(service));
-        assertEquals(service4.hashCode(), service.hashCode());
-
-        assertEquals(0, service5.hashCode());
+        assertFalse(service4.equals(service));
+        assertNotEquals(service4.hashCode(), service.hashCode());
     }
 
     @Test

@@ -279,10 +279,10 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         dentist.setTimeOfExperience(Integer.parseInt(((EditText) findViewById(R.id.input_years)).getText().toString()));
         dentist.setExerciseLicense(((EditText) findViewById(R.id.input_license)).getText().toString());
         for (Specialization key: dentist.getSpecializations()){
-            dentist.removeSpecialization(new Specialization(key.getSpecializationName(),key.getSpecializationID()));
+            dentist.removeSpecialization(new Specialization(key.getSpecializationName()));
         }
         for (Service key: dentist.getServices()){
-            dentist.removeService(new Service(key.getServiceName(),key.getServiceID()));
+            dentist.removeService(new Service(key.getServiceName()));
         }
         dentist.addServices(tempServices);
         dentist.addSpecializations(tempSpecialization);

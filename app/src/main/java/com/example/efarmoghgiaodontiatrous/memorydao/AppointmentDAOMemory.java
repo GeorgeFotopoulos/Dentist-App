@@ -18,7 +18,9 @@ public class AppointmentDAOMemory implements AppointmentDAO {
 
     @Override
     public List<Appointment> findAll() {
-        return new ArrayList<>(entities);
+        ArrayList<Appointment> result = new ArrayList<>();
+        result.addAll(entities);
+        return result;
     }
 
     @Override

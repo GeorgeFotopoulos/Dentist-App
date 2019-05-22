@@ -16,7 +16,9 @@ public class ServiceDAOMemory implements ServiceDAO {
 
     @Override
     public List<Service> findAll() {
-        return new ArrayList<>(entities);
+        ArrayList<Service> result = new ArrayList<>();
+        result.addAll(entities);
+        return result;
     }
 
     @Override
@@ -34,14 +36,5 @@ public class ServiceDAOMemory implements ServiceDAO {
             }
         }
         return null;
-    }
-
-    @Override
-    public String nextId() {
-        if (entities.size() > 0) {
-            return Integer.parseInt(entities.get(entities.size() - 1).getServiceID()) + 1 + "";
-        } else {
-            return 1 + "";
-        }
     }
 }

@@ -13,28 +13,24 @@ public class SpecializationTest {
 
     @Before
     public void setUp() {
-        specialization = new Specialization("Endodontic", "1");
+        specialization = new Specialization("Endodontic");
     }
 
     @Test
     public void testEqualsObject() {
-        Specialization specialization2 = new Specialization("Endodontic", "1");
-        Specialization specialization3 = new Specialization("Pedodontic", "2");
+        Specialization specialization2 = new Specialization("Endodontic");
+        Specialization specialization3 = new Specialization("Pedodontic");
         Specialization specialization4 = new Specialization(specialization);
-        Specialization specialization5 = new Specialization("Orthodontic", null);
 
         assertFalse(specialization.equals(null));
 
-        assertTrue(specialization2.equals(specialization));
-        assertEquals(specialization2.hashCode(), specialization.hashCode());
+        assertNotEquals(specialization2.hashCode(), specialization.hashCode());
 
         assertFalse(specialization3.equals(specialization));
         assertNotEquals(specialization3.hashCode(), specialization.hashCode());
 
-        assertTrue(specialization4.equals(specialization));
-        assertEquals(specialization4.hashCode(), specialization.hashCode());
-
-        assertEquals(0, specialization5.hashCode());
+        assertFalse(specialization4.equals(specialization));
+        assertNotEquals(specialization4.hashCode(), specialization.hashCode());
     }
 
     @Test
