@@ -56,8 +56,14 @@ public class RequestAppointmentPresenter {
                 return;
             }
             AppointmentDAOMemory DAO = new AppointmentDAOMemory();
+            int tempSize=DAO.findAll().size();
             DAO.save(new Appointment(firstName, lastName, telephone, dentist, calendar, hourValue, minuteValue));
-            view.success("Appointment request submitted!");
+            if(tempSize==DAO.findAll().size()){
+                view.showError("Dentist has already an appointment at the slected Time and Date");
+            }
+            else {
+                view.success("Appointment request submitted!");
+            }
         } catch (Exception e) {
             view.showError("Wrong Time format. Should be in format \"hh:00\" or \"hh:30\"");
             return;

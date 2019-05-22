@@ -231,7 +231,7 @@ public class Appointment {
         Appointment that = (Appointment) o;
 
         if (!dentist.equals(that.dentist)) return false;
-        return bookDate.equals(that.bookDate);
+        return (bookDate.equals(that.bookDate)&&getHour()==that.getHour()&&getMinutes().equals(that.getMinutes()));
     }
 
     @Override
