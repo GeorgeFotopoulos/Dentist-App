@@ -14,6 +14,7 @@
         <activity android:name=".view.Dentist.DentistViewHistory.DentistViewHistoryActivity" />
         <activity android:name=".view.Dentist.DentistUpdateAccount.DentistUpdateAccountActivity" />
         <activity android:name=".view.Dentist.DentistMenu.DentistMenuActivity" />
+        <activity android:name=".DentistAppointmentManagementActivity" />
         <activity android:name=".DentistAdapter" />
         <activity android:name=".view.Client.SearchDentist.DentistSearchActivity" />
         <activity android:name=".view.Client.RequestAppointment.RequestAppointmentActivity" />
