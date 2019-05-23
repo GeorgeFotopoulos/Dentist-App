@@ -73,14 +73,14 @@ public class Service {
 
         Service service = (Service) o;
 
-        return serviceID.equals(service.serviceID);
+        return serviceName.equals(service.serviceName);
     }
 
     @Override
     public int hashCode() {
-        if (serviceID == null) {
+        if (serviceName == null) {
             return 0;
         }
-        return serviceID.hashCode();
+        return serviceName.hashCode();
     }
 }

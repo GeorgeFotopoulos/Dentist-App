@@ -73,14 +73,14 @@ public class Specialization {
 
         Specialization that = (Specialization) o;
 
-        return specializationID.equals(that.specializationID);
+        return specializationName.equals(that.specializationName);
     }
 
     @Override
     public int hashCode() {
-        if (specializationID == null) {
+        if (specializationName == null) {
             return 0;
         }
-        return specializationID.hashCode();
+        return specializationName.hashCode();
     }
 }

@@ -170,7 +170,7 @@ public class DAOTest {
     public void erase() {
         appointmentDao.clear();
         clientDao.clear();
-        //dentistDao.clear();
+        dentistDao.clear();
         serviceDao.clear();
         specializationDao.clear();
         visitDao.clear();
