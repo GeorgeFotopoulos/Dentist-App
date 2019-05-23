@@ -13,6 +13,7 @@ import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.view.Client.SearchDentist.DentistSearchActivity;
+import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
 import java.util.List;
 
@@ -81,6 +82,13 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         intent.putExtra("lastname", lastname);
         intent.putExtra("firstname", firstname);
         startActivityForResult(intent, 1);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(GuestMenuActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 
     public void showSearchViewFilters(String region, String specialization, String service) {

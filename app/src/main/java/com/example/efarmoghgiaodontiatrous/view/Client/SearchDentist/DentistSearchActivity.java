@@ -10,6 +10,7 @@ import com.example.efarmoghgiaodontiatrous.DentistAdapter;
 import com.example.efarmoghgiaodontiatrous.ItemSelectionListener;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;
 import com.example.efarmoghgiaodontiatrous.view.Client.RequestAppointment.RequestAppointmentActivity;
 
 import java.util.ArrayList;
@@ -64,5 +65,11 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         Intent intent = new Intent(this, RequestAppointmentActivity.class);
         intent.putExtra("DentistID", item.getID());
         startActivityForResult(intent, 1);
+    }
+
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(DentistSearchActivity.this, GuestMenuActivity.class);
+        startActivity(intent);
     }
 }
