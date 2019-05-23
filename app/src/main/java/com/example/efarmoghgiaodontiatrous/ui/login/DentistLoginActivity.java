@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistSignup.DentistSignupActivity;
+import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
 public class DentistLoginActivity extends AppCompatActivity {
 
@@ -134,11 +135,20 @@ public class DentistLoginActivity extends AppCompatActivity {
     }
 
     public void signUp() {
+        finish();
         Intent intent = new Intent(DentistLoginActivity.this, DentistSignupActivity.class);
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed(){
+        finish();
+        Intent intent = new Intent(DentistLoginActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
     public void dentistMenu(String ID) {
+        finish();
         Intent intent = new Intent(DentistLoginActivity.this, DentistMenuActivity.class);
         intent.putExtra("Logged-In User",ID);
         startActivity(intent);

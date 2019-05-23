@@ -20,8 +20,10 @@ import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
+import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewProfile.DentistViewProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -236,8 +238,15 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         return ret;
     }
 
+    @Override
+    public void onBackPressed(){
+        finish();
+        Intent intent = new Intent(DentistSignupActivity.this, DentistLoginActivity.class);
+        startActivity(intent);
+    }
 
     public void dentistMenu() {
+        finish();
         Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);
         intent.putExtra("Logged-In User", ID);
         startActivity(intent);

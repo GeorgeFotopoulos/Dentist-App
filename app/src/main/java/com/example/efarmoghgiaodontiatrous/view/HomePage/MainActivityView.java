@@ -5,5 +5,4 @@ public interface MainActivityView {
 
     void dentistMenu();
 
-    void testMenu();
 }

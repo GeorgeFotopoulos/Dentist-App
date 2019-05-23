@@ -20,7 +20,5 @@ public class MainActivityPresenter {
         view.dentistMenu();
     }
 
-    public void onTestMenu() {
-        view.testMenu();
-    }
+
 }

@@ -46,20 +46,17 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     }
 
     public void dentistMenu() {
+        finish();
         Intent intent = new Intent(MainActivity.this, DentistLoginActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,1);
     }
 
     public void guestMenu() {
+        finish();
         Intent intent = new Intent(MainActivity.this, GuestMenuActivity.class);
-        startActivity(intent);
+        startActivityForResult(intent,1);
     }
 
-    public void testMenu() {
-        finish();
-        Intent intent = new Intent(MainActivity.this, DentistMenuActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     public void onBackPressed() {

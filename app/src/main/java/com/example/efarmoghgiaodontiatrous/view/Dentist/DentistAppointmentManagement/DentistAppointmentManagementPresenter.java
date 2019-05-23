@@ -54,8 +54,9 @@ public class DentistAppointmentManagementPresenter {
                     break;
                 }
             }
-            view.jobDone("Appointments Added To your Agenda as Accepted");
+
         }
+        view.jobDone("Appointments Added To your Agenda as Accepted");
     }
 
     public void DeclineAppointments(String ID, List<String> selectedAppointments) {
