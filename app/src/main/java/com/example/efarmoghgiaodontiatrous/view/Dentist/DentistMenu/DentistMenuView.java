@@ -1,7 +1,6 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu;
 
 public interface DentistMenuView {
-
     void viewProfile();
 
     void updateAccount();

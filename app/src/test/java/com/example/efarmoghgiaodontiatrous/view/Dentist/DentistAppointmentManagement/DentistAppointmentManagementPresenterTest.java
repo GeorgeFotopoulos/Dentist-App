@@ -2,7 +2,9 @@ package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistAppointmentManag
 
 import com.example.efarmoghgiaodontiatrous.dao.Initializer;
 import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
+import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -20,7 +22,17 @@ public class DentistAppointmentManagementPresenterTest {
     }
 
     @Test
-    public void testMethods(){
+    public void testGetAppointments() {
+        String[] appointmentList = presenter.getAppointments("6", AppointmentState.PENDING);
+        Assert.assertNotEquals(0, appointmentList.length);
+    }
+
+    @Test
+    public void testAcceptAppointments() {
+    }
+
+    @Test
+    public void testDeclineAppointments() {
 
     }
 }

@@ -3,7 +3,6 @@ package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu;
 public class DentistMenuPresenter {
     private DentistMenuView view;
 
-
     public DentistMenuPresenter(DentistMenuView view) {
         this.view = view;
     }
@@ -12,28 +11,27 @@ public class DentistMenuPresenter {
         view.viewProfile();
     }
 
-    public void onUpdateAccount(){
+    public void onUpdateAccount() {
         view.updateAccount();
     }
 
-    public void onViewClientHistory(){
+    public void onViewClientHistory() {
         view.viewClientHistory();
     }
 
-    public void onAppointmentManagement(){
+    public void onAppointmentManagement() {
         view.appointmentManagement();
     }
 
-    public void onViewStatistics(){
+    public void onViewStatistics() {
         view.viewStatistics();
     }
 
-    public void onViewAppointmentSchedule(){
+    public void onViewAppointmentSchedule() {
         view.viewAppointmentSchedule();
     }
 
-    public void onRecordProvidedService(){
+    public void onRecordProvidedService() {
         view.recordProvidedService();
     }
-
 }
