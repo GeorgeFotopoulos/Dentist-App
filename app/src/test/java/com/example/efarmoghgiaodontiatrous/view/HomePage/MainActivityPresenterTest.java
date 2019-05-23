@@ -30,12 +30,4 @@ public class MainActivityPresenterTest {
         }
         Assert.assertEquals(10, view.getDentistMenuClicks());
     }
-
-    @Test
-    public void testTestMenu() {
-        for(int i=0; i< 10; i++){
-            presenter.onTestMenu();
-        }
-        Assert.assertEquals(10, view.getTestMenuClicks());
-    }
 }

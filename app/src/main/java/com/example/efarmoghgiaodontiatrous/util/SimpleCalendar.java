@@ -94,12 +94,10 @@ public class SimpleCalendar implements Comparable<SimpleCalendar> {
      *
      * @return Η ημέρα του μήνα
      */
-
     public String getStringDay() {
         int temp = date.get(Calendar.DAY_OF_MONTH);
-        if (date.get(Calendar.DAY_OF_MONTH) >= 10) {
-            return (temp + "");
-        } else return ("0" + temp);
+        if (date.get(Calendar.DAY_OF_MONTH) >= 10) return (temp + "");
+        else return ("0" + temp);
     }
 
     /**

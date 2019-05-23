@@ -1,7 +1,7 @@
 package com.example.efarmoghgiaodontiatrous.view.HomePage;
 
 public class MainActivityViewStub implements MainActivityView {
-    private int guestMenuClicks, dentistMenuClicks, testMenuClicks;
+    private int guestMenuClicks, dentistMenuClicks;
     private MainActivityPresenter presenter;
 
     public void setPresenter(MainActivityPresenter presenter) {
@@ -25,20 +25,11 @@ public class MainActivityViewStub implements MainActivityView {
         dentistMenuClicks++;
     }
 
-    @Override
-    public void testMenu() {
-        testMenuClicks++;
-    }
-
     public int getGuestMenuClicks() {
         return guestMenuClicks;
     }
 
     public int getDentistMenuClicks() {
         return dentistMenuClicks;
-    }
-
-    public int getTestMenuClicks() {
-        return testMenuClicks;
     }
 }

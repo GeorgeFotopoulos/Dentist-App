@@ -16,23 +16,15 @@ public class DentistDAOMemory implements DentistDAO {
     public Dentist find(String dentistId) {
         for (Dentist dentist : entities) {
             if (dentist.getID().equals(dentistId)) {
-
                 return dentist;
             }
         }
         return null;
     }
 
-    @Override
-    public void clear(){
-        entities.clear();
-    }
-
     public Dentist findByEmail(String email) {
         for (Dentist dentist : entities) {
-            if (dentist.getEmail().equals(email)) {
-                return dentist;
-            }
+            if (dentist.getEmail().equals(email)) return dentist;
         }
         return null;
     }
@@ -83,38 +75,40 @@ public class DentistDAOMemory implements DentistDAO {
         if ((region == null || region.equals("")) && (specialization == null || specialization.equals("") && (service == null || service.equals("")))) {
             return null;
         }
-        List<Dentist> outputA = new ArrayList<>();
-        List<Dentist> outputB = new ArrayList<>();
-        List<Dentist> outputC = new ArrayList<>();
-        List<Dentist> outputD = new ArrayList<>();
+
+        List<Dentist> dentSpec = new ArrayList<>();
+        List<Dentist> dentServ = new ArrayList<>();
+        List<Dentist> dentRegion = new ArrayList<>();
+        List<Dentist> dentRegionServ = new ArrayList<>();
+
         for (Dentist dentist : entities) {
             for (Specialization sp : dentist.getSpecializations()) {
                 if (sp.getSpecializationName().equals(specialization)) {
-                    outputA.add(dentist);
+                    dentSpec.add(dentist);
                 }
             }
         }
         for (Dentist dentist : entities) {
             for (Service sp : dentist.getServices()) {
                 if (sp.getServiceName().equals(service)) {
-                    outputB.add(dentist);
+                    dentServ.add(dentist);
                 }
             }
         }
         for (Dentist dentist : entities) {
             if (dentist.getInfirmaryLocation().getCity().equals(region)) {
-                outputC.add(dentist);
+                dentRegion.add(dentist);
             }
         }
         if (region.equals("")) {
             if (specialization.equals("")) {
-                return new ArrayList<>(outputB);
+                return new ArrayList<>(dentServ);
             } else if (service.equals("")) {
-                return new ArrayList<>(outputA);
+                return new ArrayList<>(dentSpec);
             } else {
-                for (int i = 0; i < outputB.size(); i++) {
-                    if (outputA.contains(outputB.get(i))) {
-                        output.add(outputB.get(i));
+                for (int i = 0; i < dentServ.size(); i++) {
+                    if (dentSpec.contains(dentServ.get(i))) {
+                        output.add(dentServ.get(i));
                     }
                 }
                 return new ArrayList<>(output);
@@ -122,32 +116,32 @@ public class DentistDAOMemory implements DentistDAO {
         }
         if (specialization.equals("")) {
             if (service.equals("")) {
-                return new ArrayList<>(outputC);
+                return new ArrayList<>(dentRegion);
             } else {
-                for (int i = 0; i < outputB.size(); i++) {
-                    if (outputC.contains(outputB.get(i))) {
-                        output.add(outputB.get(i));
+                for (int i = 0; i < dentServ.size(); i++) {
+                    if (dentRegion.contains(dentServ.get(i))) {
+                        output.add(dentServ.get(i));
                     }
                 }
                 return new ArrayList<>(output);
             }
         }
         if (service.equals("")) {
-            for (int i = 0; i < outputA.size(); i++) {
-                if (outputC.contains(outputA.get(i))) {
-                    output.add(outputA.get(i));
+            for (int i = 0; i < dentSpec.size(); i++) {
+                if (dentRegion.contains(dentSpec.get(i))) {
+                    output.add(dentSpec.get(i));
                 }
             }
             return new ArrayList<>(output);
         }
-        for (int i = 0; i < outputB.size(); i++) {
-            if (outputC.contains(outputB.get(i))) {
-                outputD.add(outputB.get(i));
+        for (int i = 0; i < dentServ.size(); i++) {
+            if (dentRegion.contains(dentServ.get(i))) {
+                dentRegionServ.add(dentServ.get(i));
             }
         }
-        for (int i = 0; i < outputA.size(); i++) {
-            if (outputD.contains(outputA.get(i))) {
-                output.add(outputA.get(i));
+        for (int i = 0; i < dentSpec.size(); i++) {
+            if (dentRegionServ.contains(dentSpec.get(i))) {
+                output.add(dentSpec.get(i));
             }
         }
         return new ArrayList<>(output);

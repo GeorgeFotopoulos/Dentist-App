@@ -3,6 +3,7 @@ package com.example.efarmoghgiaodontiatrous.domain;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,8 +27,8 @@ public class AppointmentTest {
 
     @Test
     public void equals() {
-        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", dentist, calendar, 13, 30);
-        assertNotEquals(other, appointment);
+        Appointment other = new Appointment("George", "Fotopoulos", "6980793051", dentist, calendar, 13, 0);
+        assertEquals(other, appointment);
         assertEquals(other.hashCode(), appointment.hashCode());
     }
 
@@ -38,12 +39,8 @@ public class AppointmentTest {
         dentist2.setEmail("abc123@gmail.com");
         dentist2.setPassword("abc123");
 
-        assertFalse(appointment2.equals(appointment));
+        assertNotEquals(appointment2, appointment);
         assertNotEquals(appointment2.hashCode(), appointment.hashCode());
-
-        Appointment appointment3 = new Appointment(null, null, null, null, null, 0, 0);
-        assertFalse(appointment3.equals(null));
-        assertEquals(0, appointment3.hashCode());
 
         Appointment appointment4 = new Appointment(appointment);
         assertEquals(appointment4.hashCode(), appointment.hashCode());

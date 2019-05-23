@@ -48,6 +48,13 @@ public class SimpleCalendarTest {
 
         assertEquals(0, other.hashCode());
         assertNotEquals(date2.hashCode(), date.hashCode());
+
+        assertEquals("01", date.getStringDay());
+        assertEquals("28", date2.getStringDay());
+
+        SimpleCalendar testDate = new SimpleCalendar(2007, 11, 11);
+        assertEquals("11", testDate.getStringMonth());
+        assertEquals("03", date.getStringMonth());
     }
 
     @Test

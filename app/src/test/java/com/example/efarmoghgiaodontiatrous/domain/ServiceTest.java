@@ -21,7 +21,7 @@ public class ServiceTest {
         Service service2 = new Service("Filling", "1");
         Service service3 = new Service("Teeth whitening", "2");
         Service service4 = new Service(service);
-        Service service5 = new Service("Dental cleaning", null);
+        Service service5 = new Service(null, null);
 
         assertFalse(service.equals(null));
 
@@ -34,7 +34,7 @@ public class ServiceTest {
         assertTrue(service4.equals(service));
         assertEquals(service4.hashCode(), service.hashCode());
 
-        assertNotEquals(0, service5.hashCode());
+        assertEquals(0, service5.hashCode());
     }
 
     @Test

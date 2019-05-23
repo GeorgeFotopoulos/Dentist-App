@@ -33,6 +33,8 @@ public class Appointment {
         this.setEmail(appointment.getEmail());
         this.setDentist(appointment.getDentist());
         this.setBookDate(appointment.getBookDate());
+        this.setHour(Integer.parseInt(appointment.getHour()));
+        this.setMinutes(Integer.parseInt(appointment.getMinutes()));
         this.setState(AppointmentState.PENDING);
     }
 
@@ -190,9 +192,9 @@ public class Appointment {
      * @return The appointment's hour value
      */
     public String getHour() {
-        if(hour==9)
+        if (hour == 9)
             return "09";
-        return hour+"";
+        return hour + "";
     }
 
     /**
@@ -210,10 +212,10 @@ public class Appointment {
      * @return The appointment's minute value
      */
     public String getMinutes() {
-        if(minutes==0){
+        if (minutes == 0) {
             return "00";
         }
-        return minutes+"";
+        return minutes + "";
     }
 
     /**
@@ -228,21 +230,22 @@ public class Appointment {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Appointment)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+
         Appointment that = (Appointment) o;
-        return hour == that.hour &&
-                minutes == that.minutes &&
-                dentist.equals(that.dentist) &&
-                bookDate.equals(that.bookDate);
+
+        if (hour != that.hour) return false;
+        if (minutes != that.minutes) return false;
+        if (!dentist.equals(that.dentist)) return false;
+        return bookDate.equals(that.bookDate);
     }
 
     @Override
     public int hashCode() {
-        if (dentist == null && bookDate == null) {
-            return 0;
-        }
         int result = dentist.hashCode();
         result = 31 * result + bookDate.hashCode();
+        result = 31 * result + hour;
+        result = 31 * result + minutes;
         return result;
     }
 }

@@ -1,14 +1,11 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
-import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.ConnectionState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Dentist {

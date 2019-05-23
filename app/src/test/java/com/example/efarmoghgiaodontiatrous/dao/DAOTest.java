@@ -94,8 +94,31 @@ public class DAOTest {
         List<Dentist> dentistsNoSpecializationService = dentistDao.findWithFilters("Aghios Dimitrios", "", "");
         Assert.assertNotEquals("Filling", dentistsNoSpecializationService.get(0).getServices());
 
+        List<Dentist> dentistsNoService = dentistDao.findWithFilters("Aghios Dimitrios", "Pedodontic", "");
+        Assert.assertTrue(dentistsNoService.isEmpty());
+
         List<Dentist> dentistNullFilters = dentistDao.findWithFilters(null, null, null);
         Assert.assertNull(dentistNullFilters);
+
+        Dentist dent = dentistDao.findByEmail("fotakis@gmail.com");
+        Assert.assertNotNull(dent);
+        dent = dentistDao.findByEmail("patrikakis@gmail.com");
+        Assert.assertNull(dent);
+
+        List<Dentist> test1 = dentistDao.findWithFilters("Peristeri", "", "Teeth whitening");
+        Assert.assertFalse(test1.isEmpty());
+
+        test1 = dentistDao.findWithFilters("Peristeri", "", "Root canal");
+        Assert.assertTrue(test1.isEmpty());
+
+        List<Dentist> test2 = dentistDao.findWithFilters("Peristeri", "Orthodontic", "");
+        Assert.assertFalse(test2.isEmpty());
+
+        test2 = dentistDao.findWithFilters("Peristeri", "Pododontic", "");
+        Assert.assertTrue(test2.isEmpty());
+
+        List<Dentist> test3 = dentistDao.findWithFilters("Peristeri","Pedodontic","Teeth whitening");
+        Assert.assertFalse(test3.isEmpty());
     }
 
     @Test

@@ -1,5 +1,6 @@
 package com.example.efarmoghgiaodontiatrous.util;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -31,6 +32,8 @@ public class AddressTest {
         assertNotEquals(address3.hashCode(), address1.hashCode());
 
         assertEquals(0, address4.hashCode());
+        
+        Assert.assertNotNull(address1.print());
     }
 
     @Test
