@@ -1,15 +1,17 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.ViewSchedule;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.example.efarmoghgiaodontiatrous.R;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 public class ViewScheduleActivity extends AppCompatActivity implements ViewScheduleView {
     ViewSchedulePresenter presenter;
     private String ID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,13 @@ public class ViewScheduleActivity extends AppCompatActivity implements ViewSched
 
         TextView appoint = findViewById(R.id.appoint);
         appoint.setText(presenter.onSchedule(ID));
+    }
 
-
+    @Override
+    public void onBackPressed() {
+        finish();
+        Intent intent = new Intent(ViewScheduleActivity.this, DentistMenuActivity.class);
+        intent.putExtra("Logged-In User", ID);
+        startActivity(intent);
     }
 }

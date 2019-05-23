@@ -1,16 +1,18 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.ViewStatistics;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.example.efarmoghgiaodontiatrous.R;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 public class ViewStatisticsActivity extends AppCompatActivity implements ViewStatisticsView {
 
     protected ViewStatisticsPresenter presenter;
     private String ID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,13 @@ public class ViewStatisticsActivity extends AppCompatActivity implements ViewSta
 
         TextView result = findViewById(R.id.result);
         result.setText(presenter.onStats(ID));
+    }
 
+    @Override
+    public void onBackPressed(){
+        finish();
+        Intent intent = new Intent(ViewStatisticsActivity.this, DentistMenuActivity.class);
+        intent.putExtra("Logged-In User", ID);
+        startActivity(intent);
     }
 }

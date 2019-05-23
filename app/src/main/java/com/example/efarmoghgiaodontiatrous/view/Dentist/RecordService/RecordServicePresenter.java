@@ -1,9 +1,6 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.RecordService;
 
-import android.widget.CalendarView;
-
 import com.example.efarmoghgiaodontiatrous.domain.Client;
-import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Visit;
 import com.example.efarmoghgiaodontiatrous.memorydao.ClientDAOMemory;
@@ -18,18 +15,18 @@ import java.util.Set;
 
 public class RecordServicePresenter {
     RecordServiceView view;
+
     public RecordServicePresenter(RecordServiceView view) {
-        this.view=view;
+        this.view = view;
     }
 
-    public Client onSearchClient(String AMKA){
+    public Client onSearchClient(String AMKA) {
         ClientDAOMemory v = new ClientDAOMemory();
         Client client = v.find(AMKA);
         return client;
-
     }
 
-    public void onCreate(SimpleCalendar calendar, String fname, String  lname, String  phone, String  mail, String  amka, List<String> services, String ID, String comments){
+    public void onCreate(SimpleCalendar calendar, String fname, String lname, String phone, String mail, String amka, List<String> services, String ID, String comments) {
         DentistDAOMemory ddao = new DentistDAOMemory();
         VisitDAOMemory vdao = new VisitDAOMemory();
         ClientDAOMemory cdao = new ClientDAOMemory();
@@ -37,23 +34,18 @@ public class RecordServicePresenter {
         List<Service> allServ = sdao.findAll();
         Set<Service> serv = new HashSet<>();
 
-
-        for(int i=0; i<allServ.size(); i++){
-            if(services.contains(allServ.get(i).getServiceName())){
+        for (int i = 0; i < allServ.size(); i++) {
+            if (services.contains(allServ.get(i).getServiceName())) {
                 serv.add(allServ.get(i));
             }
         }
 
-        if(onSearchClient(amka) != null){
-
-            vdao.save(new Visit(calendar,comments,ddao.find(ID),onSearchClient(amka),serv));
-
-        }else{
-
+        if (onSearchClient(amka) != null) {
+            vdao.save(new Visit(calendar, comments, ddao.find(ID), onSearchClient(amka), serv));
+        } else {
             Client c = new Client(fname, lname, phone, mail, amka);
             cdao.save(c);
-            vdao.save(new Visit(calendar,comments,ddao.find(ID),c,serv));
-
+            vdao.save(new Visit(calendar, comments, ddao.find(ID), c, serv));
         }
     }
 

@@ -74,7 +74,7 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
     public void viewProfile(){
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistViewProfileActivity.class);
-        intent.putExtra("ID",Dentist_ID);
+        intent.putExtra("ID", Dentist_ID);
         startActivity(intent);
     }
 

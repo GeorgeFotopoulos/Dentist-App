@@ -20,40 +20,60 @@ public class RequestAppointmentPresenter {
     }
 
     public void reqAppointment(Dentist dentist, SimpleCalendar calendar, String time, String telephone, String lastName, String firstName) {
-        if (dentist == null || calendar == null || time == null || time.equals("") || telephone.equals("") || lastName.equals("") || firstName.equals("")) {
+        if (calendar == null && !(time == null || time.equals("") || telephone.equals("") || lastName.equals("") || firstName.equals(""))) {
+            view.showError("Picking an appointment date on the calendar is required!");
+            return;
+        } else if (firstName.equals("") && !(calendar == null || time == null || time.equals("") || telephone.equals("") || lastName.equals(""))) {
+            view.showError("The First Name field is required!");
+            return;
+        } else if (lastName.equals("") && !(calendar == null || time == null || time.equals("") || telephone.equals("") || firstName.equals(""))) {
+            view.showError("The Last Name field is required!");
+            return;
+        } else if (telephone.equals("") && !(calendar == null || time == null || time.equals("") || lastName.equals("") || firstName.equals(""))) {
+            view.showError("The Contact Number field is required!");
+            return;
+        } else if (time.equals("") && !(calendar == null || telephone.equals("") || lastName.equals("") || firstName.equals(""))) {
+            view.showError("The Appointment Time field is required!");
+            return;
+        } else if (calendar == null || time.equals("") || telephone.equals("") || lastName.equals("") || firstName.equals("")) {
             view.showError("You have to pick a date and fill in all the data!");
             return;
         }
-        if (time.length() == 5) {
-            try {
-                String hour = new StringBuilder().append(time.charAt(0)).append(time.charAt(1)).toString();
-                if (time.charAt(0) == '0' && time.charAt(1) != '9') {
-                    view.showError("Invalid input, please choose between 09:00 - 21:00!");
+        if (time.charAt(2) == ':') {
+            if (time.length() == 5) {
+                try {
+                    String hour = new StringBuilder().append(time.charAt(0)).append(time.charAt(1)).toString();
+                    if (time.charAt(0) == '0' && time.charAt(1) != '9') {
+                        view.showError("Invalid input, please choose between 09:00 - 21:00!");
+                        return;
+                    }
+                    int hourValue = Integer.parseInt(hour);
+                    if (hourValue > 21) {
+                        view.showError("Invalid input, please choose between 09:00 - 21:00!");
+                        return;
+                    }
+                    int minuteValue = Integer.parseInt(new StringBuilder().append(time.charAt(3)).append(time.charAt(4)).toString());
+                    if (minuteValue != 00 && minuteValue != 30) {
+                        view.showError("Invalid time format. Should be in format \"hh:00\" or \"hh:30\"!");
+                        return;
+                    }
+                    AppointmentDAOMemory DAO = new AppointmentDAOMemory();
+                    int tempSize = DAO.findAll().size();
+                    DAO.save(new Appointment(firstName, lastName, telephone, dentist, calendar, hourValue, minuteValue));
+                    if (tempSize == DAO.findAll().size()) {
+                        view.showError("There's already an appointment for the selected time & date for that particular dentist!");
+                    } else {
+                        view.success("Appointment request submitted!");
+                    }
+                } catch (Exception e) {
                     return;
                 }
-                int hourValue = Integer.parseInt(hour);
-                if (hourValue > 21) {
-                    view.showError("Invalid input, please choose between 09:00 - 21:00!");
-                    return;
-                }
-                int minuteValue = Integer.parseInt(new StringBuilder().append(time.charAt(3)).append(time.charAt(4)).toString());
-                if (minuteValue != 00 && minuteValue != 30) {
-                    view.showError("Wrong Time format. Should be of format \"hh:00\" or \"hh:30\"");
-                    return;
-                }
-                AppointmentDAOMemory DAO = new AppointmentDAOMemory();
-                int tempSize = DAO.findAll().size();
-                DAO.save(new Appointment(firstName, lastName, telephone, dentist, calendar, hourValue, minuteValue));
-                if (tempSize == DAO.findAll().size()) {
-                    view.showError("There's already an appointment for the selected time & date for that particular dentist!");
-                } else {
-                    view.success("Appointment request submitted!");
-                }
-            } catch (Exception e) {
+            } else {
+                view.showError("Invalid input, please choose between 09:00 - 21:00!");
                 return;
             }
         } else {
-            view.showError("Invalid input, please choose between 09:00 - 21:00!");
+            view.showError("Invalid time format. Should be in format \"hh:00\" or \"hh:30\"!");
             return;
         }
     }

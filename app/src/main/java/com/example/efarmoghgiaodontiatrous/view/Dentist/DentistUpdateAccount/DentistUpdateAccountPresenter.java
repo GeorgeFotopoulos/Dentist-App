@@ -1,6 +1,5 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount;
 
-
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
@@ -11,26 +10,24 @@ import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 import java.util.List;
 
 public class DentistUpdateAccountPresenter {
-
-
     private DentistUpdateAccountView view;
 
     public DentistUpdateAccountPresenter(DentistUpdateAccountView view) {
         this.view = view;
     }
 
-    public void onDentistMenu(){
+    public void onDentistMenu() {
         view.dentistMenu();
     }
 
-    public void onUpdate(Dentist newAccount){
+    public void onUpdate(Dentist newAccount) {
         DentistDAOMemory dao = new DentistDAOMemory();
         Dentist oldAccount = dao.find(newAccount.getID());
         dao.delete(oldAccount);
         dao.save(newAccount);
     }
 
-    public Dentist onLoggedInDentist(String ID){
+    public Dentist onLoggedInDentist(String ID) {
         DentistDAOMemory d = new DentistDAOMemory();
         return d.find(ID);
     }
@@ -55,7 +52,7 @@ public class DentistUpdateAccountPresenter {
         return out;
     }
 
-    public void addSpecializations(List<String> tempSpecialization,Dentist dentist) {
+    public void addSpecializations(List<String> tempSpecialization, Dentist dentist) {
         SpecializationDAOMemory DAO = new SpecializationDAOMemory();
         List<Specialization> temp = DAO.findAll();
         for (int i = 0; i < temp.size(); i++) {
@@ -68,7 +65,7 @@ public class DentistUpdateAccountPresenter {
         }
     }
 
-    public void addServices(List<String> tempServices,Dentist dentist) {
+    public void addServices(List<String> tempServices, Dentist dentist) {
         ServiceDAOMemory DAO = new ServiceDAOMemory();
         List<Service> temp = DAO.findAll();
         for (int i = 0; i < temp.size(); i++) {
@@ -80,6 +77,4 @@ public class DentistUpdateAccountPresenter {
             }
         }
     }
-
-
 }

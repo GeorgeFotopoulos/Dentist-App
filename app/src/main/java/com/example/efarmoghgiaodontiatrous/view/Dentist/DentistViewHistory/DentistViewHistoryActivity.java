@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.efarmoghgiaodontiatrous.R;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 public class DentistViewHistoryActivity extends AppCompatActivity implements DentistViewHistoryView {
     protected DentistViewHistoryPresenter presenter;
@@ -29,5 +30,13 @@ public class DentistViewHistoryActivity extends AppCompatActivity implements Den
                 history.setText(presenter.onHistoryBack(AMKA));
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        finish();
+        Intent intent = new Intent(DentistViewHistoryActivity.this, DentistMenuActivity.class);
+        intent.putExtra("Logged-In User", ID);
+        startActivity(intent);
     }
 }

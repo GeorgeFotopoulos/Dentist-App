@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -19,22 +18,19 @@ import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
-import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static android.drm.DrmStore.Playback.STOP;
-
 public class DentistUpdateAccountActivity extends AppCompatActivity implements DentistUpdateAccountView {
-
-    private DentistUpdateAccountPresenter presenter;
     List<String> tempSpecialization;
     List<String> tempServices;
+    private DentistUpdateAccountPresenter presenter;
     private Dentist dentist;
     private String ID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,54 +46,50 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         final ListView listViewWithCheckbox = findViewById(R.id.list_view_with_checkbox);
         final ListView listViewWithCheckbox2 = findViewById(R.id.list_view_with_checkbox2);
 
-        // Initiate listview data.
         final List<ListViewItemDTO> initItemListSpec = this.getInitViewItemDtoList();
         final List<ListViewItemDTO> initItemListServ = this.getInitViewItemDtoListServ();
-        // Create a custom list view adapter with checkbox control.
+
         final ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListSpec);
         final ListViewItemCheckboxBaseAdapter listViewDataAdapter2 = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListServ);
 
         listViewDataAdapter.notifyDataSetChanged();
         listViewDataAdapter2.notifyDataSetChanged();
 
-        // Set data adapter to list view.
         listViewWithCheckbox.setAdapter(listViewDataAdapter);
         listViewWithCheckbox2.setAdapter(listViewDataAdapter2);
 
         Iterator stopSp = dentist.getSpecializations().iterator();
-        for (Specialization key: dentist.getSpecializations()){
-            int c =0;
-            for(ListViewItemDTO check: initItemListSpec){
-                if(key.getSpecializationName().equals(check.getItemText())){
+        for (Specialization key : dentist.getSpecializations()) {
+            int c = 0;
+            for (ListViewItemDTO check : initItemListSpec) {
+                if (key.getSpecializationName().equals(check.getItemText())) {
                     listViewWithCheckbox.setItemChecked(c, true);
                     check.setChecked(true);
                     if (!tempSpecialization.contains(check.getItemText())) {
                         tempSpecialization.add(check.getItemText());
                     }
                 }
-
                 c++;
             }
-            if(!stopSp.hasNext()){
+            if (!stopSp.hasNext()) {
                 break;
             }
         }
 
         Iterator stopSe = dentist.getServices().iterator();
-        for (Service key: dentist.getServices()){
-            int c =0;
-            for(ListViewItemDTO check: initItemListServ){
-                if(key.getServiceName().equals(check.getItemText())){
+        for (Service key : dentist.getServices()) {
+            int c = 0;
+            for (ListViewItemDTO check : initItemListServ) {
+                if (key.getServiceName().equals(check.getItemText())) {
                     listViewWithCheckbox2.setItemChecked(c, true);
                     check.setChecked(true);
                     if (!tempServices.contains(check.getItemText())) {
                         tempServices.add(check.getItemText());
                     }
                 }
-
                 c++;
             }
-            if(!stopSe.hasNext()){
+            if (!stopSe.hasNext()) {
                 break;
             }
         }
@@ -105,13 +97,11 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         listViewWithCheckbox2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long l) {
-                // Get user selected item.
                 Object itemObject = adapterView.getAdapter().getItem(itemIndex);
 
                 ListViewItemDTO itemDto = (ListViewItemDTO) itemObject;
 
                 CheckBox itemCheckbox = view.findViewById(R.id.list_view_item_checkbox);
-
 
                 if (itemDto.isChecked()) {
                     itemCheckbox.setChecked(false);
@@ -124,12 +114,9 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
                         tempServices.add(itemDto.getItemText());
                     }
                 }
-                //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
             }
         });
 
-
-        // When list view item is clicked.
         listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int itemIndex, long l) {
@@ -138,8 +125,6 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
                 ListViewItemDTO itemDto = (ListViewItemDTO) itemObject;
 
                 CheckBox itemCheckbox = view.findViewById(R.id.list_view_item_checkbox);
-
-
 
                 if (itemDto.isChecked()) {
                     itemCheckbox.setChecked(false);
@@ -152,11 +137,8 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
                         tempSpecialization.add(itemDto.getItemText());
                     }
                 }
-                //Toast.makeText(getApplicationContext(), "select item text : " + itemDto.getItemText(), Toast.LENGTH_SHORT).show();
             }
         });
-
-
 
         TextView fname = findViewById(R.id.input_fname);
         fname.setText(dentist.getFirstName());
@@ -183,7 +165,7 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         strno.setText(dentist.getInfirmaryLocation().getNumber());
 
         TextView zip = findViewById(R.id.input_zip);
-        zip.setText(dentist.getInfirmaryLocation().getZipCode()+"");
+        zip.setText(dentist.getInfirmaryLocation().getZipCode() + "");
 
         TextView city = findViewById(R.id.input_city);
         city.setText(dentist.getInfirmaryLocation().getCity());
@@ -192,27 +174,33 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         country.setText(dentist.getInfirmaryLocation().getCountry());
 
         TextView years = findViewById(R.id.input_years);
-        years.setText(dentist.getTimeOfExperience()+"");
+        years.setText(dentist.getTimeOfExperience() + "");
 
         TextView license = findViewById(R.id.input_license);
         license.setText(dentist.getExerciseLicense());
 
         findViewById(R.id.btn_update).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(tempServices.isEmpty()){
+                if (tempServices.isEmpty()) {
                     Toast.makeText(getBaseContext(), "Select at least on Service!", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(tempSpecialization.isEmpty()){
+                if (tempSpecialization.isEmpty()) {
                     Toast.makeText(getBaseContext(), "Select at least on Specialization!", Toast.LENGTH_LONG).show();
                     return;
                 }
-
                 update();
                 presenter.onDentistMenu();
             }
         });
+    }
 
+    @Override
+    public void onBackPressed(){
+        finish();
+        Intent intent1 = new Intent(DentistUpdateAccountActivity.this, DentistMenuActivity.class);
+        intent1.putExtra("Logged-In User", ID);
+        startActivity(intent1);
     }
 
     public boolean validate() {
@@ -246,7 +234,6 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
     }
 
     public void update() {
-
         if (!validate()) {
             onUpdateFailed();
             return;
@@ -257,13 +244,11 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
                         onUpdateSuccess();
-                        // onSignupFailed();
                     }
                 }, 1000);
     }
+
     public void onUpdateSuccess() {
         dentist.setFirstName(((EditText) findViewById(R.id.input_fname)).getText().toString());
         dentist.setLastName(((EditText) findViewById(R.id.input_lname)).getText().toString());
@@ -278,22 +263,22 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         dentist.getInfirmaryLocation().setCountry(((EditText) findViewById(R.id.input_country)).getText().toString());
         dentist.setTimeOfExperience(Integer.parseInt(((EditText) findViewById(R.id.input_years)).getText().toString()));
         dentist.setExerciseLicense(((EditText) findViewById(R.id.input_license)).getText().toString());
-        for (Specialization key: dentist.getSpecializations()){
-            dentist.removeSpecialization(new Specialization(key.getSpecializationName(),key.getSpecializationID()));
+        for (Specialization key : dentist.getSpecializations()) {
+            dentist.removeSpecialization(new Specialization(key.getSpecializationName(), key.getSpecializationID()));
         }
-        for (Service key: dentist.getServices()){
-            dentist.removeService(new Service(key.getServiceName(),key.getServiceID()));
+        for (Service key : dentist.getServices()) {
+            dentist.removeService(new Service(key.getServiceName(), key.getServiceID()));
         }
-        presenter.addServices(tempServices,dentist);
-        presenter.addSpecializations(tempSpecialization,dentist);
+        presenter.addServices(tempServices, dentist);
+        presenter.addSpecializations(tempSpecialization, dentist);
 
         presenter.onUpdate(dentist);
         Toast.makeText(getApplicationContext(), "Update Successful!", Toast.LENGTH_LONG).show();
     }
 
-    public void dentistMenu(){
+    public void dentistMenu() {
         Intent intent = new Intent(DentistUpdateAccountActivity.this, DentistMenuActivity.class);
-        intent.putExtra("Logged-In User",ID);
+        intent.putExtra("Logged-In User", ID);
         startActivity(intent);
     }
 
@@ -304,7 +289,7 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
 
     private List<ListViewItemDTO> getInitViewItemDtoList() {
         String[] itemTextArr = presenter.getSpecializationList();
-        List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
+        List<ListViewItemDTO> ret = new ArrayList<>();
         int length = itemTextArr.length;
 
         for (int i = 0; i < length; i++) {
@@ -321,7 +306,7 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
 
     private List<ListViewItemDTO> getInitViewItemDtoListServ() {
         String[] itemTextArr = presenter.getService();
-        List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
+        List<ListViewItemDTO> ret = new ArrayList<>();
         int length = itemTextArr.length;
 
         for (int i = 0; i < length; i++) {
@@ -334,11 +319,5 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
             ret.add(dto);
         }
         return ret;
-    }
-
-
-    @Override
-    public Dentist loggedInDentist(String ID) {
-        return null;
     }
 }
