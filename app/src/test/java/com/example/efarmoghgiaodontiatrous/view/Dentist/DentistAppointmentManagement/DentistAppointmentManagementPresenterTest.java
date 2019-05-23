@@ -33,6 +33,5 @@ public class DentistAppointmentManagementPresenterTest {
 
     @Test
     public void testDeclineAppointments() {
-
     }
 }

@@ -34,7 +34,7 @@ public class ServiceTest {
         assertTrue(service4.equals(service));
         assertEquals(service4.hashCode(), service.hashCode());
 
-        assertEquals(0, service5.hashCode());
+        assertNotEquals(0, service5.hashCode());
     }
 
     @Test

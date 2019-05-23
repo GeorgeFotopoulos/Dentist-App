@@ -74,7 +74,7 @@ public class SimpleCalendar implements Comparable<SimpleCalendar> {
         if (temp >= 10) {
             return (temp + "");
         } else {
-            String ada="0"+temp;
+            String ada = "0" + temp;
             return ada;
         }
     }

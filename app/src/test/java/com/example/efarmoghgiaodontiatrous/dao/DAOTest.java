@@ -1,12 +1,5 @@
 package com.example.efarmoghgiaodontiatrous.dao;
 
-import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
-import com.example.efarmoghgiaodontiatrous.dao.ClientDAO;
-import com.example.efarmoghgiaodontiatrous.dao.DentistDAO;
-import com.example.efarmoghgiaodontiatrous.dao.Initializer;
-import com.example.efarmoghgiaodontiatrous.dao.ServiceDAO;
-import com.example.efarmoghgiaodontiatrous.dao.SpecializationDAO;
-import com.example.efarmoghgiaodontiatrous.dao.VisitDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Appointment;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
@@ -24,7 +17,6 @@ import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,6 +43,7 @@ public class DAOTest {
     public void setUp() {
         Initializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
+
         appointmentDao = new AppointmentDAOMemory();
         clientDao = new ClientDAOMemory();
         dentistDao = new DentistDAOMemory();
@@ -164,14 +157,5 @@ public class DAOTest {
         Assert.assertEquals("17099800037", visitList.get(0).getClient().getAMKA());
         visitList = visitDao.find("18059500037");
         Assert.assertNotNull(visitList);
-    }
-
-    @After
-    public void erase() {
-        appointmentDao.clear();
-        clientDao.clear();
-        serviceDao.clear();
-        specializationDao.clear();
-        visitDao.clear();
     }
 }

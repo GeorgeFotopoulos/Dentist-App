@@ -13,10 +13,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Initializer {
+    public abstract void eraseData();
+
     /**
      * Initializes all test data.
      */
     public void prepareData() {
+        eraseData();
+
         AppointmentDAO appointmentDAO = getAppointmentDAO();
         ClientDAO clientDAO = getClientDAO();
         DentistDAO dentistDAO = getDentistDAO();

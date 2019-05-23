@@ -34,7 +34,7 @@ public class SpecializationTest {
         assertTrue(specialization4.equals(specialization));
         assertEquals(specialization4.hashCode(), specialization.hashCode());
 
-        assertEquals(0, specialization5.hashCode());
+        assertNotEquals(0, specialization5.hashCode());
     }
 
     @Test

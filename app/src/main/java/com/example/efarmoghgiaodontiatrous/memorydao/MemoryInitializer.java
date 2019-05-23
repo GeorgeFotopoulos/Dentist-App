@@ -68,4 +68,12 @@ public class MemoryInitializer extends Initializer {
     public VisitDAO getVisitDAO() {
         return new VisitDAOMemory();
     }
+
+    public void eraseData(){
+        getAppointmentDAO().clear();
+        getClientDAO().clear();
+        getServiceDAO().clear();
+        getSpecializationDAO().clear();
+        getVisitDAO().clear();
+    }
 }
