@@ -67,7 +67,6 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
                 } else {
                     itemCheckbox.setChecked(true);
                     itemDto.setChecked(true);
-
                     if (!tempServices.contains(itemDto.getItemText())) {
                         tempServices.add(itemDto.getItemText());
                     }
@@ -117,7 +116,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
 
     private void saved() {
         Intent intent = new Intent(RecordServiceActivity.this, DentistMenuActivity.class);
-        Toast.makeText(getBaseContext(), "Record Successful!!", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), "Record Successful!", Toast.LENGTH_LONG).show();
         intent.putExtra("Logged-In User", ID);
         startActivity(intent);
     }
@@ -134,14 +133,20 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         phone = ((EditText) findViewById(R.id.in_phone)).getText().toString();
         mail = ((EditText) findViewById(R.id.in_mail)).getText().toString();
         amka = ((EditText) findViewById(R.id.in_amka)).getText().toString();
-        day = Integer.parseInt(((EditText) findViewById(R.id.in_day)).getText().toString());
-        month = Integer.parseInt(((EditText) findViewById(R.id.in_month)).getText().toString());
-        year = Integer.parseInt(((EditText) findViewById(R.id.in_year)).getText().toString());
-        if (fname != "" && lname != "" && phone != "" && mail != "" && amka != "" && day != 0 && month != 0 && year != 0) {
-            return true;
+        try {
+            day = Integer.parseInt(((EditText) findViewById(R.id.in_day)).getText().toString());
+            month = Integer.parseInt(((EditText) findViewById(R.id.in_month)).getText().toString());
+            year = Integer.parseInt(((EditText) findViewById(R.id.in_year)).getText().toString());
+        } catch (Exception e) {
+            day = 0;
+            month = 0;
+            year = 0;
         }
-        Toast.makeText(getApplicationContext(), "Fill all the boxes! ", Toast.LENGTH_SHORT).show();
-        return false;
+        if (fname.equals("") || lname.equals("") || phone.equals("") || mail.equals("") || amka.equals("") || day != 0 || month != 0 || year != 0) {
+            Toast.makeText(getApplicationContext(), "Fill all the boxes!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
     private void onShowForm() {
@@ -191,7 +196,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
 
     private List<ListViewItemDTO> getInitViewItemDtoListServ() {
         String[] itemTextArr = presenter.getService();
-        List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
+        List<ListViewItemDTO> ret = new ArrayList<>();
         int length = itemTextArr.length;
 
         for (int i = 0; i < length; i++) {
