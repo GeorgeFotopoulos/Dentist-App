@@ -284,8 +284,8 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         for (Service key: dentist.getServices()){
             dentist.removeService(new Service(key.getServiceName(),key.getServiceID()));
         }
-        dentist.addServices(tempServices);
-        dentist.addSpecializations(tempSpecialization);
+        presenter.addServices(tempServices,dentist);
+        presenter.addSpecializations(tempSpecialization,dentist);
 
         presenter.onUpdate(dentist);
         Toast.makeText(getApplicationContext(), "Update Successful!", Toast.LENGTH_LONG).show();

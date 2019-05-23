@@ -55,4 +55,31 @@ public class DentistUpdateAccountPresenter {
         return out;
     }
 
+    public void addSpecializations(List<String> tempSpecialization,Dentist dentist) {
+        SpecializationDAOMemory DAO = new SpecializationDAOMemory();
+        List<Specialization> temp = DAO.findAll();
+        for (int i = 0; i < temp.size(); i++) {
+            for (int j = 0; j < tempSpecialization.size(); j++) {
+                if (tempSpecialization.get(j).equals(temp.get(i).getSpecializationName())) {
+                    dentist.addSpecialization(temp.get(i));
+                    break;
+                }
+            }
+        }
+    }
+
+    public void addServices(List<String> tempServices,Dentist dentist) {
+        ServiceDAOMemory DAO = new ServiceDAOMemory();
+        List<Service> temp = DAO.findAll();
+        for (int i = 0; i < temp.size(); i++) {
+            for (int j = 0; j < tempServices.size(); j++) {
+                if (tempServices.get(j).equals(temp.get(i).getServiceName())) {
+                    dentist.addService(temp.get(i));
+                    break;
+                }
+            }
+        }
+    }
+
+
 }

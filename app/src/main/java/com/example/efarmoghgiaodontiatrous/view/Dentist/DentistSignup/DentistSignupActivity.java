@@ -16,6 +16,10 @@ import com.example.efarmoghgiaodontiatrous.ListViewItemCheckboxBaseAdapter;
 import com.example.efarmoghgiaodontiatrous.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.domain.Service;
+import com.example.efarmoghgiaodontiatrous.domain.Specialization;
+import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
+import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
@@ -152,8 +156,8 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         setResult(RESULT_OK, null);
         finish();
         Dentist d = new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password);
-        d.addSpecializations(tempSpecialization);
-        d.addServices(tempServices);
+        presenter.addSpecializations(tempSpecialization,d);
+        presenter.addServices(tempServices,d);
         presenter.saveDentist(d);
         Toast.makeText(getBaseContext(), "Sign Up Successful!", Toast.LENGTH_LONG).show();
         dentistMenu();
@@ -231,6 +235,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         }
         return ret;
     }
+
 
     public void dentistMenu() {
         Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);
