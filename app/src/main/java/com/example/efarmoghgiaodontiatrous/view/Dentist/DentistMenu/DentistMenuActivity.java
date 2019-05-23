@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.example.efarmoghgiaodontiatrous.DentistAppointmentManagementActivity;
-import com.example.efarmoghgiaodontiatrous.DentistAppointmentManagementPresenter;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistAppointmentManagement.DentistAppointmentManagementActivity;
 import com.example.efarmoghgiaodontiatrous.R;
-import com.example.efarmoghgiaodontiatrous.RecordServiceActivity;
-import com.example.efarmoghgiaodontiatrous.ViewScheduleActivity;
-import com.example.efarmoghgiaodontiatrous.ViewStatisticsActivity;
-import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.RecordService.RecordServiceActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.ViewSchedule.ViewScheduleActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.ViewStatistics.ViewStatisticsActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount.DentistUpdateAccountActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewHistory.DentistViewHistoryActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewProfile.DentistViewProfileActivity;

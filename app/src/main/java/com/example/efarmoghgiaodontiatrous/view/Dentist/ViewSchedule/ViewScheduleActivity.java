@@ -1,11 +1,13 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.ViewSchedule;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ViewScheduleActivity extends AppCompatActivity implements ViewScheduleView{
+import com.example.efarmoghgiaodontiatrous.R;
+
+public class ViewScheduleActivity extends AppCompatActivity implements ViewScheduleView {
     ViewSchedulePresenter presenter;
     private String ID;
     @Override

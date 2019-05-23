@@ -1,11 +1,13 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.ViewStatistics;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class ViewStatisticsActivity extends AppCompatActivity implements ViewStatisticsView{
+import com.example.efarmoghgiaodontiatrous.R;
+
+public class ViewStatisticsActivity extends AppCompatActivity implements ViewStatisticsView {
 
     protected ViewStatisticsPresenter presenter;
     private String ID;

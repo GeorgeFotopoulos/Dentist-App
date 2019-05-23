@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.ViewSchedule;
 
 import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Appointment;

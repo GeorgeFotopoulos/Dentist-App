@@ -24,6 +24,7 @@ import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,21 +40,15 @@ public class DAOTest {
     private static final int INITIAL_SERVICE_COUNT = 3;
     private static final int INITIAL_SPECIALIZATION_COUNT = 4;
     private static final int INITIAL_VISIT_COUNT = 6;
-    AppointmentDAO appointmentDao= new AppointmentDAOMemory();
-    ClientDAO clientDao= new ClientDAOMemory();
-    DentistDAO dentistDao = new DentistDAOMemory();
-    ServiceDAO serviceDao = new ServiceDAOMemory();
-    SpecializationDAO specializationDao= new SpecializationDAOMemory();
-    VisitDAO visitDao= new VisitDAOMemory();
+    private AppointmentDAO appointmentDao;
+    private ClientDAO clientDao;
+    private DentistDAO dentistDao;
+    private ServiceDAO serviceDao;
+    private SpecializationDAO specializationDao;
+    private VisitDAO visitDao;
 
     @Before
     public void setUp() {
-        specializationDao.clear();
-        appointmentDao.clear();
-        clientDao.clear();
-     //   dentistDao.clear();
-        serviceDao.clear();
-        visitDao.clear();
         Initializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
         appointmentDao = new AppointmentDAOMemory();
@@ -62,14 +57,10 @@ public class DAOTest {
         serviceDao = new ServiceDAOMemory();
         specializationDao = new SpecializationDAOMemory();
         visitDao = new VisitDAOMemory();
-
-
     }
 
     @Test
     public void testDentists() {
-
-
         Dentist dentist = new Dentist("Athanasios", "Fotopoulos", "+30 699 888 7766", "ath.fotopoulos7@gmail.com", "Athens:171223", "None", new Address("Artis", "23", "Athens", "Greece", 17124), 10, "asdfg123");
         dentistDao.save(dentist);
         Assert.assertNotEquals(INITIAL_DENTIST_COUNT, dentistDao.findAll().size());
@@ -116,7 +107,6 @@ public class DAOTest {
 
     @Test
     public void testClients() {
-
         Client client = new Client("Gioris", "Ntymenos", "+30 698 468 9046", "geo.nty@gmail.com", "17099600037");
         clientDao.save(client);
         Assert.assertNotEquals(INITIAL_CLIENT_COUNT, clientDao.findAll().size());
@@ -136,7 +126,7 @@ public class DAOTest {
         List<Appointment> appointmentList;
         appointmentList = appointmentDao.find(dentistDao.find("1500"), AppointmentState.PENDING);
         Assert.assertTrue(appointmentList.isEmpty());
-        appointmentList = appointmentDao.find(dentistDao.find("6"),AppointmentState.PENDING);
+        appointmentList = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING);
         Assert.assertFalse(appointmentList.isEmpty());
     }
 
@@ -173,5 +163,15 @@ public class DAOTest {
         Assert.assertEquals("17099800037", visitList.get(0).getClient().getAMKA());
         visitList = visitDao.find("18059500037");
         Assert.assertNotNull(visitList);
+    }
+
+    @After
+    public void erase() {
+        appointmentDao.clear();
+        clientDao.clear();
+        //dentistDao.clear();
+        serviceDao.clear();
+        specializationDao.clear();
+        visitDao.clear();
     }
 }
