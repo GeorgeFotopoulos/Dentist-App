@@ -5,10 +5,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-/**
- * Created by Jerry on 1/21/2018.
- */
-
 public class ListViewItemViewHolder extends RecyclerView.ViewHolder {
 
     private CheckBox itemCheckbox;

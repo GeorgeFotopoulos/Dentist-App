@@ -9,15 +9,11 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by Jerry on 1/21/2018.
- */
-
 public class ListViewItemCheckboxBaseAdapter extends BaseAdapter {
 
-    private List<ListViewItemDTO> listViewItemDtoList = null;
+    private List<ListViewItemDTO> listViewItemDtoList;
 
-    private Context ctx = null;
+    private Context ctx;
 
     public ListViewItemCheckboxBaseAdapter(Context ctx, List<ListViewItemDTO> listViewItemDtoList) {
         this.ctx = ctx;
@@ -50,16 +46,16 @@ public class ListViewItemCheckboxBaseAdapter extends BaseAdapter {
     @Override
     public View getView(int itemIndex, View convertView, ViewGroup viewGroup) {
 
-        ListViewItemViewHolder viewHolder = null;
+        ListViewItemViewHolder viewHolder;
 
         if (convertView != null) {
             viewHolder = (ListViewItemViewHolder) convertView.getTag();
         } else {
-            convertView = View.inflate(ctx, R.layout.activity_list_view_with_checkbox_item , null);
+            convertView = View.inflate(ctx, R.layout.activity_list_view_with_checkbox_item, null);
 
-            CheckBox listItemCheckbox = (CheckBox) convertView.findViewById(R.id.list_view_item_checkbox);
+            CheckBox listItemCheckbox = convertView.findViewById(R.id.list_view_item_checkbox);
 
-            TextView listItemText = (TextView) convertView.findViewById(R.id.list_view_item_text);
+            TextView listItemText = convertView.findViewById(R.id.list_view_item_text);
 
             viewHolder = new ListViewItemViewHolder(convertView);
 
