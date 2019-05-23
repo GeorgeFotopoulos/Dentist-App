@@ -228,12 +228,12 @@ public class Appointment {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof Appointment)) return false;
         Appointment that = (Appointment) o;
-
-        if (!dentist.equals(that.dentist)) return false;
-        return (bookDate.equals(that.bookDate)&&getHour()==that.getHour()&&getMinutes().equals(that.getMinutes()));
+        return hour == that.hour &&
+                minutes == that.minutes &&
+                dentist.equals(that.dentist) &&
+                bookDate.equals(that.bookDate);
     }
 
     @Override

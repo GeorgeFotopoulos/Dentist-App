@@ -27,11 +27,14 @@ public class AppointmentDAOMemory implements AppointmentDAO {
         if (!entities.contains(entity)) {
             entities.add(entity);
         }
-        else {
+    }
+
+    public void acceptAndSave(Appointment entity) {
+
             entities.remove(entity);
             entity.setState(AppointmentState.ACCEPTED);
             entities.add(entity);
-        }
+
     }
 
     @Override

@@ -51,11 +51,11 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
     }
 
     public void showError(String errorMsg) {
-        Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
     }
 
     public void success(String msg) {
-        Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
 }

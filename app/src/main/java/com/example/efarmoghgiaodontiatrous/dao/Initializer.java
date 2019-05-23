@@ -19,21 +19,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Initializer {
-    /**
-     * Deletes all stored data.
-     */
-    protected abstract void eraseData();
 
     /**
      * Initializes all test data.
      */
     public void prepareData() {
 
-        //eraseData();
-        DentistDAO dentistDAO = new DentistDAOMemory();
-        ClientDAO clientDAO = new ClientDAOMemory();
-
-        ServiceDAO serviceDAO = new ServiceDAOMemory();
+        DentistDAO dentistDAO =getDentistDAO();
+        ClientDAO clientDAO = getClientDAO();
+        ServiceDAO serviceDAO = getServiceDAO();
         SpecializationDAO specializationDAO =new SpecializationDAOMemory();
         AppointmentDAO appointmentDAO = new AppointmentDAOMemory();
         VisitDAO visitDAO =new VisitDAOMemory();
