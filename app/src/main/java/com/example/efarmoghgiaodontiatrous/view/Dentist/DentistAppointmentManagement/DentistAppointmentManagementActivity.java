@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistAppointmentManagement;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,9 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.efarmoghgiaodontiatrous.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.ListViewItemDTO;
+import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 

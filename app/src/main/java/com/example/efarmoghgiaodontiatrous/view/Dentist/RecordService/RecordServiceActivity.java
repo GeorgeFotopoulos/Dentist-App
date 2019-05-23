@@ -1,22 +1,22 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.RecordService;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.CalendarView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.efarmoghgiaodontiatrous.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.ListViewItemDTO;
+import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
-import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
-import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistSignup.DentistSignupActivity;
 
 import java.util.ArrayList;
 import java.util.List;

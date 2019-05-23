@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DentistAppointmentManagementActivity">
+    tools:context=".view.Dentist.DentistAppointmentManagement.DentistAppointmentManagementActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context=".RecordServiceActivity">
+            tools:context=".view.Dentist.RecordService.RecordServiceActivity">
 
             <EditText
                 android:id="@+id/amka"

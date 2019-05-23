@@ -99,8 +99,9 @@ public class DentistTest {
         Appointment appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 13, 0);
         assertTrue(dentist.getAppointments().isEmpty());
         dentist.acceptAppointment(appointment);
-        dentist.getAppointments();
-        assertTrue(dentist.getAppointments().contains(new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 11, 30)));
+        assertTrue(dentist.getAppointments().contains(appointment));
+        appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 11, 30);
+        assertFalse(dentist.getAppointments().contains(appointment));
     }
 
     @Test

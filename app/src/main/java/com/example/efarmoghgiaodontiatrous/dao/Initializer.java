@@ -6,12 +6,6 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.domain.Visit;
-import com.example.efarmoghgiaodontiatrous.memorydao.AppointmentDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.ClientDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.VisitDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
@@ -19,19 +13,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class Initializer {
-
     /**
      * Initializes all test data.
      */
     public void prepareData() {
-
-        DentistDAO dentistDAO =getDentistDAO();
+        AppointmentDAO appointmentDAO = getAppointmentDAO();
         ClientDAO clientDAO = getClientDAO();
+        DentistDAO dentistDAO = getDentistDAO();
         ServiceDAO serviceDAO = getServiceDAO();
-        SpecializationDAO specializationDAO =new SpecializationDAOMemory();
-        AppointmentDAO appointmentDAO = new AppointmentDAOMemory();
-        VisitDAO visitDAO =new VisitDAOMemory();
-
+        SpecializationDAO specializationDAO = getSpecializationDAO();
+        VisitDAO visitDAO = getVisitDAO();
 
         dentistDAO.save(new Dentist("George", "Fotopoulos", "+30 698 079 3051", "giorgos.fotopoulos7@gmail.com", "171223", "Athens University of Economics and Business", new Address("Artis", "23", "Nea Smyrni", "Greece", 17124), 10, "asdfg123"));
         dentistDAO.save(new Dentist("Helias", "Fotopoulos", "+30 697 254 9705", "ilfwto@gmail.com", "171224", "National and Kapodistrian University of Athens", new Address("Artis", "24", "Peristeri", "Greece", 17124), 10, "asdfg123"));
@@ -48,82 +39,58 @@ public abstract class Initializer {
         specializationDAO.save(new Specialization("Orthodontic", specializationDAO.nextId()));
         specializationDAO.save(new Specialization("Pododontic", specializationDAO.nextId()));
 
-
         serviceDAO.save(new Service("Filling", serviceDAO.nextId()));
         serviceDAO.save(new Service("Teeth whitening", serviceDAO.nextId()));
         serviceDAO.save(new Service("Dental cleaning", serviceDAO.nextId()));
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         dentistDAO.find("0").addSpecialization(specializationDAO.find("2"));
         dentistDAO.find("0").addSpecialization(specializationDAO.find("3"));
         dentistDAO.find("0").addService(serviceDAO.find("1"));
         dentistDAO.find("0").addService(serviceDAO.find("2"));
 
-
         dentistDAO.find("1").addSpecialization(specializationDAO.find("1"));
         dentistDAO.find("1").addSpecialization(specializationDAO.find("2"));
         dentistDAO.find("1").addService(serviceDAO.find("2"));
         dentistDAO.find("1").addService(serviceDAO.find("3"));
 
-        // = dentistDAO.find("2");
         dentistDAO.find("2").addSpecialization(specializationDAO.find("1"));
         dentistDAO.find("2").addSpecialization(specializationDAO.find("3"));
         dentistDAO.find("2").addService(serviceDAO.find("1"));
         dentistDAO.find("2").addService(serviceDAO.find("3"));
 
-        //d = dentistDAO.find("3");
         dentistDAO.find("3").addSpecialization(specializationDAO.find("2"));
         dentistDAO.find("3").addSpecialization(specializationDAO.find("3"));
         dentistDAO.find("3").addService(serviceDAO.find("1"));
         dentistDAO.find("3").addService(serviceDAO.find("2"));
 
-//        d = dentistDAO.find("4");
         dentistDAO.find("4").addSpecialization(specializationDAO.find("1"));
         dentistDAO.find("4").addSpecialization(specializationDAO.find("2"));
         dentistDAO.find("4").addService(serviceDAO.find("2"));
         dentistDAO.find("4").addService(serviceDAO.find("3"));
 
-        // = dentistDAO.find("5");
         dentistDAO.find("5").addSpecialization(specializationDAO.find("1"));
         dentistDAO.find("5").addSpecialization(specializationDAO.find("3"));
         dentistDAO.find("5").addService(serviceDAO.find("1"));
         dentistDAO.find("5").addService(serviceDAO.find("3"));
 
-        //d = dentistDAO.find("6");
         dentistDAO.find("6").addSpecialization(specializationDAO.find("2"));
         dentistDAO.find("6").addSpecialization(specializationDAO.find("3"));
         dentistDAO.find("6").addService(serviceDAO.find("1"));
         dentistDAO.find("6").addService(serviceDAO.find("2"));
 
-       // d = dentistDAO.find("7");
         dentistDAO.find("7").addSpecialization(specializationDAO.find("1"));
         dentistDAO.find("7").addSpecialization(specializationDAO.find("2"));
         dentistDAO.find("7").addService(serviceDAO.find("2"));
         dentistDAO.find("7").addService(serviceDAO.find("3"));
 
-        //d = dentistDAO.find("8");
         dentistDAO.find("8").addSpecialization(specializationDAO.find("1"));
         dentistDAO.find("8").addSpecialization(specializationDAO.find("3"));
         dentistDAO.find("8").addService(serviceDAO.find("1"));
         dentistDAO.find("8").addService(serviceDAO.find("3"));
 
-
         clientDAO.save(new Client("Panagiotis", "Ntymenos", "+30 698 096 8644", "panagiotis.nty@gmail.com", "17099800037"));
         clientDAO.save(new Client("Liakos", "Ntymenos", "+30 698 864 4096", "liakos.nty@gmail.com", "17090000037"));
         clientDAO.save(new Client("Giorgos", "Ntymenos", "+30 698 468 9640", "giorgos.nty@gmail.com", "17099600037"));
-
 
         appointmentDAO.save(new Appointment("George", "Patrikis", "+30 698 000 0000", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 15, 00));
         appointmentDAO.save(new Appointment("Leuterakis", "Patrikis", "+30 698 111 1111", dentistDAO.find("6"), new SimpleCalendar(2020, 5, 22), 15, 30));
@@ -133,7 +100,6 @@ public abstract class Initializer {
         appointmentDAO.save(new Appointment("Jorge", "Patrikis", "+30 698 555 5555", dentistDAO.find("6"), new SimpleCalendar(2019, 9, 22), 17, 30));
         appointmentDAO.save(new Appointment("Geo", "Patrikis", "+30 698 666 6666", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 18, 00));
         appointmentDAO.save(new Appointment("GPatPat", "Patrikis", "+30 698 777 7777", dentistDAO.find("6"), new SimpleCalendar(2019, 5, 22), 18, 30));
-
 
         Set<Service> services1 = new HashSet<>();
         services1.add(serviceDAO.find("1"));
