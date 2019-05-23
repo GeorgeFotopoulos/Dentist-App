@@ -9,6 +9,11 @@ import java.util.List;
 public class SpecializationDAOMemory implements SpecializationDAO {
     protected static List<Specialization> entities = new ArrayList<>();
 
+
+    @Override
+    public void clear(){
+        entities.clear();
+    }
     @Override
     public void delete(Specialization entity) {
         entities.remove(entity);

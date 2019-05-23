@@ -19,6 +19,8 @@ public interface ServiceDAO {
      */
     List<Service> findAll();
 
+    void clear();
+
     /**
      * Αποθηκεύει μια υπηρεσία.
      *

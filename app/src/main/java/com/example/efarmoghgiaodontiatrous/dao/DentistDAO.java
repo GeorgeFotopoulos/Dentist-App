@@ -20,6 +20,8 @@ public interface DentistDAO {
      */
     Dentist find(String dentistId);
 
+    void clear();
+
     /**
      * Returns the dentist that owns the email given as a parameter.
      *

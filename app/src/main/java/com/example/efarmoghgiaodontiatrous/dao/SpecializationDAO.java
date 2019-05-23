@@ -12,6 +12,8 @@ public interface SpecializationDAO {
      */
     void delete(Specialization entity);
 
+
+    void clear();
     /**
      * Επιστρέφει όλες τις ειδικότητες.
      *

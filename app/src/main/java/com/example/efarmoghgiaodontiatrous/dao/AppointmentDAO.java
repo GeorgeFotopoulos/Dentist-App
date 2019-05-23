@@ -28,6 +28,8 @@ public interface AppointmentDAO {
      */
     void save(Appointment entity);
 
+    void clear();
+
     /**
      * Βρίσκει τα ραντεβού ενός οδοντιάτρου με βάση τον κωδικό του.
      *

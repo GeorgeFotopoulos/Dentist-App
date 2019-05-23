@@ -63,6 +63,11 @@ public class AppointmentDAOMemory implements AppointmentDAO {
         return new ArrayList<>(Dentistentities);
     }
 
+    @Override
+    public void clear(){
+        entities.clear();
+    }
+
     public String[] findtoString(Dentist tempDent, AppointmentState state) {
         List<Appointment> Dentistentities=find(tempDent,state);
         String out[]=new String[Dentistentities.size()];

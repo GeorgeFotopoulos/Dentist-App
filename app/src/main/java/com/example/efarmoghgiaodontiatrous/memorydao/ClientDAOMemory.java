@@ -27,6 +27,11 @@ public class ClientDAOMemory implements ClientDAO {
     }
 
     @Override
+    public void clear(){
+        entities.clear();
+    }
+
+    @Override
     public Client find(String clientAMKA) {
         for (Client client : entities) {
             if (client.getAMKA().equals(clientAMKA)) {

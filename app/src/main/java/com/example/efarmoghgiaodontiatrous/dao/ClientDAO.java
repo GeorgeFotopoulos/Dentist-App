@@ -19,6 +19,8 @@ public interface ClientDAO {
      */
     List<Client> findAll();
 
+    void clear();
+
     /**
      * Αποθηκεύει έναν πελάτη.
      *

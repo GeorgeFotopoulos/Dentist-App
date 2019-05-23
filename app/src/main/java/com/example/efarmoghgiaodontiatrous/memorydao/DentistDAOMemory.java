@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DentistDAOMemory implements DentistDAO {
+
     protected static List<Dentist> entities = new ArrayList<>();
 
     @Override
@@ -20,6 +21,11 @@ public class DentistDAOMemory implements DentistDAO {
             }
         }
         return null;
+    }
+
+    @Override
+    public void clear(){
+        entities.clear();
     }
 
     public Dentist findByEmail(String email) {

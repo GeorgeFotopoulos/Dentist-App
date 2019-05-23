@@ -12,6 +12,8 @@ public interface VisitDAO {
      */
     void delete(Visit entity);
 
+
+    void clear();
     /**
      * Επιστρέφει όλες τις επισκέψεις.
      *
