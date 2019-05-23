@@ -12,13 +12,11 @@ import com.example.efarmoghgiaodontiatrous.dao.Initializer;
 import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
 import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
 import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;
-import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Initializer initializer = new MemoryInitializer();
         initializer.prepareData();
         super.onCreate(savedInstanceState);
@@ -37,25 +35,19 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 presenter.onDentistMenu();
             }
         });
-
-       // findViewById(R.id.TEST_BUTTON).setOnClickListener(new View.OnClickListener() {
-          //  public void onClick(View v) {
-           //     presenter.onTestMenu();
-           // }
-        //});
     }
 
     public void dentistMenu() {
 
         Intent intent = new Intent(MainActivity.this, DentistLoginActivity.class);
-        startActivityForResult(intent,1);
+        startActivityForResult(intent, 1);
         finish();
     }
 
     public void guestMenu() {
 
         Intent intent = new Intent(MainActivity.this, GuestMenuActivity.class);
-        startActivityForResult(intent,1);
+        startActivityForResult(intent, 1);
         finish();
     }
 
@@ -67,7 +59,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
                 .setMessage("Are you sure you want to exit e-Dentist?")
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        android.os.Process.killProcess(android.os.Process.myPid());                  }
+                        android.os.Process.killProcess(android.os.Process.myPid());
+                    }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
