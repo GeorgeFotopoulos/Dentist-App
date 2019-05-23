@@ -46,15 +46,17 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     }
 
     public void dentistMenu() {
-        finish();
+
         Intent intent = new Intent(MainActivity.this, DentistLoginActivity.class);
         startActivityForResult(intent,1);
+        finish();
     }
 
     public void guestMenu() {
-        finish();
+
         Intent intent = new Intent(MainActivity.this, GuestMenuActivity.class);
         startActivityForResult(intent,1);
+        finish();
     }
 
 
