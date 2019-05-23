@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.dao;
 
 import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
 import com.example.efarmoghgiaodontiatrous.dao.ClientDAO;
@@ -120,6 +120,7 @@ public class DAOTest {
     @Test
     public void testAppointments() {
         Appointment appointment = new Appointment("Georgios", "Patrikis", "+30 697 111 1111", dentistDao.find("1"), new SimpleCalendar(2019, 28, 6), 15, 30);
+        appointmentDao.save(appointment);
         appointmentDao.save(appointment);
         Assert.assertNotEquals(INITIAL_APPOINTMENT_COUNT, appointmentDao.findAll().size());
         appointmentDao.delete(appointment);

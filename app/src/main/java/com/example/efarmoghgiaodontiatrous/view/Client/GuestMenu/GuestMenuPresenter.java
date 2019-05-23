@@ -19,7 +19,7 @@ public class GuestMenuPresenter {
         this.view = view;
     }
 
-    public void searchbyname(String lastName, String firstName) {
+    public void searchByName(String lastName, String firstName) {
         if (lastName.isEmpty() && firstName.isEmpty()) {
             view.showError("The field \"Last Name\" is not optional!");
             return;
@@ -37,7 +37,7 @@ public class GuestMenuPresenter {
         return dao.findAll();
     }
 
-    public void searchbyfilters(String region, String specialization, String service) {
+    public void searchByFilters(String region, String specialization, String service) {
         if (region.equals("") && specialization.equals("") && service.equals("")) {
             view.showError("You have to fill in at least one value!");
             return;

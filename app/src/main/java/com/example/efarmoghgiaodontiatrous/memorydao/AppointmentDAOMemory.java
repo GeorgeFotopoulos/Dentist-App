@@ -26,39 +26,35 @@ public class AppointmentDAOMemory implements AppointmentDAO {
     public void save(Appointment entity) {
         if (!entities.contains(entity)) {
             entities.add(entity);
-        }
-    }
-
-    public void acceptAndSave(Appointment entity) {
-
+        } else {
             entities.remove(entity);
             entity.setState(AppointmentState.ACCEPTED);
             entities.add(entity);
-
+        }
     }
 
     @Override
-    public List<Appointment> find(Dentist dentist,AppointmentState state) {
-        List<Long> TimePositions=new ArrayList<>();
+    public List<Appointment> find(Dentist dentist, AppointmentState state) {
+        List<Long> TimePositions = new ArrayList<>();
         List<Appointment> Dentistentities = new ArrayList<>();
         for (Appointment appointment : entities) {
-            if (appointment.getDentist() == dentist&& appointment.getState()==state) {
-                TimePositions.add(Long.parseLong(appointment.getBookDate().getYear()+""+appointment.getBookDate().getStringMonth()+""+appointment.getBookDate().getStringDay()+""+appointment.getHour()+appointment.getMinutes()));
+            if (appointment.getDentist() == dentist && appointment.getState() == state) {
+                TimePositions.add(Long.parseLong(appointment.getBookDate().getYear() + "" + appointment.getBookDate().getStringMonth() + "" + appointment.getBookDate().getStringDay() + "" + appointment.getHour() + appointment.getMinutes()));
                 Dentistentities.add(appointment);
             }
         }
-        if(TimePositions.size()>0) {
+        if (TimePositions.size() > 0) {
             Long tempInt;
             Appointment temp;
             for (int i = 0; i < TimePositions.size(); i++) {
-                for (int j = 1; j < TimePositions.size()-i; j++) {
-                    if (TimePositions.get(j-1) >TimePositions.get(j)) {
-                        tempInt=TimePositions.get(j);
-                        TimePositions.set(j,TimePositions.get(j-1));
-                        TimePositions.set(j-1,tempInt);
-                        temp=Dentistentities.get(j);
-                        Dentistentities.set(j,Dentistentities.get(j-1));
-                        Dentistentities.set(j-1,temp);
+                for (int j = 1; j < TimePositions.size() - i; j++) {
+                    if (TimePositions.get(j - 1) > TimePositions.get(j)) {
+                        tempInt = TimePositions.get(j);
+                        TimePositions.set(j, TimePositions.get(j - 1));
+                        TimePositions.set(j - 1, tempInt);
+                        temp = Dentistentities.get(j);
+                        Dentistentities.set(j, Dentistentities.get(j - 1));
+                        Dentistentities.set(j - 1, temp);
                     }
                 }
             }
@@ -67,15 +63,18 @@ public class AppointmentDAOMemory implements AppointmentDAO {
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         entities.clear();
     }
 
-    public String[] findtoString(Dentist tempDent, AppointmentState state) {
-        List<Appointment> Dentistentities=find(tempDent,state);
-        String out[]=new String[Dentistentities.size()];
-        for(int i=0;i<Dentistentities.size();i++)
-            out[i]=Dentistentities.get(i).getBookDate().getDayOfMonth()+"/"+Dentistentities.get(i).getBookDate().getMonth()+"/"+Dentistentities.get(i).getBookDate().getYear()+" "+Dentistentities.get(i).getHour()+":"+Dentistentities.get(i).getMinutes()+"\n"+Dentistentities.get(i).getLastName()+" "+Dentistentities.get(i).getFirstName()+ "\n"+Dentistentities.get(i).getTelephoneNo();
+    public String[] findΤoString(Dentist tempDent, AppointmentState state) {
+        List<Appointment> dentistEntities = find(tempDent, state);
+        String out[] = new String[dentistEntities.size()];
+        for (int i = 0; i < dentistEntities.size(); i++)
+            out[i] = dentistEntities.get(i).getBookDate().getDayOfMonth() + "/" + dentistEntities.get(i).getBookDate().getMonth() +
+                    "/" + dentistEntities.get(i).getBookDate().getYear() + " " + dentistEntities.get(i).getHour() + ":" +
+                    dentistEntities.get(i).getMinutes() + "\n" + dentistEntities.get(i).getLastName() + " " +
+                    dentistEntities.get(i).getFirstName() + "\n" + dentistEntities.get(i).getTelephoneNo();
         return out;
     }
 }

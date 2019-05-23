@@ -22,7 +22,7 @@ public class DentistAppointmentManagementPresenter {
         DentistDAOMemory dDAO = new DentistDAOMemory();
         Dentist tempDent = dDAO.find(ID);
 
-        return aDAO.findtoString(tempDent, State);
+        return aDAO.findΤoString(tempDent, State);
     }
 
     public void AcceptAppointments(String ID, List<String> selectedAppointments) {
@@ -50,17 +50,13 @@ public class DentistAppointmentManagementPresenter {
             for (int j = 0; j < allapp.size(); j++) {
                 if (tempDent.equals(allapp.get(j).getDentist()) && allapp.get(j).getBookDate().equals(new SimpleCalendar(simpleyear, simplemonth, simpleday)) && shours == Integer.parseInt(allapp.get(j).getHour()) && sminutes == Integer.parseInt(allapp.get(j).getMinutes())) {
                     allapp.get(j).setState(AppointmentState.ACCEPTED);
-                    aDAO.acceptAndSave(allapp.get(j));
-
+                    aDAO.save(allapp.get(j));
                     break;
                 }
             }
-
+            view.jobDone("Appointments Added To your Agenda as Accepted");
         }
-
-        view.jobDone("Appointments Added To your Agenda as Accepted");
     }
-
 
     public void DeclineAppointments(String ID, List<String> selectedAppointments) {
         DentistDAOMemory dDAO = new DentistDAOMemory();
@@ -93,5 +89,4 @@ public class DentistAppointmentManagementPresenter {
         }
         view.jobDone("Appointments Were Rejected");
     }
-
 }

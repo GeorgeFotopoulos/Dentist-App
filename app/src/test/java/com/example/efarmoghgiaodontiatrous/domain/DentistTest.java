@@ -20,6 +20,7 @@ public class DentistTest {
     public void setUp() {
         dentist = new Dentist("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", "ABC123", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "asd123");
         dentist.addService(new Service("Filling", "1"));
+        dentist.addSpecialization(new Specialization("Pododontic", "4"));
     }
 
     @Test
@@ -150,5 +151,17 @@ public class DentistTest {
         assertNotEquals(9, other.getTimeOfExperience());
         assertNotEquals("abc123", other.getPassword());
         assertEquals("-1", other.getID());
+    }
+
+    @Test
+    public void testPrintSpecializations() {
+        String str = dentist.printSpecializations();
+        assertNotEquals("0", str.length());
+    }
+
+    @Test
+    public void testPrintServices() {
+        String str = dentist.printServices();
+        assertNotEquals("0", str.length());
     }
 }

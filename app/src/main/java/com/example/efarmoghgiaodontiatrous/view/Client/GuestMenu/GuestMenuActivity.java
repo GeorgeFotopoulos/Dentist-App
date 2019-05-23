@@ -60,14 +60,14 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
                 String region = s2.getSelectedItem().toString();
                 String specialization = s.getSelectedItem().toString();
                 String service = s1.getSelectedItem().toString();
-                presenter.searchbyfilters(region, specialization, service);
+                presenter.searchByFilters(region, specialization, service);
             }
         });
         findViewById(R.id.search_dentist_by_name).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String lastname = ((EditText) findViewById(R.id.lastname)).getText().toString();
                 String firstname = ((EditText) findViewById(R.id.firstname)).getText().toString();
-                presenter.searchbyname(lastname, firstname);
+                presenter.searchByName(lastname, firstname);
             }
         });
     }

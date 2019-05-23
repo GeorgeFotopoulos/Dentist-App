@@ -63,6 +63,8 @@ public class AppointmentTest {
         other.setState(AppointmentState.PENDING);
         other.setDentist(dentist);
         other.setBookDate(calendar);
+        other.setHour(9);
+        other.setMinutes(0);
         assertNotEquals("Panagiotis", other.getFirstName());
         assertNotEquals("Ntymenos", other.getLastName());
         assertNotEquals("6948554284", other.getTelephoneNo());
@@ -70,5 +72,6 @@ public class AppointmentTest {
         assertNotEquals(AppointmentState.ACCEPTED, other.getState());
         assertNotEquals(d, other.getDentist());
         assertNotEquals(new SimpleCalendar(1, 1, 2001), other.getBookDate());
+        assertNotEquals("10", other.getHour());
     }
 }

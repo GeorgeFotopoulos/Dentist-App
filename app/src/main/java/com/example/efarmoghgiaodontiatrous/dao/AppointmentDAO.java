@@ -38,5 +38,5 @@ public interface AppointmentDAO {
      */
     List<Appointment> find(Dentist dentist,AppointmentState state);
 
-    String[] findtoString(Dentist tempDent, AppointmentState state);
+    String[] findΤoString(Dentist tempDent, AppointmentState state);
 }
