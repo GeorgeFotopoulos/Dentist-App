@@ -24,6 +24,7 @@ import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,21 +40,16 @@ public class DAOTest {
     private static final int INITIAL_SERVICE_COUNT = 3;
     private static final int INITIAL_SPECIALIZATION_COUNT = 4;
     private static final int INITIAL_VISIT_COUNT = 6;
-    AppointmentDAO appointmentDao= new AppointmentDAOMemory();
-    ClientDAO clientDao= new ClientDAOMemory();
-    DentistDAO dentistDao = new DentistDAOMemory();
-    ServiceDAO serviceDao = new ServiceDAOMemory();
-    SpecializationDAO specializationDao= new SpecializationDAOMemory();
-    VisitDAO visitDao= new VisitDAOMemory();
+    AppointmentDAO appointmentDao;
+    ClientDAO clientDao;
+    DentistDAO dentistDao;
+    ServiceDAO serviceDao;
+    SpecializationDAO specializationDao;
+    VisitDAO visitDao;
 
     @Before
     public void setUp() {
-        specializationDao.clear();
-        appointmentDao.clear();
-        clientDao.clear();
-     //   dentistDao.clear();
-        serviceDao.clear();
-        visitDao.clear();
+
         Initializer dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
         appointmentDao = new AppointmentDAOMemory();
@@ -65,6 +61,16 @@ public class DAOTest {
 
 
     }
+    @After
+    public void erase(){
+        specializationDao.clear();
+        appointmentDao.clear();
+        clientDao.clear();
+        //dentistDao.clear();
+        serviceDao.clear();
+        visitDao.clear();
+    }
+
 
     @Test
     public void testDentists() {
