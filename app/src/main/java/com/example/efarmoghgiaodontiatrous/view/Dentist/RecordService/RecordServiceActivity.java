@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RecordServiceActivity extends AppCompatActivity implements RecordServiceView {
+    private final List<String> tempServices = new ArrayList<>();
     protected RecordServicePresenter presenter;
     protected String ID;
     private String AMKA;
@@ -36,8 +37,6 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     private int day;
     private int month;
     private int year;
-    private final List<String> tempServices = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +106,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         });
     }
 
-    public void toSave(){
+    public void toSave() {
         if (!onCheckValid()) {
             notSaved();
             return;
@@ -150,15 +149,48 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         amka = ((EditText) findViewById(R.id.in_amka)).getText().toString();
         try {
             day = Integer.parseInt(((EditText) findViewById(R.id.in_day)).getText().toString());
-            month = Integer.parseInt(((EditText) findViewById(R.id.in_month)).getText().toString());
-            year = Integer.parseInt(((EditText) findViewById(R.id.in_year)).getText().toString());
-        } catch (Exception e) {
-            day = 0;
-            month = 0;
-            year = 0;
+        } catch (NumberFormatException e) {
+            day = -1;
         }
-        if (fname.equals("") || lname.equals("") || phone.equals("") || mail.equals("") || amka.equals("") || day == 0 || month == 0 || year == 0 || tempServices.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Fill all the boxes!", Toast.LENGTH_SHORT).show();
+        try {
+            month = Integer.parseInt(((EditText) findViewById(R.id.in_month)).getText().toString());
+        } catch (NumberFormatException e) {
+            month = -1;
+        }
+        try {
+            year = Integer.parseInt(((EditText) findViewById(R.id.in_year)).getText().toString());
+        } catch (NumberFormatException e) {
+            year = -1;
+        }
+        if (fname.equals("") && (!lname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && day != -1 && month != -1 && year != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The First Name field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (lname.equals("") && (!fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && day != -1 && month != -1 && year != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The Last Name field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (phone.equals("") && (!lname.equals("") && !fname.equals("") && !mail.equals("") && !amka.equals("") && day != -1 && month != -1 && year != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The Contact Number field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (mail.equals("") && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !amka.equals("") && day != -1 && month != -1 && year != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The E-mail field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (amka.equals("") && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && day != -1 && month != -1 && year != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The AMKA field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (day == -1 && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && month != -1 && year != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The Day field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (month == -1 && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && day != -1 && year != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The Month field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (year == -1 && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && day != -1 && month != -1 && !tempServices.isEmpty())) {
+            Toast.makeText(getApplicationContext(), "The Year field is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (tempServices.isEmpty() && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && day != -1 && month != -1 && year != -1)) {
+            Toast.makeText(getApplicationContext(), "Selecting Provided Service(s) is required!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (fname.equals("") || lname.equals("") || phone.equals("") || mail.equals("") || amka.equals("") || day == -1 || month == -1 || year == -1 || tempServices.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Fill in all the data!", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -192,8 +224,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     }
 
     public void onFillForm(Client client) {
-
-        if(client != null) {
+        if (client != null) {
             TextView fname = findViewById(R.id.in_fname);
             fname.setText(client.getFirstName());
             fname.setKeyListener(null);
@@ -209,7 +240,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
             TextView mail = findViewById(R.id.in_mail);
             mail.setText(client.getEmail());
             mail.setKeyListener(null);
-        }else{
+        } else {
             TextView fname = findViewById(R.id.in_fname);
             fname.setText("");
 
@@ -235,7 +266,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         TextView comments = findViewById(R.id.in_com);
         comments.setText("");
 
-        TextView amka= findViewById(R.id.in_amka);
+        TextView amka = findViewById(R.id.in_amka);
         amka.setText(AMKA);
         amka.setKeyListener(null);
     }
