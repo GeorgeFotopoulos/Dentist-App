@@ -88,10 +88,12 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
     public void onBackPressed() {
         finish();
         Intent intent = new Intent(GuestMenuActivity.this, MainActivity.class);
+        intent.putExtra("notFirstTime", 1);
         startActivity(intent);
     }
 
     public void showSearchViewFilters(String region, String specialization, String service) {
+        finish();
         Intent intent = new Intent(this, DentistSearchActivity.class);
         intent.putExtra("region", region);
         intent.putExtra("specialization", specialization);

@@ -144,6 +144,7 @@ public class DentistLoginActivity extends AppCompatActivity {
     public void onBackPressed(){
         finish();
         Intent intent = new Intent(DentistLoginActivity.this, MainActivity.class);
+        intent.putExtra("notFirstTime", 1);
         startActivity(intent);
     }
 

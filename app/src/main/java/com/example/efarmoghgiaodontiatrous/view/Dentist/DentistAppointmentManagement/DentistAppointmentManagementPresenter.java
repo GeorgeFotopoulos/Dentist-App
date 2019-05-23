@@ -50,7 +50,7 @@ public class DentistAppointmentManagementPresenter {
             for (int j = 0; j < allapp.size(); j++) {
                 if (tempDent.equals(allapp.get(j).getDentist()) && allapp.get(j).getBookDate().equals(new SimpleCalendar(simpleyear, simplemonth, simpleday)) && shours == Integer.parseInt(allapp.get(j).getHour()) && sminutes == Integer.parseInt(allapp.get(j).getMinutes())) {
                     allapp.get(j).setState(AppointmentState.ACCEPTED);
-                    aDAO.save(allapp.get(j));
+                   // allapp.get(j).setState(AppointmentState.ACCEPTED);
                     break;
                 }
             }
