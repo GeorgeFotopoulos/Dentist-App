@@ -1,10 +1,13 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistAppointmentManagement.DentistAppointmentManagementActivity;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.RecordService.RecordServiceActivity;
@@ -13,6 +16,7 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.ViewStatistics.ViewStati
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount.DentistUpdateAccountActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewHistory.DentistViewHistoryActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewProfile.DentistViewProfileActivity;
+import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
 public class DentistMenuActivity extends AppCompatActivity implements DentistMenuView {
     private DentistMenuPresenter presenter;
@@ -118,6 +122,24 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
         Intent intent = new Intent(DentistMenuActivity.this, RecordServiceActivity.class);
         intent.putExtra("ID",Dentist_ID);
         startActivity(intent);
+    }
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Would you like to logout?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        Intent intent2 = new Intent(DentistMenuActivity.this, MainActivity.class);
+                        startActivityForResult(intent2, 1);                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .show();
     }
 
 }

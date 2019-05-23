@@ -1,7 +1,9 @@
 package com.example.efarmoghgiaodontiatrous.view.HomePage;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -54,7 +56,25 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     }
 
     public void testMenu() {
+        finish();
         Intent intent = new Intent(MainActivity.this, DentistMenuActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle("We will miss you!")
+                .setMessage("Are you sure you want to exit e-Dentist?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        android.os.Process.killProcess(android.os.Process.myPid());                  }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .show();
     }
 }
