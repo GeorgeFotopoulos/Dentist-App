@@ -131,10 +131,8 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         new Handler().postDelayed(
                 new Runnable() {
                     public void run() {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
                         onSignupSuccess();
-                        // onSignupFailed();
+
                     }
                 }, 1000);
     }

@@ -2,6 +2,7 @@ package com.example.efarmoghgiaodontiatrous.view.Dentist.RecordService;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,19 +36,21 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     private int day;
     private int month;
     private int year;
+    private final List<String> tempServices = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_service);
-        final List<String> tempServices = new ArrayList<>();
         presenter = new RecordServicePresenter(this);
         Intent intent = getIntent();
         ID = intent.getStringExtra("ID");
 
         final ListView listViewWithCheckbox = findViewById(R.id.list_view_with_checkbox2);
         final List<ListViewItemDTO> initItemListServ = this.getInitViewItemDtoListServ();
-        final ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListServ);
+        ListViewItemCheckboxBaseAdapter listViewDataAdapter = new ListViewItemCheckboxBaseAdapter(getApplicationContext(), initItemListServ);
+
         listViewDataAdapter.notifyDataSetChanged();
         listViewWithCheckbox.setAdapter(listViewDataAdapter);
 
@@ -83,6 +86,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
                 if (client == null) {
                     TextView result = findViewById(R.id.search_res);
                     result.setText("There's no client with this number! \n Create a Client's Card!");
+                    onFillForm(client);
                     onShowForm();
                 } else {
                     TextView result = findViewById(R.id.search_res);
@@ -90,20 +94,32 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
                     onFillForm(client);
                     onShowForm();
                 }
+
+
             }
         });
 
         findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (onCheckValid()) {
-                    presenter.onCreate(new SimpleCalendar(year, month, day), fname, lname, phone, mail, amka, tempServices, ID, comments);
-                    saved();
-                } else {
-                    notSaved();
-                }
+                toSave();
             }
         });
+    }
+
+    public void toSave(){
+        if (!onCheckValid()) {
+            notSaved();
+            return;
+        }
+        findViewById(R.id.btn_save).setEnabled(false);
+        new Handler().postDelayed(
+                new Runnable() {
+                    public void run() {
+                        presenter.onCreate(new SimpleCalendar(year, month, day), fname, lname, phone, mail, amka, tempServices, ID, comments);
+                        saved();
+                    }
+                }, 1000);
     }
 
     @Override
@@ -122,8 +138,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     }
 
     private void notSaved() {
-        Toast.makeText(getBaseContext(), "Record Failed, try again!", Toast.LENGTH_LONG).show();
-        findViewById(R.id.btn_update).setEnabled(true);
+        findViewById(R.id.btn_save).setEnabled(true);
     }
 
     private boolean onCheckValid() {
@@ -142,7 +157,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
             month = 0;
             year = 0;
         }
-        if (fname.equals("") || lname.equals("") || phone.equals("") || mail.equals("") || amka.equals("") || day != 0 || month != 0 || year != 0) {
+        if (fname.equals("") || lname.equals("") || phone.equals("") || mail.equals("") || amka.equals("") || day == 0 || month == 0 || year == 0 || tempServices.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Fill all the boxes!", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -177,21 +192,52 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     }
 
     public void onFillForm(Client client) {
-        TextView fname = findViewById(R.id.in_fname);
-        fname.setText(client.getFirstName());
-        fname.setKeyListener(null);
 
-        TextView lname = findViewById(R.id.in_lname);
-        lname.setText(client.getLastName());
-        lname.setKeyListener(null);
+        if(client != null) {
+            TextView fname = findViewById(R.id.in_fname);
+            fname.setText(client.getFirstName());
+            fname.setKeyListener(null);
 
-        TextView phone = findViewById(R.id.in_phone);
-        phone.setText(client.getTelephoneNo());
-        phone.setKeyListener(null);
+            TextView lname = findViewById(R.id.in_lname);
+            lname.setText(client.getLastName());
+            lname.setKeyListener(null);
 
-        TextView mail = findViewById(R.id.in_mail);
-        mail.setText(client.getEmail());
-        mail.setKeyListener(null);
+            TextView phone = findViewById(R.id.in_phone);
+            phone.setText(client.getTelephoneNo());
+            phone.setKeyListener(null);
+
+            TextView mail = findViewById(R.id.in_mail);
+            mail.setText(client.getEmail());
+            mail.setKeyListener(null);
+        }else{
+            TextView fname = findViewById(R.id.in_fname);
+            fname.setText("");
+
+            TextView lname = findViewById(R.id.in_lname);
+            lname.setText("");
+
+            TextView phone = findViewById(R.id.in_phone);
+            phone.setText("");
+
+            TextView mail = findViewById(R.id.in_mail);
+            mail.setText("");
+        }
+
+        TextView day = findViewById(R.id.in_day);
+        day.setText("");
+
+        TextView month = findViewById(R.id.in_month);
+        month.setText("");
+
+        TextView year = findViewById(R.id.in_year);
+        year.setText("");
+
+        TextView comments = findViewById(R.id.in_com);
+        comments.setText("");
+
+        TextView amka= findViewById(R.id.in_amka);
+        amka.setText(AMKA);
+        amka.setKeyListener(null);
     }
 
     private List<ListViewItemDTO> getInitViewItemDtoListServ() {

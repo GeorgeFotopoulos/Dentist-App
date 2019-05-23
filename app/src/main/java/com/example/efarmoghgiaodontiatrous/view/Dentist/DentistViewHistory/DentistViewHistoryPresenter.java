@@ -29,10 +29,17 @@ public class DentistViewHistoryPresenter {
                     services = services + s.getServiceName() + ", ";
                 }
                 services = services.substring(0, services.length() - 2);
-                history += "Date: " + key.getDateOfVisit().getDayOfMonth() + "/" + key.getDateOfVisit().getMonth() + "/" + key.getDateOfVisit().getYear() +
-                        "\nDentist: " + key.getDentist().getLastName() + " " + key.getDentist().getFirstName() +
-                        "\nServices: " + services + "\nComments: " + key.getComments();
-                history += "\n\n";
+                if(key.getComments().equals("")){
+                    history += "Date: " + key.getDateOfVisit().getDayOfMonth() + "/" + key.getDateOfVisit().getMonth() + "/" + key.getDateOfVisit().getYear() +
+                            "\nDentist: " + key.getDentist().getLastName() + " " + key.getDentist().getFirstName() +
+                            "\nServices: " + services;
+                    history += "\n\n";
+                }else {
+                    history += "Date: " + key.getDateOfVisit().getDayOfMonth() + "/" + key.getDateOfVisit().getMonth() + "/" + key.getDateOfVisit().getYear() +
+                            "\nDentist: " + key.getDentist().getLastName() + " " + key.getDentist().getFirstName() +
+                            "\nServices: " + services + "\nComments: " + key.getComments();
+                    history += "\n\n";
+                }
             }
         }
         return history;

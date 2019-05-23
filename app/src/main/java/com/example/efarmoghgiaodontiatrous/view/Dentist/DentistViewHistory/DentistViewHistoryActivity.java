@@ -13,7 +13,7 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuA
 public class DentistViewHistoryActivity extends AppCompatActivity implements DentistViewHistoryView {
     protected DentistViewHistoryPresenter presenter;
     protected String ID;
-    public String AMKA;
+    private String AMKA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
