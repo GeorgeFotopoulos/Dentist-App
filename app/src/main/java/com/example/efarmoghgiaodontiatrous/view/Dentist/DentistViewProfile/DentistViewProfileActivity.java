@@ -43,6 +43,7 @@ public class DentistViewProfileActivity extends AppCompatActivity implements Den
     }
 
     public void updateAccount() {
+        finish();
         Intent intent = new Intent(DentistViewProfileActivity.this, DentistUpdateAccountActivity.class);
         intent.putExtra("ID", ID);
         startActivity(intent);

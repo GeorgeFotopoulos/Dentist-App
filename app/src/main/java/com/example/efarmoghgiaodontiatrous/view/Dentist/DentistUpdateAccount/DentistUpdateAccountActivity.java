@@ -277,6 +277,7 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
     }
 
     public void dentistMenu() {
+        finish();
         Intent intent = new Intent(DentistUpdateAccountActivity.this, DentistMenuActivity.class);
         intent.putExtra("Logged-In User", ID);
         startActivity(intent);

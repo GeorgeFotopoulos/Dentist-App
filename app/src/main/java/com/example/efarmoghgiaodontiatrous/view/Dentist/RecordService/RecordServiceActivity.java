@@ -130,6 +130,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     }
 
     private void saved() {
+        finish();
         Intent intent = new Intent(RecordServiceActivity.this, DentistMenuActivity.class);
         Toast.makeText(getBaseContext(), "Record Successful!", Toast.LENGTH_LONG).show();
         intent.putExtra("Logged-In User", ID);
