@@ -26,35 +26,35 @@ public class RecordServicePresenter {
         return client;
     }
 
-    public void onCreate(SimpleCalendar calendar, String fname, String lname, String phone, String mail, String amka, List<String> services, String ID, String comments) {
-        DentistDAOMemory ddao = new DentistDAOMemory();
-        VisitDAOMemory vdao = new VisitDAOMemory();
-        ClientDAOMemory cdao = new ClientDAOMemory();
-        ServiceDAOMemory sdao = new ServiceDAOMemory();
-        List<Service> allServ = sdao.findAll();
-        Set<Service> serv = new HashSet<>();
+    public void onCreate(SimpleCalendar calendar, String firstName, String lastName, String phone, String email, String AMKA, List<String> services, String dentistID, String comments) {
+        DentistDAOMemory dentistDao = new DentistDAOMemory();
+        VisitDAOMemory visitDao = new VisitDAOMemory();
+        ClientDAOMemory clientDao = new ClientDAOMemory();
+        ServiceDAOMemory serviceDao = new ServiceDAOMemory();
+        List<Service> allServices = serviceDao.findAll();
+        Set<Service> serviceSet = new HashSet<>();
 
-        for (int i = 0; i < allServ.size(); i++) {
-            if (services.contains(allServ.get(i).getServiceName())) {
-                serv.add(allServ.get(i));
+        for (int i = 0; i < allServices.size(); i++) {
+            if (services.contains(allServices.get(i).getServiceName())) {
+                serviceSet.add(allServices.get(i));
             }
         }
 
-        if (onSearchClient(amka) != null) {
-            vdao.save(new Visit(calendar, comments, ddao.find(ID), onSearchClient(amka), serv));
+        if (onSearchClient(AMKA) != null) {
+            visitDao.save(new Visit(calendar, comments, dentistDao.find(dentistID), onSearchClient(AMKA), serviceSet));
         } else {
-            Client c = new Client(fname, lname, phone, mail, amka);
-            cdao.save(c);
-            vdao.save(new Visit(calendar, comments, ddao.find(ID), c, serv));
+            Client c = new Client(firstName, lastName, phone, email, AMKA);
+            clientDao.save(c);
+            visitDao.save(new Visit(calendar, comments, dentistDao.find(dentistID), c, serviceSet));
         }
     }
 
     public String[] getService() {
-        ServiceDAOMemory sp = new ServiceDAOMemory();
-        String out[] = new String[sp.findAll().size()];
-        List<Service> spec = sp.findAll();
-        for (int i = 0; i < spec.size(); i++) {
-            out[i] = spec.get(i).getServiceName();
+        ServiceDAOMemory serviceDao = new ServiceDAOMemory();
+        String[] out = new String[serviceDao.findAll().size()];
+        List<Service> allServicesices = serviceDao.findAll();
+        for (int i = 0; i < allServicesices.size(); i++) {
+            out[i] = allServicesices.get(i).getServiceName();
         }
         return out;
     }

@@ -14,7 +14,7 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuA
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistSignup.DentistSignupActivity;
 import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
-public class DentistLoginActivity extends AppCompatActivity implements DentistLoginView{
+public class DentistLoginActivity extends AppCompatActivity implements DentistLoginView {
 
     private DentistLoginPresenter presenter;
 
@@ -38,21 +38,18 @@ public class DentistLoginActivity extends AppCompatActivity implements DentistLo
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String email = (usernameEditText).getText().toString();
                 String password = (passwordEditText).getText().toString();
                 Dentist dentist = presenter.onValid(email, password);
 
-                if(dentist != null){
+                if (dentist != null) {
                     updateUiWithUser(dentist);
-                }else{
+                } else {
                     showLoginFailed(presenter.onResult(email));
                 }
-
             }
         });
     }
-
 
     private void updateUiWithUser(Dentist dentist) {
         String welcome = "Welcome Dr. " + dentist.getLastName();
@@ -71,7 +68,7 @@ public class DentistLoginActivity extends AppCompatActivity implements DentistLo
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
         Intent intent = new Intent(DentistLoginActivity.this, MainActivity.class);
         intent.putExtra("notFirstTime", 1);
@@ -81,7 +78,7 @@ public class DentistLoginActivity extends AppCompatActivity implements DentistLo
     public void dentistMenu(String ID) {
         finish();
         Intent intent = new Intent(DentistLoginActivity.this, DentistMenuActivity.class);
-        intent.putExtra("Logged-In User",ID);
+        intent.putExtra("Logged-In User", ID);
         startActivity(intent);
     }
 }

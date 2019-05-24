@@ -10,14 +10,14 @@ import android.view.View;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.dao.Initializer;
 import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
-import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin.DentistLoginActivity;
 import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin.DentistLoginActivity;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Intent intent=getIntent();
+        Intent intent = getIntent();
         if (!intent.hasExtra("notFirstTime")) {
             Initializer initializer = new MemoryInitializer();
             initializer.prepareData();
@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         startActivityForResult(intent, 1);
         finish();
     }
-
 
     @Override
     public void onBackPressed() {

@@ -117,7 +117,7 @@ public class DAOTest {
         test2 = dentistDao.findWithFilters("Peristeri", "Pododontic", "");
         Assert.assertTrue(test2.isEmpty());
 
-        List<Dentist> test3 = dentistDao.findWithFilters("Peristeri","Pedodontic","Teeth whitening");
+        List<Dentist> test3 = dentistDao.findWithFilters("Peristeri", "Pedodontic", "Teeth whitening");
         Assert.assertFalse(test3.isEmpty());
     }
 

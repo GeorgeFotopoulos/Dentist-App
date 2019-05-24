@@ -34,7 +34,7 @@ public class DentistUpdateAccountPresenter {
 
     public String[] getSpecializationList() {
         SpecializationDAOMemory sp = new SpecializationDAOMemory();
-        String out[] = new String[sp.findAll().size()];
+        String[] out = new String[sp.findAll().size()];
         List<Specialization> spec = sp.findAll();
         for (int i = 0; i < spec.size(); i++) {
             out[i] = spec.get(i).getSpecializationName();
@@ -44,7 +44,7 @@ public class DentistUpdateAccountPresenter {
 
     public String[] getService() {
         ServiceDAOMemory sp = new ServiceDAOMemory();
-        String out[] = new String[sp.findAll().size()];
+        String[] out = new String[sp.findAll().size()];
         List<Service> spec = sp.findAll();
         for (int i = 0; i < spec.size(); i++) {
             out[i] = spec.get(i).getServiceName();

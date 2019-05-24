@@ -24,7 +24,7 @@ public class DentistSignupPresenter {
 
     public String[] getSpecializationList() {
         SpecializationDAOMemory sp = new SpecializationDAOMemory();
-        String out[] = new String[sp.findAll().size()];
+        String[] out = new String[sp.findAll().size()];
         List<Specialization> spec = sp.findAll();
         for (int i = 0; i < spec.size(); i++) {
             out[i] = spec.get(i).getSpecializationName();
@@ -34,7 +34,7 @@ public class DentistSignupPresenter {
 
     public String[] getService() {
         ServiceDAOMemory sp = new ServiceDAOMemory();
-        String out[] = new String[sp.findAll().size()];
+        String[] out = new String[sp.findAll().size()];
         List<Service> spec = sp.findAll();
         for (int i = 0; i < spec.size(); i++) {
             out[i] = spec.get(i).getServiceName();
@@ -52,7 +52,7 @@ public class DentistSignupPresenter {
         return (DAO.findAll().size() + "");
     }
 
-    public void addSpecializations(List<String> tempSpecialization,Dentist dentist) {
+    public void addSpecializations(List<String> tempSpecialization, Dentist dentist) {
         SpecializationDAOMemory DAO = new SpecializationDAOMemory();
         List<Specialization> temp = DAO.findAll();
         for (int i = 0; i < temp.size(); i++) {
@@ -65,7 +65,7 @@ public class DentistSignupPresenter {
         }
     }
 
-    public void addServices(List<String> tempServices,Dentist dentist) {
+    public void addServices(List<String> tempServices, Dentist dentist) {
         ServiceDAOMemory DAO = new ServiceDAOMemory();
         List<Service> temp = DAO.findAll();
         for (int i = 0; i < temp.size(); i++) {

@@ -54,8 +54,6 @@ public class DentistAppointmentManagementPresenter {
         view.jobDone("Appointment(s) were accepted!");
     }
 
-
-
     public void DeclineAppointments(String ID, List<String> selectedAppointments) {
         DentistDAOMemory dDAO = new DentistDAOMemory();
         Dentist tempDent = dDAO.find(ID);

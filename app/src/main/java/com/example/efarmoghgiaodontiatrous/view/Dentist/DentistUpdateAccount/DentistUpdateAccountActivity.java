@@ -12,12 +12,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
-import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;
 import com.example.efarmoghgiaodontiatrous.domain.Specialization;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 import java.util.ArrayList;
@@ -196,7 +196,7 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
         Intent intent1 = new Intent(DentistUpdateAccountActivity.this, DentistMenuActivity.class);
         intent1.putExtra("Logged-In User", ID);

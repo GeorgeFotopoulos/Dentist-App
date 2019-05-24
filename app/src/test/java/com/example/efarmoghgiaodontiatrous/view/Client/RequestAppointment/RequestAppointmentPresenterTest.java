@@ -1,20 +1,12 @@
 package com.example.efarmoghgiaodontiatrous.view.Client.RequestAppointment;
 
 import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
-import com.example.efarmoghgiaodontiatrous.dao.ClientDAO;
 import com.example.efarmoghgiaodontiatrous.dao.DentistDAO;
 import com.example.efarmoghgiaodontiatrous.dao.Initializer;
-import com.example.efarmoghgiaodontiatrous.dao.ServiceDAO;
-import com.example.efarmoghgiaodontiatrous.dao.SpecializationDAO;
-import com.example.efarmoghgiaodontiatrous.dao.VisitDAO;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.memorydao.AppointmentDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.ClientDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
-import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.VisitDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
@@ -24,7 +16,7 @@ import org.junit.Test;
 
 public class RequestAppointmentPresenterTest {
     RequestAppointmentPresenter presenter;
-    RequestAppointmentView view;
+    RequestAppointmentViewStub view;
     private AppointmentDAO appointmentDao;
     private DentistDAO dentistDao;
 

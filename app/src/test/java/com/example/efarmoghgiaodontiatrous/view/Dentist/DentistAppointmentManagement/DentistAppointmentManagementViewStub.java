@@ -8,7 +8,7 @@ public class DentistAppointmentManagementViewStub implements DentistAppointmentM
         this.message = msg;
     }
 
-    public String getMessage(){
+    public String getMessage() {
         return this.message;
     }
 }

@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -14,11 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
-import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewHistory.DentistViewHistoryActivity;
 
@@ -39,7 +38,6 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     private String comments;
     private SimpleCalendar dateOfAppointment = null;
     protected String where;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

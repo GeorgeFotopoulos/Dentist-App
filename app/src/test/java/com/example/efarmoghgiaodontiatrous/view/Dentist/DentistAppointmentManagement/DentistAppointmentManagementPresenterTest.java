@@ -1,19 +1,11 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistAppointmentManagement;
 
 import com.example.efarmoghgiaodontiatrous.dao.AppointmentDAO;
-import com.example.efarmoghgiaodontiatrous.dao.ClientDAO;
 import com.example.efarmoghgiaodontiatrous.dao.DentistDAO;
 import com.example.efarmoghgiaodontiatrous.dao.Initializer;
-import com.example.efarmoghgiaodontiatrous.dao.ServiceDAO;
-import com.example.efarmoghgiaodontiatrous.dao.SpecializationDAO;
-import com.example.efarmoghgiaodontiatrous.dao.VisitDAO;
 import com.example.efarmoghgiaodontiatrous.memorydao.AppointmentDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.ClientDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
-import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.VisitDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 
 import org.junit.Assert;
@@ -27,11 +19,7 @@ public class DentistAppointmentManagementPresenterTest {
     DentistAppointmentManagementPresenter presenter;
     DentistAppointmentManagementViewStub view;
     private AppointmentDAO appointmentDao;
-    private ClientDAO clientDao;
     private DentistDAO dentistDao;
-    private ServiceDAO serviceDao;
-    private SpecializationDAO specializationDao;
-    private VisitDAO visitDao;
 
     @Before
     public void setUp() {
@@ -39,11 +27,7 @@ public class DentistAppointmentManagementPresenterTest {
         initializer.prepareData();
 
         appointmentDao = new AppointmentDAOMemory();
-        clientDao = new ClientDAOMemory();
         dentistDao = new DentistDAOMemory();
-        serviceDao = new ServiceDAOMemory();
-        specializationDao = new SpecializationDAOMemory();
-        visitDao = new VisitDAOMemory();
 
         view = new DentistAppointmentManagementViewStub();
         presenter = new DentistAppointmentManagementPresenter(view);
@@ -62,7 +46,6 @@ public class DentistAppointmentManagementPresenterTest {
         int size = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
         presenter.AcceptAppointments("6", selectedAppointments);
         int newSize = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
-        //Assert.assertEquals(size, newSize);
         Assert.assertNotEquals(size, newSize);
     }
 
@@ -73,7 +56,6 @@ public class DentistAppointmentManagementPresenterTest {
         int size = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
         presenter.DeclineAppointments("6", selectedAppointments);
         int newSize = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
-        //Assert.assertEquals(size, newSize);
         Assert.assertNotEquals(size, newSize);
     }
 }

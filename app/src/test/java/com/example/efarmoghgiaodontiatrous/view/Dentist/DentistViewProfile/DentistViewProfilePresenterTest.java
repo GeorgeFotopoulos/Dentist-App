@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class DentistViewProfilePresenterTest {
     DentistViewProfilePresenter presenter;
-    DentistViewProfileView view;
+    DentistViewProfileViewStub view;
     private DentistDAO dentistDao;
 
     @Before
@@ -40,5 +40,4 @@ public class DentistViewProfilePresenterTest {
     public void onUpdateAccountTest() {
         presenter.onUpdateAccount();
     }
-
 }

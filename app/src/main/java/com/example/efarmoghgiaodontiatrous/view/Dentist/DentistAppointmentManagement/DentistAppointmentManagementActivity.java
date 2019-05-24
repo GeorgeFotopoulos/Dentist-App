@@ -9,10 +9,10 @@ import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
-import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
 import java.util.ArrayList;

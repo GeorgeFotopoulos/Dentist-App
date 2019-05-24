@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DentistUpdateAccountPresenterTest {
     DentistUpdateAccountPresenter presenter;
-    DentistUpdateAccountView view;
+    DentistUpdateAccountViewStub view;
     Dentist d;
 
     @Before
