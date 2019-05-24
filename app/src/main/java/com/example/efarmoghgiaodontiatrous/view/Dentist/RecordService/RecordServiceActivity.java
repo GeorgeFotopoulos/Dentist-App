@@ -37,8 +37,6 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     private String comments;
     private SimpleCalendar dateOfAppointment = null;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,12 +101,8 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
                     onFillForm(client);
                     onShowForm();
                 }
-
-
             }
         });
-
-
 
         findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,28 +155,28 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         mail = ((EditText) findViewById(R.id.in_mail)).getText().toString();
         amka = ((EditText) findViewById(R.id.in_amka)).getText().toString();
 
-        if (fname.equals("") && (!lname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty())) {
+        if (fname.equals("") && (!lname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty() && dateOfAppointment != null)) {
             Toast.makeText(getApplicationContext(), "The First Name field is required!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (lname.equals("") && (!fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty())) {
+        } else if (lname.equals("") && (!fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty() && dateOfAppointment != null)) {
             Toast.makeText(getApplicationContext(), "The Last Name field is required!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (phone.equals("") && (!lname.equals("") && !fname.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty())) {
+        } else if (phone.equals("") && (!lname.equals("") && !fname.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty() && dateOfAppointment != null)) {
             Toast.makeText(getApplicationContext(), "The Contact Number field is required!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (mail.equals("") && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !amka.equals("") && !tempServices.isEmpty())) {
+        } else if (mail.equals("") && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !amka.equals("") && !tempServices.isEmpty() && dateOfAppointment != null)) {
             Toast.makeText(getApplicationContext(), "The E-mail field is required!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (amka.equals("") && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !tempServices.isEmpty())) {
+        } else if (amka.equals("") && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !tempServices.isEmpty() && dateOfAppointment != null)) {
             Toast.makeText(getApplicationContext(), "The AMKA field is required!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if ((!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty() && dateOfAppointment == null)) {
+        } else if (dateOfAppointment == null && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") && !tempServices.isEmpty())) {
             Toast.makeText(getApplicationContext(), "The Date field is required!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (tempServices.isEmpty() && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals("") )) {
+        } else if (tempServices.isEmpty() && (!lname.equals("") && !fname.equals("") && !phone.equals("") && !mail.equals("") && !amka.equals(""))) {
             Toast.makeText(getApplicationContext(), "Selecting Provided Service(s) is required!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (fname.equals("") || lname.equals("") || phone.equals("") || mail.equals("") || amka.equals("") || tempServices.isEmpty()) {
+        } else if (fname.equals("") || lname.equals("") || phone.equals("") || mail.equals("") || amka.equals("") || dateOfAppointment == null || tempServices.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Fill in all the data!", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -246,8 +240,6 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
             mail.setText("");
             mail.setEnabled(true);
         }
-
-
         TextView comments = findViewById(R.id.in_com);
         comments.setText("");
 
