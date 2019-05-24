@@ -117,7 +117,6 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
             ListViewItemDTO dto = new ListViewItemDTO();
             dto.setChecked(false);
             dto.setItemText(itemText);
-
             ret.add(dto);
         }
         return ret;

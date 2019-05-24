@@ -33,7 +33,7 @@ public class DentistAppointmentManagementPresenter {
 
         for (int i = 0; i < selectedAppointments.size(); i++) {
             String[] dateParts = selectedAppointments.get(i).split("/");
-            int simpleday = Integer.parseInt(dateParts[1]);
+            int simpleday = Integer.parseInt(dateParts[0]);
             int simplemonth = Integer.parseInt(dateParts[1]);
             int simpleyear = Integer.parseInt(dateParts[2].charAt(0) + "" + dateParts[2].charAt(1) + "" + dateParts[2].charAt(2) + "" + dateParts[2].charAt(3));
             System.out.println(simplemonth == simpleyear);
@@ -51,8 +51,10 @@ public class DentistAppointmentManagementPresenter {
                 }
             }
         }
-        view.jobDone("Appointment(s) added to your Agenda as accepted!");
+        view.jobDone("Appointment(s) were accepted!");
     }
+
+
 
     public void DeclineAppointments(String ID, List<String> selectedAppointments) {
         DentistDAOMemory dDAO = new DentistDAOMemory();

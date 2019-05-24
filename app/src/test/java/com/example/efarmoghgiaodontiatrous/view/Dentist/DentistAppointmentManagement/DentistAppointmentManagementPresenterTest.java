@@ -58,15 +58,22 @@ public class DentistAppointmentManagementPresenterTest {
     @Test
     public void testAcceptAppointments() {
         List<String> selectedAppointments = new ArrayList<>();
-        selectedAppointments.add("22/10/2016 16:00\nPatrikis Georgios +30 698 222 2222");
-        int size = appointmentDao.find(dentistDao.find("6"), AppointmentState.ACCEPTED).size();
+        selectedAppointments.add("22/10/2016 16:00  \nPatrikis Georgios +30 698 222 2222");
+        int size = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
         presenter.AcceptAppointments("6", selectedAppointments);
-        int newSize = appointmentDao.find(dentistDao.find("6"), AppointmentState.ACCEPTED).size();
-        Assert.assertEquals(size, newSize);
-        //Assert.assertEquals(1, newSize);
+        int newSize = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
+        //Assert.assertEquals(size, newSize);
+        Assert.assertNotEquals(size, newSize);
     }
 
     @Test
     public void testDeclineAppointments() {
+        List<String> selectedAppointments = new ArrayList<>();
+        selectedAppointments.add("22/10/2016 16:00  \nPatrikis Georgios +30 698 222 2222");
+        int size = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
+        presenter.DeclineAppointments("6", selectedAppointments);
+        int newSize = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();
+        //Assert.assertEquals(size, newSize);
+        Assert.assertNotEquals(size, newSize);
     }
 }
