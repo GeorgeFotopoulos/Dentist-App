@@ -114,8 +114,8 @@ public abstract class Initializer {
         services2.add(serviceDAO.find("3"));
         visitDAO.save(new Visit(new SimpleCalendar(2018, 5, 11), "Operation unsuccessful!", dentistDAO.find("2"), clientDAO.find("17099800037"), services2));
         Set<Service> services3 = new HashSet<>();
-        //services3.add(serviceDAO.find("1"));
-        //services3.add(serviceDAO.find("3"));
+        services3.add(serviceDAO.find("1"));
+        services3.add(serviceDAO.find("3"));
         visitDAO.save(new Visit(new SimpleCalendar(2018, 5, 4), "Operation successful!", dentistDAO.find("3"), clientDAO.find("17099800037"), services3));
         Set<Service> services4 = new HashSet<>();
         services4.add(serviceDAO.find("1"));
