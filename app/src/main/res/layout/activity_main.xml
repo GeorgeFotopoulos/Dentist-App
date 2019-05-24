@@ -43,7 +43,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I am a dentist"
+        android:text="I am a Dentist"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toTopOf="@+id/Dentist_Button"
         app:layout_constraintEnd_toEndOf="parent"
