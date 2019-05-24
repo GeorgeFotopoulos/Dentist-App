@@ -83,6 +83,15 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
                 AMKA = ((EditText) findViewById(R.id.amka)).getText().toString();
                 client = presenter.onSearchClient(AMKA);
 
+                CalendarView calender = findViewById(R.id.DateOfAppointment);
+                calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+                    @Override
+                    public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                        month++;
+                        dateOfAppointment = new SimpleCalendar(year, month, dayOfMonth);
+                    }
+                });
+
                 if (client == null) {
                     TextView result = findViewById(R.id.search_res);
                     result.setText("There's no client with this number! \n Create a Client's Card!");
@@ -99,14 +108,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
             }
         });
 
-        CalendarView calender = findViewById(R.id.DateOfAppointment);
-        calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @Override
-            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                month++;
-                dateOfAppointment = new SimpleCalendar(year, month, dayOfMonth);
-            }
-        });
+
 
         findViewById(R.id.btn_save).setOnClickListener(new View.OnClickListener() {
             @Override
