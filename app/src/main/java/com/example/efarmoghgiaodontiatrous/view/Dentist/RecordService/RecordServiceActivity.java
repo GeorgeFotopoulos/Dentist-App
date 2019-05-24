@@ -203,7 +203,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         findViewById(R.id.in_mail).setVisibility(View.VISIBLE);
         findViewById(R.id.in_amka).setVisibility(View.VISIBLE);
         findViewById(R.id.textView28).setVisibility(View.VISIBLE);
-        findViewById(R.id.DateOfAppointment).setVisibility(View.VISIBLE);
+        findViewById(R.id.frm).setVisibility(View.VISIBLE);
         TextView amka = findViewById(R.id.in_amka);
         amka.setText(AMKA);
         findViewById(R.id.in_fname).setVisibility(View.VISIBLE);

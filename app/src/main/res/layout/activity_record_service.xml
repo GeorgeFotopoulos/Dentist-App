@@ -259,20 +259,28 @@
                 android:text="Comments:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/DateOfAppointment" />
+                app:layout_constraintTop_toBottomOf="@+id/frm" />
                 tools:layout_editor_absoluteY="873dp"
                 tools:ignore="MissingConstraints" />
 
-            <CalendarView
-                android:id="@+id/DateOfAppointment"
+            <FrameLayout
+                android:id="@+id/frm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
                 android:visibility="invisible"
-                android:layout_width="300dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+                tools:ignore="MissingConstraints">
 
+                <CalendarView
+                    android:id="@+id/DateOfAppointment"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+            </FrameLayout>
 
         </android.support.constraint.ConstraintLayout>
 
