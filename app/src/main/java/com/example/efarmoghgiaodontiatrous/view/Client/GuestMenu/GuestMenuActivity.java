@@ -78,6 +78,7 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
     }
 
     public void showSearchView(String lastname, String firstname) {
+        finish();
         Intent intent = new Intent(this, DentistSearchActivity.class);
         intent.putExtra("lastname", lastname);
         intent.putExtra("firstname", firstname);

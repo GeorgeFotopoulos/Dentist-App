@@ -50,6 +50,12 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
+
     public void showError(String errorMsg) {
         Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
     }
