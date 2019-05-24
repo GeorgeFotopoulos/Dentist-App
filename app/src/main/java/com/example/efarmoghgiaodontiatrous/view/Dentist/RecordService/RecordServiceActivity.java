@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewHistory.DentistViewHistoryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,9 +35,11 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     private String lname;
     private String phone;
     private String mail;
-    private String amka;
+    protected String amka;
     private String comments;
     private SimpleCalendar dateOfAppointment = null;
+    protected String where;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,17 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         presenter = new RecordServicePresenter(this);
         Intent intent = getIntent();
         ID = intent.getStringExtra("ID");
+        amka = intent.getStringExtra("AMKA");
+        where = intent.getStringExtra("cameFromWhere?");
+
+        if(where.equals("History")){
+            TextView amkaField = findViewById(R.id.amka);
+            amkaField.setText(amka);
+            amkaField.setEnabled(false);
+            searchSimulate();
+
+            findViewById(R.id.btn_search_client).setEnabled(false);
+        }
 
         final ListView listViewWithCheckbox = findViewById(R.id.list_view_with_checkbox2);
         final List<ListViewItemDTO> initItemListServ = this.getInitViewItemDtoListServ();
@@ -78,29 +93,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         findViewById(R.id.btn_search_client).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AMKA = ((EditText) findViewById(R.id.amka)).getText().toString();
-                client = presenter.onSearchClient(AMKA);
-
-                CalendarView calender = findViewById(R.id.DateOfAppointment);
-                calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-                    @Override
-                    public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-                        month++;
-                        dateOfAppointment = new SimpleCalendar(year, month, dayOfMonth);
-                    }
-                });
-
-                if (client == null) {
-                    TextView result = findViewById(R.id.search_res);
-                    result.setText("There's no client with this number! \n Create a Client's Card!");
-                    onFillForm(client);
-                    onShowForm();
-                } else {
-                    TextView result = findViewById(R.id.search_res);
-                    result.setText("Client Found!");
-                    onFillForm(client);
-                    onShowForm();
-                }
+                searchSimulate();
             }
         });
 
@@ -110,6 +103,32 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
                 toSave();
             }
         });
+    }
+
+    private void searchSimulate(){
+        AMKA = ((EditText) findViewById(R.id.amka)).getText().toString();
+        client = presenter.onSearchClient(AMKA);
+
+        CalendarView calender = findViewById(R.id.DateOfAppointment);
+        calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                month++;
+                dateOfAppointment = new SimpleCalendar(year, month, dayOfMonth);
+            }
+        });
+
+        if (client == null) {
+            TextView result = findViewById(R.id.search_res);
+            result.setText("There's no client with this number! \n Create a Client's Card!");
+            onFillForm(client);
+            onShowForm();
+        } else {
+            TextView result = findViewById(R.id.search_res);
+            result.setText("Client Found!");
+            onFillForm(client);
+            onShowForm();
+        }
     }
 
     public void toSave() {
@@ -129,10 +148,18 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
 
     @Override
     public void onBackPressed() {
-        finish();
-        Intent intent = new Intent(RecordServiceActivity.this, DentistMenuActivity.class);
-        intent.putExtra("Logged-In User", ID);
-        startActivity(intent);
+
+        if(where.equals("Menu")) {
+            finish();
+            Intent intent = new Intent(RecordServiceActivity.this, DentistMenuActivity.class);
+            intent.putExtra("Logged-In User", ID);
+            startActivity(intent);
+        }else{
+            finish();
+            Intent intent = new Intent(RecordServiceActivity.this, DentistViewHistoryActivity.class);
+            intent.putExtra("ID", ID);
+            startActivity(intent);
+        }
     }
 
     private void saved() {

@@ -120,7 +120,9 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
     public void recordProvidedService(){
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, RecordServiceActivity.class);
+        intent.putExtra("cameFromWhere?", "Menu");
         intent.putExtra("ID",Dentist_ID);
+        intent.putExtra("AMKA","");
         startActivity(intent);
     }
     @Override
