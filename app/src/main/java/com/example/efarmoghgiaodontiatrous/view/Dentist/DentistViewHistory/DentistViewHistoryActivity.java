@@ -30,9 +30,9 @@ public class DentistViewHistoryActivity extends AppCompatActivity implements Den
                 TextView history = findViewById(R.id.history_info);
                 AMKA = ((EditText) findViewById(R.id.input_amka)).getText().toString();
                 history.setText(presenter.onHistoryBack(AMKA));
+                findViewById(R.id.plusBtn).setVisibility(View.VISIBLE);
             }
         });
-
         findViewById(R.id.plusBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,24 +42,24 @@ public class DentistViewHistoryActivity extends AppCompatActivity implements Den
         });
     }
 
-    public void onCheckAMKA(String AMKA){
-        if(!AMKA.equals("")){
+    public void onCheckAMKA(String AMKA) {
+        if (!AMKA.equals("")) {
             onRecordService();
-        }else {
-            Toast.makeText(getBaseContext(), "Enter Client's Number First!!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getBaseContext(), "The Client's AMKA field is required!", Toast.LENGTH_SHORT).show();
             findViewById(R.id.plusBtn).setEnabled(true);
         }
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
         Intent intent = new Intent(DentistViewHistoryActivity.this, DentistMenuActivity.class);
         intent.putExtra("Logged-In User", ID);
         startActivity(intent);
     }
 
-    public void onRecordService(){
+    public void onRecordService() {
         Intent intent = new Intent(DentistViewHistoryActivity.this, RecordServiceActivity.class);
         intent.putExtra("ID", ID);
         intent.putExtra("AMKA", AMKA);
