@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.example.efarmoghgiaodontiatrous.DentistAdapter;
-import com.example.efarmoghgiaodontiatrous.ItemSelectionListener;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.DentistAdapter;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ItemSelectionListener;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;

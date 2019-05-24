@@ -33,11 +33,8 @@ public class DentistAppointmentManagementPresenter {
 
         for (int i = 0; i < selectedAppointments.size(); i++) {
             String[] dateParts = selectedAppointments.get(i).split("/");
-            String day = dateParts[0];
-            String month = dateParts[1];
-            String year = dateParts[2];
-            int simpleday = Integer.parseInt(day);
-            int simplemonth = Integer.parseInt(month);
+            int simpleday = Integer.parseInt(dateParts[1]);
+            int simplemonth = Integer.parseInt(dateParts[1]);
             int simpleyear = Integer.parseInt(dateParts[2].charAt(0) + "" + dateParts[2].charAt(1) + "" + dateParts[2].charAt(2) + "" + dateParts[2].charAt(3));
             System.out.println(simplemonth == simpleyear);
             String[] takeparts = selectedAppointments.get(i).split(" ");
@@ -50,13 +47,11 @@ public class DentistAppointmentManagementPresenter {
             for (int j = 0; j < allapp.size(); j++) {
                 if (tempDent.equals(allapp.get(j).getDentist()) && allapp.get(j).getBookDate().equals(new SimpleCalendar(simpleyear, simplemonth, simpleday)) && shours == Integer.parseInt(allapp.get(j).getHour()) && sminutes == Integer.parseInt(allapp.get(j).getMinutes())) {
                     allapp.get(j).setState(AppointmentState.ACCEPTED);
-                   // allapp.get(j).setState(AppointmentState.ACCEPTED);
                     break;
                 }
             }
-
         }
-        view.jobDone("Appointments Added To your Agenda as Accepted");
+        view.jobDone("Appointment(s) added to your Agenda as accepted!");
     }
 
     public void DeclineAppointments(String ID, List<String> selectedAppointments) {
@@ -67,11 +62,8 @@ public class DentistAppointmentManagementPresenter {
 
         for (int i = 0; i < selectedAppointments.size(); i++) {
             String[] dateParts = selectedAppointments.get(i).split("/");
-            String day = dateParts[0];
-            String month = dateParts[1];
-            String year = dateParts[2];
-            int simpleday = Integer.parseInt(day);
-            int simplemonth = Integer.parseInt(month);
+            int simpleday = Integer.parseInt(dateParts[0]);
+            int simplemonth = Integer.parseInt(dateParts[1]);
             int simpleyear = Integer.parseInt(dateParts[2].charAt(0) + "" + dateParts[2].charAt(1) + "" + dateParts[2].charAt(2) + "" + dateParts[2].charAt(3));
             System.out.println(simplemonth == simpleyear);
             String[] takeparts = selectedAppointments.get(i).split(" ");
@@ -88,6 +80,6 @@ public class DentistAppointmentManagementPresenter {
                 }
             }
         }
-        view.jobDone("Appointments Were Rejected");
+        view.jobDone("Appointment(s) were rejected!");
     }
 }

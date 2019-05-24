@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous.ui.login;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin;
 
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 

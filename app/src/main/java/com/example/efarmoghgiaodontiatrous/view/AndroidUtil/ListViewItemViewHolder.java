@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous;
+package com.example.efarmoghgiaodontiatrous.view.AndroidUtil;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

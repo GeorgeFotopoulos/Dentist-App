@@ -10,7 +10,7 @@ import android.view.View;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.dao.Initializer;
 import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
-import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin.DentistLoginActivity;
 import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {

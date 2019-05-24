@@ -24,7 +24,7 @@
 
             <EditText
                 android:id="@+id/amka"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
@@ -71,7 +71,7 @@
 
             <EditText
                 android:id="@+id/in_fname"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
@@ -83,7 +83,7 @@
 
             <EditText
                 android:id="@+id/in_lname"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
@@ -95,7 +95,7 @@
 
             <EditText
                 android:id="@+id/in_phone"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
@@ -107,7 +107,7 @@
 
             <EditText
                 android:id="@+id/in_mail"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
@@ -120,7 +120,7 @@
 
             <EditText
                 android:id="@+id/in_amka"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"
@@ -236,10 +236,9 @@
             </LinearLayout>
 
 
-
             <EditText
                 android:id="@+id/in_com"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="center"

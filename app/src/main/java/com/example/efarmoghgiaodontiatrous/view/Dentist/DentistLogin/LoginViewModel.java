@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous.ui.login;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
@@ -32,16 +32,16 @@ public class LoginViewModel extends ViewModel {
     }
 
     public void login(String username, String password) {
-        DentistDAOMemory d = new DentistDAOMemory() ;
+        DentistDAOMemory d = new DentistDAOMemory();
         // can be launched in a separate asynchronous job
         Result<LoggedInUser> result = loginRepository.login(username, password);
 
         if (d.findByEmail(username) != null) {
             Dentist dentist = d.findByEmail(username);
-            if(dentist.getPassword().equals(password)){
+            if (dentist.getPassword().equals(password)) {
                 LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
                 loginResult.setValue(new LoginResult(new LoggedInUserView(dentist)));
-            }else{
+            } else {
                 loginResult.setValue(new LoginResult(R.string.login_failed));
             }
         } else {

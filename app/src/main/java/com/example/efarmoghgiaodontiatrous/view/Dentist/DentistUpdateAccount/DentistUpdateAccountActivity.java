@@ -12,8 +12,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.efarmoghgiaodontiatrous.ListViewItemCheckboxBaseAdapter;
-import com.example.efarmoghgiaodontiatrous.ListViewItemDTO;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.domain.Service;

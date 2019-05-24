@@ -1,9 +1,9 @@
-package com.example.efarmoghgiaodontiatrous.ui.login;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin;
 
 import android.support.annotation.Nullable;
 
 /**
- * Data validation state of the login form.
+ * Data validation state of the DentistLogin form.
  */
 class LoginFormState {
     @Nullable

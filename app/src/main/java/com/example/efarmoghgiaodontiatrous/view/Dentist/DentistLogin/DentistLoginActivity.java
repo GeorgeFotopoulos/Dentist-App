@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous.ui.login;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin;
 
 import android.app.Activity;
 import android.arch.lifecycle.Observer;
@@ -57,9 +57,6 @@ public class DentistLoginActivity extends AppCompatActivity {
                 if (loginFormState.getUsernameError() != null) {
                     usernameEditText.setError(getString(loginFormState.getUsernameError()));
                 }
-                if (loginFormState.getPasswordError() != null) {
-               //     passwordEditText.setError(getString(loginFormState.getPasswordError()));
-                }
             }
         });
 
@@ -77,7 +74,7 @@ public class DentistLoginActivity extends AppCompatActivity {
                     updateUiWithUser(loginResult.getSuccess());
                     setResult(Activity.RESULT_OK);
 
-                    //Complete and destroy login activity once successful
+                    //Complete and destroy DentistLogin activity once successful
                     finish();
                 }
             }

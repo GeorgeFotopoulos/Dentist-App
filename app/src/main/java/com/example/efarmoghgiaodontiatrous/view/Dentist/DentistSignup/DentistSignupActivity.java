@@ -12,18 +12,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.efarmoghgiaodontiatrous.ListViewItemCheckboxBaseAdapter;
-import com.example.efarmoghgiaodontiatrous.ListViewItemDTO;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
+import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
-import com.example.efarmoghgiaodontiatrous.domain.Service;
-import com.example.efarmoghgiaodontiatrous.domain.Specialization;
-import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
-import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
-import com.example.efarmoghgiaodontiatrous.ui.login.DentistLoginActivity;
+import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin.DentistLoginActivity;
 import com.example.efarmoghgiaodontiatrous.util.Address;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
-import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewProfile.DentistViewProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;

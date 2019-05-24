@@ -1,4 +1,4 @@
-package com.example.efarmoghgiaodontiatrous.ui.login;
+package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
