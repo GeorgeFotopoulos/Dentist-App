@@ -27,6 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:gravity="center"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -234,80 +235,7 @@
 
             </LinearLayout>
 
-            <EditText
-                android:id="@+id/in_day"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toStartOf="@+id/in_month"
-                app:layout_constraintHorizontal_bias="0.482"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView29" />
 
-            <EditText
-                android:id="@+id/in_month"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="@+id/textView30"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/textView30"
-                app:layout_constraintTop_toBottomOf="@+id/textView30" />
-
-            <EditText
-                android:id="@+id/in_year"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:inputType="textPersonName"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.46"
-                app:layout_constraintStart_toEndOf="@+id/in_month"
-                app:layout_constraintTop_toBottomOf="@+id/textView31" />
-
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Day:"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toStartOf="@+id/textView30"
-                app:layout_constraintHorizontal_bias="0.458"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/textView30" />
-
-            <TextView
-                android:id="@+id/textView30"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:text="Month:"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-            <TextView
-                android:id="@+id/textView31"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Year:"
-                android:visibility="invisible"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.493"
-                app:layout_constraintStart_toEndOf="@+id/textView30"
-                app:layout_constraintTop_toTopOf="@+id/textView30" />
 
             <EditText
                 android:id="@+id/in_com"
@@ -323,6 +251,7 @@
 
             <TextView
                 android:id="@+id/textView28"
+                android:visibility="invisible"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -330,7 +259,19 @@
                 android:text="Comments:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/in_month" />
+                app:layout_constraintTop_toBottomOf="@+id/DateOfAppointment" />
+                tools:layout_editor_absoluteY="873dp"
+                tools:ignore="MissingConstraints" />
+
+            <CalendarView
+                android:id="@+id/DateOfAppointment"
+                android:visibility="invisible"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 
         </android.support.constraint.ConstraintLayout>
