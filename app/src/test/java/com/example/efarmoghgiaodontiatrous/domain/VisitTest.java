@@ -14,13 +14,34 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * The type Visit test.
+ */
 public class VisitTest {
+    /**
+     * The Visit.
+     */
     Visit visit;
+    /**
+     * The Date.
+     */
     SimpleCalendar date;
+    /**
+     * The Dentist.
+     */
     Dentist dentist;
+    /**
+     * The Client.
+     */
     Client client;
+    /**
+     * The Services.
+     */
     Set<Service> services = new HashSet<>();
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         date = new SimpleCalendar(10, 10, 2010);
@@ -64,6 +85,9 @@ public class VisitTest {
         assertEquals(equalVisit.hashCode(), visit.hashCode());
     }
 
+    /**
+     * Test getters setters.
+     */
     @Test
     public void testGettersSetters() {
         Dentist otherDentist = new Dentist();

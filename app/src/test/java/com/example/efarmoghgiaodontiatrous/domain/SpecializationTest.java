@@ -8,9 +8,18 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * The type Specialization test.
+ */
 public class SpecializationTest {
+    /**
+     * The Specialization.
+     */
     Specialization specialization;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         specialization = new Specialization("Endodontic", "1");
@@ -40,6 +49,9 @@ public class SpecializationTest {
         assertEquals(0, specialization5.hashCode());
     }
 
+    /**
+     * Test getters setters.
+     */
     @Test
     public void testGettersSetters() {
         Specialization other = new Specialization();

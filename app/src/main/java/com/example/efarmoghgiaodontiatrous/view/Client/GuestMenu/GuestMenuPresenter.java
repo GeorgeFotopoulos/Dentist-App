@@ -7,6 +7,9 @@ import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 
 import java.util.List;
 
+/**
+ * The type Guest menu presenter.
+ */
 public class GuestMenuPresenter {
     private GuestMenuView view;
 

@@ -13,7 +13,7 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import java.util.List;
 
 /**
- * A class that extends RecyclerView  so that it shows Dentists with info to be selected for Activities to be done
+ * A class that extends RecyclerView so that it shows Dentists with info to be selected for Activities to be done
  */
 public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
     private List<Dentist> itemList;
@@ -21,14 +21,19 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
     private ItemSelectionListener<Dentist> dentSelectionListener;
 
 
+    /**
+     * Instantiates a new Dentist adapter.
+     *
+     * @param myDataset the my dataset
+     */
     public DentistAdapter(List<Dentist> myDataset) {
         itemList = myDataset;
     }
 
     /**
-     * Set a listener to be notified of book selection (click on the TextView)
+     * Set a listener to be notified of dent selection (click on the TextView)
      *
-     * @param dentSelectionListener
+     * @param dentSelectionListener the dent selection listener
      */
     public void setDentistSelectionListener(ItemSelectionListener<Dentist> dentSelectionListener) {
         this.dentSelectionListener = dentSelectionListener;
@@ -61,11 +66,28 @@ public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHold
         return itemList.size();
     }
 
+    /**
+     * The type View holder.
+     */
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        /**
+         * The List item.
+         */
         public ViewGroup listItem;
+        /**
+         * The Txt dentist.
+         */
         public TextView txtDentist;
+        /**
+         * The Btn select dentist.
+         */
         public Button btnSelectDentist;
 
+        /**
+         * Instantiates a new View holder.
+         *
+         * @param v the v
+         */
         public ViewHolder(ViewGroup v) {
             super(v);
             listItem = v;

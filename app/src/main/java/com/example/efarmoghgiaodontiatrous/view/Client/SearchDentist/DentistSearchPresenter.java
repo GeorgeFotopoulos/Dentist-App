@@ -7,9 +7,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The type Dentist search presenter.
+ */
 public class DentistSearchPresenter {
     private DentistSearchView view;
 
+    /**
+     * Instantiates a new Dentist search presenter.
+     *
+     * @param view the view
+     */
     public DentistSearchPresenter(DentistSearchView view) {
         this.view = view;
     }

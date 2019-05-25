@@ -8,9 +8,18 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * The type Client test.
+ */
 public class ClientTest {
+    /**
+     * The Client.
+     */
     Client client;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
@@ -26,6 +35,9 @@ public class ClientTest {
         assertEquals(otherClient.hashCode(), client.hashCode());
     }
 
+    /**
+     * Same object.
+     */
     @Test
     public void sameObject() {
         Client otherClient = new Client(client);
@@ -33,6 +45,9 @@ public class ClientTest {
         assertEquals(otherClient.hashCode(), client.hashCode());
     }
 
+    /**
+     * Different customers.
+     */
     @Test
     public void differentCustomers() {
         Client otherClient = new Client("George", "Patrikis", "6986888788", "geopatg4@gmail.com", "16019800037");
@@ -40,6 +55,9 @@ public class ClientTest {
         assertNotEquals(otherClient.hashCode(), client.hashCode());
     }
 
+    /**
+     * Test getters setters.
+     */
     @Test
     public void testGettersSetters() {
         Client otherClient = new Client();

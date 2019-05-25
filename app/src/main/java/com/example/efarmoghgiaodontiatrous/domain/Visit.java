@@ -5,6 +5,9 @@ import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Visit.
+ */
 public class Visit {
     private SimpleCalendar dateOfVisit;
     private String comments;

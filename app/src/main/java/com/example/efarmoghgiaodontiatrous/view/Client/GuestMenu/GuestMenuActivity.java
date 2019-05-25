@@ -17,8 +17,20 @@ import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
 import java.util.List;
 
+/**
+ * The type Guest menu activity.
+ */
 public class GuestMenuActivity extends AppCompatActivity implements GuestMenuView {
-    Spinner s, s1, s2;
+    /**
+     * The S.
+     */
+    Spinner s, /**
+     * The S 1.
+     */
+    s1, /**
+     * The S 2.
+     */
+    s2;
     private GuestMenuPresenter presenter;
 
     @Override

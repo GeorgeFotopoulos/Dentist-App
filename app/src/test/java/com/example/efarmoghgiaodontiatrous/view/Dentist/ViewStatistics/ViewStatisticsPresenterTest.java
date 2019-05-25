@@ -22,14 +22,26 @@ import org.junit.Test;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type View statistics presenter test.
+ */
 public class ViewStatisticsPresenterTest {
+    /**
+     * The Presenter.
+     */
     ViewStatisticsPresenter presenter;
+    /**
+     * The View.
+     */
     ViewStatisticsViewStub view;
     private ClientDAO clientDao;
     private DentistDAO dentistDao;
     private ServiceDAO serviceDao;
     private VisitDAO visitDao;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
+/**
+ * The type Service.
+ */
 public class Service {
     private String serviceName, serviceID;
 
@@ -33,7 +36,7 @@ public class Service {
     /**
      * Returns Service's name.
      *
-     * @return Service's name
+     * @return Service 's name
      */
     public String getServiceName() {
         return serviceName;
@@ -51,7 +54,7 @@ public class Service {
     /**
      * Returns Service's ID.
      *
-     * @return Service's ID
+     * @return Service 's ID
      */
     public String getServiceID() {
         return serviceID;

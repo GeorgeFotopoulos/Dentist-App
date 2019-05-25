@@ -8,8 +8,14 @@ import android.widget.TextView;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
+/**
+ * The type View statistics activity.
+ */
 public class ViewStatisticsActivity extends AppCompatActivity implements ViewStatisticsView {
 
+    /**
+     * The Presenter.
+     */
     protected ViewStatisticsPresenter presenter;
     private String ID;
 
@@ -30,7 +36,7 @@ public class ViewStatisticsActivity extends AppCompatActivity implements ViewSta
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
         Intent intent = new Intent(ViewStatisticsActivity.this, DentistMenuActivity.class);
         intent.putExtra("Logged-In User", ID);

@@ -12,7 +12,13 @@ import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Initializer.
+ */
 public abstract class Initializer {
+    /**
+     * Erase data.
+     */
     public abstract void eraseData();
 
     /**
@@ -134,42 +140,42 @@ public abstract class Initializer {
     /**
      * Returns the Appointments' DAO.
      *
-     * @return Appointments' DAO.
+     * @return Appointments ' DAO.
      */
     public abstract AppointmentDAO getAppointmentDAO();
 
     /**
      * Returns the Clients' DAO.
      *
-     * @return Clients' DAO.
+     * @return Clients ' DAO.
      */
     public abstract ClientDAO getClientDAO();
 
     /**
      * Returns the Dentists' DAO.
      *
-     * @return Dentists' DAO.
+     * @return Dentists ' DAO.
      */
     public abstract DentistDAO getDentistDAO();
 
     /**
      * Returns the Services' DAO.
      *
-     * @return Services' DAO.
+     * @return Services ' DAO.
      */
     public abstract ServiceDAO getServiceDAO();
 
     /**
      * Returns the Specializations' DAO.
      *
-     * @return Specializations' DAO.
+     * @return Specializations ' DAO.
      */
     public abstract SpecializationDAO getSpecializationDAO();
 
     /**
      * Returns the Visits' DAO.
      *
-     * @return Visits' DAO.
+     * @return Visits ' DAO.
      */
     public abstract VisitDAO getVisitDAO();
 }

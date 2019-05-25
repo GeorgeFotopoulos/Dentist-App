@@ -14,6 +14,9 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuA
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistSignup.DentistSignupActivity;
 import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
+/**
+ * The type Dentist login activity.
+ */
 public class DentistLoginActivity extends AppCompatActivity implements DentistLoginView {
 
     private DentistLoginPresenter presenter;
@@ -61,6 +64,9 @@ public class DentistLoginActivity extends AppCompatActivity implements DentistLo
         Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Sign up.
+     */
     public void signUp() {
         finish();
         Intent intent = new Intent(DentistLoginActivity.this, DentistSignupActivity.class);
@@ -75,6 +81,11 @@ public class DentistLoginActivity extends AppCompatActivity implements DentistLo
         startActivity(intent);
     }
 
+    /**
+     * Dentist menu.
+     *
+     * @param ID the id
+     */
     public void dentistMenu(String ID) {
         finish();
         Intent intent = new Intent(DentistLoginActivity.this, DentistMenuActivity.class);

@@ -18,9 +18,21 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuA
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Dentist appointment management activity.
+ */
 public class DentistAppointmentManagementActivity extends AppCompatActivity implements DentistAppointmentManagementView {
+    /**
+     * The Item text arr.
+     */
     String[] itemTextArr;
+    /**
+     * The Selected appointments.
+     */
     List<String> SelectedAppointments;
+    /**
+     * The Dentist id.
+     */
     String Dentist_ID;
     private DentistAppointmentManagementPresenter presenter;
 
@@ -108,6 +120,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
 
     /**
      * connects the String of a List with the checkbox
+     *
      * @return List with ListViewItemDTO
      */
     private List<ListViewItemDTO> getInitViewItemDtoList() {

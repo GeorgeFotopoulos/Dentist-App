@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
+/**
+ * The type Specialization.
+ */
 public class Specialization {
     private String specializationName, specializationID;
 
@@ -33,7 +36,7 @@ public class Specialization {
     /**
      * Returns Specialization's name
      *
-     * @return Specialization's name
+     * @return Specialization 's name
      */
     public String getSpecializationName() {
         return specializationName;
@@ -51,7 +54,7 @@ public class Specialization {
     /**
      * Returns Specialization's ID
      *
-     * @return Specialization's ID
+     * @return Specialization 's ID
      */
     public String getSpecializationID() {
         return specializationID;

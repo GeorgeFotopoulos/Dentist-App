@@ -13,9 +13,20 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The type Record service presenter.
+ */
 public class RecordServicePresenter {
+    /**
+     * The View.
+     */
     RecordServiceView view;
 
+    /**
+     * Instantiates a new Record service presenter.
+     *
+     * @param view the view
+     */
     public RecordServicePresenter(RecordServiceView view) {
         this.view = view;
     }
@@ -25,7 +36,7 @@ public class RecordServicePresenter {
      * This method searches a client in the DAO, based on his AMKA.
      *
      * @param AMKA The client's AMKA
-     * @return client's  information
+     * @return client 's  information
      */
     public Client onSearchClient(String AMKA) {
         ClientDAOMemory v = new ClientDAOMemory();
@@ -36,15 +47,15 @@ public class RecordServicePresenter {
     /**
      * This method creates a new Visit in the DAO.
      *
-     * @param calendar The visit's date
+     * @param calendar  The visit's date
      * @param firstName The client's First Name
-     * @param lastName The client's Last Name
-     * @param phone The client's phone
-     * @param email The client's email
-     * @param AMKA The client's AMKA
-     * @param services The services that the Dentist provided
+     * @param lastName  The client's Last Name
+     * @param phone     The client's phone
+     * @param email     The client's email
+     * @param AMKA      The client's AMKA
+     * @param services  The services that the Dentist provided
      * @param dentistID The Dentist's ID
-     * @param comments Possible Comments
+     * @param comments  Possible Comments
      */
     public void onCreate(SimpleCalendar calendar, String firstName, String lastName, String phone, String email, String AMKA, List<String> services, String dentistID, String comments) {
         DentistDAOMemory dentistDao = new DentistDAOMemory();

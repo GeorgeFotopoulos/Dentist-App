@@ -9,13 +9,22 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * The type Simple calendar test.
+ */
 public class SimpleCalendarTest {
+    /**
+     * Creation.
+     */
     @Test
     public void creation() {
         SimpleCalendar march_1_2007 = new SimpleCalendar(2007, 3, 1);
         assert1stMarch2007(march_1_2007);
     }
 
+    /**
+     * Creation form calendar.
+     */
     @Test
     public void creationFormCalendar() {
         Calendar date = Calendar.getInstance();
@@ -24,12 +33,18 @@ public class SimpleCalendarTest {
         assert1stMarch2007(march_1_2007);
     }
 
+    /**
+     * Preserve date invirant.
+     */
     @Test
     public void preserveDateInvirant() {
         SimpleCalendar date = new SimpleCalendar(2007, 2, 29);
         assert1stMarch2007(date);
     }
 
+    /**
+     * Before and after.
+     */
     @Test
     public void beforeAndAfter() {
         SimpleCalendar date = new SimpleCalendar(2007, 3, 1);
@@ -57,6 +72,9 @@ public class SimpleCalendarTest {
         assertEquals("03", date.getStringMonth());
     }
 
+    /**
+     * Duration.
+     */
     @Test
     public void duration() {
         SimpleCalendar february_28_2007 = new SimpleCalendar(2007, 2, 28);

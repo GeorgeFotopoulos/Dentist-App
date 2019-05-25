@@ -3,14 +3,25 @@ package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewProfile;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 
+/**
+ * The type Dentist view profile presenter.
+ */
 public class DentistViewProfilePresenter {
 
     private DentistViewProfileView view;
 
+    /**
+     * Instantiates a new Dentist view profile presenter.
+     *
+     * @param view the view
+     */
     public DentistViewProfilePresenter(DentistViewProfileView view) {
         this.view = view;
     }
 
+    /**
+     * On update account.
+     */
     public void onUpdateAccount() {
         view.updateAccount();
     }
@@ -18,7 +29,7 @@ public class DentistViewProfilePresenter {
     /**
      * This method searches the Dentist's account by his ID..
      *
-     * @param ID   Dentist's ID
+     * @param ID Dentist's ID
      * @return a String with all of his information
      */
     public String onShowProfile(String ID) {

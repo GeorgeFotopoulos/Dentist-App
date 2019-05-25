@@ -10,11 +10,23 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The type Dentist view profile presenter test.
+ */
 public class DentistViewProfilePresenterTest {
+    /**
+     * The Presenter.
+     */
     DentistViewProfilePresenter presenter;
+    /**
+     * The View.
+     */
     DentistViewProfileViewStub view;
     private DentistDAO dentistDao;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

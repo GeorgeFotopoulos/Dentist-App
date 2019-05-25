@@ -6,9 +6,20 @@ import com.example.efarmoghgiaodontiatrous.memorydao.AppointmentDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 
+/**
+ * The type View schedule presenter.
+ */
 public class ViewSchedulePresenter {
+    /**
+     * The View.
+     */
     ViewScheduleView view;
 
+    /**
+     * Instantiates a new View schedule presenter.
+     *
+     * @param view the view
+     */
     public ViewSchedulePresenter(ViewScheduleView view) {
         this.view = view;
     }
@@ -29,8 +40,7 @@ public class ViewSchedulePresenter {
      * whose ID was given as a parameter has, or a message informing that he has no Appointments if none were found.
      *
      * @param dentistID Dentist's ID
-     * @return The Appointment list of the Dentist whose ID was given as a parameter
-     * or a message informing that this Dentist has no Appointments if none were found.
+     * @return The Appointment list of the Dentist whose ID was given as a parameter or a message informing that this Dentist has no Appointments if none were found.
      */
     public String onSchedule(String dentistID) {
         DentistDAOMemory ddao = new DentistDAOMemory();

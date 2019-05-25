@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu;
 
+/**
+ * The interface Guest menu view.
+ */
 public interface GuestMenuView {
 
     /**

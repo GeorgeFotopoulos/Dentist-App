@@ -6,6 +6,9 @@ import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 
 import java.util.List;
 
+/**
+ * The interface Appointment dao.
+ */
 public interface AppointmentDAO {
     /**
      * Deletes an Appointment from the AppointmentDAO.

@@ -8,6 +8,9 @@ import com.example.efarmoghgiaodontiatrous.dao.ServiceDAO;
 import com.example.efarmoghgiaodontiatrous.dao.SpecializationDAO;
 import com.example.efarmoghgiaodontiatrous.dao.VisitDAO;
 
+/**
+ * The type Memory initializer.
+ */
 public class MemoryInitializer extends Initializer {
     /**
      * Returns the Appointments' DAO.

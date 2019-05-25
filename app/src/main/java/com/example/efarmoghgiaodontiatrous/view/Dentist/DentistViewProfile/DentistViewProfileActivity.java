@@ -10,8 +10,17 @@ import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistUpdateAccount.DentistUpdateAccountActivity;
 
+/**
+ * The type Dentist view profile activity.
+ */
 public class DentistViewProfileActivity extends AppCompatActivity implements DentistViewProfileView {
+    /**
+     * The Presenter.
+     */
     protected DentistViewProfilePresenter presenter;
+    /**
+     * The Id.
+     */
     protected String ID;
 
     @Override
@@ -35,7 +44,7 @@ public class DentistViewProfileActivity extends AppCompatActivity implements Den
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
         Intent intent = new Intent(DentistViewProfileActivity.this, DentistMenuActivity.class);
         intent.putExtra("Logged-In User", ID);

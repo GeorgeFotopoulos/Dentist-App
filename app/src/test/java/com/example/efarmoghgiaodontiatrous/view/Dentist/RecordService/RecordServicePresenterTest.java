@@ -20,14 +20,26 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Record service presenter test.
+ */
 public class RecordServicePresenterTest {
+    /**
+     * The Presenter.
+     */
     RecordServicePresenter presenter;
+    /**
+     * The View.
+     */
     RecordServiceViewStub view;
     private ClientDAO clientDao;
     private DentistDAO dentistDao;
     private ServiceDAO serviceDao;
     private VisitDAO visitDao;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

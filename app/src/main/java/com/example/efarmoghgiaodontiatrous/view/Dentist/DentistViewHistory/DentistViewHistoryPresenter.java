@@ -6,10 +6,21 @@ import com.example.efarmoghgiaodontiatrous.memorydao.VisitDAOMemory;
 
 import java.util.List;
 
+/**
+ * The type Dentist view history presenter.
+ */
 public class DentistViewHistoryPresenter {
 
+    /**
+     * The View.
+     */
     protected DentistViewHistoryView view;
 
+    /**
+     * Instantiates a new Dentist view history presenter.
+     *
+     * @param view the view
+     */
     public DentistViewHistoryPresenter(DentistViewHistoryView view) {
         this.view = view;
     }
@@ -17,6 +28,7 @@ public class DentistViewHistoryPresenter {
 
     /**
      * Searches in the VisitDAOMemory for all the visits that were provided in the client with the AMKA in parameter
+     *
      * @param AMKA of the client that we want to find all the Services that he was provided
      * @return if there are Visits to the client with the AMKA given returns a String with all the info of all the Visits
      */

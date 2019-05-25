@@ -8,8 +8,14 @@ import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Dentist dao memory.
+ */
 public class DentistDAOMemory implements DentistDAO {
 
+    /**
+     * The constant entities.
+     */
     protected static List<Dentist> entities = new ArrayList<>();
 
     @Override

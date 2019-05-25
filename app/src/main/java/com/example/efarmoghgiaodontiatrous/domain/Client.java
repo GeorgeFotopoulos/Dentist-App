@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.domain;
 
+/**
+ * The type Client.
+ */
 public class Client {
     private String firstName, lastName, telephoneNo, email, AMKA;
 
@@ -42,7 +45,7 @@ public class Client {
     /**
      * Returns the Client's first name.
      *
-     * @return Client's first name
+     * @return Client 's first name
      */
     public String getFirstName() {
         return firstName;
@@ -60,7 +63,7 @@ public class Client {
     /**
      * Returns the Client's last name.
      *
-     * @return Client's last name
+     * @return Client 's last name
      */
     public String getLastName() {
         return lastName;
@@ -78,7 +81,7 @@ public class Client {
     /**
      * Returns the Client's telephone number.
      *
-     * @return Client's telephone number
+     * @return Client 's telephone number
      */
     public String getTelephoneNo() {
         return telephoneNo;
@@ -96,7 +99,7 @@ public class Client {
     /**
      * Returns the Client's email.
      *
-     * @return Client's email
+     * @return Client 's email
      */
     public String getEmail() {
         return email;
@@ -114,7 +117,7 @@ public class Client {
     /**
      * Returns the Client's AMKA.
      *
-     * @return Client's AMKA
+     * @return Client 's AMKA
      */
     public String getAMKA() {
         return AMKA;

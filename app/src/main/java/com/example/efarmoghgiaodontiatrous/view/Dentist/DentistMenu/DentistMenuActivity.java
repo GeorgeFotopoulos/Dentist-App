@@ -17,6 +17,9 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.ViewSchedule.ViewSchedul
 import com.example.efarmoghgiaodontiatrous.view.Dentist.ViewStatistics.ViewStatisticsActivity;
 import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
+/**
+ * The type Dentist menu activity.
+ */
 public class DentistMenuActivity extends AppCompatActivity implements DentistMenuView {
     private DentistMenuPresenter presenter;
     private String Dentist_ID;
@@ -74,54 +77,54 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
 
     }
 
-    public void viewProfile(){
+    public void viewProfile() {
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistViewProfileActivity.class);
         intent.putExtra("ID", Dentist_ID);
         startActivity(intent);
     }
 
-    public void updateAccount(){
+    public void updateAccount() {
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistUpdateAccountActivity.class);
-        intent.putExtra("ID",Dentist_ID);
+        intent.putExtra("ID", Dentist_ID);
         startActivity(intent);
     }
 
-    public void viewClientHistory(){
+    public void viewClientHistory() {
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistViewHistoryActivity.class);
-        intent.putExtra("ID",Dentist_ID);
+        intent.putExtra("ID", Dentist_ID);
         startActivity(intent);
     }
 
-    public void appointmentManagement(){
+    public void appointmentManagement() {
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, DentistAppointmentManagementActivity.class);
-        intent.putExtra("ID",Dentist_ID);
+        intent.putExtra("ID", Dentist_ID);
         startActivity(intent);
     }
 
-    public void viewStatistics(){
+    public void viewStatistics() {
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, ViewStatisticsActivity.class);
-        intent.putExtra("ID",Dentist_ID);
+        intent.putExtra("ID", Dentist_ID);
         startActivity(intent);
     }
 
-    public void viewAppointmentSchedule(){
+    public void viewAppointmentSchedule() {
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, ViewScheduleActivity.class);
-        intent.putExtra("ID",Dentist_ID);
+        intent.putExtra("ID", Dentist_ID);
         startActivity(intent);
     }
 
-    public void recordProvidedService(){
+    public void recordProvidedService() {
         finish();
         Intent intent = new Intent(DentistMenuActivity.this, RecordServiceActivity.class);
         intent.putExtra("cameFromWhere?", "Menu");
-        intent.putExtra("ID",Dentist_ID);
-        intent.putExtra("AMKA","");
+        intent.putExtra("ID", Dentist_ID);
+        intent.putExtra("AMKA", "");
         startActivity(intent);
     }
 
@@ -137,7 +140,8 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         Intent intent2 = new Intent(DentistMenuActivity.this, MainActivity.class);
-                        startActivityForResult(intent2, 1);                    }
+                        startActivityForResult(intent2, 1);
+                    }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.view.HomePage;
 
+/**
+ * The interface Main activity view.
+ */
 public interface MainActivityView {
 
     /**

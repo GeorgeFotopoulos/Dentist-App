@@ -6,7 +6,13 @@ import com.example.efarmoghgiaodontiatrous.domain.Visit;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Visit dao memory.
+ */
 public class VisitDAOMemory implements VisitDAO {
+    /**
+     * The constant entities.
+     */
     protected static List<Visit> entities = new ArrayList<>();
 
     @Override

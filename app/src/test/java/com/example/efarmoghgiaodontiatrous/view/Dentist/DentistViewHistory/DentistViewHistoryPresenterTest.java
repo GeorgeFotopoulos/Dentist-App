@@ -7,10 +7,22 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The type Dentist view history presenter test.
+ */
 public class DentistViewHistoryPresenterTest {
+    /**
+     * The Presenter.
+     */
     DentistViewHistoryPresenter presenter;
+    /**
+     * The View.
+     */
     DentistViewHistoryViewStub view;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

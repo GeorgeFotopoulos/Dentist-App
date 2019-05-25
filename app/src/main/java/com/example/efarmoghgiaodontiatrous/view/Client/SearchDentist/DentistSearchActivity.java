@@ -17,7 +17,13 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Dentist search activity.
+ */
 public class DentistSearchActivity extends AppCompatActivity implements ItemSelectionListener<Dentist>, DentistSearchView {
+    /**
+     * The Recycler view.
+     */
     RecyclerView recyclerView;
     private DentistAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;

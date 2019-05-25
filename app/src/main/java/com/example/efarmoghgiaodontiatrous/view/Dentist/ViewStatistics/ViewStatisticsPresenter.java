@@ -7,15 +7,28 @@ import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.ServiceDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.VisitDAOMemory;
 
+/**
+ * The type View statistics presenter.
+ */
 public class ViewStatisticsPresenter {
+    /**
+     * The View.
+     */
     ViewStatisticsView view;
 
+    /**
+     * Instantiates a new View statistics presenter.
+     *
+     * @param view the view
+     */
     public ViewStatisticsPresenter(ViewStatisticsView view) {
         this.view = view;
     }
 
 
     /**
+     * On welcome string.
+     *
      * @param ID finds the Dentist with the given ID
      * @return A welcome message
      */
@@ -26,6 +39,7 @@ public class ViewStatisticsPresenter {
 
     /**
      * finds all the Operations that the Dentist has provided in each Service and keeps a count on it
+     *
      * @param ID Dentist ID to find the stats for the specific Dentist
      * @return a String with the number og the Services or a Message that he ahs no opperations yet
      */

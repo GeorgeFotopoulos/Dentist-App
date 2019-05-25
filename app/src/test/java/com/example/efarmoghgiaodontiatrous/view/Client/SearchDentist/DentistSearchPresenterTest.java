@@ -10,10 +10,22 @@ import org.junit.Test;
 
 import java.util.Set;
 
+/**
+ * The type Dentist search presenter test.
+ */
 public class DentistSearchPresenterTest {
+    /**
+     * The Presenter.
+     */
     DentistSearchPresenter presenter;
+    /**
+     * The View.
+     */
     DentistSearchViewStub view;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

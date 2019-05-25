@@ -10,12 +10,30 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The type Dentist login presenter test.
+ */
 public class DentistLoginPresenterTest {
+    /**
+     * The Presenter.
+     */
     DentistLoginPresenter presenter;
+    /**
+     * The View.
+     */
     DentistLoginViewStub view;
+    /**
+     * The Dentist dao.
+     */
     DentistDAO dentistDao;
+    /**
+     * The Dentist.
+     */
     Dentist dentist;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

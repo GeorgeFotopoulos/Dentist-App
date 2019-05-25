@@ -8,14 +8,22 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * The type Service test.
+ */
 public class ServiceTest {
+    /**
+     * The Service.
+     */
     Service service;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         service = new Service("Filling", "1");
     }
-
 
 
     /**
@@ -42,6 +50,9 @@ public class ServiceTest {
         assertEquals(0, service5.hashCode());
     }
 
+    /**
+     * Test getters setters.
+     */
     @Test
     public void testGettersSetters() {
         Service other = new Service();

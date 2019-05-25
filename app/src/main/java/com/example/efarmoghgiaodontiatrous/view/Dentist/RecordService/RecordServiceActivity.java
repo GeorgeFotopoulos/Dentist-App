@@ -24,9 +24,18 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewHistory.Denti
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Record service activity.
+ */
 public class RecordServiceActivity extends AppCompatActivity implements RecordServiceView {
     private final List<String> tempServices = new ArrayList<>();
+    /**
+     * The Presenter.
+     */
     protected RecordServicePresenter presenter;
+    /**
+     * The Id.
+     */
     protected String ID;
     private String AMKA;
     private Client client;
@@ -34,9 +43,15 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     private String lname;
     private String phone;
     private String mail;
+    /**
+     * The Amka.
+     */
     protected String amka;
     private String comments;
     private SimpleCalendar dateOfAppointment = null;
+    /**
+     * The Where.
+     */
     protected String where;
 
     @Override
@@ -49,7 +64,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         amka = intent.getStringExtra("AMKA");
         where = intent.getStringExtra("cameFromWhere?");
 
-        if(where.equals("History")){
+        if (where.equals("History")) {
             TextView amkaField = findViewById(R.id.amka);
             amkaField.setText(amka);
             amkaField.setEnabled(false);
@@ -107,7 +122,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
      * This method is called when the button 'SEARCH' is pressed.It shows the appropriate message,
      * whether the client exists in the DAO or not.Then, it calls the methods: onFillForm(client), onShowForm();.
      */
-    private void searchSimulate(){
+    private void searchSimulate() {
         AMKA = ((EditText) findViewById(R.id.amka)).getText().toString();
         client = presenter.onSearchClient(AMKA);
 
@@ -154,12 +169,12 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
     @Override
     public void onBackPressed() {
 
-        if(where.equals("Menu")) {
+        if (where.equals("Menu")) {
             finish();
             Intent intent = new Intent(RecordServiceActivity.this, DentistMenuActivity.class);
             intent.putExtra("Logged-In User", ID);
             startActivity(intent);
-        }else{
+        } else {
             finish();
             Intent intent = new Intent(RecordServiceActivity.this, DentistViewHistoryActivity.class);
             intent.putExtra("ID", ID);
@@ -188,6 +203,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
 
     /**
      * This method checks if the information given by the Dentist is correct and if so, it allows the app to continue saving.
+     *
      * @return true for success and false for failed save
      */
     private boolean onCheckValid() {

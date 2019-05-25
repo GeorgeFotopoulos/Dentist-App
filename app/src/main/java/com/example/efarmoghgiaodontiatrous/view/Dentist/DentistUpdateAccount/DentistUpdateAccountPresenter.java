@@ -9,19 +9,31 @@ import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 
 import java.util.List;
 
+/**
+ * The type Dentist update account presenter.
+ */
 public class DentistUpdateAccountPresenter {
     private DentistUpdateAccountView view;
 
+    /**
+     * Instantiates a new Dentist update account presenter.
+     *
+     * @param view the view
+     */
     public DentistUpdateAccountPresenter(DentistUpdateAccountView view) {
         this.view = view;
     }
 
+    /**
+     * On dentist menu.
+     */
     public void onDentistMenu() {
         view.dentistMenu();
     }
 
     /**
      * ovverides over the old account of the existing Dentist (Keeps ID)
+     *
      * @param newAccount account to be Saved
      */
     public void onUpdate(Dentist newAccount) {
@@ -32,6 +44,8 @@ public class DentistUpdateAccountPresenter {
     }
 
     /**
+     * On logged in dentist dentist.
+     *
      * @param ID of the Logged in Dentist
      * @return Dentist that is Logged in
      */
@@ -41,7 +55,9 @@ public class DentistUpdateAccountPresenter {
     }
 
     /**
-     *  @return a String Array of  all The Specialization Names in DAO
+     * Get specialization list string [ ].
+     *
+     * @return a String Array of  all The Specialization Names in DAO
      */
     public String[] getSpecializationList() {
         SpecializationDAOMemory sp = new SpecializationDAOMemory();
@@ -54,7 +70,9 @@ public class DentistUpdateAccountPresenter {
     }
 
     /**
-     *  @return a String Array of  all The Service Names in DAO
+     * Get service string [ ].
+     *
+     * @return a String Array of  all The Service Names in DAO
      */
     public String[] getService() {
         ServiceDAOMemory sp = new ServiceDAOMemory();
@@ -69,8 +87,9 @@ public class DentistUpdateAccountPresenter {
 
     /**
      * Save all the Specializations from the param List that exist in SpecializationDAO
-     * @param tempSpecialization
-     * @param dentist to add Specializations
+     *
+     * @param tempSpecialization the temp specialization
+     * @param dentist            to add Specializations
      */
     public void addSpecializations(List<String> tempSpecialization, Dentist dentist) {
         SpecializationDAOMemory DAO = new SpecializationDAOMemory();
@@ -88,8 +107,9 @@ public class DentistUpdateAccountPresenter {
 
     /**
      * Save all the Services from the param List that exist in ServiceDAO
-     * @param tempServices
-     * @param dentist to add Services that he can provide
+     *
+     * @param tempServices the temp services
+     * @param dentist      to add Services that he can provide
      */
     public void addServices(List<String> tempServices, Dentist dentist) {
         ServiceDAOMemory DAO = new ServiceDAOMemory();

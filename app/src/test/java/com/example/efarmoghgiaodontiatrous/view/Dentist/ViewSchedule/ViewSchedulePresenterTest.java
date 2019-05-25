@@ -14,12 +14,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The type View schedule presenter test.
+ */
 public class ViewSchedulePresenterTest {
+    /**
+     * The Presenter.
+     */
     ViewSchedulePresenter presenter;
+    /**
+     * The View.
+     */
     ViewScheduleViewStub view;
     private AppointmentDAO appointmentDao;
     private DentistDAO dentistDao;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

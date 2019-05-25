@@ -13,8 +13,17 @@ import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
+/**
+ * The type Request appointment activity.
+ */
 public class RequestAppointmentActivity extends AppCompatActivity implements RequestAppointmentView {
+    /**
+     * The Date of appointment.
+     */
     SimpleCalendar dateOfAppointment = null;
+    /**
+     * The Presenter.
+     */
     RequestAppointmentPresenter Presenter;
 
     @Override

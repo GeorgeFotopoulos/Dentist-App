@@ -6,7 +6,13 @@ import com.example.efarmoghgiaodontiatrous.domain.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Service dao memory.
+ */
 public class ServiceDAOMemory implements ServiceDAO {
+    /**
+     * The constant entities.
+     */
     protected static List<Service> entities = new ArrayList<>();
 
     @Override

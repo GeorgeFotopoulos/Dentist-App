@@ -13,9 +13,18 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * The type Dentist test.
+ */
 public class DentistTest {
+    /**
+     * The Dentist.
+     */
     Dentist dentist;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         dentist = new Dentist("George", "Fotopoulos", "6980793051", "giorgos.fotopoulos7@gmail.com", "ABC123", "Athens University of Economics and Business", new Address("Artis", "23", "Athens", "Greece", 17124), 13, "asd123");
@@ -23,6 +32,9 @@ public class DentistTest {
         dentist.addSpecialization(new Specialization("Pododontic", "4"));
     }
 
+    /**
+     * Test equals object.
+     */
     @Test
     public void testEqualsObject() {
         Dentist dentist2 = new Dentist(dentist);
@@ -39,6 +51,9 @@ public class DentistTest {
         assertEquals(0, dentist4.hashCode());
     }
 
+    /**
+     * Test specializations.
+     */
     @Test
     public void testSpecializations() {
         Dentist dentist = new Dentist();
@@ -50,6 +65,9 @@ public class DentistTest {
         assertFalse(dentist.getSpecializations().contains(new Specialization("Orthodontic", "4")));
     }
 
+    /**
+     * Test services.
+     */
     @Test
     public void testServices() {
         Dentist dentist = new Dentist();
@@ -61,6 +79,9 @@ public class DentistTest {
         assertFalse(dentist.getServices().contains(new Service("Filling", "1")));
     }
 
+    /**
+     * Test accept appointment.
+     */
     @Test
     public void testAcceptAppointment() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
@@ -84,6 +105,9 @@ public class DentistTest {
         assertFalse(dentist.getAppointments().contains(appointment));
     }
 
+    /**
+     * Test login.
+     */
     @Test
     public void testLogin() {
         String email = "giorgos.fotopoulos7@gmail.com";
@@ -97,6 +121,9 @@ public class DentistTest {
         assertEquals(dentist.getState(), ConnectionState.CONNECTED);
     }
 
+    /**
+     * Test get appointments.
+     */
     @Test
     public void testGetAppointments() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);
@@ -108,6 +135,9 @@ public class DentistTest {
         assertFalse(dentist.getAppointments().contains(appointment));
     }
 
+    /**
+     * Test record visit.
+     */
     @Test
     public void testRecordVisit() {
         assertEquals(dentist.recordVisit(null, null, dentist, null, null), null);
@@ -122,6 +152,9 @@ public class DentistTest {
         assertEquals(dentist.recordVisit(dateOfVisit, comments, dentist2, client, service), null);
     }
 
+    /**
+     * Test create client card.
+     */
     @Test
     public void testCreateClientCard() {
         String AMKA = "18059500037";
@@ -131,6 +164,9 @@ public class DentistTest {
         assertNotEquals(dentist.createClientCard(AMKA).getAMKA(), "18059500038");
     }
 
+    /**
+     * Test getters setters.
+     */
     @Test
     public void testGettersSetters() {
         Dentist other = new Dentist();
@@ -156,12 +192,18 @@ public class DentistTest {
         assertEquals("-1", other.getID());
     }
 
+    /**
+     * Test print specializations.
+     */
     @Test
     public void testPrintSpecializations() {
         String str = dentist.printSpecializations();
         assertNotEquals("0", str.length());
     }
 
+    /**
+     * Test print services.
+     */
     @Test
     public void testPrintServices() {
         String str = dentist.printServices();

@@ -46,8 +46,7 @@ public class SimpleCalendar implements Comparable<SimpleCalendar> {
      * Η διάρκεια σε ημέρες σε σχέση με μία άλλη ημερομηνία.
      *
      * @param other Η δεύτερη ημερομηνία για την οποία υπολογίζεται η διάρκεια
-     * @return Ο αριθμός των ημερών. Θετικός αριθμός ημερών σημαίνει ότι η άλλη
-     * ημερομηνία είναι μεταγενέστερη, ενώ αρνητικός το αντίθετο.
+     * @return Ο αριθμός των ημερών. Θετικός αριθμός ημερών σημαίνει ότι η άλλη ημερομηνία είναι μεταγενέστερη, ενώ αρνητικός το αντίθετο.
      */
     public long durationInDays(SimpleCalendar other) {
         long timeDiff = other.date.getTimeInMillis() - date.getTimeInMillis();

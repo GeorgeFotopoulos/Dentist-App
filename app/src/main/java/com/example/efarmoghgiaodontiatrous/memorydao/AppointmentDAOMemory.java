@@ -8,7 +8,13 @@ import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Appointment dao memory.
+ */
 public class AppointmentDAOMemory implements AppointmentDAO {
+    /**
+     * The constant entities.
+     */
     protected static List<Appointment> entities = new ArrayList<>();
 
     @Override

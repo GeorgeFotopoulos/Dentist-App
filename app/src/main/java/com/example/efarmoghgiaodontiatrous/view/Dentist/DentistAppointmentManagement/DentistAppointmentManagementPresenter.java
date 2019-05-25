@@ -9,10 +9,18 @@ import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 import java.util.List;
 
+/**
+ * The type Dentist appointment management presenter.
+ */
 public class DentistAppointmentManagementPresenter {
 
     private final DentistAppointmentManagementView view;
 
+    /**
+     * Instantiates a new Dentist appointment management presenter.
+     *
+     * @param view the view
+     */
     DentistAppointmentManagementPresenter(DentistAppointmentManagementView view) {
         this.view = view;
     }

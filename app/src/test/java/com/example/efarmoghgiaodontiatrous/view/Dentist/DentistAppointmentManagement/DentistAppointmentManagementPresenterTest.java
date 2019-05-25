@@ -15,12 +15,24 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Dentist appointment management presenter test.
+ */
 public class DentistAppointmentManagementPresenterTest {
+    /**
+     * The Presenter.
+     */
     DentistAppointmentManagementPresenter presenter;
+    /**
+     * The View.
+     */
     DentistAppointmentManagementViewStub view;
     private AppointmentDAO appointmentDao;
     private DentistDAO dentistDao;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

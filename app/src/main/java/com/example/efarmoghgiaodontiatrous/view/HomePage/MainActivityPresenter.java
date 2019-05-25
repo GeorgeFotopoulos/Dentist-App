@@ -1,8 +1,16 @@
 package com.example.efarmoghgiaodontiatrous.view.HomePage;
 
+/**
+ * The type Main activity presenter.
+ */
 public class MainActivityPresenter {
     private MainActivityView view;
 
+    /**
+     * Instantiates a new Main activity presenter.
+     *
+     * @param view the view
+     */
     public MainActivityPresenter(MainActivityView view) {
         this.view = view;
     }

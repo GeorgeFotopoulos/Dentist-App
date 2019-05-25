@@ -4,6 +4,9 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 
 import java.util.List;
 
+/**
+ * The interface Dentist dao.
+ */
 public interface DentistDAO {
     /**
      * Finds and returns a list of Dentists with the first name and last name given as parameters.

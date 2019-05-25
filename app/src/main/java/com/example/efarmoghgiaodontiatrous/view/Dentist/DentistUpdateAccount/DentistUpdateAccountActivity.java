@@ -24,8 +24,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * The type Dentist update account activity.
+ */
 public class DentistUpdateAccountActivity extends AppCompatActivity implements DentistUpdateAccountView {
+    /**
+     * The Temp specialization.
+     */
     List<String> tempSpecialization;
+    /**
+     * The Temp services.
+     */
     List<String> tempServices;
     private DentistUpdateAccountPresenter presenter;
     private Dentist dentist;
@@ -203,6 +212,11 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         startActivity(intent1);
     }
 
+    /**
+     * Validate boolean.
+     *
+     * @return the boolean
+     */
     public boolean validate() {
         boolean valid = true;
 
@@ -233,6 +247,9 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         return valid;
     }
 
+    /**
+     * Update.
+     */
     public void update() {
         if (!validate()) {
             onUpdateFailed();
@@ -249,7 +266,10 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
                 }, 1000);
     }
 
-    //
+    /**
+     * On update success.
+     */
+//
     public void onUpdateSuccess() {
         dentist.setFirstName(((EditText) findViewById(R.id.input_fname)).getText().toString());
         dentist.setLastName(((EditText) findViewById(R.id.input_lname)).getText().toString());
@@ -284,6 +304,9 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
         startActivity(intent);
     }
 
+    /**
+     * On update failed.
+     */
     public void onUpdateFailed() {
         Toast.makeText(getBaseContext(), "Update Failed, try again!", Toast.LENGTH_LONG).show();
         findViewById(R.id.btn_update).setEnabled(true);

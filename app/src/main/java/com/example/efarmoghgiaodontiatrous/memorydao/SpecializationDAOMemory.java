@@ -6,7 +6,13 @@ import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Specialization dao memory.
+ */
 public class SpecializationDAOMemory implements SpecializationDAO {
+    /**
+     * The constant entities.
+     */
     protected static List<Specialization> entities = new ArrayList<>();
 
     @Override

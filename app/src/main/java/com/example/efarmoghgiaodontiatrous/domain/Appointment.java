@@ -5,6 +5,9 @@ import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
 import java.util.Calendar;
 
+/**
+ * The type Appointment.
+ */
 public class Appointment {
     private String firstName, lastName, telephoneNo, email;
     private AppointmentState state;
@@ -48,6 +51,8 @@ public class Appointment {
      * @param telephoneNo Client's telephone number
      * @param dentist     The dentist that the patient will visit
      * @param bookDate    The date that the visit will be taking place
+     * @param hour        the hour
+     * @param minutes     the minutes
      */
     public Appointment(String firstName, String lastName, String telephoneNo, Dentist dentist, SimpleCalendar bookDate, int hour, int minutes) {
         this.firstName = firstName;
@@ -63,7 +68,7 @@ public class Appointment {
     /**
      * Returns the Client's first name.
      *
-     * @return Client's first name
+     * @return Client 's first name
      */
     public String getFirstName() {
         return firstName;
@@ -81,7 +86,7 @@ public class Appointment {
     /**
      * Returns the Client's last name.
      *
-     * @return Client's last name
+     * @return Client 's last name
      */
     public String getLastName() {
         return lastName;
@@ -99,7 +104,7 @@ public class Appointment {
     /**
      * Returns the Client's telephone number.
      *
-     * @return Client's telephone number
+     * @return Client 's telephone number
      */
     public String getTelephoneNo() {
         return telephoneNo;
@@ -117,7 +122,7 @@ public class Appointment {
     /**
      * Returns the Client's email.
      *
-     * @return Client's email
+     * @return Client 's email
      */
     public String getEmail() {
         return email;
@@ -171,7 +176,7 @@ public class Appointment {
     /**
      * Returns the Appointment's state.
      *
-     * @return Appointment's state
+     * @return Appointment 's state
      */
     public AppointmentState getState() {
         return state;

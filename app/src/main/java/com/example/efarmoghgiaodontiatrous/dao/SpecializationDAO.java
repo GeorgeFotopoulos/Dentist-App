@@ -4,6 +4,9 @@ import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 
 import java.util.List;
 
+/**
+ * The interface Specialization dao.
+ */
 public interface SpecializationDAO {
     /**
      * Deletes a Specialization from the SpecializationDAO.

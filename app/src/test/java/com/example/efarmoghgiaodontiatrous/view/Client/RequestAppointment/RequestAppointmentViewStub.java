@@ -1,6 +1,12 @@
 package com.example.efarmoghgiaodontiatrous.view.Client.RequestAppointment;
 
+/**
+ * The type Request appointment view stub.
+ */
 public class RequestAppointmentViewStub implements RequestAppointmentView {
+    /**
+     * The Message.
+     */
     protected String message;
 
     @Override

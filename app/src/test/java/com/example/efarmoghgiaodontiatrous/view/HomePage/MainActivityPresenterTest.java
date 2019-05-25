@@ -4,10 +4,16 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The type Main activity presenter test.
+ */
 public class MainActivityPresenterTest {
     private MainActivityPresenter presenter;
     private MainActivityViewStub view;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         view = new MainActivityViewStub();

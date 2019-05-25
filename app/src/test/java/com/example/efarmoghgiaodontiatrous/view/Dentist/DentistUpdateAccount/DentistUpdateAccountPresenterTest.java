@@ -12,11 +12,26 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Dentist update account presenter test.
+ */
 public class DentistUpdateAccountPresenterTest {
+    /**
+     * The Presenter.
+     */
     DentistUpdateAccountPresenter presenter;
+    /**
+     * The View.
+     */
     DentistUpdateAccountViewStub view;
+    /**
+     * The D.
+     */
     Dentist d;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

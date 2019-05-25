@@ -8,7 +8,13 @@ import android.widget.TextView;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 
+/**
+ * The type View schedule activity.
+ */
 public class ViewScheduleActivity extends AppCompatActivity implements ViewScheduleView {
+    /**
+     * The Presenter.
+     */
     ViewSchedulePresenter presenter;
     private String ID;
 

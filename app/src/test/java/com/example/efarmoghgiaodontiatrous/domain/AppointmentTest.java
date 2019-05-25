@@ -9,11 +9,26 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
+/**
+ * The type Appointment test.
+ */
 public class AppointmentTest {
+    /**
+     * The Appointment.
+     */
     Appointment appointment;
+    /**
+     * The Dentist.
+     */
     Dentist dentist;
+    /**
+     * The Calendar.
+     */
     SimpleCalendar calendar;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         calendar = new SimpleCalendar(10, 10, 2010);
@@ -23,6 +38,9 @@ public class AppointmentTest {
         appointment = new Appointment("George", "Patrikis", "6986888788", dentist, calendar, 13, 0);
     }
 
+    /**
+     * Equals.
+     */
     @Test
     public void equals() {
         Appointment other = new Appointment("George", "Fotopoulos", "6980793051", dentist, calendar, 13, 0);
@@ -47,6 +65,9 @@ public class AppointmentTest {
         assertEquals(appointment4.hashCode(), appointment.hashCode());
     }
 
+    /**
+     * Test getters setters.
+     */
     @Test
     public void testGettersSetters() {
         Appointment other = new Appointment();

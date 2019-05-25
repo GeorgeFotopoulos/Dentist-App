@@ -25,6 +25,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * The type Dao test.
+ */
 public class DAOTest {
     private static final int INITIAL_APPOINTMENT_COUNT = 8;
     private static final int INITIAL_CLIENT_COUNT = 2;
@@ -39,6 +42,9 @@ public class DAOTest {
     private SpecializationDAO specializationDao;
     private VisitDAO visitDao;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer dataHelper = new MemoryInitializer();
@@ -52,6 +58,9 @@ public class DAOTest {
         visitDao = new VisitDAOMemory();
     }
 
+    /**
+     * Test dentists.
+     */
     @Test
     public void testDentists() {
         Dentist dentist = new Dentist("Athanasios", "Fotopoulos", "+30 699 888 7766", "ath.fotopoulos7@gmail.com", "Athens:171223", "None", new Address("Artis", "23", "Athens", "Greece", 17124), 10, "asdfg123");
@@ -121,6 +130,9 @@ public class DAOTest {
         Assert.assertFalse(test3.isEmpty());
     }
 
+    /**
+     * Test clients.
+     */
     @Test
     public void testClients() {
         Client client = new Client("Gioris", "Ntymenos", "+30 698 468 9046", "geo.nty@gmail.com", "17099600037");
@@ -133,6 +145,9 @@ public class DAOTest {
         Assert.assertNull(client2);
     }
 
+    /**
+     * Test appointments.
+     */
     @Test
     public void testAppointments() {
         Appointment appointment = new Appointment("Georgios", "Patrikis", "+30 697 111 1111", dentistDao.find("1"), new SimpleCalendar(2019, 28, 6), 15, 30);
@@ -147,6 +162,9 @@ public class DAOTest {
         Assert.assertFalse(appointmentList.isEmpty());
     }
 
+    /**
+     * Test services.
+     */
     @Test
     public void testServices() {
         Service service = new Service("Root canal", serviceDao.nextId());
@@ -157,6 +175,9 @@ public class DAOTest {
         Assert.assertNull(service1);
     }
 
+    /**
+     * Test specializations.
+     */
     @Test
     public void testSpecializations() {
         Specialization specialization = new Specialization("Periodontic", specializationDao.nextId());
@@ -167,6 +188,9 @@ public class DAOTest {
         Assert.assertNull(specialization);
     }
 
+    /**
+     * Test visits.
+     */
     @Test
     public void testVisits() {
         Set<Service> servicesProvided = new HashSet<>();

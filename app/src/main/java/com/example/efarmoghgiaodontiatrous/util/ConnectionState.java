@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.util;
 
+/**
+ * The enum Connection state.
+ */
 public enum ConnectionState {
     /**
      * Dentist is connected to his profile through the application's DentistLogin()

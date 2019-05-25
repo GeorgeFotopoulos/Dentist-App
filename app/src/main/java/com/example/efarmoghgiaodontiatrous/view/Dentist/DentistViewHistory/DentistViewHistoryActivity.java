@@ -12,13 +12,23 @@ import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.RecordService.RecordServiceActivity;
 
+/**
+ * The type Dentist view history activity.
+ */
 public class DentistViewHistoryActivity extends AppCompatActivity implements DentistViewHistoryView {
+    /**
+     * The Presenter.
+     */
     protected DentistViewHistoryPresenter presenter;
+    /**
+     * The Id.
+     */
     protected String ID;
     private String AMKA;
 
     /**
      * Uses the AMKA to call other functions and show the info to the Dentist
+     *
      * @param savedInstanceState
      */
     @Override
@@ -46,6 +56,11 @@ public class DentistViewHistoryActivity extends AppCompatActivity implements Den
         });
     }
 
+    /**
+     * On check amka.
+     *
+     * @param AMKA the amka
+     */
     public void onCheckAMKA(String AMKA) {
         if (!AMKA.equals("")) {
             onRecordService();
@@ -63,6 +78,9 @@ public class DentistViewHistoryActivity extends AppCompatActivity implements Den
         startActivity(intent);
     }
 
+    /**
+     * On record service.
+     */
     public void onRecordService() {
         Intent intent = new Intent(DentistViewHistoryActivity.this, RecordServiceActivity.class);
         intent.putExtra("ID", ID);

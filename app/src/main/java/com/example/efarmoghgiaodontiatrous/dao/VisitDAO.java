@@ -4,6 +4,9 @@ import com.example.efarmoghgiaodontiatrous.domain.Visit;
 
 import java.util.List;
 
+/**
+ * The interface Visit dao.
+ */
 public interface VisitDAO {
     /**
      * Deletes a Visit from the VisitDAO.

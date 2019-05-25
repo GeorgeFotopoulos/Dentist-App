@@ -11,6 +11,9 @@ import com.example.efarmoghgiaodontiatrous.R;
 
 import java.util.List;
 
+/**
+ * The type List view item checkbox base adapter.
+ */
 //Extends Base Adapter so that it binds Strings with Checkboxes in order to be shown us a List
 public class ListViewItemCheckboxBaseAdapter extends BaseAdapter {
 
@@ -18,6 +21,12 @@ public class ListViewItemCheckboxBaseAdapter extends BaseAdapter {
 
     private Context ctx;
 
+    /**
+     * Instantiates a new List view item checkbox base adapter.
+     *
+     * @param ctx                 the ctx
+     * @param listViewItemDtoList the list view item dto list
+     */
     public ListViewItemCheckboxBaseAdapter(Context ctx, List<ListViewItemDTO> listViewItemDtoList) {
         this.ctx = ctx;
         this.listViewItemDtoList = listViewItemDtoList;

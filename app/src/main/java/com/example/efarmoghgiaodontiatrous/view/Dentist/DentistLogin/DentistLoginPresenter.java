@@ -3,9 +3,20 @@ package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 
+/**
+ * The type Dentist login presenter.
+ */
 public class DentistLoginPresenter {
+    /**
+     * The View.
+     */
     protected DentistLoginView view;
 
+    /**
+     * Instantiates a new Dentist login presenter.
+     *
+     * @param view the view
+     */
     public DentistLoginPresenter(DentistLoginView view) {
         this.view = view;
     }

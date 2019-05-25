@@ -6,7 +6,13 @@ import com.example.efarmoghgiaodontiatrous.domain.Client;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Client dao memory.
+ */
 public class ClientDAOMemory implements ClientDAO {
+    /**
+     * The constant entities.
+     */
     protected static List<Client> entities = new ArrayList<>();
 
     @Override
@@ -27,7 +33,7 @@ public class ClientDAOMemory implements ClientDAO {
     }
 
     @Override
-    public void clear(){
+    public void clear() {
         entities.clear();
     }
 

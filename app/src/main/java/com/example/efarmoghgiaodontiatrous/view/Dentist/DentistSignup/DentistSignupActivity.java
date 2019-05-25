@@ -23,10 +23,22 @@ import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuA
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Dentist signup activity.
+ */
 public class DentistSignupActivity extends AppCompatActivity implements DentistSignupView {
     private static final String TAG = "SignupActivity";
+    /**
+     * The Temp specialization.
+     */
     List<String> tempSpecialization;
+    /**
+     * The Temp services.
+     */
     List<String> tempServices;
+    /**
+     * The Id.
+     */
     String ID;
     private DentistSignupPresenter presenter;
 
@@ -113,6 +125,9 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         });
     }
 
+    /**
+     * Signup.
+     */
     public void signup() {
         Log.d(TAG, "Signup");
 
@@ -132,7 +147,10 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
                 }, 1000);
     }
 
-    //saves all the info if valid and then it is send to DAO
+    /**
+     * On signup success.
+     */
+//saves all the info if valid and then it is send to DAO
     public void onSignupSuccess() {
         String firstName = ((EditText) findViewById(R.id.input_fname)).getText().toString();
         String lastName = ((EditText) findViewById(R.id.input_lname)).getText().toString();
@@ -152,25 +170,38 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         setResult(RESULT_OK, null);
         finish();
         Dentist d = new Dentist(firstName, lastName, phone, email, license, uni, new Address(street, strno, city, country, zip), years, password);
-        presenter.addSpecializations(tempSpecialization,d);
-        presenter.addServices(tempServices,d);
+        presenter.addSpecializations(tempSpecialization, d);
+        presenter.addServices(tempServices, d);
         presenter.saveDentist(d);
         Toast.makeText(getBaseContext(), "Sign Up Successful!", Toast.LENGTH_LONG).show();
         dentistMenu();
     }
 
+    /**
+     * Save.
+     *
+     * @param ID the id
+     */
     public void save(String ID) {
         this.ID = ID;
     }
 
-    //sends Toast that signupfailed
+    /**
+     * On signup failed.
+     */
+//sends Toast that signupfailed
     public void onSignupFailed() {
         Toast.makeText(getBaseContext(), "Sign Up Failed, try again!", Toast.LENGTH_LONG).show();
         findViewById(R.id.btn_update).setEnabled(true);
     }
 
 
-    //checks all the parameters to be valid
+    /**
+     * Validate boolean.
+     *
+     * @return the boolean
+     */
+//checks all the parameters to be valid
     public boolean validate() {
         boolean valid = true;
 
@@ -238,12 +269,15 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
     }
 
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
         Intent intent = new Intent(DentistSignupActivity.this, DentistLoginActivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Dentist menu.
+     */
     public void dentistMenu() {
         finish();
         Intent intent = new Intent(DentistSignupActivity.this, DentistMenuActivity.class);

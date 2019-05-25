@@ -4,6 +4,9 @@ import com.example.efarmoghgiaodontiatrous.domain.Client;
 
 import java.util.List;
 
+/**
+ * The interface Client dao.
+ */
 public interface ClientDAO {
     /**
      * Deletes a Client object from the ClientDAO.

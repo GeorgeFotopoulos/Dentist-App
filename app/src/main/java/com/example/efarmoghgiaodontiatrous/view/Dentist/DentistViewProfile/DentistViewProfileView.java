@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistViewProfile;
 
+/**
+ * The interface Dentist view profile view.
+ */
 public interface DentistViewProfileView {
 
     /**

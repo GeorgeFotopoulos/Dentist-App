@@ -14,12 +14,24 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The type Request appointment presenter test.
+ */
 public class RequestAppointmentPresenterTest {
+    /**
+     * The Presenter.
+     */
     RequestAppointmentPresenter presenter;
+    /**
+     * The View.
+     */
     RequestAppointmentViewStub view;
     private AppointmentDAO appointmentDao;
     private DentistDAO dentistDao;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

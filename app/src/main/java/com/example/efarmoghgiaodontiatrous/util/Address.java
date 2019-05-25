@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.util;
 
+/**
+ * The type Address.
+ */
 public class Address {
     private String street, number, city, country = "Greece";
     private int zip;
@@ -52,7 +55,7 @@ public class Address {
     /**
      * Returns the Address street.
      *
-     * @return Address's street
+     * @return Address 's street
      */
     public String getStreet() {
         return street;
@@ -70,7 +73,7 @@ public class Address {
     /**
      * Returns the Address street number.
      *
-     * @return Address's street number
+     * @return Address 's street number
      */
     public String getNumber() {
         return number;
@@ -88,7 +91,7 @@ public class Address {
     /**
      * Returns the Address city.
      *
-     * @return Address's city
+     * @return Address 's city
      */
     public String getCity() {
         return city;
@@ -106,7 +109,7 @@ public class Address {
     /**
      * Returns the Address zip code.
      *
-     * @return Address's zip code
+     * @return Address 's zip code
      */
     public int getZipCode() {
         return zip;
@@ -124,7 +127,7 @@ public class Address {
     /**
      * Returns the Address country.
      *
-     * @return Address's country
+     * @return Address 's country
      */
     public String getCountry() {
         return country;

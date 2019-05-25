@@ -4,10 +4,16 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The type Dentist menu presenter test.
+ */
 public class DentistMenuPresenterTest {
     private DentistMenuPresenter presenter;
     private DentistMenuViewStub view;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         view = new DentistMenuViewStub();

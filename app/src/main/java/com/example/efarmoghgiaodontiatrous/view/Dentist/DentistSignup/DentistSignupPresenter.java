@@ -9,8 +9,14 @@ import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
 
 import java.util.List;
 
+/**
+ * The type Dentist signup presenter.
+ */
 public class DentistSignupPresenter {
 
+    /**
+     * The View.
+     */
     protected DentistSignupView view;
 
     /**
@@ -24,6 +30,7 @@ public class DentistSignupPresenter {
 
     /**
      * finds all the objects from the DAOMemory
+     *
      * @return a string from each Object (Specialization)
      */
     public String[] getSpecializationList() {
@@ -38,6 +45,7 @@ public class DentistSignupPresenter {
 
     /**
      * finds all the objects from the DAOMemory
+     *
      * @return a string from each Object (Services)
      */
     public String[] getService() {
@@ -51,6 +59,7 @@ public class DentistSignupPresenter {
     }
 
     /**
+     * Save dentist.
      *
      * @param d Dentist to be saved in the DAOMemory
      */
@@ -61,6 +70,7 @@ public class DentistSignupPresenter {
 
     /**
      * search in the dentistDAOMemory
+     *
      * @return number of all Dentists in System
      */
     public String getDentistSize() {
@@ -69,9 +79,10 @@ public class DentistSignupPresenter {
     }
 
     /**
-     *  From a List of Strings that are selected in programm, addSpecializations checks if the string is in DAO
+     * From a List of Strings that are selected in programm, addSpecializations checks if the string is in DAO
+     *
      * @param tempSpecialization List<String> with names of Specialization
-     * @param dentist to be add Specializations
+     * @param dentist            to be add Specializations
      */
     public void addSpecializations(List<String> tempSpecialization, Dentist dentist) {
         SpecializationDAOMemory DAO = new SpecializationDAOMemory();
@@ -87,9 +98,10 @@ public class DentistSignupPresenter {
     }
 
     /**
-     *  From a List of Strings that are selected in programm, addServices checks if the string is in DAO
+     * From a List of Strings that are selected in programm, addServices checks if the string is in DAO
+     *
      * @param tempServices List<String> with names of Services
-     * @param dentist to be add Services
+     * @param dentist      to be add Services
      */
     public void addServices(List<String> tempServices, Dentist dentist) {
         ServiceDAOMemory DAO = new ServiceDAOMemory();

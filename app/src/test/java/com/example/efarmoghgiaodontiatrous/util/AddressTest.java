@@ -9,14 +9,26 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
+/**
+ * The type Address test.
+ */
 public class AddressTest {
+    /**
+     * The Address 1.
+     */
     Address address1;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         address1 = new Address("Artis", "23", "Athens", "Greece", 17124);
     }
 
+    /**
+     * Test equals object.
+     */
     @Test
     public void testEqualsObject() {
         Address address2 = new Address(address1);
@@ -32,10 +44,13 @@ public class AddressTest {
         assertNotEquals(address3.hashCode(), address1.hashCode());
 
         assertEquals(0, address4.hashCode());
-        
+
         Assert.assertNotNull(address1.print());
     }
 
+    /**
+     * Test getters setters.
+     */
     @Test
     public void testGettersSetters() {
         Address other = new Address();

@@ -8,6 +8,9 @@ import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * The type Dentist.
+ */
 public class Dentist {
     private static int ID = 0;
     private String firstName, lastName, telephoneNo, email, exerciseLicense, universityAttended, password, dentistID;
@@ -77,7 +80,7 @@ public class Dentist {
     /**
      * Returns the Dentist's first name.
      *
-     * @return Dentist's first name
+     * @return Dentist 's first name
      */
     public String getFirstName() {
         return firstName;
@@ -95,7 +98,7 @@ public class Dentist {
     /**
      * Returns the Dentist's last name.
      *
-     * @return Dentist's last name
+     * @return Dentist 's last name
      */
     public String getLastName() {
         return lastName;
@@ -113,7 +116,7 @@ public class Dentist {
     /**
      * Returns the Dentist's telephone number.
      *
-     * @return Dentist's telephone number
+     * @return Dentist 's telephone number
      */
     public String getTelephoneNo() {
         return telephoneNo;
@@ -131,7 +134,7 @@ public class Dentist {
     /**
      * Returns the Dentist's email.
      *
-     * @return Dentist's email
+     * @return Dentist 's email
      */
     public String getEmail() {
         return email;
@@ -149,7 +152,7 @@ public class Dentist {
     /**
      * Returns the Dentist's exercise license.
      *
-     * @return Dentist's exercise license
+     * @return Dentist 's exercise license
      */
     public String getExerciseLicense() {
         return exerciseLicense;
@@ -203,7 +206,7 @@ public class Dentist {
     /**
      * Returns Dentist's time of experience.
      *
-     * @return Dentist's time of experience
+     * @return Dentist 's time of experience
      */
     public int getTimeOfExperience() {
         return timeOfExperience;
@@ -221,7 +224,7 @@ public class Dentist {
     /**
      * Returns Dentist's password.
      *
-     * @return Dentist's password
+     * @return Dentist 's password
      */
     public String getPassword() {
         return password;
@@ -239,7 +242,7 @@ public class Dentist {
     /**
      * Returns Dentist's ID.
      *
-     * @return Dentist's ID
+     * @return Dentist 's ID
      */
     public String getID() {
         return dentistID;
@@ -257,7 +260,7 @@ public class Dentist {
     /**
      * Returns Dentist's connection state.
      *
-     * @return Dentist's connection state
+     * @return Dentist 's connection state
      */
     public ConnectionState getState() {
         return state;
@@ -375,6 +378,7 @@ public class Dentist {
      *
      * @param email    The email given as parameter, used for test purposes
      * @param password The password given as parameter, used for test purposes
+     * @return the boolean
      */
     public boolean login(String email, String password) {
         if (this.getEmail().equals(email) && this.getPassword().equals(password)) {

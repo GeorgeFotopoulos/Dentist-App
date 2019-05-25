@@ -4,6 +4,9 @@ import com.example.efarmoghgiaodontiatrous.domain.Service;
 
 import java.util.List;
 
+/**
+ * The interface Service dao.
+ */
 public interface ServiceDAO {
     /**
      * Deletes a Service from the ServiceDAO.

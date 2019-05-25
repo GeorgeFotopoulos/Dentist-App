@@ -6,9 +6,20 @@ import com.example.efarmoghgiaodontiatrous.memorydao.AppointmentDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 
+/**
+ * The type Request appointment presenter.
+ */
 public class RequestAppointmentPresenter {
+    /**
+     * The View.
+     */
     protected RequestAppointmentView view;
 
+    /**
+     * Instantiates a new Request appointment presenter.
+     *
+     * @param view the view
+     */
     public RequestAppointmentPresenter(RequestAppointmentView view) {
         this.view = view;
     }

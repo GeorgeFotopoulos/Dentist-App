@@ -11,10 +11,22 @@ import org.junit.Test;
 
 import java.util.List;
 
+/**
+ * The type Guest menu presenter test.
+ */
 public class GuestMenuPresenterTest {
+    /**
+     * The Presenter.
+     */
     GuestMenuPresenter presenter;
+    /**
+     * The View.
+     */
     GuestMenuViewStub view;
 
+    /**
+     * Sets up.
+     */
     @Before
     public void setUp() {
         Initializer initializer = new MemoryInitializer();

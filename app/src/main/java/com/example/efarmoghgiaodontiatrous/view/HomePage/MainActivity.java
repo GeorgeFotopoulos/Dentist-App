@@ -13,6 +13,9 @@ import com.example.efarmoghgiaodontiatrous.memorydao.MemoryInitializer;
 import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivity;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin.DentistLoginActivity;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity implements MainActivityView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
