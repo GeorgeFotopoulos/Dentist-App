@@ -103,6 +103,10 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         });
     }
 
+    /**
+     * This method is called when the button 'SEARCH' is pressed.It shows the appropriate message,
+     * whether the client exists in the DAO or not.Then, it calls the methods: onFillForm(client), onShowForm();.
+     */
     private void searchSimulate(){
         AMKA = ((EditText) findViewById(R.id.amka)).getText().toString();
         client = presenter.onSearchClient(AMKA);
@@ -129,6 +133,9 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         }
     }
 
+    /**
+     * This method is called when the button 'SAVE' is pressed.It decides if the app will accept the new Visit.
+     */
     public void toSave() {
         if (!onCheckValid()) {
             notSaved();
@@ -160,6 +167,9 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         }
     }
 
+    /**
+     * This method is called when the method: 'onCheckValid()' is true and it finishes the activity successfully.
+     */
     private void saved() {
         finish();
         Intent intent = new Intent(RecordServiceActivity.this, DentistMenuActivity.class);
@@ -168,10 +178,17 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         startActivity(intent);
     }
 
+    /**
+     * This method is called when the method: 'onCheckValid()' is false and it allows the Dentist to fill the form
+     * with right information.
+     */
     private void notSaved() {
         findViewById(R.id.btn_save).setEnabled(true);
     }
 
+    /**
+     * This method checks if the information given by the Dentist is correct and if so, it allows the app to continue saving.
+     */
     private boolean onCheckValid() {
         comments = ((EditText) findViewById(R.id.in_com)).getText().toString();
         fname = ((EditText) findViewById(R.id.in_fname)).getText().toString();
@@ -208,6 +225,9 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         return true;
     }
 
+    /**
+     * This method turns invisible Buttons and TextViews , into visible, so it creates an empty form.
+     */
     private void onShowForm() {
         findViewById(R.id.in_com).setVisibility(View.VISIBLE);
         findViewById(R.id.search_res).setVisibility(View.VISIBLE);
@@ -231,6 +251,12 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         findViewById(R.id.btn_save).setVisibility(View.VISIBLE);
     }
 
+    /**
+     * This method is called after the method: 'searchSimulate()' just to fill the form if the Client's
+     * information exists or else it asks the Dentist to fill them out, and then to specify the services he provided.
+     *
+     * @param client The client that had a visit to the Dentist
+     */
     public void onFillForm(Client client) {
         if (client != null) {
             TextView fname = findViewById(R.id.in_fname);

@@ -15,6 +15,11 @@ public class DentistViewProfilePresenter {
         view.updateAccount();
     }
 
+    /**
+     * This method searches the Dentist's account by his ID and it returns a String with all of his information.
+     *
+     * @param ID   Dentist's ID
+     */
     public String onShowProfile(String ID) {
         DentistDAOMemory dentist = new DentistDAOMemory();
         Dentist d = dentist.find(ID);

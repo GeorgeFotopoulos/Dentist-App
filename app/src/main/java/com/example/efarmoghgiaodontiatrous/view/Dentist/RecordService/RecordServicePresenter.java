@@ -20,12 +20,31 @@ public class RecordServicePresenter {
         this.view = view;
     }
 
+
+    /**
+     * This method searches a client in the DAO, based on his AMKA and it returns his info.
+     *
+     * @param AMKA The client's AMKA
+     */
     public Client onSearchClient(String AMKA) {
         ClientDAOMemory v = new ClientDAOMemory();
         Client client = v.find(AMKA);
         return client;
     }
 
+    /**
+     * This method creates a new Visit in the DAO.
+     *
+     * @param calendar The visit's date
+     * @param firstName The client's First Name
+     * @param lastName The client's Last Name
+     * @param phone The client's phone
+     * @param email The client's email
+     * @param AMKA The client's AMKA
+     * @param services The services that the Dentist provided
+     * @param dentistID The Dentist's ID
+     * @param comments Possible Comments
+     */
     public void onCreate(SimpleCalendar calendar, String firstName, String lastName, String phone, String email, String AMKA, List<String> services, String dentistID, String comments) {
         DentistDAOMemory dentistDao = new DentistDAOMemory();
         VisitDAOMemory visitDao = new VisitDAOMemory();
@@ -49,6 +68,10 @@ public class RecordServicePresenter {
         }
     }
 
+    /**
+     * This method returns an Array with all the services available.
+     *
+     */
     public String[] getService() {
         ServiceDAOMemory serviceDao = new ServiceDAOMemory();
         String[] out = new String[serviceDao.findAll().size()];
