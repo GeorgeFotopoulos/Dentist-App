@@ -22,6 +22,10 @@ public class DentistSignupPresenter {
         this.view = view;
     }
 
+    /**
+     * finds all the objects from the DAOMemory
+     * @return a string from each Object (Specialization)
+     */
     public String[] getSpecializationList() {
         SpecializationDAOMemory sp = new SpecializationDAOMemory();
         String[] out = new String[sp.findAll().size()];
@@ -32,6 +36,10 @@ public class DentistSignupPresenter {
         return out;
     }
 
+    /**
+     * finds all the objects from the DAOMemory
+     * @return a string from each Object (Services)
+     */
     public String[] getService() {
         ServiceDAOMemory sp = new ServiceDAOMemory();
         String[] out = new String[sp.findAll().size()];
@@ -42,16 +50,30 @@ public class DentistSignupPresenter {
         return out;
     }
 
+
+    /**
+     *
+     * @param d Dentist to be saved in the DAOMemory
+     */
     public void saveDentist(Dentist d) {
         DentistDAOMemory DAO = new DentistDAOMemory();
         DAO.save(d);
     }
 
+    /**
+     * search in the dentistDAOMemory
+     * @return number of all Dentists in System
+     */
     public String getDentistSize() {
         DentistDAOMemory DAO = new DentistDAOMemory();
         return (DAO.findAll().size() + "");
     }
 
+    /**
+     *  From a List of Strings that are selected in programm, addSpecializations checks if the string is in DAO
+     * @param tempSpecialization List<String> with names of Specialization
+     * @param dentist to be add Specializations
+     */
     public void addSpecializations(List<String> tempSpecialization, Dentist dentist) {
         SpecializationDAOMemory DAO = new SpecializationDAOMemory();
         List<Specialization> temp = DAO.findAll();
@@ -65,6 +87,11 @@ public class DentistSignupPresenter {
         }
     }
 
+    /**
+     *  From a List of Strings that are selected in programm, addServices checks if the string is in DAO
+     * @param tempServices List<String> with names of Services
+     * @param dentist to be add Services
+     */
     public void addServices(List<String> tempServices, Dentist dentist) {
         ServiceDAOMemory DAO = new ServiceDAOMemory();
         List<Service> temp = DAO.findAll();

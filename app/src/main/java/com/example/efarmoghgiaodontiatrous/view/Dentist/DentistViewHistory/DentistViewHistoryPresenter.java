@@ -14,6 +14,12 @@ public class DentistViewHistoryPresenter {
         this.view = view;
     }
 
+
+    /**
+     * Searches in the VisitDAOMemory for all the visits that were provided in the client with the AMKA in parameter
+     * @param AMKA of the client that we want to find all the Services that he was provided
+     * @return if there are Visits to the client with the AMKA given returns a String with all the info of all the Visits
+     */
     public String onHistoryBack(String AMKA) {
         VisitDAOMemory v = new VisitDAOMemory();
         List<Visit> listToString;
