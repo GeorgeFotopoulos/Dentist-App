@@ -11,6 +11,7 @@ import com.example.efarmoghgiaodontiatrous.R;
 
 import java.util.List;
 
+//Extends Base Adapter so that it binds Strings with Checkboxes in order to be shown us a List
 public class ListViewItemCheckboxBaseAdapter extends BaseAdapter {
 
     private List<ListViewItemDTO> listViewItemDtoList;

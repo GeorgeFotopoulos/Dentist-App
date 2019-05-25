@@ -12,10 +12,14 @@ import com.example.efarmoghgiaodontiatrous.domain.Dentist;
 
 import java.util.List;
 
+/**
+ * A class that extends RecyclerView  so that it shows Dentists with info to be selected for Activities to be done
+ */
 public class DentistAdapter extends RecyclerView.Adapter<DentistAdapter.ViewHolder> {
     private List<Dentist> itemList;
 
     private ItemSelectionListener<Dentist> dentSelectionListener;
+
 
     public DentistAdapter(List<Dentist> myDataset) {
         itemList = myDataset;

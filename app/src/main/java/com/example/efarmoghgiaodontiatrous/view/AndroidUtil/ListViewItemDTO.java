@@ -1,5 +1,7 @@
 package com.example.efarmoghgiaodontiatrous.view.AndroidUtil;
 
+
+//Class with function to set checkbox as Checked in ordewr to save the checked Items
 public class ListViewItemDTO {
 
     private boolean checked = false;
