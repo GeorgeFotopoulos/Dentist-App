@@ -65,5 +65,6 @@ public class DentistViewHistoryActivity extends AppCompatActivity implements Den
         intent.putExtra("AMKA", AMKA);
         intent.putExtra("cameFromWhere?", "History");
         startActivity(intent);
+        finish();
     }
 }
