@@ -249,6 +249,7 @@ public class DentistUpdateAccountActivity extends AppCompatActivity implements D
                 }, 1000);
     }
 
+    //
     public void onUpdateSuccess() {
         dentist.setFirstName(((EditText) findViewById(R.id.input_fname)).getText().toString());
         dentist.setLastName(((EditText) findViewById(R.id.input_lname)).getText().toString());

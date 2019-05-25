@@ -1,5 +1,8 @@
 package com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu;
 
+/**
+ * Depending on the click of the Dentist he will be redirected in some other Activities
+ */
 public class DentistMenuPresenter {
     private DentistMenuView view;
 

@@ -132,6 +132,7 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
                 }, 1000);
     }
 
+    //saves all the info if valid and then it is send to DAO
     public void onSignupSuccess() {
         String firstName = ((EditText) findViewById(R.id.input_fname)).getText().toString();
         String lastName = ((EditText) findViewById(R.id.input_lname)).getText().toString();
@@ -162,11 +163,14 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         this.ID = ID;
     }
 
+    //sends Toast that signupfailed
     public void onSignupFailed() {
         Toast.makeText(getBaseContext(), "Sign Up Failed, try again!", Toast.LENGTH_LONG).show();
         findViewById(R.id.btn_update).setEnabled(true);
     }
 
+
+    //checks all the parameters to be valid
     public boolean validate() {
         boolean valid = true;
 
@@ -197,6 +201,8 @@ public class DentistSignupActivity extends AppCompatActivity implements DentistS
         return valid;
     }
 
+
+    //Creates a List of Items tp be shown as Checkbox
     private List<ListViewItemDTO> getInitViewItemDtoList() {
         String[] itemTextArr = presenter.getSpecializationList();
         List<ListViewItemDTO> ret = new ArrayList<ListViewItemDTO>();
