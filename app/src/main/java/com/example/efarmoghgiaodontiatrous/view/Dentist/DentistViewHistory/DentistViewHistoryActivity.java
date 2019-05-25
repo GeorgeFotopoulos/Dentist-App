@@ -17,6 +17,10 @@ public class DentistViewHistoryActivity extends AppCompatActivity implements Den
     protected String ID;
     private String AMKA;
 
+    /**
+     * Uses the AMKA to call other functions and show the info to the Dentist
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
