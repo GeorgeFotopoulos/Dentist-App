@@ -69,7 +69,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
         findViewById(R.id.accept_apointment).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (SelectedAppointments.size() > 0) {
-                    presenter.AcceptAppointments(Dentist_ID, SelectedAppointments);
+                    presenter.acceptAppointments(Dentist_ID, SelectedAppointments);
                     itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
                     finish();
                     Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistAppointmentManagementActivity.class);
@@ -82,13 +82,12 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
         findViewById(R.id.decline_appointment).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (SelectedAppointments.size() > 0) {
-                    presenter.DeclineAppointments(Dentist_ID, SelectedAppointments);
+                    presenter.declineAppointments(Dentist_ID, SelectedAppointments);
                     itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
                     finish();
                     Intent intent = new Intent(DentistAppointmentManagementActivity.this, DentistAppointmentManagementActivity.class);
                     intent.putExtra("ID", Dentist_ID);
                     startActivity(intent);
-
                 }
             }
         });
@@ -102,6 +101,7 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
         startActivity(intent);
     }
 
+    @Override
     public void jobDone(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }

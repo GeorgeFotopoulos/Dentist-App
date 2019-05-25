@@ -40,7 +40,6 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
             String service = intent.getStringExtra("service");
             result = dentistSearchPresenter.searchDentistsWithFilters(region, specialization, service);
         }
-
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
@@ -50,11 +49,6 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         mAdapter.setDentistSelectionListener(this);
     }
 
-    /**
-     * The method will be called by the adapter, whenever the user clicks on a list item
-     *
-     * @param item
-     */
     @Override
     public void onItemSelected(Dentist item) {
         dentistSearchPresenter.onDentistSelected(item);

@@ -17,36 +17,51 @@ public class DentistAppointmentManagementPresenter {
         this.view = view;
     }
 
-    public String[] getAppointments(String ID, AppointmentState State) {
+    /**
+     * This method gets a Dentist ID and Appointment State as parameters and returns a String table that contains
+     * all the Appointments this Dentist has, turning them into String messages and placing each Appointment in a single
+     * table spot.
+     *
+     * @param dentistID Dentist's ID
+     * @param state     Appointment's state
+     * @return A String table containing all the Appointments and turns them to String messages using findToString
+     */
+    public String[] getAppointments(String dentistID, AppointmentState state) {
         AppointmentDAOMemory aDAO = new AppointmentDAOMemory();
         DentistDAOMemory dDAO = new DentistDAOMemory();
-        Dentist tempDent = dDAO.find(ID);
+        Dentist temp = dDAO.find(dentistID);
 
-        return aDAO.findToString(tempDent, State);
+        return aDAO.findToString(temp, state);
     }
 
-    public void AcceptAppointments(String ID, List<String> selectedAppointments) {
+    /**
+     * Accepts the Appointments found in the selectedAppointments list given as a parameter.
+     *
+     * @param dentistID            Dentist's ID
+     * @param selectedAppointments List of String type that contains all the selected Appointments
+     */
+    public void acceptAppointments(String dentistID, List<String> selectedAppointments) {
         DentistDAOMemory dDAO = new DentistDAOMemory();
-        Dentist tempDent = dDAO.find(ID);
+        Dentist temp = dDAO.find(dentistID);
         AppointmentDAOMemory aDAO = new AppointmentDAOMemory();
-        List<Appointment> allapp = aDAO.findAll();
+        List<Appointment> allAppointments = aDAO.findAll();
 
         for (int i = 0; i < selectedAppointments.size(); i++) {
             String[] dateParts = selectedAppointments.get(i).split("/");
-            int simpleday = Integer.parseInt(dateParts[0]);
-            int simplemonth = Integer.parseInt(dateParts[1]);
-            int simpleyear = Integer.parseInt(dateParts[2].charAt(0) + "" + dateParts[2].charAt(1) + "" + dateParts[2].charAt(2) + "" + dateParts[2].charAt(3));
-            System.out.println(simplemonth == simpleyear);
+            int simpleDay = Integer.parseInt(dateParts[0]);
+            int simpleMonth = Integer.parseInt(dateParts[1]);
+            int simpleYear = Integer.parseInt(dateParts[2].charAt(0) + "" + dateParts[2].charAt(1) + "" + dateParts[2].charAt(2) + "" + dateParts[2].charAt(3));
+            System.out.println(simpleMonth == simpleYear);
             String[] takeparts = selectedAppointments.get(i).split(" ");
             String fullTime = takeparts[1];
-            String hours = fullTime.charAt(0) + "" + fullTime.charAt(1);
-            int shours = Integer.parseInt(hours);
-            String minutes = fullTime.charAt(3) + "" + fullTime.charAt(4);
-            int sminutes = Integer.parseInt(minutes);
-            System.out.println(shours == sminutes);
-            for (int j = 0; j < allapp.size(); j++) {
-                if (tempDent.equals(allapp.get(j).getDentist()) && allapp.get(j).getBookDate().equals(new SimpleCalendar(simpleyear, simplemonth, simpleday)) && shours == Integer.parseInt(allapp.get(j).getHour()) && sminutes == Integer.parseInt(allapp.get(j).getMinutes())) {
-                    allapp.get(j).setState(AppointmentState.ACCEPTED);
+            String hourString = fullTime.charAt(0) + "" + fullTime.charAt(1);
+            int hour = Integer.parseInt(hourString);
+            String minuteString = fullTime.charAt(3) + "" + fullTime.charAt(4);
+            int minutes = Integer.parseInt(minuteString);
+            System.out.println(hour == minutes);
+            for (int j = 0; j < allAppointments.size(); j++) {
+                if (temp.equals(allAppointments.get(j).getDentist()) && allAppointments.get(j).getBookDate().equals(new SimpleCalendar(simpleYear, simpleMonth, simpleDay)) && hour == Integer.parseInt(allAppointments.get(j).getHour()) && minutes == Integer.parseInt(allAppointments.get(j).getMinutes())) {
+                    allAppointments.get(j).setState(AppointmentState.ACCEPTED);
                     break;
                 }
             }
@@ -54,28 +69,34 @@ public class DentistAppointmentManagementPresenter {
         view.jobDone("Appointment(s) were accepted!");
     }
 
-    public void DeclineAppointments(String ID, List<String> selectedAppointments) {
+    /**
+     * Declines the Appointments found in the selectedAppointments list given as a parameter.
+     *
+     * @param dentistID            Dentist's ID
+     * @param selectedAppointments List of String type that contains all the selected Appointments
+     */
+    public void declineAppointments(String dentistID, List<String> selectedAppointments) {
         DentistDAOMemory dDAO = new DentistDAOMemory();
-        Dentist tempDent = dDAO.find(ID);
+        Dentist temp = dDAO.find(dentistID);
         AppointmentDAOMemory aDAO = new AppointmentDAOMemory();
-        List<Appointment> allapp = aDAO.findAll();
+        List<Appointment> allAppointments = aDAO.findAll();
 
         for (int i = 0; i < selectedAppointments.size(); i++) {
             String[] dateParts = selectedAppointments.get(i).split("/");
-            int simpleday = Integer.parseInt(dateParts[0]);
-            int simplemonth = Integer.parseInt(dateParts[1]);
-            int simpleyear = Integer.parseInt(dateParts[2].charAt(0) + "" + dateParts[2].charAt(1) + "" + dateParts[2].charAt(2) + "" + dateParts[2].charAt(3));
-            System.out.println(simplemonth == simpleyear);
+            int simpleDay = Integer.parseInt(dateParts[0]);
+            int simpleMonth = Integer.parseInt(dateParts[1]);
+            int simpleYear = Integer.parseInt(dateParts[2].charAt(0) + "" + dateParts[2].charAt(1) + "" + dateParts[2].charAt(2) + "" + dateParts[2].charAt(3));
+            System.out.println(simpleMonth == simpleYear);
             String[] takeparts = selectedAppointments.get(i).split(" ");
             String fullTime = takeparts[1];
-            String hours = fullTime.charAt(0) + "" + fullTime.charAt(1);
-            int shours = Integer.parseInt(hours);
-            String minutes = fullTime.charAt(3) + "" + fullTime.charAt(4);
-            int sminutes = Integer.parseInt(minutes);
-            System.out.println(shours == sminutes);
-            for (int j = 0; j < allapp.size(); j++) {
-                if (tempDent.equals(allapp.get(j).getDentist()) && allapp.get(j).getBookDate().equals(new SimpleCalendar(simpleyear, simplemonth, simpleday)) && shours == Integer.parseInt(allapp.get(j).getHour()) && sminutes == Integer.parseInt(allapp.get(j).getMinutes())) {
-                    aDAO.delete(allapp.get(j));
+            String hourString = fullTime.charAt(0) + "" + fullTime.charAt(1);
+            int hour = Integer.parseInt(hourString);
+            String minuteString = fullTime.charAt(3) + "" + fullTime.charAt(4);
+            int minutes = Integer.parseInt(minuteString);
+            System.out.println(hour == minutes);
+            for (int j = 0; j < allAppointments.size(); j++) {
+                if (temp.equals(allAppointments.get(j).getDentist()) && allAppointments.get(j).getBookDate().equals(new SimpleCalendar(simpleYear, simpleMonth, simpleDay)) && hour == Integer.parseInt(allAppointments.get(j).getHour()) && minutes == Integer.parseInt(allAppointments.get(j).getMinutes())) {
+                    aDAO.delete(allAppointments.get(j));
                     break;
                 }
             }

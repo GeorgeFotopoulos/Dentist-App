@@ -10,6 +10,14 @@ public class DentistLoginPresenter {
         this.view = view;
     }
 
+    /**
+     * This method validates the email and password fields given as parameters and checks if they
+     * match any Dentist on the DentistDAO. Returns the Dentist object if there is a match.
+     *
+     * @param email    Dentist's email
+     * @param password Dentist's password
+     * @return Dentist object that matches the email & password given as parameters or null
+     */
     public Dentist onValid(String email, String password) {
         DentistDAOMemory dentistDao = new DentistDAOMemory();
         if (dentistDao.findByEmail(email) != null) {
@@ -20,6 +28,12 @@ public class DentistLoginPresenter {
         return null;
     }
 
+    /**
+     * This method informs the Dentist in case the e-mail or password field has invalid input.
+     *
+     * @param email Dentist's email
+     * @return A message that informs the user about either the e-mail or the password field having invalid input
+     */
     public String onResult(String email) {
         DentistDAOMemory dentistDao = new DentistDAOMemory();
         if (dentistDao.findByEmail(email) == null) {

@@ -14,7 +14,6 @@ import com.example.efarmoghgiaodontiatrous.view.Client.GuestMenu.GuestMenuActivi
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistLogin.DentistLoginActivity;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
@@ -40,15 +39,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         });
     }
 
+    @Override
     public void dentistMenu() {
-
         Intent intent = new Intent(MainActivity.this, DentistLoginActivity.class);
         startActivityForResult(intent, 1);
         finish();
     }
 
+    @Override
     public void guestMenu() {
-
         Intent intent = new Intent(MainActivity.this, GuestMenuActivity.class);
         startActivityForResult(intent, 1);
         finish();

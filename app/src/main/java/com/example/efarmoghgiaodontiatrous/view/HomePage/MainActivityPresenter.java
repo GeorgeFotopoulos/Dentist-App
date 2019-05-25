@@ -7,10 +7,16 @@ public class MainActivityPresenter {
         this.view = view;
     }
 
+    /**
+     * Sets the view on Guest Menu.
+     */
     public void onGuestMenu() {
         view.guestMenu();
     }
 
+    /**
+     * Sets the view on Dentist Menu.
+     */
     public void onDentistMenu() {
         view.dentistMenu();
     }

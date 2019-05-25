@@ -13,18 +13,32 @@ public class ViewSchedulePresenter {
         this.view = view;
     }
 
-    public String onWelcome(String ID) {
+    /**
+     * This method returns a String message greeting the Dentist who asked to view his Appointment Schedule.
+     *
+     * @param dentistID Dentist's ID
+     * @return A String message
+     */
+    public String onWelcome(String dentistID) {
         DentistDAOMemory ddao = new DentistDAOMemory();
-        return "Welcome Dr. " + ddao.find(ID).getLastName() + "! \n Here you can see the appointments you have:";
+        return "Welcome Dr. " + ddao.find(dentistID).getLastName() + "!\nHere you can see the appointments you have: ";
     }
 
-    public String onSchedule(String ID) {
+    /**
+     * This method returns a String message containing information regarding all of the Appointments the Dentist
+     * whose ID was given as a parameter has, or a message informing that he has no Appointments if none were found.
+     *
+     * @param dentistID Dentist's ID
+     * @return The Appointment list of the Dentist whose ID was given as a parameter
+     * or a message informing that this Dentist has no Appointments if none were found.
+     */
+    public String onSchedule(String dentistID) {
         DentistDAOMemory ddao = new DentistDAOMemory();
         AppointmentDAOMemory adao = new AppointmentDAOMemory();
-        Dentist dentist = ddao.find(ID);
+        Dentist dentist = ddao.find(dentistID);
         String result = "";
         for (Appointment key : adao.find(dentist, AppointmentState.ACCEPTED)) {
-            result = result + "Date: " + key.getBookDate().getDayOfMonth() + "/" + key.getBookDate().getMonth() + "/" + key.getBookDate().getYear() + " \n" + "Time: " + key.getHour() + ":" + key.getMinutes() + " \n" + "Name: " + key.getLastName() + " " + key.getFirstName() + " \n" + "Phone: " + key.getTelephoneNo() + " \n \n";
+            result += "Date: " + key.getBookDate().getDayOfMonth() + "/" + key.getBookDate().getMonth() + "/" + key.getBookDate().getYear() + " \n" + "Time: " + key.getHour() + ":" + key.getMinutes() + " \n" + "Name: " + key.getLastName() + " " + key.getFirstName() + " \n" + "Phone: " + key.getTelephoneNo() + " \n \n";
         }
         if (result != "") {
             return result;
