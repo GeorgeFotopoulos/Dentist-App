@@ -22,9 +22,10 @@ public class RecordServicePresenter {
 
 
     /**
-     * This method searches a client in the DAO, based on his AMKA and it returns his info.
+     * This method searches a client in the DAO, based on his AMKA.
      *
      * @param AMKA The client's AMKA
+     * @return client's  information
      */
     public Client onSearchClient(String AMKA) {
         ClientDAOMemory v = new ClientDAOMemory();
@@ -69,8 +70,9 @@ public class RecordServicePresenter {
     }
 
     /**
-     * This method returns an Array with all the services available.
+     * This method searches all the services in th DAO.
      *
+     * @return an Array with all the services available
      */
     public String[] getService() {
         ServiceDAOMemory serviceDao = new ServiceDAOMemory();

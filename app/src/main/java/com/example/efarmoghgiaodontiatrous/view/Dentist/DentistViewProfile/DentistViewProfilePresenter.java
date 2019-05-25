@@ -16,9 +16,10 @@ public class DentistViewProfilePresenter {
     }
 
     /**
-     * This method searches the Dentist's account by his ID and it returns a String with all of his information.
+     * This method searches the Dentist's account by his ID..
      *
      * @param ID   Dentist's ID
+     * @return a String with all of his information
      */
     public String onShowProfile(String ID) {
         DentistDAOMemory dentist = new DentistDAOMemory();

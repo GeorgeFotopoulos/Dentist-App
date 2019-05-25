@@ -188,6 +188,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
 
     /**
      * This method checks if the information given by the Dentist is correct and if so, it allows the app to continue saving.
+     * @return true for success and false for failed save
      */
     private boolean onCheckValid() {
         comments = ((EditText) findViewById(R.id.in_com)).getText().toString();
