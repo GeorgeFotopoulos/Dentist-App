@@ -36,7 +36,7 @@ public class RequestAppointmentPresenter {
      * @param lastName  Client's last name
      * @param firstName Client's first name
      */
-    public void reqAppointment(Dentist dentist, SimpleCalendar calendar, String time, String telephone, String lastName, String firstName) {
+    public void requestAppointment(Dentist dentist, SimpleCalendar calendar, String time, String telephone, String lastName, String firstName) {
         if (calendar == null && !(time == null || time.equals("") || telephone.equals("") || lastName.equals("") || firstName.equals(""))) {
             view.showError("Picking an appointment date on the calendar is required!");
             return;

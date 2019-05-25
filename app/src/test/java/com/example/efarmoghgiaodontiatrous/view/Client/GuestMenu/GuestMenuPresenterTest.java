@@ -24,14 +24,27 @@ public class GuestMenuPresenterTest {
         presenter = new GuestMenuPresenter(view);
     }
 
+    /**
+     * This method tests the getSpecializations() method.
+     */
     @Test
-    public void testMethods() {
+    public void testSpecializations() {
         List<Specialization> specializations = presenter.getSpecializations();
         Assert.assertEquals(4, specializations.size());
+    }
+
+    /**
+     * This method tests the getServices() method.
+     */
+    @Test
+    public void testServices() {
         List<Service> services = presenter.getServices();
         Assert.assertEquals(3, services.size());
     }
 
+    /**
+     * This method tests the searchByName(String, String) method.
+     */
     @Test
     public void testSearchByName() {
         presenter.searchByName("", "");
@@ -40,6 +53,9 @@ public class GuestMenuPresenterTest {
         Assert.assertEquals("Fotopoulos", view.getLastName());
     }
 
+    /**
+     * This method tests the searchByFilters(String, String, String) method.
+     */
     @Test
     public void testSearchByFilters() {
         presenter.searchByFilters("", "", "");

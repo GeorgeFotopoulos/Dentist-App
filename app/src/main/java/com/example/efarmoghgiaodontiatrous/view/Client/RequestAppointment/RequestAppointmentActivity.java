@@ -45,7 +45,7 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
                 String lastName = ((EditText) findViewById(R.id.lastname)).getText().toString();
                 String firstName = ((EditText) findViewById(R.id.firstname)).getText().toString();
                 String telNo = ((EditText) findViewById(R.id.ContactNum)).getText().toString();
-                Presenter.reqAppointment(D, AppDate, time, telNo, lastName, firstName);
+                Presenter.requestAppointment(D, AppDate, time, telNo, lastName, firstName);
             }
         });
     }

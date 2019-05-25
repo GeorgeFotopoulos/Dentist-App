@@ -23,16 +23,32 @@ public class DentistSearchPresenterTest {
         presenter = new DentistSearchPresenter(view);
     }
 
+    /**
+     * This method tests the searchDentists(String, String) method.
+     */
     @Test
-    public void testRequest() {
+    public void testSearchDentists() {
         Set<Dentist> dentists = presenter.searchDentists("Fotopoulos", "George");
         Assert.assertNotEquals(2, dentists.size());
+    }
 
+    /**
+     * This method tests the searchDentistsWithFilters(String, String, String) method.
+     */
+    @Test
+    public void testSearchDentistsWithFilters() {
+        Set<Dentist> dentistsF = presenter.searchDentistsWithFilters("Athens", "Orthodontic", "Filling");
+        Assert.assertNotEquals(2, dentistsF.size());
+    }
+
+    /**
+     * This method tests the onDentistSelected(Dentist) method
+     */
+    @Test
+    public void testOnDentistSelected() {
+        Set<Dentist> dentists = presenter.searchDentists("Fotopoulos", "George");
         Dentist selected = dentists.iterator().next();
         presenter.onDentistSelected(selected);
         Assert.assertNotEquals(selected.getAppointments(), view.getRequestAppointment());
-
-        Set<Dentist> dentistsF = presenter.searchDentistsWithFilters("Athens", "Orthodontic", "Filling");
-        Assert.assertNotEquals(2, dentistsF.size());
     }
 }

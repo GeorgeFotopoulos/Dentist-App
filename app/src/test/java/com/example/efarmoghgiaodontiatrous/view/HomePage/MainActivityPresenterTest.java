@@ -15,17 +15,23 @@ public class MainActivityPresenterTest {
         view.setPresenter(presenter);
     }
 
+    /**
+     * This method tests the onGuestMenu() method.
+     */
     @Test
     public void testGuestMenu() {
-        for(int i=0; i< 10; i++){
+        for (int i = 0; i < 10; i++) {
             presenter.onGuestMenu();
         }
         Assert.assertEquals(10, view.getGuestMenuClicks());
     }
 
+    /**
+     * This method tests the onDentistMenu() method.
+     */
     @Test
     public void testDentistMenu() {
-        for(int i=0; i< 10; i++){
+        for (int i = 0; i < 10; i++) {
             presenter.onDentistMenu();
         }
         Assert.assertEquals(10, view.getDentistMenuClicks());

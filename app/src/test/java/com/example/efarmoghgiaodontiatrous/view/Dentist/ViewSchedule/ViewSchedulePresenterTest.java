@@ -34,7 +34,7 @@ public class ViewSchedulePresenterTest {
 
     @Test
     public void onWelcomeTest() {
-        Assert.assertEquals(presenter.onWelcome("6"), "Welcome Dr. " + dentistDao.find("6").getLastName() + "! \n Here you can see the appointments you have:");
+        Assert.assertEquals(presenter.onWelcome("6"), "Welcome Dr. " + dentistDao.find("6").getLastName() + "!\nHere you can see the appointments you have: ");
     }
 
     @Test
