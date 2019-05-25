@@ -50,7 +50,6 @@ public class DentistSignupPresenter {
         return out;
     }
 
-
     /**
      *
      * @param d Dentist to be saved in the DAOMemory

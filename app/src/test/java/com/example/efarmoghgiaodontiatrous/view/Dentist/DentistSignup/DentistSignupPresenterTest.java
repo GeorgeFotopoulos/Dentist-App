@@ -30,16 +30,25 @@ public class DentistSignupPresenterTest {
         presenter = new DentistSignupPresenter(view);
     }
 
+    /**
+     * This method tests the getSpecializationList() method.
+     */
     @Test
     public void getSpecializationListTest() {
         Assert.assertTrue(presenter.getSpecializationList().length != 0);
     }
 
+    /**
+     * This method tests the getService() method.
+     */
     @Test
     public void getServiceTest() {
         Assert.assertTrue(presenter.getService().length != 0);
     }
 
+    /**
+     * This method tests the saveDentist(Dentist) method.
+     */
     @Test
     public void saveDentistTest() {
         int size = dentistDao.findAll().size();
@@ -53,6 +62,9 @@ public class DentistSignupPresenterTest {
         Assert.assertEquals(newsize2, newsize);
     }
 
+    /**
+     * This method tests the addSpecializations(List<String>, Dentist) method.
+     */
     @Test
     public void addSpecializationsTest() {
         Dentist existing = dentistDao.find("1");
@@ -67,11 +79,17 @@ public class DentistSignupPresenterTest {
         Assert.assertEquals(old, newL);
     }
 
+    /**
+     * This method tests the getDentistSize() method.
+     */
     @Test
     public void getDentistSizeTest() {
         Assert.assertTrue(presenter.getDentistSize().equals(dentistDao.findAll().size() + ""));
     }
 
+    /**
+     * This method tests the addServices(List<String>, Dentist) method.
+     */
     @Test
     public void addServicesTest() {
         Dentist existing = dentistDao.find("6");

@@ -27,6 +27,9 @@ public class DentistLoginPresenterTest {
         presenter = new DentistLoginPresenter(view);
     }
 
+    /**
+     * This method tests the onValid(String, String) method.
+     */
     @Test
     public void testOnValid() {
         dentist = presenter.onValid("fotakis@gmail.com", "asdfg123");
@@ -35,6 +38,9 @@ public class DentistLoginPresenterTest {
         Assert.assertNull(dentist);
     }
 
+    /**
+     * This method tests the onResult(String) method.
+     */
     @Test
     public void testOnResult() {
         String message, email;

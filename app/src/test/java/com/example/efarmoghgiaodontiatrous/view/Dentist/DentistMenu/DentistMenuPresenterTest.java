@@ -15,6 +15,9 @@ public class DentistMenuPresenterTest {
         view.setPresenter(presenter);
     }
 
+    /**
+     * This method tests the onViewProfile() method.
+     */
     @Test
     public void testViewProfile() {
         for (int i = 0; i < 10; i++) {
@@ -23,6 +26,9 @@ public class DentistMenuPresenterTest {
         Assert.assertEquals(10, view.getManageViewProfileClicks());
     }
 
+    /**
+     * This method tests the onUpdateAccount() method.
+     */
     @Test
     public void testUpdateAccount() {
         for (int i = 0; i < 10; i++) {
@@ -31,6 +37,9 @@ public class DentistMenuPresenterTest {
         Assert.assertEquals(10, view.getManageUpdateAccountClicks());
     }
 
+    /**
+     * This method tests the onViewClientHistory() method.
+     */
     @Test
     public void testViewClientHistory() {
         for (int i = 0; i < 10; i++) {
@@ -39,6 +48,9 @@ public class DentistMenuPresenterTest {
         Assert.assertEquals(10, view.getManageViewClientHistoryClicks());
     }
 
+    /**
+     * This method test the onAppointmentManagement() method.
+     */
     @Test
     public void testAppointmentManagement() {
         for (int i = 0; i < 10; i++) {
@@ -47,6 +59,9 @@ public class DentistMenuPresenterTest {
         Assert.assertEquals(10, view.getManageAppointmentManagementClicks());
     }
 
+    /**
+     * This method tests the onViewStatistics() method.
+     */
     @Test
     public void testViewStatistics() {
         for (int i = 0; i < 10; i++) {
@@ -55,6 +70,9 @@ public class DentistMenuPresenterTest {
         Assert.assertEquals(10, view.getManageViewStatisticsClicks());
     }
 
+    /**
+     * This method tests the onViewAppointmentSchedule() method.
+     */
     @Test
     public void testViewAppointmentSchedule() {
         for (int i = 0; i < 10; i++) {
@@ -63,6 +81,9 @@ public class DentistMenuPresenterTest {
         Assert.assertEquals(10, view.getManageViewAppointmentScheduleClicks());
     }
 
+    /**
+     * This method tests the onRecordProvidedService() method.
+     */
     @Test
     public void testRecordProvidedServices() {
         for (int i = 0; i < 10; i++) {

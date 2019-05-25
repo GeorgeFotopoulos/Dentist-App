@@ -33,12 +33,18 @@ public class DentistAppointmentManagementPresenterTest {
         presenter = new DentistAppointmentManagementPresenter(view);
     }
 
+    /**
+     * This method tests the getAppointments(String, AppointmentState) method.
+     */
     @Test
     public void testGetAppointments() {
         String[] appointmentList = presenter.getAppointments("6", AppointmentState.PENDING);
         Assert.assertNotEquals(0, appointmentList.length);
     }
 
+    /**
+     * This method tests the acceptAppointments(String, List<String>) method.
+     */
     @Test
     public void testAcceptAppointments() {
         List<String> selectedAppointments = new ArrayList<>();
@@ -49,6 +55,9 @@ public class DentistAppointmentManagementPresenterTest {
         Assert.assertNotEquals(size, newSize);
     }
 
+    /**
+     * This method tests the declineAppointments(String, List<String>) method.
+     */
     @Test
     public void testDeclineAppointments() {
         List<String> selectedAppointments = new ArrayList<>();
