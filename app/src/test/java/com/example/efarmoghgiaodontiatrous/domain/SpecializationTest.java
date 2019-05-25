@@ -16,6 +16,9 @@ public class SpecializationTest {
         specialization = new Specialization("Endodontic", "1");
     }
 
+    /**
+     * checks if specialuzations are equal
+     */
     @Test
     public void testEqualsObject() {
         Specialization specialization2 = new Specialization("Endodontic", "1");

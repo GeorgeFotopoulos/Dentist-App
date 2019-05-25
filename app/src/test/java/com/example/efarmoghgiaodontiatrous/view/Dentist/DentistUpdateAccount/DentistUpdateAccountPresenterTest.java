@@ -28,11 +28,18 @@ public class DentistUpdateAccountPresenterTest {
         presenter = new DentistUpdateAccountPresenter(view);
     }
 
+    /**
+     * Tests if it Passes onDentistMenu
+     */
     @Test
     public void onDentistMenuTest() {
         presenter.onDentistMenu();
     }
 
+    /**
+     * Checks if First Name of d is PAOKARAS
+     * After update it is
+     */
     @Test
     public void onUpdateTest() {
         Assert.assertNotEquals(d.getFirstName(), "PAOKARAS");
@@ -41,21 +48,34 @@ public class DentistUpdateAccountPresenterTest {
         Assert.assertEquals(d.getFirstName(), "PAOKARAS");
     }
 
+    /**
+     * checks if getSpecializations returns an empty List
+     */
     @Test
     public void getSpecializationListTest() {
         Assert.assertTrue(presenter.getSpecializationList().length != 0);
     }
 
+    /**
+     * checks if getService returns an empty List
+     */
     @Test
     public void getServiceTest() {
         Assert.assertTrue(presenter.getService().length != 0);
     }
 
+    /**
+     * checks if Dentist of LoggedIn matches the one it should
+     */
     @Test
     public void OnLoggedInDentistTest() {
         Assert.assertEquals(presenter.onLoggedInDentist("6").getEmail(), d.getEmail());
     }
 
+    /**
+     * Adds the Specializations that the Dentists has
+     * if not in Dao it should not pass as a service
+     */
     @Test
     public void addSpecializationsTest() {
         int oldSize, newSize;
@@ -70,6 +90,10 @@ public class DentistUpdateAccountPresenterTest {
         Assert.assertEquals(oldSize, newSize);
     }
 
+    /**
+     * Adds Services that the Dentists provide
+     * if not in Dao it should not pass as a service
+     */
     @Test
     public void addServicesTest() {
         int oldSize, newSize;

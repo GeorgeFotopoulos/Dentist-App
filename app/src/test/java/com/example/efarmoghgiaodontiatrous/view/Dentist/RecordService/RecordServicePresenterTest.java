@@ -42,12 +42,18 @@ public class RecordServicePresenterTest {
         presenter = new RecordServicePresenter(view);
     }
 
+    /**
+     * Tests if Null on a client that is not in System else finds the client
+     */
     @Test
     public void testOnSearchClient() {
         Assert.assertNull(presenter.onSearchClient("17099800036"));
         Assert.assertNotNull(presenter.onSearchClient("17099800037"));
     }
 
+    /**
+     * tests if onCreate creates correct Visits and saves them as wanted
+     */
     @Test
     public void testOnCreate() {
         int initialVisitDaoSize, newVisitDaoSize, initialClientDaoSize, newClientDaoSize;
@@ -68,6 +74,9 @@ public class RecordServicePresenterTest {
         Assert.assertNotEquals(initialVisitDaoSize, newVisitDaoSize);
     }
 
+    /**
+     * test if getService() returns the desired outcome
+     */
     @Test
     public void testGetService() {
         String[] service = presenter.getService();

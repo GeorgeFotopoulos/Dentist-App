@@ -32,11 +32,17 @@ public class ViewSchedulePresenterTest {
         presenter = new ViewSchedulePresenter(view);
     }
 
+    /**
+     * tests the welcome message
+     */
     @Test
     public void onWelcomeTest() {
         Assert.assertEquals(presenter.onWelcome("6"), "Welcome Dr. " + dentistDao.find("6").getLastName() + "!\nHere you can see the appointments you have: ");
     }
 
+    /**
+     * tests tje messages that the programm returns onSchedule
+     */
     @Test
     public void onScheduleTest() {
         Assert.assertEquals(presenter.onSchedule("6"), "You have no appointments :(");

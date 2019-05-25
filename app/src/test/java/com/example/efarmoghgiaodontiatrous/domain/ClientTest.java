@@ -16,6 +16,9 @@ public class ClientTest {
         client = new Client("Panagiotis", "Ntymenos", "6948554284", "panagiwths.nty@gmail.com", "17099800037");
     }
 
+    /**
+     * checks clients to have the same hashcode and are equal
+     */
     @Test
     public void equals() {
         Client otherClient = new Client("George", "Patrikis", "6986888788", "geopatg4@gmail.com", "17099800037");

@@ -20,6 +20,9 @@ public class DentistViewHistoryPresenterTest {
         presenter = new DentistViewHistoryPresenter(view);
     }
 
+    /**
+     * shows an error message if empty else the provided services
+     */
     @Test
     public void testOnHistoryBack() {
         String message;

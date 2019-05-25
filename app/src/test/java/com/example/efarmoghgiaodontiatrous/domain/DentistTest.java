@@ -70,6 +70,9 @@ public class DentistTest {
         assertEquals(appointment.getState(), AppointmentState.ACCEPTED);
     }
 
+    /**
+     * checks if appointment is deleted
+     */
     @Test
     public void testDeclineAppointment() {
         SimpleCalendar calendar = new SimpleCalendar(10, 10, 2010);

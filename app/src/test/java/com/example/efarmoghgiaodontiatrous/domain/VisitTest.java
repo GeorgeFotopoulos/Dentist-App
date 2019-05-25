@@ -35,6 +35,9 @@ public class VisitTest {
         visit.setServices(services);
     }
 
+    /**
+     * checks if visits are equal
+     */
     @Test
     public void testEqualsObject() {
         SimpleCalendar otherDate = new SimpleCalendar(1, 1, 2001);

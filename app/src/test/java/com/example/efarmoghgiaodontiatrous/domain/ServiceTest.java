@@ -16,6 +16,11 @@ public class ServiceTest {
         service = new Service("Filling", "1");
     }
 
+
+
+    /**
+     * checks if Services are equal
+     */
     @Test
     public void testEqualsObject() {
         Service service2 = new Service("Filling", "1");

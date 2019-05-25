@@ -30,6 +30,9 @@ public class AppointmentTest {
         assertEquals(other.hashCode(), appointment.hashCode());
     }
 
+    /**
+     * checks Equals
+     */
     @Test
     public void differentAppointments() {
         Dentist dentist2 = new Dentist();

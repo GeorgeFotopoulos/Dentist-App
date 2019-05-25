@@ -44,11 +44,17 @@ public class ViewStatisticsPresenterTest {
         presenter = new ViewStatisticsPresenter(view);
     }
 
+    /**
+     * Tests the welcome message
+     */
     @Test
     public void onWelcomeTest() {
         Assert.assertEquals("Welcome Dr. Fotakis!\nBelow is the list with all the successful operations you have made:", presenter.onWelcome("6"));
     }
 
+    /**
+     * Checks the way that onStats return the String to be shown
+     */
     @Test
     public void onStatsTest() {
         Dentist D = dentistDao.find("3");

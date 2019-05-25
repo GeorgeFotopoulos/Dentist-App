@@ -26,6 +26,9 @@ public class DentistViewProfilePresenterTest {
         presenter = new DentistViewProfilePresenter(view);
     }
 
+    /**
+     * Shows the profile of Dentists and test that the message is as wanted
+     */
     @Test
     public void onShowProfileTest() {
         Dentist d = dentistDao.find("6");
@@ -36,6 +39,9 @@ public class DentistViewProfilePresenterTest {
 
     }
 
+    /**
+     * checks if passes a test
+     */
     @Test
     public void onUpdateAccountTest() {
         presenter.onUpdateAccount();
