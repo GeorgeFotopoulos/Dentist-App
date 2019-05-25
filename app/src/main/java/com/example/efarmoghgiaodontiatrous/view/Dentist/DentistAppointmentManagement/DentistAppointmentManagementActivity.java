@@ -106,6 +106,10 @@ public class DentistAppointmentManagementActivity extends AppCompatActivity impl
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * connects the String of a List with the checkbox
+     * @return List with ListViewItemDTO
+     */
     private List<ListViewItemDTO> getInitViewItemDtoList() {
         itemTextArr = presenter.getAppointments(Dentist_ID, AppointmentState.PENDING);
         List<ListViewItemDTO> ret = new ArrayList<>();
