@@ -124,6 +124,10 @@ public class DentistMenuActivity extends AppCompatActivity implements DentistMen
         intent.putExtra("AMKA","");
         startActivity(intent);
     }
+
+    /**
+     * Asks the Dentist if he wants to keep Loged In ot log out and Leave
+     */
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
