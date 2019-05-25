@@ -6,40 +6,43 @@ import java.util.List;
 
 public interface ServiceDAO {
     /**
-     * Διαγράφει μια υπηρεσία.
+     * Deletes a Service from the ServiceDAO.
      *
-     * @param entity Η υπηρεσία
+     * @param entity The Service entity to be deleted from the ServiceDAO
      */
     void delete(Service entity);
 
     /**
-     * Επιστρέφει όλες τις υπηρεσίες.
+     * Returns a List including all the Service objects in the ServiceDAO.
      *
-     * @return Οι υπηρεσίες
+     * @return List of all the Service objects in the ServiceDAO
      */
     List<Service> findAll();
 
+    /**
+     * Deletes all the ServiceDAO entities.
+     */
     void clear();
 
     /**
-     * Αποθηκεύει μια υπηρεσία.
+     * Saves a Service in the ServiceDAO.
      *
-     * @param entity Η υπηρεσία
+     * @param entity The Service
      */
     void save(Service entity);
 
     /**
-     * Βρίσκει μια υπηρεσία με βάση τον κωδικό της.
+     * Finds and returns a Service based on its ID.
      *
-     * @param serviceId Ο κωδικός της υπηρεσίας
-     * @return Η υπηρεσία που βρέθηκε ή null
+     * @param serviceId Service ID
+     * @return Service entity that was found or null
      */
     Service find(String serviceId);
 
     /**
-     * Επιστρέφει τον επόμενο κωδικό που μπορεί να αποδοθεί σε μια υπηρεσία.
+     * Returns the next ID that can be assigned to a Service.
      *
-     * @return Ο κωδικός της υπηρεσίας
+     * @return Service ID
      */
     String nextId();
 }

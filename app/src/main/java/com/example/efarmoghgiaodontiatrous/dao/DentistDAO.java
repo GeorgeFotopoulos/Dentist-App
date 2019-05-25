@@ -6,22 +6,24 @@ import java.util.List;
 
 public interface DentistDAO {
     /**
-     * @param lastName  Το επίθετο του οδοντιάτρου
-     * @param firstName Το όνομα του οδοντιάτρου
-     * @return Ο οδοντίατρος που βρέθηκε με βάση την αναζήτηση με όνομα
+     * Finds and returns a list of Dentists with the first name and last name given as parameters.
+     *
+     * @param lastName  Dentist's last name
+     * @param firstName Dentist's first name
+     * @return A list of dentists that were found based on the search by name
      */
     List<Dentist> findByName(String lastName, String firstName);
 
     /**
-     * Βρίσκει έναν οδοντίατρο με βάση τον κωδικό του.
+     * Finds and returns a Dentist based on his ID.
      *
-     * @param dentistId Ο κωδικός του οδοντιάτρου
-     * @return Ο οδοντίατρος που βρέθηκε ή null
+     * @param dentistId Dentist's ID
+     * @return Dentist object that was found or null
      */
     Dentist find(String dentistId);
 
     /**
-     * Returns the dentist that owns the email given as a parameter.
+     * Returns the Dentist that owns the email given as a parameter.
      *
      * @param email The dentist's email.
      * @return The dentist object that owns the email given as a parameter
@@ -29,30 +31,28 @@ public interface DentistDAO {
     Dentist findByEmail(String email);
 
     /**
-     * Αποθηκεύει ένα αντικείμενο στην εξωτερική πηγή δεδομένων.
-     * Το αντικείμενο μπορεί να είναι κάποιο νέο αντικείμενο που δεν υπάρχει
-     * στην πηγή δεδομένων ή κάποιο το οποίο ήδη υπάρχει και ενημερώνεται η κατάστασή του.
+     * Saves a Dentist in the DentistDAO.
      *
-     * @param entity Το αντικείμενο του οποίου η κατάσταση αποθηκεύεται στην εξωτερική πηγή δεδομένων.
+     * @param entity The Dentist entity to be saved in the DentistDAO
      */
     void save(Dentist entity);
 
     /**
-     * Διαγράφει το αντικείμενο από την εξωτερική πηγή δεδομένων.
+     * Deletes a Dentist from the DentistDAO.
      *
-     * @param entity Το αντικείμενο προς διαγραφή.
+     * @param entity The Dentist entity to be deleted from the AppointmentDAO
      */
     void delete(Dentist entity);
 
     /**
-     * Επιστρέφει όλα τα αντικείμενα  από την εξωτερική πηγή δεδομένων.
+     * Returns a List including all the Dentist objects in the DentistDAO.
      *
-     * @return Ο κατάλογος των αντικειμένων
+     * @return List of all the Dentist objects in the DentistDAO
      */
     List<Dentist> findAll();
 
     /**
-     * Returns all the dentist objects that meet the criteria below.
+     * Returns all the Dentist objects that meet the criteria below.
      *
      * @param region         The region of the infirmary
      * @param specialization The dentist's specialization(s)

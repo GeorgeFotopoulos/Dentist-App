@@ -22,7 +22,7 @@ public class DentistAppointmentManagementPresenter {
         DentistDAOMemory dDAO = new DentistDAOMemory();
         Dentist tempDent = dDAO.find(ID);
 
-        return aDAO.findΤoString(tempDent, State);
+        return aDAO.findToString(tempDent, State);
     }
 
     public void AcceptAppointments(String ID, List<String> selectedAppointments) {

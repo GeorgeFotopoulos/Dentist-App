@@ -26,7 +26,7 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
 
         CalendarView calender = findViewById(R.id.DateOfAppointment);
         String DentistID = intent.getStringExtra("DentistID");
-        final Dentist D = Presenter.updateDentInfoText(DentistID);
+        final Dentist D = Presenter.findDentistByID(DentistID);
         System.out.println(D.getLastName());
         TextView DentInfo = findViewById(R.id.dentistInfo);
         calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -56,12 +56,13 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
         super.onBackPressed();
     }
 
+    @Override
     public void showError(String errorMsg) {
         Toast.makeText(this, errorMsg, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
     public void success(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-
 }

@@ -6,33 +6,36 @@ import java.util.List;
 
 public interface ClientDAO {
     /**
-     * Διαγράφει έναν πελάτη.
+     * Deletes a Client object from the ClientDAO.
      *
-     * @param entity Ο πελάτης
+     * @param entity The Client entity to be deleted from the ClientDAO
      */
     void delete(Client entity);
 
     /**
-     * Επιστρέφει όλους τους πελάτες.
+     * Returns a List including all the Client objects in the ClientDAO.
      *
-     * @return Οι πελάτες
+     * @return List of all the Client objects in the ClientDAO
      */
     List<Client> findAll();
 
+    /**
+     * Deletes all the ClientDAO entities.
+     */
     void clear();
 
     /**
-     * Αποθηκεύει έναν πελάτη.
+     * Saves a Client in the ClientDAO.
      *
-     * @param entity Ο πελάτης
+     * @param entity The Client entity to be saved in the ClientDAO
      */
     void save(Client entity);
 
     /**
-     * Βρίσκει έναν πελάτη με βάση τον κωδικό AMKA του.
+     * Finds and returns a Client based on the AMKA number given as a parameter.
      *
-     * @param clientAMKA Ο κωδικός AMKA του πελάτη
-     * @return Ο πελάτης που βρέθηκε ή null
+     * @param clientAMKA Client's AMKA number
+     * @return The client that was found or null
      */
     Client find(String clientAMKA);
 }

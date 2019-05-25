@@ -25,11 +25,10 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
     protected void onCreate(Bundle savedInstanceState) {
         presenter = new GuestMenuPresenter(this);
         super.onCreate(savedInstanceState);
-        Intent intent = getIntent();
         setContentView(R.layout.activity_guest_menu);
 
         List<Specialization> specializations = presenter.getSpecializations();
-        String Specializations[] = new String[specializations.size() + 1];
+        String[] Specializations = new String[specializations.size() + 1];
         Specializations[0] = "";
         for (int i = 1; i <= specializations.size(); i++) {
             Specializations[i] = specializations.get(i - 1).getSpecializationName();
@@ -40,7 +39,7 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         s.setAdapter(adapter);
 
         List<Service> services = presenter.getServices();
-        String Services[] = new String[services.size() + 1];
+        String[] Services = new String[services.size() + 1];
         Services[0] = "";
         for (int i = 1; i <= services.size(); i++) {
             Services[i] = services.get(i - 1).getServiceName();
@@ -50,7 +49,7 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s1.setAdapter(adapter1);
 
-        String Regions[] = {"", "Aghios Dimitrios", "Chalandri", "Faliro", "Marousi", "Nea Smyrni", "Peristeri"};
+        String[] Regions = {"", "Aghios Dimitrios", "Chalandri", "Faliro", "Marousi", "Nea Smyrni", "Peristeri"};
         s2 = findViewById(R.id.spinner3);
         ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, Regions);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -73,10 +72,12 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         });
     }
 
+    @Override
     public void showError(String errorMsg) {
         Toast.makeText(this, errorMsg, Toast.LENGTH_LONG).show();
     }
 
+    @Override
     public void showSearchView(String lastname, String firstname) {
         finish();
         Intent intent = new Intent(this, DentistSearchActivity.class);
@@ -93,6 +94,7 @@ public class GuestMenuActivity extends AppCompatActivity implements GuestMenuVie
         startActivity(intent);
     }
 
+    @Override
     public void showSearchViewFilters(String region, String specialization, String service) {
         finish();
         Intent intent = new Intent(this, DentistSearchActivity.class);

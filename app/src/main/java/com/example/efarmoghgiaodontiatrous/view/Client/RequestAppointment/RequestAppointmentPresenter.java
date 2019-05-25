@@ -13,12 +13,29 @@ public class RequestAppointmentPresenter {
         this.view = view;
     }
 
-    Dentist updateDentInfoText(String ID) {
+    /**
+     * This method finds and returns a Dentist object using its ID.
+     *
+     * @param ID Dentist's ID
+     * @return Dentist object with the ID given as a parameter
+     */
+    Dentist findDentistByID(String ID) {
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
         Dentist D = dDAOMemory.find(ID);
         return D;
     }
 
+    /**
+     * This method is used by the client to request an appointment from a specific Dentist, on a specific Date & Time.
+     * Client has to fill in his first name, last name & contact number.
+     *
+     * @param dentist   Dentist who will carry out the appointment
+     * @param calendar  Appointment's date field
+     * @param time      Appointment's time field
+     * @param telephone Client's contact number
+     * @param lastName  Client's last name
+     * @param firstName Client's first name
+     */
     public void reqAppointment(Dentist dentist, SimpleCalendar calendar, String time, String telephone, String lastName, String firstName) {
         if (calendar == null && !(time == null || time.equals("") || telephone.equals("") || lastName.equals("") || firstName.equals(""))) {
             view.showError("Picking an appointment date on the calendar is required!");

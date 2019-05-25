@@ -34,7 +34,7 @@ public class RequestAppointmentPresenterTest {
 
     @Test
     public void testRequestAppointment() {
-        Dentist d = presenter.updateDentInfoText("1555");
+        Dentist d = presenter.findDentistByID("1555");
         Assert.assertNull(d);
 
         int size = appointmentDao.find(dentistDao.find("6"), AppointmentState.PENDING).size();

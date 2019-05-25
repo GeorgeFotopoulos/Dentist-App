@@ -79,7 +79,6 @@ public class SimpleCalendar implements Comparable<SimpleCalendar> {
         }
     }
 
-
     /**
      * Επιστρέφει το μήνα της ημερομηνίας (1-12).
      *

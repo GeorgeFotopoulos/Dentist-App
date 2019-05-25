@@ -40,6 +40,11 @@ public class Address {
         this.zip = zip;
     }
 
+    /**
+     * Prints a String containing all the Address fields.
+     *
+     * @return String that contains all the Address fields
+     */
     public String print() {
         return (street + " " + number + ", " + zip + ", " + city + ", " + country);
     }

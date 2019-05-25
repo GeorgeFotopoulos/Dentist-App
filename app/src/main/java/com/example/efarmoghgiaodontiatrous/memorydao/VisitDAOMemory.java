@@ -10,7 +10,7 @@ public class VisitDAOMemory implements VisitDAO {
     protected static List<Visit> entities = new ArrayList<>();
 
     @Override
-    public void clear(){
+    public void clear() {
         entities.clear();
     }
 

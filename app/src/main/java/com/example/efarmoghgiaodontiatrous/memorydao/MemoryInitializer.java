@@ -69,7 +69,10 @@ public class MemoryInitializer extends Initializer {
         return new VisitDAOMemory();
     }
 
-    public void eraseData(){
+    /**
+     * Erases all the data from the DAOs.
+     */
+    public void eraseData() {
         getAppointmentDAO().clear();
         getClientDAO().clear();
         getServiceDAO().clear();

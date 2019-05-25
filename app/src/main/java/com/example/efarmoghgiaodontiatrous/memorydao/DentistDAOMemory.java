@@ -22,6 +22,7 @@ public class DentistDAOMemory implements DentistDAO {
         return null;
     }
 
+    @Override
     public Dentist findByEmail(String email) {
         for (Dentist dentist : entities) {
             if (dentist.getEmail().equals(email)) return dentist;

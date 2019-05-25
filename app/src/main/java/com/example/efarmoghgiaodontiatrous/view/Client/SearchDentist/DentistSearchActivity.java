@@ -67,6 +67,7 @@ public class DentistSearchActivity extends AppCompatActivity implements ItemSele
         startActivityForResult(intent, 1);
     }
 
+    @Override
     public void onBackPressed() {
         finish();
         Intent intent = new Intent(DentistSearchActivity.this, GuestMenuActivity.class);

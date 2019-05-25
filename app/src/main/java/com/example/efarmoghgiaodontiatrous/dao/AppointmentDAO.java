@@ -8,35 +8,48 @@ import java.util.List;
 
 public interface AppointmentDAO {
     /**
-     * Διαγράφει ένα ραντεβού.
+     * Deletes an Appointment from the AppointmentDAO.
      *
-     * @param entity Το ραντεβού
+     * @param entity The Appointment entity to be deleted from the AppointmentDAO
      */
     void delete(Appointment entity);
 
     /**
-     * Επιστρέφει όλα τα ραντεβού.
+     * Returns a List including all the Appointment objects in the AppointmentDAO.
      *
-     * @return Τα ραντεβού
+     * @return List of all the Appointment objects in the AppointmentDAO
      */
     List<Appointment> findAll();
 
     /**
-     * Αποθηκεύει ένα ραντεβού.
+     * Saves an Appointment in the AppointmentDAO.
      *
-     * @param entity Το ραντεβού
+     * @param entity The Appointment entity to be saved in the AppointmentDAO
      */
     void save(Appointment entity);
 
+    /**
+     * Deletes all the AppointmentDAO entities.
+     */
     void clear();
 
     /**
-     * Βρίσκει τα ραντεβού ενός οδοντιάτρου με βάση τον κωδικό του.
+     * Finds and returns all the appointments of the dentist that was given as a parameter
+     * with the AppointmentState given as a parameter.
      *
-     * @param dentist Ο κωδικός του οδοντιάτρου
-     * @return Τα ραντεβού που βρέθηκαν ή null
+     * @param dentist Dentist object
+     * @param state   AppointmentState (ACCEPTED or PENDING)
+     * @return All the appointments that were found or null
      */
-    List<Appointment> find(Dentist dentist,AppointmentState state);
+    List<Appointment> find(Dentist dentist, AppointmentState state);
 
-    String[] findΤoString(Dentist tempDent, AppointmentState state);
+    /**
+     * This method returns a string table that includes all the information regarding the appointments
+     * that have the AppointmentState given as a parameter for the dentist given as a parameter.
+     *
+     * @param tempDent Dentist to look for
+     * @param state    AppointmentState (ACCEPTED or PENDING)
+     * @return A table of Strings that include all the information regarding the appointments that fulfil both parameters
+     */
+    String[] findToString(Dentist tempDent, AppointmentState state);
 }

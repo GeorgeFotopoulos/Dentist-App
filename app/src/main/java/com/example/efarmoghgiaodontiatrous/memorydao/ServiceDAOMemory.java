@@ -35,8 +35,9 @@ public class ServiceDAOMemory implements ServiceDAO {
         }
         return null;
     }
+
     @Override
-    public void clear(){
+    public void clear() {
         entities.clear();
     }
 

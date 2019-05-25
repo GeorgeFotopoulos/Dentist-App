@@ -6,33 +6,36 @@ import java.util.List;
 
 public interface VisitDAO {
     /**
-     * Διαγράφει μια επίσκεψη.
+     * Deletes a Visit from the VisitDAO.
      *
-     * @param entity Η επίσκεψη
+     * @param entity The Visit entity to be deleted from the VisitDAO.
      */
     void delete(Visit entity);
 
-
-    void clear();
     /**
-     * Επιστρέφει όλες τις επισκέψεις.
+     * Deletes all the VisitDAO entities.
+     */
+    void clear();
+
+    /**
+     * Returns a List including all the Visit objects in the VisitDAO.
      *
-     * @return Οι επισκέψεις
+     * @return List of all the Visit objects in the VisitDAO
      */
     List<Visit> findAll();
 
     /**
-     * Αποθηκεύει μια επίσκεψη.
+     * Saves a Visit in the VisitDAO.
      *
-     * @param entity Η επίσκεψη
+     * @param entity The Visit entity to be saved in the VisitDAO
      */
     void save(Visit entity);
 
     /**
-     * Βρίσκει μια επίσκεψη με βάση τον κωδικό ΑΜΚΑ του πελάτη.
+     * Finds and returns a List of Visits based on the Client's AMKA number given as a parameter.
      *
-     * @param AMKA Ο κωδικός AMKA του πελάτη της επίσκεψης
-     * @return Η επίσκεψη που βρέθηκε ή null
+     * @param AMKA Client's AMKA number
+     * @return List of all the Visit entities that were found or null
      */
     List<Visit> find(String AMKA);
 }

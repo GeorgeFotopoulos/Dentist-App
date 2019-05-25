@@ -419,6 +419,34 @@ public class Dentist {
         return client;
     }
 
+    /**
+     * This method returns a String that contains all of the Dentist's Specializations separated by commas.
+     *
+     * @return String containing all the Specializations of a particular Dentist
+     */
+    public String printSpecializations() {
+        String out = "";
+        for (Specialization sp : specializations) {
+            out += sp.getSpecializationName() + ", ";
+        }
+        out = out.substring(0, out.length() - 2);
+        return out;
+    }
+
+    /**
+     * This method returns a String that contains all of the Dentist's provided Services separated by commas.
+     *
+     * @return String containing all the Services of a particular Dentist
+     */
+    public String printServices() {
+        String out = "";
+        for (Service sp : services) {
+            out += sp.getServiceName() + ", ";
+        }
+        out = out.substring(0, out.length() - 2);
+        return out;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -439,24 +467,4 @@ public class Dentist {
         result = 31 * result + password.hashCode();
         return result;
     }
-
-    public String printSpecializations() {
-        String out = "";
-        for (Specialization sp : specializations) {
-            out += sp.getSpecializationName() + ", ";
-        }
-        out = out.substring(0, out.length() - 2);
-        return out;
-    }
-
-    public String printServices() {
-        String out = "";
-        for (Service sp : services) {
-            out += sp.getServiceName() + ", ";
-        }
-        out = out.substring(0, out.length() - 2);
-        return out;
-    }
-
-
 }

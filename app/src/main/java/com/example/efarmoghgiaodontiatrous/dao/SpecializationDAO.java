@@ -6,40 +6,43 @@ import java.util.List;
 
 public interface SpecializationDAO {
     /**
-     * Διαγράφει μια ειδικότητα.
+     * Deletes a Specialization from the SpecializationDAO.
      *
-     * @param entity Η ειδικότητα
+     * @param entity The Specialization entity to be deleted from the SpecializationDAO
      */
     void delete(Specialization entity);
 
-
-    void clear();
     /**
-     * Επιστρέφει όλες τις ειδικότητες.
+     * Deletes all the SpecializationDAO entities.
+     */
+    void clear();
+
+    /**
+     * Returns a List including all the Specialization objects in the SpecializationDAO.
      *
-     * @return Οι ειδικότητες
+     * @return List of all the Specialization objects in the SpecializationDAO
      */
     List<Specialization> findAll();
 
     /**
-     * Αποθηκεύει μια ειδικότητα.
+     * Saves a Specialization in the SpecializationDAO.
      *
-     * @param entity Η ειδικότητα
+     * @param entity The Specialization
      */
     void save(Specialization entity);
 
     /**
-     * Βρίσκει μια ειδικότητα με βάση τον κωδικό της.
+     * Finds and returns a Specialization based on its ID.
      *
-     * @param specializationId Ο κωδικός της ειδικότητας
-     * @return Η ειδικότητα που βρέθηκε ή null
+     * @param specializationId Specialization ID
+     * @return Specialization entity that was found or null
      */
     Specialization find(String specializationId);
 
     /**
-     * Επιστρέφει τον επόμενο κωδικό που μπορεί να αποδοθεί σε μια ειδικότητα.
+     * Returns the next ID that can be assigned to a Specialization.
      *
-     * @return Ο κωδικός της ειδικότητας
+     * @return Specialization ID
      */
     String nextId();
 }
