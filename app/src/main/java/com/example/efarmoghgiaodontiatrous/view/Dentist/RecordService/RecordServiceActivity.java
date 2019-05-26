@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Client;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
+import com.example.efarmoghgiaodontiatrous.util.SystemDate;
 import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemCheckboxBaseAdapter;
 import com.example.efarmoghgiaodontiatrous.view.AndroidUtil.ListViewItemDTO;
 import com.example.efarmoghgiaodontiatrous.view.Dentist.DentistMenu.DentistMenuActivity;
@@ -48,7 +49,7 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
      */
     protected String amka;
     private String comments;
-    private SimpleCalendar dateOfAppointment = null;
+    private SimpleCalendar dateOfAppointment = SystemDate.now();
     /**
      * The Where.
      */
@@ -126,8 +127,8 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
         AMKA = ((EditText) findViewById(R.id.amka)).getText().toString();
         client = presenter.onSearchClient(AMKA);
 
-        CalendarView calender = findViewById(R.id.DateOfAppointment);
-        calender.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        CalendarView calendar = findViewById(R.id.DateOfAppointment);
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 month++;
@@ -168,7 +169,6 @@ public class RecordServiceActivity extends AppCompatActivity implements RecordSe
 
     @Override
     public void onBackPressed() {
-
         if (where.equals("Menu")) {
             finish();
             Intent intent = new Intent(RecordServiceActivity.this, DentistMenuActivity.class);
