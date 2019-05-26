@@ -37,6 +37,8 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
      */
     Spinner s;
 
+    ArrayAdapter<String> adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Presenter = new RequestAppointmentPresenter(this);
@@ -48,7 +50,6 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
         final Dentist dentist = Presenter.findDentistByID(DentistID);
 
         change(DentistID, dateOfAppointment);
-
         TextView dentistInfo = findViewById(R.id.dentistInfo);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -77,7 +78,7 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
     public void change(String DentistID, SimpleCalendar dateOfAppointment) {
         List<String> times = Presenter.getAppTimes(DentistID, dateOfAppointment);
         s = findViewById(R.id.AppointmentTime);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, times);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
     }
@@ -96,8 +97,6 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
     @Override
     public void success(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-        finish();
-        Intent intent = new Intent(RequestAppointmentActivity.this, MainActivity.class);
-        startActivity(intent);
+
     }
 }
