@@ -73,18 +73,21 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/ContactNum" />
 
-                <EditText
+                <Spinner
                     android:id="@+id/AppointmentTime"
-                    style="@android:style/Widget.DeviceDefault.EditText"
-                    android:layout_width="wrap_content"
+                    style="@android:style/Widget.Spinner"
+                    android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:ems="10"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
                     android:gravity="center"
-                    android:hint="e.g. 10:00"
-                    android:inputType="time"
+                    android:scrollbarStyle="outsideInset"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
 
                 <EditText
                     android:id="@+id/ContactNum"

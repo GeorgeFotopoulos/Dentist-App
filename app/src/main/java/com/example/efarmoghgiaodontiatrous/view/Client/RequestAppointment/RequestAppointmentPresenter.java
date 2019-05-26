@@ -2,9 +2,15 @@ package com.example.efarmoghgiaodontiatrous.view.Client.RequestAppointment;
 
 import com.example.efarmoghgiaodontiatrous.domain.Appointment;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
+import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.memorydao.AppointmentDAOMemory;
 import com.example.efarmoghgiaodontiatrous.memorydao.DentistDAOMemory;
+import com.example.efarmoghgiaodontiatrous.memorydao.SpecializationDAOMemory;
+import com.example.efarmoghgiaodontiatrous.util.AppointmentState;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The type Request appointment presenter.
@@ -34,6 +40,51 @@ public class RequestAppointmentPresenter {
         DentistDAOMemory dDAOMemory = new DentistDAOMemory();
         Dentist D = dDAOMemory.find(ID);
         return D;
+    }
+
+    /**
+     * Returns a List containing all the available times to request an appointment.
+     *
+     *
+     * @param DentistID Dentist's ID
+     * @param date Appointment's date
+     * @return All the available times
+     */
+    public List<String> getAppTimes(String DentistID, SimpleCalendar date) {
+        AppointmentDAOMemory adao = new AppointmentDAOMemory();
+        DentistDAOMemory ddao = new DentistDAOMemory();
+        List<String> times = new ArrayList<>();
+        Dentist dentist = ddao.find(DentistID);
+        String minutes;
+        String hours;
+        for(int i = 0; i < 13; i++){
+
+            if(i == 0){
+                hours = "09";
+            }else{
+                hours = i + 9 + "";
+            }
+            minutes = "00";
+            times.add(hours + ":" + minutes);
+            if(!hours.equals("21")) {
+                minutes = "30";
+                times.add(hours + ":" + minutes);
+            }
+        }
+        for(Appointment a : adao.find(dentist, AppointmentState.ACCEPTED)){
+
+            if(times.contains(a.getHour() + ":" + a.getMinutes()) && date.equals(a.getBookDate())){
+                times.remove(times.indexOf(a.getHour() + ":" + a.getMinutes()));
+            }
+        }
+        for(Appointment a : adao.find(dentist, AppointmentState.PENDING)){
+
+            if(times.contains(a.getHour() + ":" + a.getMinutes()) && date.equals(a.getBookDate())){
+                times.remove(times.indexOf(a.getHour() + ":" + a.getMinutes()));
+            }
+        }
+
+        return times;
     }
 
     /**
