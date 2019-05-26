@@ -13,10 +13,8 @@ import android.widget.Toast;
 
 import com.example.efarmoghgiaodontiatrous.R;
 import com.example.efarmoghgiaodontiatrous.domain.Dentist;
-import com.example.efarmoghgiaodontiatrous.domain.Specialization;
 import com.example.efarmoghgiaodontiatrous.util.SimpleCalendar;
 import com.example.efarmoghgiaodontiatrous.util.SystemDate;
-import com.example.efarmoghgiaodontiatrous.view.HomePage.MainActivity;
 
 import java.util.List;
 
@@ -51,6 +49,7 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
 
         change(DentistID, dateOfAppointment);
         TextView dentistInfo = findViewById(R.id.dentistInfo);
+
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -58,7 +57,6 @@ public class RequestAppointmentActivity extends AppCompatActivity implements Req
                 dateOfAppointment = new SimpleCalendar(year, month, dayOfMonth);
                 change(DentistID, dateOfAppointment);
             }
-
         });
 
         dentistInfo.setText(dentist.getLastName() + " " + dentist.getFirstName() + "\n" + dentist.getInfirmaryLocation().getStreet() + " " + dentist.getInfirmaryLocation().getNumber() +

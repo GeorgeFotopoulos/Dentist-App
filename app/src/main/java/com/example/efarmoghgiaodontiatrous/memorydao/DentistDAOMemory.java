@@ -62,7 +62,7 @@ public class DentistDAOMemory implements DentistDAO {
         } else {
             for (Dentist dentist : entities) {
                 if (dentist.getLastName().equalsIgnoreCase(lastName)) {
-                    if (dentist.getFirstName().equals(firstName)) {
+                    if (dentist.getFirstName().equalsIgnoreCase(firstName)) {
                         output.add(dentist);
                     }
                 }
